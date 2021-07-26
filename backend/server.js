@@ -19,7 +19,7 @@ const server = app.listen(process.env.PORT, ()=>{
 
 
 ///////////////////////////dotenv config
-if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').dotenv.config({path: "backend/config/config.env"})
+if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({path: "backend/config/config.env"})
 
 //Handling unhandled promise rejeection error
 process.on('unhandledRejection', err => {

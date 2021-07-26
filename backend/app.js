@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const errorMiddleWare = require('./middlewares/errors.js');
 const path = require('path')
 ///////////////////////////dotenv config
-if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').dotenv.config({path: "backend/config/config.env"})
+if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({path: "backend/config/config.env"})
 //middlewares
 app.use(errorMiddleWare);
 app.use(bodyParser.urlencoded({ extended: true }))
