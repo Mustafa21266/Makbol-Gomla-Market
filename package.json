@@ -9,7 +9,7 @@
     "prod": "SET NODE_ENV=PRODUCTION & nodemon backend/server.js",
     "seeder": "node backend/utils/seeder.js",
     "heroku-prebuild": "npm i -f",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Mustafa Elgohary",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "validator": "^13.6.0"
   },
   "engines": {
-    "node": "v12.18.2"
+    "node": "v12.18.2",
+    "npm" : "7.9.0"
   }
 }
