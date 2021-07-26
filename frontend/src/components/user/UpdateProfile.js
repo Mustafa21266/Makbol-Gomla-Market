@@ -58,13 +58,14 @@ const UpdateProfile = ( { history } ) => {
                 }
             }
             reader.readAsDataURL(e.target.files[0])
+            document.getElementsByClassName('custom-file-label')[0].innerHTML = e.target.files[0].name
        
     }
 
     return (
         <Fragment>
             <MetaData title={'Update Profile'} />
-            <div className="row wrapper">
+            <div className="row wrapper animate__animated animate__fadeIn">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
                         <h1 className="mt-2 mb-5">Update Profile</h1>

@@ -100,7 +100,7 @@ const submitHandler = async (e) => {
         <Fragment>
             <MetaData title={'Payment'} />
             <ChekoutSteps shipping confirmOrder payment/>
-            <div className="row wrapper">
+            <div className="row wrapper animate__animated animate__fadeIn">
 		<div className="col-10 col-lg-5">
             <form className="shadow-lg" onSubmit={submitHandler}>
                 <h1 className="mb-4">Card Info</h1>

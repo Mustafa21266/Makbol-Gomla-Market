@@ -4,15 +4,20 @@ class APIFeatures{
         this.queryString = queryString;
     }
     search() {
-        const keyword = this.queryString.keyword ? {
-            name: {
-                $regex: this.queryString.keyword,
-                $options: 'i'
-            }
-        } : {};
-        console.log(keyword);
-        this.query = this.query.find({...keyword});
-        return this;
+        if(this.queryString.keyword === 'all'){
+            return this;
+        }else {
+            const keyword = this.queryString.keyword ? {
+                name: {
+                    $regex: this.queryString.keyword,
+                    $options: 'i'
+                }
+            } : {};
+            console.log(keyword);
+            this.query = this.query.find({...keyword});
+            return this;
+        }
+        
     }
     filter(){
         const queryCopy = {...this.queryString};

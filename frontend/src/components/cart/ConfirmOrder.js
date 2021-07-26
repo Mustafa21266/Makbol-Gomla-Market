@@ -30,7 +30,7 @@ const ConfirmOrder = ({ history }) => {
         <Fragment>
             <MetaData title={'Confirm Order'} />
             <ChekoutSteps shipping confirmOrder/>
-            <div className="row d-flex justify-content-between">
+            <div className="row d-flex justify-content-between animate__animated animate__fadeIn">
             <div className="col-12 col-lg-8 mt-5 order-confirm">
 
                 <h4 className="mb-3">Shipping Info</h4>
@@ -55,7 +55,7 @@ const ConfirmOrder = ({ history }) => {
                         </div>
 
 
-                        <div className="col-4 col-lg-4 mt-4 mt-lg-0">
+                        <div className="col-12 col-lg-4 mt-4 mt-lg-0 text-right">
                             <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
                         </div>
 

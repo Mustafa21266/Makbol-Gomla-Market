@@ -74,11 +74,22 @@ const OrdersList = ({ history }) => {
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>{order.orderStatus}</p> : <p style={{color: 'red'}}>{order.orderStatus}</p> ,
                 actions: 
                 <Fragment>
-                        <Link to={`/admin/order/${order._id}`} className="btn btn-primary py-1 px-2"><i className="fa fa-eye"></i></Link>
-                        <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=> deleteOrderHandler(order._id)}>
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <Link to={`/admin/order/${order._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-eye"></i></Link>
+                    </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteOrderHandler(order._id)}>
                         {/*  */}
                         <i className="fa fa-trash"></i>
                         </button>
+                    </div>
+                    </div>
+                       
+
                 </Fragment>
                 
                 
@@ -100,6 +111,7 @@ const OrdersList = ({ history }) => {
             <div className="col-12 col-md-10">
                 <Fragment>
                     <h1 className="my-5">All Orders</h1>
+                    <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setOrders()}
@@ -107,6 +119,7 @@ const OrdersList = ({ history }) => {
                         bordered
                         striped
                         hover
+                        responsive
                         />
         )}
                 </Fragment>

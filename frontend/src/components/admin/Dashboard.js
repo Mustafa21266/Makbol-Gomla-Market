@@ -37,12 +37,15 @@ const Dashboard = () => {
                         <Sidebar />
                     </div>
                     <div className="col-12 col-md-10">
-                    <h1 className="my-4">Dashboard</h1>
+                        <br />
+                    <h1 className="my-4" style={{marginLeft: '10px'}}>Dashboard</h1>
+                    <hr />
+                    <br />
                     {loading ? <Loader /> : (
                         <Fragment>
                             <MetaData title={'Admins Dashboard'} />
-                            <div className="row pr-4">
-                                <div className="col-xl-12 col-sm-12 mb-3">
+                            <div className="row">
+                                <div className="col-xl-12 col-sm-12 mb-3" style={{padding: '0px 65px'}}>
                                     <div className="card text-white bg-primary o-hidden h-100">
                                         <div className="card-body">
                                             <div className="text-center card-font-size">Total Amount<br /> <b>${totalAmount && totalAmount.toFixed(2)}</b>
@@ -52,7 +55,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="row pr-4">
+                            <div className="row" style={{padding: '0px 50px'}}>
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
@@ -101,7 +104,8 @@ const Dashboard = () => {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-warning o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">Out of Stock<br /> <b>{outOfStockProducts}</b></div>
+                                            <br />
+                                            <div className="text-center card-font-size">Out of Stock Products<br /> <b>{outOfStockProducts}</b></div>
                                         </div>
                                     </div>
                                 </div>

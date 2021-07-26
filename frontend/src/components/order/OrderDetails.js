@@ -25,10 +25,10 @@ const OrderDetails = ({ history , match}) => {
             {loading ? <Loader /> : (
                  <Fragment>
 
-<div className="row d-flex justify-content-between">
+<div className="row d-flex justify-content-between  animate__animated animate__fadeIn">
                     <div className="col-12 col-lg-8 mt-5 order-details">
 
-                        <h1 className="my-5">Order # {order._id}</h1>
+                        <h2 className="my-5">Order # {order._id}</h2>
 
                         <h4 className="mb-4">Shipping Info</h4>
                         <p><b>Name:</b> {user && user.name}</p>
@@ -38,12 +38,12 @@ const OrderDetails = ({ history , match}) => {
 
                         <hr />
 
-                        <h4 className="my-4">Payment</h4>
-                        <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p>
+                        <h4 className="my-4">Payment : <span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
+                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
 
 
-                        <h4 className="my-4">Order Status:</h4>
-                        <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p>
+                        <h4 className="my-4">Order Status : <span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h4>
+                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
 
 
                         <h4 className="my-4">Order Items:</h4>
@@ -54,7 +54,7 @@ const OrderDetails = ({ history , match}) => {
                             
                             <div className="row my-5">
                                 <div className="col-4 col-lg-2">
-                                    <img src={item.image} alt={item.name} height="45" width="65" />
+                                <Link to={`/product/${item.product}`}><img src={item.image} alt={item.name} height="45" width="65" /></Link>
                                 </div>
 
                                 <div className="col-5 col-lg-5">
@@ -62,12 +62,12 @@ const OrderDetails = ({ history , match}) => {
                                 </div>
 
 
-                                <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                    <p>${item.price}</p>
+                                <div className="col-3 col-lg-2 mt-4 mt-lg-0">
+                                    <p className="text-center">${item.price}</p>
                                 </div>
 
-                                <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                                    <p>{item.quantity} Piece(s)</p>
+                                <div className="col-12 col-lg-3 mt-4 mt-lg-0">
+                                    <p className="text-center">{item.quantity} Piece(s)</p>
                                 </div>
                             </div>
                 </div>

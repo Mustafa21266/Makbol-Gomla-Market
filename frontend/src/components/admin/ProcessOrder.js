@@ -44,7 +44,7 @@ const ProcessOrder = ({ history, match }) => {
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
-            <div className="col-12 col-md-10">
+            <div className="col-12 col-md-10" style={{padding: '45px'}}>
                 <Fragment>
                     {loading ? <Loader /> : (
 
@@ -62,26 +62,27 @@ const ProcessOrder = ({ history, match }) => {
 
                         <hr />
 
-                        <h4 className="my-4">Payment</h4>
-                        <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p>
+                        <h4 className="my-4">Payment : <span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
+                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
 
-                        <h4 className="my-4">Stripe ID</h4>
-                        <p><b>{paymentInfo && paymentInfo.id}</b></p>
+                        <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4>
+                        {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
 
 
-                        <h4 className="my-4">Order Status:</h4>
-                        <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p>
+                        <h4 className="my-4">Order Status : <span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h4>
+                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
 
                         <h4 className="my-4">Order Items:</h4>
 
                         <hr />
                         <div className="cart-item my-1">
                         {orderItems && orderItems.map(item => (
-                            <div key={item.product} className="cart-item my-1">
+                            <Fragment>
+ <div key={item.product} className="cart-item my-1">
                             
                             <div className="row my-5">
                                 <div className="col-4 col-lg-2">
-                                    <img src={item.image} alt={item.name} height="45" width="65" />
+                                <Link to={`/product/${item.product}`}><img src={item.image} alt={item.name} height="45" width="65" /></Link>
                                 </div>
 
                                 <div className="col-5 col-lg-5">
@@ -89,18 +90,21 @@ const ProcessOrder = ({ history, match }) => {
                                 </div>
 
 
-                                <div className="col-4 col-lg-2 mt-4 mt-lg-0">
+                                <div className="col-3 col-lg-2 mt-4 mt-lg-0">
                                     <p>${item.price}</p>
                                 </div>
 
-                                <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                                    <p>{item.quantity} Piece(s)</p>
+                                <div className="col-12 col-lg-3 mt-4 mt-lg-0">
+                                    <p className="text-center">{item.quantity} Piece(s)</p>
                                 </div>
                             </div>
+                           
                 </div>
+                     <hr />
+                            </Fragment>
+                           
                         ))}
                         </div>
-                        <hr />
                     </div>
 					
 					<div className="col-12 col-lg-3 mt-5">

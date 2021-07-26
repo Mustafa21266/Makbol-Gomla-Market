@@ -78,11 +78,22 @@ const UsersList = ({ history }) => {
                 role: user.role,
                 actions: 
                 <Fragment>
-                        <Link to={`/admin/user/${user._id}`} className="btn btn-primary py-1 px-2"><i className="fa fa-pencil"></i></Link>
-                        <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=> deleteUserHandler(user._id)}>
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <Link to={`/admin/user/${user._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
+                    </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteUserHandler(user._id)}>
                         {/*  onClick={()=> deleteUserHandler(user._id)} */}
                         <i className="fa fa-trash"></i>
                         </button>
+                    </div>
+                    </div>
+                       
+                  
                 </Fragment>
                 
                 
@@ -105,6 +116,7 @@ const UsersList = ({ history }) => {
             <div className="col-12 col-md-10">
                 <Fragment>
                     <h1 className="my-5">All Users</h1>
+                    <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setUsers()}
@@ -112,6 +124,7 @@ const UsersList = ({ history }) => {
                         bordered
                         striped
                         hover
+                        responsive
                         />
         )}
                 </Fragment>

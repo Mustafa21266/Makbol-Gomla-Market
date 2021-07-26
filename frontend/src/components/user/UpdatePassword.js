@@ -42,7 +42,7 @@ const UpdatePassword = ( { history } ) => {
     return (
         <Fragment>
             <MetaData title={'Update Password'} />
-            <div className="row wrapper">
+            <div className="row wrapper animate__animated animate__fadeIn">
                 <div className="col-10 col-lg-5">
                     <form onSubmit={submitHandler} className="shadow-lg">
                         <h1 className="mt-2 mb-5">Update Password</h1>

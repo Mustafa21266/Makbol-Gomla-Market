@@ -615,3 +615,9 @@ ul.CTAs a {
   font-size: 0.8rem;
   color: grey;
 }
+
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}

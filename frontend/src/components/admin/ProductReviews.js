@@ -80,10 +80,15 @@ const ProductReviews = ({ history, match }) => {
                 user: review.name,
                 actions: 
                 <Fragment>
-                        <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=> deleteReviewHandler(review._id)}>
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteReviewHandler(review._id)}>
                         {/*  onClick={()=> deleteReviewHandler(user._id)} */}
                         <i className="fa fa-trash"></i>
                         </button>
+                    </div>
+                    </div>
+                       
                 </Fragment>
                 
                 
@@ -130,6 +135,9 @@ const ProductReviews = ({ history, match }) => {
                         </div>
             
         </div>
+        <br />
+        <hr />
+        <br />
         {reviews && reviews.length > 0 ? (
              <Fragment>
                  {loading ? <Loader /> : (
@@ -139,6 +147,7 @@ const ProductReviews = ({ history, match }) => {
                 bordered
                 striped
                 hover
+                responsive
                 />
 )}
              </Fragment>

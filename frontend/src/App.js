@@ -7,7 +7,7 @@ import Home from './components/Home';
 import ProductDetails from './components/product/ProductDetails'
 import Login from './components/user/Login';
 import Register from './components/user/Register';
-import { loadUser } from './actions/userActions'
+import { loadUser, clearErrors } from './actions/userActions'
 import store from './store'
 import { useEffect, useState } from 'react';
 import Profile from './components/user/Profile';
@@ -37,8 +37,10 @@ import UpdateUser from './components/admin/UpdateUser';
 import ProductReviews from './components/admin/ProductReviews';
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
-  useEffect(() => {
-    store.dispatch(loadUser())
+  useEffect(async () => {
+    await store.dispatch(loadUser())
+    store.dispatch(clearErrors())
+   
     async function getStripeApiKey(){
       const { data } = await axios.get('/api/v1/stripeapi')
       setStripeApiKey(data.stripeApiKey)
@@ -60,7 +62,7 @@ function App() {
               <Route path="/cart" component={Cart} exact/>
               <ProtectedRoute path="/shipping" component={Shipping} exact/>
               <ProtectedRoute path="/orders/me" component={ListOrder} exact/>
-              <ProtectedRoute path="/order/:id" component={OrderDetails} exact/>
+              <ProtectedRoute path="/myorders/:id" component={OrderDetails} exact/>
               <ProtectedRoute path="/order/confirm" component={ConfirmOrder} exact/>
               <ProtectedRoute path="/success" component={OrderSuccess} exact/>
               {stripeApiKey && 

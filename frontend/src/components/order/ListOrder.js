@@ -56,7 +56,7 @@ const ListOrder = () => {
                 numOfItems: order.orderItems.length,
                 amount: `$${order.totalPrice}`,
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>{order.orderStatus}</p> : <p style={{color: 'red'}}>{order.orderStatus}</p> ,
-                actions: <Link to={`/order/${order._id}`} className="btn btn-primary"><i className="fa fa-eye"></i></Link>
+                actions: <div className="w-100 d-flex justify-content-center"><Link to={`/myorders/${order._id}`} className="btn btn-primary"><i className="fa fa-eye"></i></Link></div>
             })
            
         });
@@ -67,13 +67,21 @@ const ListOrder = () => {
             <MetaData title={'My Orders'} />
             <h1 className="my-5">My Orders</h1>
             {loading ? <Loader /> : (
-                <MDBDataTable
+                <Fragment>
+                    <div className="row animate__animated animate__fadeIn" >
+                            <div className="col-12">
+                            <MDBDataTable
                 data={setOrders()}
                 className="px-3"
                 bordered
                 striped
                 hover
+                responsive
                 />
+                            </div>
+                    </div>
+                </Fragment>
+                
             )}
         </Fragment>
     )

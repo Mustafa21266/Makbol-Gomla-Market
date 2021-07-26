@@ -66,14 +66,26 @@ const ProductsList = ({ history }) => {
             data.rows = data.rows.concat ({
                 id: product._id,
                 name: product.name,
-                field: `$${product.price}`,
+                price: `$${product.price}`,
                 stock: product.stock,
                 actions: 
                 <Fragment>
-                        <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-1 px-2"><i className="fa fa-pencil"></i></Link>
-                        <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=> deleteProductHandler(product._id)}>
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
+                    </div>
+                    
+                        
+                    </div>
+                    <hr />
+                    <div className="row">
+                    <div className="col-12 d-flex justify-content-center">
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteProductHandler(product._id)}>
                         <i className="fa fa-trash"></i>
                         </button>
+                    </div>
+                    </div>
+                 
                 </Fragment>
                 
                 
@@ -95,6 +107,7 @@ const ProductsList = ({ history }) => {
             <div className="col-12 col-md-10">
                 <Fragment>
                     <h1 className="my-5">All Products</h1>
+                    <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setProducts()}
@@ -102,6 +115,7 @@ const ProductsList = ({ history }) => {
                         bordered
                         striped
                         hover
+                        responsive
                         />
         )}
                 </Fragment>

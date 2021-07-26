@@ -5,7 +5,7 @@ const ProtectedRoute = ( { isAdmin,component: Component, ...rest} ) => {
     const { user, loading, isAuthenticated } = useSelector(state => state.auth)
     return (
         <Fragment>
-            {loading === false && (
+            {!loading && (
                 <Route {...rest} render={props => {
                     if(isAuthenticated === false){
                         return <Redirect to="/login" />
