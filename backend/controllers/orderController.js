@@ -63,16 +63,6 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         order: order._id,
         isRead: false
     })
-    // const accountSid = 'ACb0cb252605c43dae654eda810b742b81';
-    // const authToken = '73f7c3eb01e2caf308350c532c2f9540';
-    // const client = require('twilio')(accountSid, authToken);
-    // client.messages
-    //     .create({
-    //         body: 'Ahoy 👋',
-    //         messagingServiceSid: 'MG2cd25e5fabae6ba622036c4277143a23',
-    //         to: '+201553786175'
-    //     })
-    //     .then(message => console.log(message.sid));
     res.status(200).json({
         success: true,
         order
