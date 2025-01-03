@@ -138,12 +138,13 @@ const ProductReviews = ({ history, match }) => {
                  {loading ? <Loader /> : (
                 <MDBDataTable
                 data={setReviews()}
-                className="px-3 
- animate__animated animate__fadeIn  animate__delay-1s"
-                bordered
                 striped
-                hover
-                responsive
+                        bordered
+                        small
+                        noBottomColumns={true}
+                        className="text-center mx-auto animate__animated animate__fadeIn  animate__delay-1s"
+                        hover
+                        responsive
                 />
 )}
              </Fragment>

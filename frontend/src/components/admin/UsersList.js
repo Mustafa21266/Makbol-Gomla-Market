@@ -49,8 +49,8 @@ const UsersList = ({ history }) => {
                     sort: 'asc'
                 },
                 {
-                    label: 'البريد الإلكترونى',
-                    field: 'email',
+                    label: 'رقم التليفون',
+                    field: 'phoneNo',
                     sort: 'asc'
                 },
                 {
@@ -69,7 +69,7 @@ const UsersList = ({ history }) => {
             data.rows = data.rows.concat ({
                 id: user._id,
                 name: user.name,
-                email: user.email,
+                phoneNo: user.phoneNo,
                 role: user.role && String(user.role).includes('admin') ? "أدمن" : "عميل" ,
                 actions: 
                 <Fragment>
@@ -114,10 +114,11 @@ const UsersList = ({ history }) => {
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setUsers()}
-                        className="px-3 
- animate__animated animate__fadeIn  animate__delay-1s"
-                        bordered
                         striped
+                        bordered
+                        small
+                        noBottomColumns={true}
+                        className="text-center mx-auto animate__animated animate__fadeIn  animate__delay-1s"
                         hover
                         responsive
                         />

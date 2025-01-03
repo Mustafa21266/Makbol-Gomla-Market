@@ -109,10 +109,11 @@ const OrdersList = ({ history }) => {
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setOrders()}
-                        className="px-3 
- animate__animated animate__fadeIn  animate__delay-1s"
-                        bordered
                         striped
+                        bordered
+                        small
+                        noBottomColumns={true}
+                        className="text-center mx-auto animate__animated animate__fadeIn  animate__delay-1s"
                         hover
                         responsive
                         />

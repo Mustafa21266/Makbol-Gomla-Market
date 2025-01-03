@@ -41,6 +41,11 @@ const ProductsList = ({ history }) => {
                     sort: 'asc'
                 },
                 {
+                    label: 'الصورة',
+                    field: 'picture',
+                    sort: 'asc'
+                },
+                {
                     label: 'السعر',
                     field: 'price',
                     sort: 'asc'
@@ -61,6 +66,7 @@ const ProductsList = ({ history }) => {
             data.rows = data.rows.concat ({
                 id: product._id,
                 name: product.name,
+                picture: <img src={product.images[0].url} style={{width: '100px',height:'100px'}} />,
                 price: `${product.price} EGP`,
                 stock: product.stock,
                 actions: 
@@ -106,10 +112,11 @@ const ProductsList = ({ history }) => {
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setProducts()}
-                        className="px-3 
- animate__animated animate__fadeIn  animate__delay-1s"
-                        bordered
                         striped
+                        bordered
+                        small
+                        noBottomColumns={true}
+                        className="text-center mx-auto animate__animated animate__fadeIn  animate__delay-1s"
                         hover
                         responsive
                         />
