@@ -10,6 +10,7 @@ import { UPDATE_USER_RESET } from '../../constants/userConstants'
 
 const UpdateUser = ({ history, match }) => {
     const [name, setName] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
     const [email, setEmail] = useState('');
     const [role, setRole] = useState('')
     const alert = useAlert()
@@ -22,6 +23,7 @@ const UpdateUser = ({ history, match }) => {
             dispatch(getUserDetails(userId))
         }else{
             setName(user.name);
+            setPhoneNo(user.phoneNo);
             setEmail(user.email);
             setRole(user.role);
         }
@@ -30,7 +32,7 @@ const UpdateUser = ({ history, match }) => {
             dispatch(clearErrors())
           }
         if(isUpdated){
-            alert.success('User updated successfully!');
+            alert.success('تم تحديث بيانات العميل');
             history.push('/admin/users')
             dispatch({
                 type: UPDATE_USER_RESET
@@ -42,6 +44,7 @@ const UpdateUser = ({ history, match }) => {
         e.preventDefault();
         const formData = new FormData();
         formData.set('name',name)
+        formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('role',role)
         await dispatch(updateUser(user._id,formData));
@@ -65,10 +68,10 @@ const UpdateUser = ({ history, match }) => {
                             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mt-2 mb-5">Update User</h1>
+                        <h1 className="mt-2 mb-5" style={{display: 'block',margin: 'auto'}}>تحديث بيانات العميل</h1>
 
                         <div className="form-group">
-                            <label htmlFor="name_field">Name</label>
+                            <label htmlFor="name_field">الأسم</label>
                             <input 
 								type="name" 
 								id="name_field" 
@@ -80,7 +83,19 @@ const UpdateUser = ({ history, match }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Email</label>
+                            <label htmlFor="phoneNo_field">رقم التليفون</label>
+                            <input
+                                type="phoneNo"
+                                id="phoneNo_field"
+                                className="form-control"
+                                name='phoneNo'
+                                value={phoneNo}
+                                onChange={(e)=> setPhoneNo(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="email_field">البريد الإلكتروني</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -92,7 +107,7 @@ const UpdateUser = ({ history, match }) => {
                         </div>
 
                         <div className="form-group">
-                                    <label htmlFor="role_field">Role</label>
+                                    <label htmlFor="role_field">نوع الحساب</label>
 
                                     <select
                                         id="role_field"
@@ -101,12 +116,12 @@ const UpdateUser = ({ history, match }) => {
                                         value={role}
                                         onChange={(e)=> setRole(e.target.value)}
                                     >
-                                        <option value="user">user</option>
-                                        <option value="admin">admin</option>
+                                        <option value="user">عادي</option>
+                                        <option value="admin">أدمن</option>
                                     </select>
                                 </div>
 
-                        <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >Update</button>
+                        <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >تحديث</button>
                     </form>
                 </div>
             </div>

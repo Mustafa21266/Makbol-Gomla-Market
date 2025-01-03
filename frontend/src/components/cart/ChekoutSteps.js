@@ -8,7 +8,7 @@ const ChekoutSteps = ({ shipping, confirmOrder, payment}) => {
 
                 </div>
                 <div className="step active-step">
-Shipping
+عنوان التوصيل
                 </div>
                 <div className="triangle-active">
 
@@ -18,7 +18,7 @@ Shipping
 
 </div>
 <div className="step incomplete">
-Shipping
+عنوان الشحن
 </div>
 <div className="triangle-incomplete">
 
@@ -30,7 +30,7 @@ Shipping
 
                 </div>
                 <div className="step active-step">
-Confirm Order
+تأكيد الأوردر
                 </div>
                 <div className="triangle-active">
 
@@ -40,7 +40,7 @@ Confirm Order
 
 </div>
 <div className="step incomplete">
-Confirm Order
+تأكيد الأوردر
 </div>
 <div className="triangle-incomplete">
 
@@ -53,7 +53,7 @@ Confirm Order
 
                 </div>
                 <div className="step active-step">
-Payment
+الدفع
                 </div>
                 <div className="triangle-active">
 
@@ -63,7 +63,7 @@ Payment
 
 </div>
 <div className="step incomplete">
-Payment
+الدفع
 </div>
 <div className="triangle-incomplete">
 

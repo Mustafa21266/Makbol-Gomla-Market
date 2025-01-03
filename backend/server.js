@@ -13,8 +13,8 @@ if(process.env.NODE_ENV === 'PRODUCTION') require("dotenv").config({path: "backe
 //connecting to database
 connectDatabase();
 
-const server = app.listen(process.env.PORT, ()=>{
-    console.log(`Server started running on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode`)
+const server = app.listen("3000", ()=>{
+    console.log(`Server started running on PORT: 3000 in ${process.env.NODE_ENV} mode`)
 })
 
 

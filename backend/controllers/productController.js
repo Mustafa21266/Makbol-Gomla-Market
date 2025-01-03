@@ -47,6 +47,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
 
     products = await apiFeatures.query;
+    console.log(products)
     res.status(200).json({
         success: true,
         count: products.length,
@@ -63,7 +64,7 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
         if(!product){
-            return next(new ErrorHandler("Product not found!", 404))
+            return next(new ErrorHandler("المنتج غير متوفر !", 404))
         }
         res.status(200).json({
             success: true,
@@ -73,9 +74,9 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
         console.log(error.message)
         // res.status(404).json({
         //     success: false,
-        //     message: "Product not found!"
+        //     message: "المنتج غير متوفر !"
         // })
-        return next(new ErrorHandler("Product not found!", 404))
+        return next(new ErrorHandler("المنتج غير متوفر !", 404))
     }
     
     
@@ -86,7 +87,7 @@ exports.updateSingleProduct = catchAsyncErrors(async (req, res, next) => {
     try {
         let product = await Product.findById(req.params.id)
         if(!product){
-            return next(new ErrorHandler("Product not found!", 404))
+            return next(new ErrorHandler("المنتج غير متوفر !", 404))
         }
 
         let images = []
@@ -127,7 +128,7 @@ let imagesLinks = [];
         })
     }catch(error){
         console.log(error.message)
-        return next(new ErrorHandler("Product not found!", 404))
+        return next(new ErrorHandler("المنتج غير متوفر !", 404))
     }
     
 
@@ -138,7 +139,7 @@ exports.deleteSingleProduct = catchAsyncErrors(async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
         if(!product){
-            return next(new ErrorHandler("Product not found!", 404))
+            return next(new ErrorHandler("المنتج غير متوفر !", 404))
         }
 
         //Delete product images using id's
@@ -149,11 +150,11 @@ exports.deleteSingleProduct = catchAsyncErrors(async (req, res, next) => {
         await product.remove();
         res.status(200).json({
             success: true,
-            message: "Product deleted successfully"
+            message: "تم مسح المنتج بنجاح !"
         })
     }catch(error){
         console.log(error.message)
-        return next(new ErrorHandler("Product not found!", 404))
+        return next(new ErrorHandler("المنتج غير متوفر !", 404))
     }
     
 })

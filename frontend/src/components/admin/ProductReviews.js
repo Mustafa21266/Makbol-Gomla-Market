@@ -28,7 +28,7 @@ const ProductReviews = ({ history, match }) => {
         }
 
         if(isDeleted){
-            alert.success("Review Deleted Successully!")
+            alert.success("! تم إلغاء التقييم")
             dispatch({ type: DELETE_REVIEW_RESET})
         }
 
@@ -46,27 +46,22 @@ const ProductReviews = ({ history, match }) => {
         const data = {
             columns: [
                 {
-                    label: 'Review ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Rating',
+                    label: 'التقييم',
                     field: 'rating',
                     sort: 'asc'
                 },
                 {
-                    label: 'Comment',
+                    label: 'تعليق',
                     field: 'comment',
                     sort: 'asc'
                 },
                 {
-                    label: 'User',
+                    label: 'المستخدم',
                     field: 'user',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: 'خيارات',
                     field: 'actions'
                 },
             ],
@@ -84,7 +79,7 @@ const ProductReviews = ({ history, match }) => {
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteReviewHandler(review._id)}>
                         {/*  onClick={()=> deleteReviewHandler(user._id)} */}
-                        <i className="fa fa-trash"></i>
+                        <i className="fa">x</i>
                         </button>
                     </div>
                     </div>
@@ -103,8 +98,8 @@ const ProductReviews = ({ history, match }) => {
     }
     return (
         <Fragment>
-        <MetaData title={'All Reviews'} />
-        <div className="row">
+        <MetaData title={'كل التقييمات'} />
+        <div className="row  animate__animated animate__fadeIn  animate__delay-1s">
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
@@ -114,7 +109,7 @@ const ProductReviews = ({ history, match }) => {
 			<div className="col-5">
                             <form onSubmit={submitHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="productId_field">Enter Product ID</label>
+                                    <label htmlFor="productId_field">أدخل كود المنتج</label>
                                     <input
                                         type="text"
                                         id="productId_field"
@@ -129,7 +124,7 @@ const ProductReviews = ({ history, match }) => {
                                     type="submit"
                                     className="btn btn-primary btn-block py-2"
                                 >
-                                    SEARCH
+                                    بحث
 								</button>
                             </ form>
                         </div>
@@ -143,7 +138,8 @@ const ProductReviews = ({ history, match }) => {
                  {loading ? <Loader /> : (
                 <MDBDataTable
                 data={setReviews()}
-                className="px-3"
+                className="px-3 
+ animate__animated animate__fadeIn  animate__delay-1s"
                 bordered
                 striped
                 hover
@@ -153,7 +149,7 @@ const ProductReviews = ({ history, match }) => {
              </Fragment>
             
         ): (
-            <p className="mt-5 text-center">No Reviews To Show</p>
+            <p className="mt-5 text-center">لا يوجد تقييمات !</p>
         )}
                     
                 </Fragment>

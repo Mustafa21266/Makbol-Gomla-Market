@@ -16,11 +16,13 @@ const orderSchema = mongoose.Schema({
         },
         postalCode: {
             type: String,
-            required: true
+            required: true,
+            default: '55555'
         },
         country: {
             type: String,
-            required: true
+            required: true,
+            default: "الإسكندرية"
         }
     },
     user: {

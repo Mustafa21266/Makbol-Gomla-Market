@@ -8,31 +8,90 @@ import { saveShippingInfo } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
 import { countries } from 'countries-list';
 import ChekoutSteps from './ChekoutSteps'
-const Shipping = ({ history }) => {
+import { allUsers } from '../../actions/userActions'
+const Shipping = ({ history}) => {
     const countriesList = Object.values(countries)
     const { shippingInfo } = useSelector(state => state.cart)
     const [address, setAddress] = useState(shippingInfo.address ? shippingInfo.address:'');
     const [city, setCity] = useState(shippingInfo.city ? shippingInfo.city:'');
-    const [postalCode, setPostalCode] = useState(shippingInfo.postalCode ? shippingInfo.postalCode:'');
+    const [postalCode, setPostalCode] = useState(shippingInfo.postalCode ? shippingInfo.postalCode:'55555');
     const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo ? shippingInfo.phoneNo:'');
-    const [country, setCountry] = useState(shippingInfo.country ? shippingInfo.country:'');
+    const [country, setCountry] = useState(shippingInfo.country ? shippingInfo.country:'الإسكندرية');
+    const { user, isAuthenticated, loading } = useSelector(state => state.auth)
+    const [orderUser, setOrderUser] = useState(user.name ? user.name:'');
+    const { users } = useSelector(state => state.allUsers)
     const dispatch = useDispatch();
     const alert = useAlert();
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveShippingInfo({ address, city, postalCode, phoneNo, country}))
+        dispatch(saveShippingInfo({ address, city, postalCode, phoneNo, country, orderUser: orderUser}))
         history.push('/order/confirm')
     }
+    useEffect(() => {
+        dispatch(allUsers())
+        // if(error){
+        //     alert.error(error)
+        //     dispatch(clearErrors())
+        // }
+        
+    },[dispatch, alert])
+      console.log(users)
     return (
         <Fragment>
-            <MetaData title={'Shipping Info'} />
+            <MetaData title={'معلومات التوصيل'} />
             <ChekoutSteps shipping/>
             <div className="row wrapper animate__animated animate__fadeIn">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-4">Shipping Info</h1>
+                        <h1 className="mb-4" style={{display: 'block',margin: 'auto',textAlign: 'center'}}>معلومات التوصيل</h1>
+                        {user.role && String(user.role).includes('admin') ? <div className="form-group select-editable">
+                            <label htmlFor="orderUser_field">صاحب الأوردر</label>
+                            <input
+                                type="text"
+                                id="orderUser2_field"
+                                className="form-control"
+                                name="orderUser"
+                                value={orderUser}
+                                onChange={(e)=> 
+                                    setOrderUser(e.target.value)
+                                }
+                                required
+                            />
+                            <hr />
+                            <select
+                               id="orderUser_field"
+                                className="form-control"
+                                name="orderUser"
+                                value={orderUser}
+                                onChange={(e)=> 
+                                    setOrderUser(e.target.value)
+                                }
+                                required
+                            >
+                                
+                                {users.map(user => (
+                                <option key={user.name} value={user.name}>
+                                   {user.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div> : ""
+                        
+                        }
+                                    {/* <div className="form-group">
+                                        <select
+                                            className="form-control"
+                                            name='orderUser'
+                                            value={orderUser}
+                                            onChange={(e)=> setOrderUser(e.target.value)}
+                                        >
+                                            {users.map(user => (
+                                                <option key={user._id} value={user.name}>{user.name}</option>
+                    ))}
+                                        </select>
+                                    </div> */}
                         <div className="form-group">
-                            <label htmlFor="address_field">Address</label>
+                            <label htmlFor="address_field">العنوان</label>
                             <input
                                 type="text"
                                 id="address_field"
@@ -45,7 +104,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="city_field">City</label>
+                            <label htmlFor="city_field">المنطقة</label>
                             <input
                                 type="text"
                                 id="city_field"
@@ -58,7 +117,7 @@ const Shipping = ({ history }) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone_field">Phone No</label>
+                            <label htmlFor="phone_field">رقم التليفون</label>
                             <input
                                 type="phone"
                                 id="phone_field"
@@ -70,8 +129,8 @@ const Shipping = ({ history }) => {
                             />
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="postal_code_field">Postal Code</label>
+                        {/* <div className="form-group">
+                            <label htmlFor="postal_code_field">الكود البريدى</label>
                             <input
                                 type="number"
                                 id="postal_code_field"
@@ -81,10 +140,10 @@ const Shipping = ({ history }) => {
                                 onChange={(e)=> setPostalCode(e.target.value)}
                                 required
                             />
-                        </div>
+                        </div> */}
 
-                        <div className="form-group">
-                            <label htmlFor="country_field">Country</label>
+                        {/* <div className="form-group">
+                            <label htmlFor="country_field">البلد</label>
                             <select
                                 id="country_field"
                                 className="form-control"
@@ -101,14 +160,14 @@ const Shipping = ({ history }) => {
                                     
 
                             </select>
-                        </div>
+                        </div> */}
 
                         <button
                             id="shipping_btn"
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            CONTINUE
+                            إستكمال
                             </button>
                     </form>
                 </div>

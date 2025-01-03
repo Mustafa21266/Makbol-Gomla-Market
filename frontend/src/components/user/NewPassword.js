@@ -33,21 +33,21 @@ const NewPassword = ({ history, match }) => {
         formData.set('confirmPassword',confirmPassword)
         await dispatch(resetPassword(match.params.token,formData));
         if(success){
-            alert.success('Password updated successfully');
+            alert.success('ََ! تم تغيير كلمة المرور');
             history.push('/login')
         }
         
     }
     return (
         <Fragment>
-            <MetaData title={'Reset Password'} />
+            <MetaData title={'إعادة تغيير كلمة المرور'} />
             <div className="row wrapper animate__animated animate__fadeIn">
             <div className="col-10 col-lg-5">
                 <form className="shadow-lg" onSubmit={submitHandler}>
-                    <h1 className="mb-3">New Password</h1>
+                    <h1 className="mb-3" style={{display: 'block',margin: 'auto'}}>كلمة المرور الجديدة</h1>
 
                     <div className="form-group">
-                        <label htmlFor="password_field">Password</label>
+                        <label htmlFor="password_field">كلمة المرور</label>
                         <input
                             type="password"
                             id="password_field"
@@ -59,7 +59,7 @@ const NewPassword = ({ history, match }) => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="confirm_password_field">Confirm Password</label>
+                        <label htmlFor="confirm_password_field">تأكيد كلمة المرور</label>
                         <input
                             type="password"
                             id="confirm_password_field"
@@ -76,7 +76,7 @@ const NewPassword = ({ history, match }) => {
                         className="btn btn-block py-3"
                         disabled={ loading ? true: false}
                         >
-                        Set Password
+                        حفظ
                     </button>
 
                 </form>

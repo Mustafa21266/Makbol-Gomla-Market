@@ -28,7 +28,7 @@ const OrdersList = ({ history }) => {
         //     dispatch(clearErrors())
         // }
         if(isDeleted){
-            alert.success("Order Deleted Successully!")
+            alert.success("تم إلغاء الأوردر بنجاح")
             dispatch({ type: DELETE_ORDER_RESET})
             history.push('/admin/orders')
         }
@@ -40,27 +40,22 @@ const OrdersList = ({ history }) => {
         const data = {
             columns: [
                 {
-                    label: 'Order ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Num of Items',
+                    label: 'عدد القطع',
                     field: 'numOfItems',
                     sort: 'asc'
                 },
                 {
-                    label: 'Amount',
+                    label: 'القيمة',
                     field: 'amount',
                     sort: 'asc'
                 },
                 {
-                    label: 'Status',
+                    label: 'الحالة',
                     field: 'status',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: 'خيارات',
                     field: 'actions'
                 },
             ],
@@ -70,7 +65,7 @@ const OrdersList = ({ history }) => {
             data.rows = data.rows.concat ({
                 id: order._id,
                 numOfItems: order.orderItems.length,
-                amount: `$${order.totalPrice}`,
+                amount: `${order.totalPrice}EGP`,
                 status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>{order.orderStatus}</p> : <p style={{color: 'red'}}>{order.orderStatus}</p> ,
                 actions: 
                 <Fragment>
@@ -82,9 +77,8 @@ const OrdersList = ({ history }) => {
                     <hr />
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
-                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteOrderHandler(order._id)}>
-                        {/*  */}
-                        <i className="fa fa-trash"></i>
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteOrderHandler(order._id)} style={{color: "white"}}>
+                        x
                         </button>
                     </div>
                     </div>
@@ -103,19 +97,20 @@ const OrdersList = ({ history }) => {
     }
     return (
         <Fragment>
-        <MetaData title={'All Orders'} />
+        <MetaData title={'كل الأوردرات'} />
         <div className="row">
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
-                    <h1 className="my-5">All Orders</h1>
+                    <h1 className="my-5 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>كل الأوردرات</h1>
                     <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setOrders()}
-                        className="px-3"
+                        className="px-3 
+ animate__animated animate__fadeIn  animate__delay-1s"
                         bordered
                         striped
                         hover

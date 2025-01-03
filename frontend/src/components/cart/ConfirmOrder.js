@@ -1,21 +1,64 @@
-import React, { Fragment} from 'react'
-import {  useSelector } from 'react-redux'
-import { getProductDetails, clearErrors } from '../../actions/productActions'
-import Loader from '../layout/Loader'
+
+import React, { Fragment, useEffect} from 'react'
+import {  useDispatch, useSelector } from 'react-redux'
+import { createOrder, clearErrors } from '../../actions/orderActions'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { saveShippingInfo } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
 import ChekoutSteps from './ChekoutSteps'
+import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement} from '@stripe/react-stripe-js'
+import axios from 'axios'
+import { getProductDetails } from '../../actions/productActions'
+import Loader from '../layout/Loader'
+
 const ConfirmOrder = ({ history }) => {
     const { cartItems, shippingInfo } = useSelector(state => state.cart)
     const { user } = useSelector(state => state.auth)
+    const dispatch = useDispatch();
 
     //Calculate order prices
     const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
     const shippingPrice = itemsPrice > 200 ? 0 : 25
-    const taxPrice = Number((0.05 * itemsPrice).toFixed(2))
+    const taxPrice = 0.0
     const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
+    async function doP(params) {
+        const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
+    let order = {
+        orderItems: cartItems,
+        shippingInfo
+    }
+    if(orderInfo){
+        order.itemsPrice = orderInfo.itemsPrice
+        order.taxPrice = orderInfo.taxPrice
+        order.shippingPrice = orderInfo.shippingPrice
+        order.totalPrice = orderInfo.totalPrice
+    }
+    const paymentData = {
+        amount: Math.round(orderInfo.totalPrice * 100)
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json' 
+        }
+    }
+        let res = await axios.post('/api/v1/payment/process', paymentData, config);
+        const clientSecret = res.data.client_secret
+        let result = {
+            paymentIntent : {
+                status: 'succeeded'
+            }
+        }
+            console.log(result)
+            if(result.paymentIntent.status === 'succeeded'){
+                order.paymentInfo = {
+                    id: result.paymentIntent.id,
+                    status: result.paymentIntent.status
+                }
+                dispatch(createOrder(order))
+                history.push('/success')
+            }
+    }
     const proceedToPayment = () => {
         const data = {
             itemsPrice: itemsPrice.toFixed(2),
@@ -24,22 +67,23 @@ const ConfirmOrder = ({ history }) => {
             totalPrice
         }
         sessionStorage.setItem('orderInfo',JSON.stringify(data))
-        history.push('/payment')
+        doP();
+        // history.push('/payment')
     }
     return (
         <Fragment>
-            <MetaData title={'Confirm Order'} />
+            <MetaData title={'تأكيد الأوردر'} />
             <ChekoutSteps shipping confirmOrder/>
             <div className="row d-flex justify-content-between animate__animated animate__fadeIn">
             <div className="col-12 col-lg-8 mt-5 order-confirm">
 
-                <h4 className="mb-3">Shipping Info</h4>
-                <p><b>Name:</b> {user && user.name}</p>
+                <h4 className="mb-3" style={{textAlign: 'center'}}>معلومات التوصيل</h4>
+                <p><b>Name:</b> {shippingInfo.orderUser}</p>
                 <p><b>Phone:</b> {shippingInfo.phoneNo}</p>
-                <p className="mb-4"><b>Address:</b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
+                <p className="mb-4"><b>: العنوان</b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
                 
                 <hr />
-                <h4 className="mt-4">Your Cart Items:</h4>
+                <h4 className="mt-4">: عدد محتويات السلة</h4>
 
                 <hr />
                 {cartItems.map(item => (
@@ -56,7 +100,7 @@ const ConfirmOrder = ({ history }) => {
 
 
                         <div className="col-12 col-lg-4 mt-4 mt-lg-0 text-right">
-                            <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
+                            <p>{item.quantity} x {item.price} EGP = <b>{(item.quantity * item.price).toFixed(2)} EGP</b></p>
                         </div>
 
                     </div>
@@ -71,18 +115,18 @@ const ConfirmOrder = ({ history }) => {
 			
 			<div className="col-12 col-lg-3 my-4">
                     <div id="order_summary">
-                        <h4>Order Summary</h4>
+                        <h4>ملخص الأوردر</h4>
                         <hr />
-                        <p>Subtotal:  <span className="order-summary-values">${itemsPrice}</span></p>
-                        <p>Shipping: <span className="order-summary-values">${shippingPrice}</span></p>
-                        <p>Tax:  <span className="order-summary-values">${taxPrice}</span></p>
+                        <p>: السعر  <span className="order-summary-values">${itemsPrice}</span></p>
+                        {/* <p>: عنوان التوصيل <span className="order-summary-values">${shippingPrice}</span></p>
+                        <p>: ضريبة  <span className="order-summary-values">${taxPrice}</span></p> */}
 
                         <hr />
 
-                        <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
+                        <p> : المجموع <span className="order-summary-values">${totalPrice}</span></p>
 
                         <hr />
-                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={proceedToPayment}>Proceed to Payment</button>
+                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={proceedToPayment}>إستكمال</button>
                     </div>
                 </div>
 			

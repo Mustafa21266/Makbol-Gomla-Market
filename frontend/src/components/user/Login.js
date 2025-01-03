@@ -7,6 +7,7 @@ import { useAlert } from 'react-alert'
 import { Link } from 'react-router-dom';
 const Login = ( { history, location } ) => {
     const [email, setEmail] = useState('')
+    const [phoneNo, setPhoneNo] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
     const { loading, user, error, isAuthenticated } = useSelector(state => state.auth)
@@ -24,30 +25,30 @@ const Login = ( { history, location } ) => {
     },[dispatch, alert,error, isAuthenticated, history ])
     function submitHandler(e){
         e.preventDefault();
-        dispatch(login(email, password));
+        dispatch(login(phoneNo, password));
     }
     return (
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Login'} />
+                    <MetaData title={'تسجيل الدخول'} />
                     <div className="row wrapper"> 
 		<div className="col-10 col-lg-5">
         <form className="shadow-lg" onSubmit={submitHandler}>
-            <h1 className="mb-3">Login</h1>
+            <h1 className="mb-3" style={{display: 'block',margin: 'auto'}}>تسجيل الدخول</h1>
             <div className="form-group">
-              <label htmlFor="email_field">Email</label>
+              <label htmlFor="phoneNo_field">رقم التليفون</label>
               <input
-                type="email"
-                id="email_field"
+                type="phoneNo"
+                id="phoneNo_field"
                 className="form-control"
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
+                value={phoneNo}
+                onChange={(e)=> setPhoneNo(e.target.value)}
               />
             </div>
   
             <div className="form-group">
-              <label htmlFor="password_field">Password</label>
+              <label htmlFor="password_field">كلمة المرور</label>
               <input
                 type="password"
                 id="password_field"
@@ -57,17 +58,17 @@ const Login = ( { history, location } ) => {
               />
             </div>
 
-            <Link to="/password/forgot" className="float-right mb-4">Forgot Password?</Link>
+            <Link to="/password/forgot" className="float-right mb-4">هل نسيت كلمة المرور ؟</Link>
   
             <button
               id="login_button"
               type="submit"
               className="btn btn-block py-3"
             >
-              LOGIN
+              تسجيل الدخول
             </button>
 
-            <Link to="/register" className="float-right mt-3">New User?</Link>
+            <Link to="/register" className="float-right mt-3">مستخدم جديد ؟</Link>
           </form>
 		  </div>
     </div>

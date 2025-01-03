@@ -55,7 +55,10 @@ let initialState = {
     loading: false,
     productsCount: 0,
     error: null,
-    product: {}
+    product: {},
+    count: 0,
+    resultsPerPage: 9,
+    filteredProductsCount: 0,
 }
 export const productsReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -74,6 +77,8 @@ export const productsReducer = (state = initialState, action) => {
 
         case ALL_PRODUCTS_SUCCESS:
             return Object.assign({}, state, {
+                count: action.payload.products.length,
+                success: true,
                 loading: false,
                 products: action.payload.products,
                 productsCount: action.payload.productsCount,

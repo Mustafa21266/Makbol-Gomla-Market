@@ -4,7 +4,7 @@ const ListReviews = ({ reviews }) => {
     return (
         <Fragment>
             <div className="reviews w-75 animate__animated animate__fadeIn">
-                <h3>Other's Reviews: <span style={{fontWeight: 400}}>({reviews.length})</span></h3>
+                <h3>تقييمات أخرى <span style={{fontWeight: 400}}>({reviews.length})</span></h3>
                 <hr />
             { reviews && reviews.map(review => (
                 

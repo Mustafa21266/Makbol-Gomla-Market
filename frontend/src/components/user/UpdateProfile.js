@@ -9,6 +9,7 @@ import { UPDATE_PROFILE_RESET } from '../../constants/userConstants'
 const UpdateProfile = ( { history } ) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('./images/logo.png')
     // const [password, setPassword] = useState('')
@@ -18,6 +19,7 @@ const UpdateProfile = ( { history } ) => {
     useEffect(() => {
         if(user){
             setName(user.name);
+            setPhoneNo(user.phoneNo);
             setEmail(user.email);
             setAvatarPreview(user.avatar.url);
         }
@@ -26,7 +28,7 @@ const UpdateProfile = ( { history } ) => {
             dispatch(clearErrors())
           }
         if(isUpdated){
-            alert.success('Profile updated successfully!');
+            alert.success('! تم تحديث بيانات الحساب');
             dispatch(loadUser());
             history.push('/me')
             dispatch({
@@ -39,10 +41,11 @@ const UpdateProfile = ( { history } ) => {
         e.preventDefault();
         const formData = new FormData();
         formData.set('name',name)
+        formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('avatar',avatar)
         await dispatch(updateProfile(formData));
-        alert.success('Profile updated successfully!');
+        alert.success('! تم تحديث بيانات الحساب');
             dispatch(loadUser());
             history.push('/me')
             dispatch({
@@ -64,14 +67,14 @@ const UpdateProfile = ( { history } ) => {
 
     return (
         <Fragment>
-            <MetaData title={'Update Profile'} />
+            <MetaData title={'تحديث بيانات الحساب'} />
             <div className="row wrapper animate__animated animate__fadeIn">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="mt-2 mb-5">Update Profile</h1>
+                        <h1 className="mt-2 mb-5" style={{display: 'block',margin: 'auto'}}>'تحديث بيانات الحساب'</h1>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Name</label>
+                            <label htmlFor="name_field">الأسم</label>
                             <input 
 								type="name" 
 								id="name_field" 
@@ -83,7 +86,19 @@ const UpdateProfile = ( { history } ) => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email_field">Email</label>
+                            <label htmlFor="phoneNo_field">رقم التليفون</label>
+                            <input
+                                type="phoneNo"
+                                id="phoneNo_field"
+                                className="form-control"
+                                name='phoneNo'
+                                value={phoneNo}
+                                onChange={(e) => setPhoneNo(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="email_field">البريد الإلكتروني</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -95,7 +110,7 @@ const UpdateProfile = ( { history } ) => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <label htmlFor='avatar_upload'>صورة الحساب</label>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -115,8 +130,8 @@ const UpdateProfile = ( { history } ) => {
                                         accept="images/*"
                                         onChange={onChange}
                                     />
-                                    <label className='custom-file-label' htmlFor='customFile'>
-                                        Choose Avatar
+                                    <label className='custom-file-label' htmlFor='customFile' style={{textAlign: 'left'}}>
+                                        إختر صورة
                                 </label>
                                 </div>
                             </div>

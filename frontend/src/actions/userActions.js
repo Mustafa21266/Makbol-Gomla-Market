@@ -54,7 +54,7 @@ import { LOGIN_REQUEST,
 
 
 //Login
-export const login = (email, password) => async (dispatch) => {
+export const login = (phoneNo, password) => async (dispatch) => {
     try {
         dispatch({
             type: LOGIN_REQUEST,
@@ -65,7 +65,7 @@ export const login = (email, password) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/login`, { email, password },config)
+        const { data } = await axios.post(`/api/v1/login`, { phoneNo, password },config)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data

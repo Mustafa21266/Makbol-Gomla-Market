@@ -12,18 +12,18 @@ const Search = ( { history } ) => {
     }
     return (
         <form onSubmit={searchHandler}>
-                    <div className="input-group">
+                    <div>
           <input
             type="text"
             id="search_field"
             className="form-control"
-            placeholder="Enter Product Name ..."
+            placeholder="أدخل إسم المنتج : "
             onChange={(e)=> {setKeyword(e.target.value)}}
-            style={{borderTopLeftRadius: '20px',borderBottomLeftRadius: '20px'}}
+            style={{borderTopLeftRadius: '20px',borderBottomLeftRadius: '20px',marginBottom: '15px',fontFamily: 'system-ui'}}
           />
-          <div className="input-group-append">
-            <button id="search_btn" className="btn" style={{position: 'relative',bottom: '6px',height: '38px',borderTopRightRadius: '20px',borderBottomRightRadius: '20px'}}>
-              <i className="fa fa-search text-center" aria-hidden="true"  style={{position: 'relative',bottom: '3px',fontSize: "16px"}}></i>
+          <div>
+            <button id="search_btn" className="btn" style={{display:'block',margin:"auto"}}>
+              <i className="fa fa-search text-center" aria-hidden="true"  style={{position: 'relative',bottom: '3px',fontSize: "16px",color:'white'}}></i>
             </button>
           </div>
         </div>

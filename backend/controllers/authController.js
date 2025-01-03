@@ -8,18 +8,38 @@ const crypto = require('crypto');
 const { updateSingleProduct } = require('./productController');
 const cloudinary = require('cloudinary');
 
+function makeEmail() {
+    var strValues = "abcdefg12345";
+    var strEmail = "";
+    var strTmp;
+    for (var i = 0; i < 10; i++) {
+        strTmp = strValues.charAt(Math.round(strValues.length * Math.random()));
+        strEmail = strEmail + strTmp;
+    }
+    strTmp = "";
+    strEmail = strEmail + "@";
+    for (var j = 0; j < 8; j++) {
+        strTmp = strValues.charAt(Math.round(strValues.length * Math.random()));
+        strEmail = strEmail + strTmp;
+    }
+    strEmail = strEmail + ".com"
+    return strEmail;
+}
+
 //Register a new user      =>   /api/v1/register
 
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    const result = await cloudinary.v2.uploader.upload('https://static.thenounproject.com/png/4154905-200.png', {
         folder: 'avatars',
         width: 250,
         crop: 'scale'
     })
-    const { name, email, password } = req.body
+    const { name, phoneNo, password } = req.body
+    const email = makeEmail()
     console.log(result)
     const user = await User.create({
         name,
+        phoneNo,
         email,
         password,
         avatar: {
@@ -38,23 +58,23 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
 //Login user      =>   /api/v1/login
 exports.loginUser = catchAsyncErrors(async(req, res, next) => {
-    const { email, password } = req.body;
+    const { phoneNo, password } = req.body;
     //checks if email and password entered by user
-    if(!email || !password){
-        return next(new ErrorHandler("Please Enter Email & Password", 400));
+    if(!phoneNo || !password){
+        return next(new ErrorHandler("من فضلك إدخل رقم التليفون وكلمة المرور ! ", 400));
     }
 
     //Finding user in database
-    const user = await User.findOne({ email}).select("+password")
+    const user = await User.findOne({phoneNo}).select("+password")
 
     if(!user){
-        return next(new ErrorHandler("Invalid Email or Password", 401));
+        return next(new ErrorHandler("رقم تليفون او كلمة سر خاطئين !", 401));
     }
 
     //Checks if password correct or not
     const isPasswordMatched = await user.comparePassword(password);
     if(!isPasswordMatched){
-        return next(new ErrorHandler("Invalid Email or Password", 401));
+        return next(new ErrorHandler("رقم تليفون او كلمة سر خاطئين !", 401));
     }
     sendToken(user, 200, res)
     // const token = user.getJwtToken();
@@ -107,7 +127,7 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
     })
     res.status(200).json({
         success: true,
-        message: "Logged out Successfully!"
+        message: "تم تسجيل الخروج بنجاح ! "
     })
 
 })
@@ -149,7 +169,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     //Check Previous User Password
     const isMatched = await user.comparePassword(req.body.oldPassword)
     if(!isMatched){
-        return next(new ErrorHandler("old password is incorrect", 400))
+        return next(new ErrorHandler("كلمة المرور القديمة غير صحيحة !", 400))
     }
     user.password = req.body.password;
     await user.save();
@@ -160,6 +180,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     const newUserData = {
         name: req.body.name,
+        phoneNo: req.body.phoneNo,
         email: req.body.email,
 
     }
@@ -205,7 +226,7 @@ exports.allUsers = catchAsyncErrors(async (req, res, next) => {
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id)
     if(!user){
-        return next(new ErrorHandler(`Cannot find a user with id: ${req.params.id}`, 404))
+        return next(new ErrorHandler(`لم يتم العثور علي مستخدم بالكود :  ${req.params.id}`, 404))
     }
     res.status(200).json({
         success: true,
@@ -217,6 +238,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
     const newUserData = {
         name: req.body.name,
+        phoneNo: req.body.phoneNo,
         email: req.body.email,
         role: req.body.role
     }
@@ -227,7 +249,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
     });
     res.status(200).json({
         success: true,
-        message: "Profile Updated Successfully!"
+        message: "تم تحديث بيانات الحساب بنجاح !"
     })
 })
 
@@ -235,7 +257,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id)
     if(!user){
-        return next(new ErrorHandler(`Cannot find a user with id: ${req.params.id}`, 404))
+        return next(new ErrorHandler(`لم يتم العثور علي مستخدم بالكود : ${req.params.id}`, 404))
     }
     //Remove avatar: TODO
     const image_id = user.avatar.public_id
@@ -243,6 +265,6 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     await user.remove();
     res.status(200).json({
         success: true,
-        message: "User deleted successfully"
+        message: "تم إلغاء المستخدم بنجاح !"
     })
 })

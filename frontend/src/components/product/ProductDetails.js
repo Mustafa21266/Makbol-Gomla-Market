@@ -28,7 +28,7 @@ const ProductDetails = ( { match } ) => {
             dispatch(clearErrors())
           }
           if(success){
-            alert.success("Review added successfully")
+            alert.success("تم إضافة التقييم ! شكرا لك !")
             dispatch({ type: NEW_REVIEW_RESET, payload : {}})
           }
           dispatch(getProductDetails(match.params.id));
@@ -48,7 +48,7 @@ const ProductDetails = ( { match } ) => {
     }
     const addToCart = () => {
         dispatch(addItemToCart(match.params.id, quantity))
-        alert.success('Item added to cart')
+        alert.success('تم إضافة المنتج في سلة التسوق')
     }
     const setUserRatings = () => {
         const stars = document.querySelectorAll('.star')
@@ -109,18 +109,18 @@ const ProductDetails = ( { match } ) => {
 
             <div className="col-12 col-lg-5 mt-5">
                 <h3>{product.name}</h3>
-                <p id="product_id">Product # {product._id}</p>
+                <p id="product_id">منتج # {product._id}</p>
 
                 <hr></hr>
 
                 <div className="rating-outer">
                     <div className="rating-inner" style={{ width: `${(product.ratings / 5) * 100}%`}}></div>
                 </div>
-                <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
+                <span id="no_of_reviews">({product.numOfReviews} تقييمات)</span>
 
                 <hr></hr>
 
-                <p id="product_price">${product.price}</p>
+                <p id="product_price">{product.price} EGP</p>
                 <div className="stockCounter d-inline">
                     <span className="btn btn-danger minus" style={{padding: '10px 20px'}} onClick={decreaseQty}>-</span>
 
@@ -128,25 +128,25 @@ const ProductDetails = ( { match } ) => {
 
                     <span className="btn btn-primary plus" style={{padding: '10px 20px'}} onClick={increaseQty}>+</span>
                 </div>
-                 <button type="button" id="cart_btn" className="btn btn-warning d-inline ml-4" disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button>
+                 <button type="button" id="cart_btn" className="btn d-inline ml-4" disabled={product.stock === 0}  style={{backgroundColor:'#178a53'}}  onClick={addToCart}>إضافة إلى السلة</button>
 
                  <hr></hr>
 
-                <p>Status: <span id="stock_status" className={product.stock > 0 ? 'greenColor':'redColor'}>{product.stock > 0 ? 'In Stock':'Out of Stock'}</span></p>
+                <p>المخزون :<span id="stock_status" className={product.stock > 0 ? 'greenColor':'redColor'}>{product.stock > 0 ? 'متوفر':'غير متوفر'}</span></p>
 
                 <hr></hr>
 
-                <h4 className="mt-2">Description:</h4>
+                <h4 className="mt-2">وصف المنتج</h4>
                 <p>{product.description}</p>
                 <hr></hr>
-                <p id="product_seller mb-3">Sold by: <strong>{product.seller}</strong></p>
+                {/* <p id="product_seller mb-3">أضيف بواسطة : <strong>{product.seller}</strong></p> */}
 				{user ? (
-                    <button id="review_btn" type="button" className="btn btn-warning mt-4" data-toggle="modal" data-target="#ratingModal" onClick={setUserRatings}>
-                            Submit Your Review
+                    <button id="review_btn" type="button" className="btn mt-4" style={{backgroundColor:'#178a53'}} data-toggle="modal" data-target="#ratingModal" onClick={setUserRatings}>
+                           إرسل تقيم
                 </button>
                 ):(
                     <div className="alert alert-danger mt-5 text-center" type="alert">
-                        Login to Review
+                        سجل دخولك للتقييم
                     </div>
                 )}
 				
@@ -158,7 +158,7 @@ const ProductDetails = ( { match } ) => {
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="ratingModalLabel">Submit Review</h5>
+                                        <h5 className="modal-title" id="ratingModalLabel">إرسال التقييم</h5>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -177,7 +177,7 @@ const ProductDetails = ( { match } ) => {
 
                                         </textarea>
 
-                                        <button className="btn my-3 float-right review-btn px-4 text-black btn-outline-warning" style={{ borderRadius: '25px'}} data-dismiss="modal" aria-label="Close" onClick={reviewHandler}>Submit</button>
+                                        <button className="btn my-3 float-right review-btn px-4 text-black" style={{ borderRadius: '25px'}} data-dismiss="modal" aria-label="Close" onClick={reviewHandler}>تأكيد</button>
                                     </div>
                                 </div>
                             </div>

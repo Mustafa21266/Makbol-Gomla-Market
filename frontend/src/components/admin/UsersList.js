@@ -32,7 +32,7 @@ const UsersList = ({ history }) => {
 
 
         if(isDeleted){
-            alert.success("User Deleted Successully!")
+            alert.success("تم إلغاء المستخدم")
             dispatch({ type: DELETE_USER_RESET})
             history.push('/admin/users')
         }
@@ -44,27 +44,22 @@ const UsersList = ({ history }) => {
         const data = {
             columns: [
                 {
-                    label: 'User ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Name',
+                    label: 'الإسم',
                     field: 'name',
                     sort: 'asc'
                 },
                 {
-                    label: 'Email',
+                    label: 'البريد الإلكترونى',
                     field: 'email',
                     sort: 'asc'
                 },
                 {
-                    label: 'Role',
+                    label: 'نوع الحساب',
                     field: 'role',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: 'خيارات',
                     field: 'actions'
                 },
             ],
@@ -75,7 +70,7 @@ const UsersList = ({ history }) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                role: user.role,
+                role: user.role && String(user.role).includes('admin') ? "أدمن" : "عميل" ,
                 actions: 
                 <Fragment>
                     <div className="row">
@@ -86,9 +81,8 @@ const UsersList = ({ history }) => {
                     <hr />
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
-                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteUserHandler(user._id)}>
-                        {/*  onClick={()=> deleteUserHandler(user._id)} */}
-                        <i className="fa fa-trash"></i>
+                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteUserHandler(user._id)} style={{color: "white"}}>
+                        x
                         </button>
                     </div>
                     </div>
@@ -115,12 +109,13 @@ const UsersList = ({ history }) => {
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
-                    <h1 className="my-5">All Users</h1>
+                    <h1 className="my-5 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>كل المستخدمين</h1>
                     <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setUsers()}
-                        className="px-3"
+                        className="px-3 
+ animate__animated animate__fadeIn  animate__delay-1s"
                         bordered
                         striped
                         hover

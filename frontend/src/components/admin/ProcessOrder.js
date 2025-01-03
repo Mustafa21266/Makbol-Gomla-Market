@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { getOrderDetails, updateOrder, clearErrors} from '../../actions/orderActions'
 import Sidebar from './Sidebar'
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
+import { allUsers } from '../../actions/userActions'
 
 const ProcessOrder = ({ history, match }) => {
     const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const ProcessOrder = ({ history, match }) => {
     const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus } = order
     const { error, isUpdated } = useSelector(state => state.order)
     const [status, setStatus] = useState('');
+    // const [orderUser, setOrderUser] = useState('');
+    const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
@@ -22,25 +25,31 @@ const ProcessOrder = ({ history, match }) => {
             alert.error(error)
             dispatch(clearErrors())
         }
+        dispatch(allUsers())
+        if(error){
+            alert.error(error)
+            dispatch(clearErrors())
+        }
         if(isUpdated){
         //   history.push('/admin/orders')
-          alert.success('Order Updated Successully!')
+          alert.success('تم تحديث بيانات الأوردر')
           dispatch({ type: UPDATE_ORDER_RESET})
       }
         
     },[dispatch, error, alert, isUpdated, orderId])
-
+    console.log(users)
     function updateOrderHandler(id){
         const formData = new FormData();
         formData.set('status',status)
+        // formData.set('_id',orderUser)
         dispatch(updateOrder(id,formData));
     }
     const shippingDetails = shippingInfo &&  `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>
-        <MetaData title={`Process Order # ${order && order._id}`} />
-        <div className="row">
+        <MetaData title={`: معالجة الأوردر ${order && order._id}`} />
+        <div className="row  animate__animated animate__fadeIn  animate__delay-1s">
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
@@ -52,27 +61,27 @@ const ProcessOrder = ({ history, match }) => {
 <div className="row d-flex justify-content-around">
                     <div className="col-12 col-lg-7 order-details">
 
-                        <h2 className="my-5">Order # {order._id}</h2>
+                        {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
 
-                        <h4 className="mb-4">Shipping Info</h4>
-                        <p><b>Name:</b> {user && user.name}</p>
-                        <p><b>Phone:</b> {shippingInfo && shippingInfo.phoneNo}</p>
-                        <p className="mb-4"><b>Address:</b>{shippingDetails}</p>
-                        <p><b>Amount:</b> ${totalPrice}</p>
+                        <h4 className="mb-4">عنوان التوصيل</h4>
+                        <p><b>: الإسم</b> {user && user.name}</p>
+                        <p><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</p>
+                        <p className="mb-4"><b>: العنوان</b>{shippingDetails}</p>
+                        <p><b>السعر</b> ${totalPrice}</p>
 
                         <hr />
 
-                        <h4 className="my-4">Payment : <span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
+                        <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
                         {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
 
                         <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4>
                         {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
 
 
-                        <h4 className="my-4">Order Status : <span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h4>
+                        <h4 className="my-4"> : حالة الأوردر <span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h4>
                         {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
 
-                        <h4 className="my-4">Order Items:</h4>
+                        <h4 className="my-4">عدد القطع</h4>
 
                         <hr />
                         <div className="cart-item my-1">
@@ -95,7 +104,7 @@ const ProcessOrder = ({ history, match }) => {
                                 </div>
 
                                 <div className="col-12 col-lg-3 mt-4 mt-lg-0">
-                                    <p className="text-center">{item.quantity} Piece(s)</p>
+                                    <p className="text-center">{item.quantity} قطعة</p>
                                 </div>
                             </div>
                            
@@ -108,7 +117,7 @@ const ProcessOrder = ({ history, match }) => {
                     </div>
 					
 					<div className="col-12 col-lg-3 mt-5">
-                                    <h4 className="my-4">Status</h4>
+                                    <h4 className="my-4">الحالة</h4>
 
                                     <div className="form-group">
                                         <select
@@ -117,14 +126,28 @@ const ProcessOrder = ({ history, match }) => {
                                             value={status}
                                             onChange={(e)=> setStatus(e.target.value)}
                                         >
-                                            <option value="Processing">Processing</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Delivered">Delivered</option>
+                                            <option value="Processing">تحت التأكيد</option>
+                                            <option value="Shipped">جارى التوصيل</option>
+                                            <option value="Delivered">تم التوصيل</option>
                                         </select>
                                     </div>
+                                    <h4 className="my-4">العميل</h4>
+
+                                    {/* <div className="form-group">
+                                        <select
+                                            className="form-control"
+                                            name='orderUser'
+                                            value={orderUser}
+                                            onChange={(e)=> setOrderUser(e.target.value)}
+                                        >
+                                            {users.map(user => (
+                                                <option key={user._id} value={user._id}>{user.name}</option>
+                    ))}
+                                        </select>
+                                    </div> */}
 
                                     <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
-                                        Update Status
+                                        حفظ
                                 </button>
                                 </div>
 					

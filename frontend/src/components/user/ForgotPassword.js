@@ -35,13 +35,13 @@ const ForgotPassword = ( { history })  => {
     }
     return (
         <Fragment>
-            <MetaData title={'Forgot Password'} />
+            <MetaData title={'نسيت كلمة المرور'} />
             <div className="row wrapper animate__animated animate__fadeIn">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-3">Forgot Password</h1>
+                        <h1 className="mb-3" style={{display: 'block',margin: 'auto'}}>نسيت كلمة المرور</h1>
                         <div className="form-group">
-                            <label htmlFor="email_field">Enter Email</label>
+                            <label htmlFor="email_field">أدخل البريد الألكتروني</label>
                             <input
                                 type="email"
                                 id="email_field"
@@ -58,7 +58,7 @@ const ForgotPassword = ( { history })  => {
                             className="btn btn-block py-3"
                             disabled={ loading ? true: false}
                             >
-                            Send Email
+                            إرسال
                     </button>
 
                     </form>

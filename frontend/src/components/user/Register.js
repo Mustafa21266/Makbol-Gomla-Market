@@ -9,11 +9,12 @@ import { Link } from 'react-router-dom';
 const Register = ( { history } ) => {
     const [user, setUser] = useState({
         name: '',
+        phoneNo: '',
         email: '',
         password: '',
 
     })
-    const { name, email, password } = user;
+    const { name, email, phoneNo, password } = user;
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('./images/logo.png')
     // const [password, setPassword] = useState('')
@@ -34,9 +35,10 @@ const Register = ( { history } ) => {
         e.preventDefault();
         const formData = new FormData();
         formData.set('name',name)
+        formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('password',password)
-        formData.set('avatar',avatar)
+        // formData.set('avatar',avatar)
         dispatch(register(formData));
     }
     const onChange = e => {
@@ -60,14 +62,14 @@ const Register = ( { history } ) => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Register'} />
+                    <MetaData title={'تسجيل كمستخدم جديد'} />
                     <div className="row wrapper">
 		<div className="col-10 col-lg-5">
         <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-            <h1 className="mb-3">Register</h1>
+            <h1 className="mb-3" style={{display: 'block',margin: 'auto'}}>تسجيل كمستخدم جديد</h1>
 
           <div className="form-group">
-            <label htmlFor="email_field">Name</label>
+            <label htmlFor="name_field">الأسم</label>
             <input 
             type="name"
             id="name_field" 
@@ -79,19 +81,19 @@ const Register = ( { history } ) => {
           </div>
 
             <div className="form-group">
-              <label htmlFor="email_field">Email</label>
+              <label htmlFor="phoneNo_field">البريد الإلكتروني</label>
               <input
-                type="email"
-                id="email_field"
+                type="phoneNo"
+                id="phoneNo_field"
                 className="form-control"
-                name="email"
-                value={email}
+                name="phoneNo"
+                value={phoneNo}
                 onChange={onChange}
               />
             </div>
   
             <div className="form-group">
-              <label htmlFor="password_field">Password</label>
+              <label htmlFor="password_field">كلمة المرور</label>
               <input
                 type="password"
                 id="password_field"
@@ -102,8 +104,8 @@ const Register = ( { history } ) => {
               />
             </div>
 
-            <div className='form-group'>
-              <label htmlFor='avatar_upload'>Avatar</label>
+            {/* <div className='form-group'>
+              <label htmlFor='avatar_upload'>صورة الحساب</label>
               <div className='d-flex align-items-center'>
                   <div>
                       <figure className='avatar mr-3 item-rtl'>
@@ -123,12 +125,12 @@ const Register = ( { history } ) => {
                           accept="images/*"
                           onChange={onChange}
                       />
-                      <label className='custom-file-label' htmlFor='customFile'>
-                          Choose Avatar
+                      <label className='custom-file-label' htmlFor='customFile'  style={{textAlign: 'left'}}>
+                          إختر صورة الحساب
                       </label>
                   </div>
               </div>
-          </div>
+          </div> */}
   
             <button
               id="register_button"
@@ -136,7 +138,7 @@ const Register = ( { history } ) => {
               className="btn btn-block py-3"
               disabled={ loading ? true: false}
             >
-              REGISTER
+              تسجيل
             </button>
           </form>
 		  </div>

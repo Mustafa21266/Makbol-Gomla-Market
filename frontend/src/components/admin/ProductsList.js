@@ -26,7 +26,7 @@ const ProductsList = ({ history }) => {
             dispatch(clearErrors())
         }
         if(isDeleted){
-            alert.success("Product Deleted Successully!")
+            alert.success("! تم إلغاء المنتج")
             dispatch({ type: DELETE_PRODUCT_RESET})
             history.push('/admin/products')
         }
@@ -36,27 +36,22 @@ const ProductsList = ({ history }) => {
         const data = {
             columns: [
                 {
-                    label: 'ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Name',
+                    label: 'الإسم',
                     field: 'name',
                     sort: 'asc'
                 },
                 {
-                    label: 'Price',
+                    label: 'السعر',
                     field: 'price',
                     sort: 'asc'
                 },
                 {
-                    label: 'Stock',
+                    label: 'المخزون',
                     field: 'stock',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: 'خيارات',
                     field: 'actions'
                 },
             ],
@@ -66,7 +61,7 @@ const ProductsList = ({ history }) => {
             data.rows = data.rows.concat ({
                 id: product._id,
                 name: product.name,
-                price: `$${product.price}`,
+                price: `${product.price} EGP`,
                 stock: product.stock,
                 actions: 
                 <Fragment>
@@ -81,7 +76,7 @@ const ProductsList = ({ history }) => {
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteProductHandler(product._id)}>
-                        <i className="fa fa-trash"></i>
+                    <i className="fa">x</i>
                         </button>
                     </div>
                     </div>
@@ -106,12 +101,13 @@ const ProductsList = ({ history }) => {
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
-                    <h1 className="my-5">All Products</h1>
+                    <h1 className="my-5 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>كل المنتجات</h1>
                     <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable
                         data={setProducts()}
-                        className="px-3"
+                        className="px-3 
+ animate__animated animate__fadeIn  animate__delay-1s"
                         bordered
                         striped
                         hover

@@ -7,7 +7,7 @@ const {
 const { isAuthenticatedUser } = require('../middlewares/authProtection');
 
 
-router.route("/payment/process").post(isAuthenticatedUser, processPayments)
+router.route("/payment/process").post(processPayments)
 router.route("/stripeapi").get(isAuthenticatedUser, sendStripeApiKey)
 
 module.exports = router;

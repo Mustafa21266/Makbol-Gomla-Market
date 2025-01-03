@@ -37,9 +37,15 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter product category"]
     },
+    subcategory: {
+        type: String,
+        required: [true, "Please enter product sub category"],
+        default: 'قطاعى'
+    },
     seller: {
         type: String,
-        required: [true, "Please enter product seller"],
+        required: false,
+        default: "Me"
     },
     stock: {
         type: Number,

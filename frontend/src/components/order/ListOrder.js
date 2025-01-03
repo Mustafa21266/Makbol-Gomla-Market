@@ -23,27 +23,22 @@ const ListOrder = () => {
         const data = {
             columns: [
                 {
-                    label: 'Order ID',
-                    field: 'id',
-                    sort: 'asc'
-                },
-                {
-                    label: 'Num of Items',
+                    label: 'عدد القطع',
                     field: 'numOfItems',
                     sort: 'asc'
                 },
                 {
-                    label: 'Amount',
+                    label: 'الكمية',
                     field: 'amount',
                     sort: 'asc'
                 },
                 {
-                    label: 'Status',
+                    label: 'الحالة',
                     field: 'status',
                     sort: 'asc'
                 },
                 {
-                    label: 'Actions',
+                    label: 'خيارات',
                     field: 'actions',
                     sort: 'asc'
                 },
@@ -54,8 +49,8 @@ const ListOrder = () => {
             data.rows = data.rows.concat ({
                 id: order._id,
                 numOfItems: order.orderItems.length,
-                amount: `$${order.totalPrice}`,
-                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>{order.orderStatus}</p> : <p style={{color: 'red'}}>{order.orderStatus}</p> ,
+                amount: `${order.totalPrice} EGP`,
+                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>تم التوصيل</p> : <p style={{color: 'red'}}>جاري التوصيل</p> ,
                 actions: <div className="w-100 d-flex justify-content-center"><Link to={`/myorders/${order._id}`} className="btn btn-primary"><i className="fa fa-eye"></i></Link></div>
             })
            
@@ -64,15 +59,16 @@ const ListOrder = () => {
     }
     return (
         <Fragment>
-            <MetaData title={'My Orders'} />
-            <h1 className="my-5">My Orders</h1>
+            <MetaData title={'أوردراتي'} />
+            <h1 className="my-5 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>أوردراتي</h1>
             {loading ? <Loader /> : (
                 <Fragment>
                     <div className="row animate__animated animate__fadeIn" >
                             <div className="col-12">
                             <MDBDataTable
                 data={setOrders()}
-                className="px-3"
+                className="px-3 
+ animate__animated animate__fadeIn  animate__delay-1s"
                 bordered
                 striped
                 hover
