@@ -160,7 +160,7 @@ const Header = () => {
                         </div>
                         <div className="col-9">
                             <p className="text-left" style={{fontSize: '12px'}}>{item.name}</p>
-                          <p className="w-100" style={{marginLeft: '10px'}}><span className="text-left">${item.price}</span><span className="float-right">({item.quantity}) piece(s)</span></p>
+                          <p className="w-100" style={{marginLeft: '10px'}}><span className="text-left"> {item.price} </span><span className="float-right" style={{margin: '0px 3px 3px'}}> ( {item.quantity} ) قطعة </span> EGP </p>
                         </div>
                     </div>
                     <hr />

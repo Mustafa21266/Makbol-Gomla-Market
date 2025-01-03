@@ -69,7 +69,7 @@ const OrderDetails = ({ history , match}) => {
                                 </div>
 
                                 <div className="col-12 col-lg-3 mt-4 mt-lg-0">
-                                    <p className="text-center">{item.quantity} قطعة</p>
+                                    <p className="text-center"> {item.quantity} قطعة </p>
                                 </div>
                             </div>
                 </div>

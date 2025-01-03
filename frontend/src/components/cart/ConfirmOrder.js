@@ -56,6 +56,7 @@ const ConfirmOrder = ({ history }) => {
                     status: result.paymentIntent.status
                 }
                 dispatch(createOrder(order))
+                sessionStorage.removeItem('cartItems')
                 history.push('/success')
             }
     }
@@ -100,7 +101,18 @@ const ConfirmOrder = ({ history }) => {
 
 
                         <div className="col-12 col-lg-4 mt-4 mt-lg-0 text-right">
-                            <p>{item.quantity} x {item.price} EGP = <b>{(item.quantity * item.price).toFixed(2)} EGP</b></p>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            {item.quantity}
+                            </div>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                             x 
+                            </div>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            {item.price}
+                            </div>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            = <b>{(item.quantity * item.price).toFixed(2)} EGP</b>
+                            </div>
                         </div>
 
                     </div>

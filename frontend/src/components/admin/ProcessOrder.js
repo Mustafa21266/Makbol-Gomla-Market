@@ -15,7 +15,7 @@ const ProcessOrder = ({ history, match }) => {
     const { loading, order } = useSelector(state => state.orderDetails)
     const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus } = order
     const { error, isUpdated } = useSelector(state => state.order)
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('Processing');
     // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
@@ -104,7 +104,7 @@ const ProcessOrder = ({ history, match }) => {
                                 </div>
 
                                 <div className="col-12 col-lg-3 mt-4 mt-lg-0">
-                                    <p className="text-center">{item.quantity} قطعة</p>
+                                    <p className="text-center"> {item.quantity} قطعة </p>
                                 </div>
                             </div>
                            
@@ -126,7 +126,7 @@ const ProcessOrder = ({ history, match }) => {
                                             value={status}
                                             onChange={(e)=> setStatus(e.target.value)}
                                         >
-                                            <option value="Processing">تحت التأكيد</option>
+                                            <option value="Processing" selected>تحت التأكيد</option>
                                             <option value="Shipped">جارى التوصيل</option>
                                             <option value="Delivered">تم التوصيل</option>
                                         </select>
