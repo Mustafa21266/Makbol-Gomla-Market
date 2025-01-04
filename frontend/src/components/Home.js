@@ -97,7 +97,7 @@ const Home = ( { match } ) => {
             <h1 className="animate__animated animate__pulse animate__infinite" id="products_heading" style={{textAlign: 'center'}}>أخر المنتجات</h1>
 
 <section id="products" className="container mt-5">
-<img className="img-fluid w-100 animate__animated animate__fadeIn  animate__delay-2.5s" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture" style={{height: '350px', boxShadow: "5px 10px #888888"}}/>
+{/* <img className="img-fluid w-100 animate__animated animate__fadeIn  animate__delay-2.5s" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture" style={{height: '350px', boxShadow: "5px 10px #888888"}}/> */}
   <div className="row">
     {keyword ? (
       <Fragment>
