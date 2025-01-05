@@ -71,7 +71,7 @@ const Home = ( { match } ) => {
         <Fragment>
           { loading ? <Loader /> : (
             <Fragment>
-            <MetaData title={`Buy Best Products Online`}/>
+            <MetaData title={`مقبول جملة ماركت - Makboul Gomla Market`}/>
             {!keyword && (
               <div>
     <div className="row">
