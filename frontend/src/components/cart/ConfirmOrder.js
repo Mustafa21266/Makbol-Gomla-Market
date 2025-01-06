@@ -42,7 +42,7 @@ const ConfirmOrder = ({ history }) => {
             'Content-Type': 'application/json' 
         }
     }
-        let res = await axios.post('http://localhost:8000/api/v1/payment/process', paymentData, config);
+        let res = await axios.post('/api/v1/payment/process', paymentData, config);
         const clientSecret = res.data.client_secret
         let result = {
             paymentIntent : {
