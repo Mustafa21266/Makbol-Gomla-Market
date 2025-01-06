@@ -81,7 +81,7 @@ const Register = ( { history } ) => {
           </div>
 
             <div className="form-group">
-              <label htmlFor="phoneNo_field">البريد الإلكتروني</label>
+              <label htmlFor="phoneNo_field">رقم التليفون</label>
               <input
                 type="phoneNo"
                 id="phoneNo_field"
