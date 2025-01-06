@@ -51,7 +51,7 @@ const Home = ( { match } ) => {
   const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const alert = useAlert()
   // const keyword = match.params.keyword ? match.params.keyword : "all"
-  let keyword = "/search/all" in window.location.href ? match.params.keyword : 'home'
+  let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
