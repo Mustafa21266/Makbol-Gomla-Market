@@ -45,7 +45,7 @@ const Home = ( { match } ) => {
                 'Biscuits',
                 'Cakes',
                 'Coffee And Tea',
-                'Chips And Snacks'
+                'ChipsAndSnacks'
   ]
   const dispatch = useDispatch();
   const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
@@ -75,7 +75,7 @@ const Home = ( { match } ) => {
             {!keyword && (
               <div>
     <div className="row">
-    <div className="col-12">
+    <div className="col-12">                                
       <img className="img-fluid w-100 animate__animated animate__fadeIn  animate__delay-2.5s" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture" style={{height: '350px', boxShadow: "5px 10px #888888"}}/>
       <div style={{position: 'absolute',bottom: '10px',left: '30px',width: '90%'}}>
       <div className="row">
@@ -94,7 +94,7 @@ const Home = ( { match } ) => {
               </div>
             )}
         
-            <h1 className="animate__animated animate__pulse animate__infinite" id="products_heading" style={{textAlign: 'center'}}>أخر المنتجات</h1>
+            <h1 className="animate__animated animate__pulse animate__infinite" id="products_heading" style={{textAlign: 'center',color: 'white'}}>أخر المنتجات</h1>
 
 <section id="products" className="container mt-5">
 {/* <img className="img-fluid w-100 animate__animated animate__fadeIn  animate__delay-2.5s" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture" style={{height: '350px', boxShadow: "5px 10px #888888"}}/> */}
@@ -502,7 +502,7 @@ const Home = ( { match } ) => {
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h3 class="mb-3">شيبسيهات وسناكس </h3>
+                <h3 class="mb-3" style={{color: 'white'}}>شيبسيهات وسناكس </h3>
             </div>
             <div class="col-6 text-right">
                 <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
@@ -516,8 +516,15 @@ const Home = ( { match } ) => {
                 <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="row">
-                                {products.filter(p => p.category === "Chips And Snacks").slice(0, 4).map((product,index) => {
+                        <div class="row">
+                            {products.filter(p => {
+                              if(p.category === 'ChipsAndSnacks'){
+                                return p
+                              }else {
+                                console.log(p.category)
+                              }
+                              
+                            }).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div class="col-md-4 mb-3">
@@ -536,10 +543,9 @@ const Home = ( { match } ) => {
                                       )
                                     }
                                           })}
-
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        {/* <div class="carousel-item">
                             <div class="row">
                             {products.filter(p => p.category === "Chips And Snacks").slice(4, 8).map((product,index) => {
                                     if(index === 0){
@@ -585,7 +591,7 @@ const Home = ( { match } ) => {
                                     }
                                           })}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

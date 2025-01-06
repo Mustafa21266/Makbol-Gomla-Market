@@ -34,9 +34,9 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Get all products   =>     /api/v1/products
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-    const resultsPerPage = 9;
+    const resultsPerPage = 50;
     const productsCount = await Product.countDocuments();
-    console.log(req.query.keyword)
+    // console.log(req.query.keyword)
     const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
     // const products = await Product.find();
     // .pagination(resultsPerPage);
@@ -47,7 +47,15 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
 
     products = await apiFeatures.query;
-    console.log(products)
+    for(let i =0;i < products.length;i++){
+        if(products[i].category === 'Chips And Snacks'){
+            console.log(products[i].category)
+          }else {
+            console.log(products[i].category)
+          }
+
+    }
+    // console.log(products)
     res.status(200).json({
         success: true,
         count: products.length,

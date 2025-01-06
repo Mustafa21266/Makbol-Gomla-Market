@@ -53,7 +53,7 @@ const UpdateProduct = ({ history, match }) => {
                   'Biscuits',
                   'Cakes',
                   'Coffee And Tea',
-                  'Chips And Snacks'
+                  'ChipsAndSnacks'
     ]
     useEffect(() => {
         if(product && product._id !== productId){

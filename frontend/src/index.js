@@ -31,6 +31,7 @@ import 'animate.css';
 // import reportWebVitals from './reportWebVitals';
 
 
+
 const options = {
   // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,

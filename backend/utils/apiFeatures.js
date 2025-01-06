@@ -13,7 +13,7 @@ class APIFeatures{
                     $options: 'i'
                 }
             } : {};
-            console.log(keyword);
+            // console.log(keyword);
             this.query = this.query.find({...keyword});
             return this;
         }
@@ -24,11 +24,11 @@ class APIFeatures{
         // console.log(queryCopy.category)
         const removeFields = ['keyword', 'limit', 'page'];
         removeFields.forEach(el => delete queryCopy[el]);
-        console.log(queryCopy)
+        // console.log(queryCopy)
         //ADVANCED FILTER
         let queryStr = JSON.stringify(queryCopy)
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g,match => `$${match}`)
-        console.log(queryStr)
+        // console.log(queryStr)
 
         this.query = this.query.find(JSON.parse(queryStr));
         return this;

@@ -70,7 +70,7 @@ const Header = () => {
       <div className="col-12 col-md-3 d-flex justify-content-center">
         <div>
           <Link to="/">
-          <img src="./images/WhatsApp Image 2024-12-19 at 01.04.26_9c49fe08 copy.png" alt="E Commerce Logo" style={{width: "100px", height: "100px"}}/>
+          <img src="./images/main_logo.png" alt="E Commerce Logo" style={{width: "100px", height: "100px"}}/>
           </Link>
          
         </div>
@@ -105,7 +105,7 @@ const Header = () => {
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
                   </div> 
           </div> 
-        ) : !loading &&  <Link to="/login" className="btn ml-4" style={{backgroundColor:'#178a53'}} id="login_btn">تسجيل الدخول</Link>}
+        ) : !loading &&  <Link to="/login" className="btn ml-4" style={{backgroundColor:'#178a53',color: 'white'}} id="login_btn">تسجيل الدخول</Link>}
         {user && user.role === 'admin' && (
                            <div className="ml-4 dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

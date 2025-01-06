@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <Fragment>
              <footer className="animate__animated animate__headShake animate__infinite py-1">
-      <p className="text-center  mt-1">
+      <p className="text-center  mt-1" style={{color: 'white'}}>
         2024, مقبول جملة ماركت - كل الحقوق محفوظة
         <br></br>
         Developed By : Mustafa Elgohary
