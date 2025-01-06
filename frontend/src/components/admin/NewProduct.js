@@ -43,7 +43,7 @@ const NewProduct = ({ history }) => {
                   'Biscuits',
                   'Cakes',
                   'Coffee And Tea',
-                  'ChipsAndSnacks'
+                  'Chips And Snacks'
     ]
      const dispatch = useDispatch();
       const alert = useAlert();

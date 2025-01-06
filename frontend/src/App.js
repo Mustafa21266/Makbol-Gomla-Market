@@ -49,7 +49,7 @@ function App() {
     store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
-      // const { data } = await axios.get('http://127.0.0.1:3000/api/v1/stripeapi')
+      // const { data } = await axios.get('http://127.0.0.1:3000http://localhost:8000/api/v1/stripeapi')
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()

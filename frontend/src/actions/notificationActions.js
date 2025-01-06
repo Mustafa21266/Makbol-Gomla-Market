@@ -37,7 +37,7 @@ export const getNotifications = () => async (dispatch) => {
             type: ALL_NOTIFICATIONS_REQUEST,
             payload: []
         })
-        let link = `/api/v1/notifications`
+        let link = `http://localhost:8000/api/v1/notifications`
         const { data } = await axios.get(link)
         dispatch({
             type: ALL_NOTIFICATIONS_SUCCESS,
@@ -58,7 +58,7 @@ export const getNotificationDetails = (id) => async (dispatch) => {
             type: NOTIFICATION_DETAILS_REQUEST,
             payload: []
         })
-        const { data } = await axios.get(`/api/v1/notification/${id}`)
+        const { data } = await axios.get(`http://localhost:8000/api/v1/notification/${id}`)
         dispatch({
             type: NOTIFICATION_DETAILS_SUCCESS,
             payload: data
@@ -84,7 +84,7 @@ export const updateNotification = (id) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/notification/${id}` , config)
+        const { data } = await axios.put(`http://localhost:8000/api/v1/admin/notification/${id}` , config)
         dispatch({
             type: UPDATE_NOTIFICATION_SUCCESS,
             payload: data
@@ -106,7 +106,7 @@ export const deleteNotification = (id) => async (dispatch) => {
             type: DELETE_NOTIFICATION_REQUEST,
             payload: []
         })
-        const { data } = await axios.delete(`/api/v1/admin/notification/${id}`)
+        const { data } = await axios.delete(`http://localhost:8000/api/v1/admin/notification/${id}`)
         dispatch({
             type: DELETE_NOTIFICATION_SUCCESS,
             payload: data.success

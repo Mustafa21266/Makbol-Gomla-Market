@@ -45,13 +45,13 @@ const Home = ( { match } ) => {
                 'Biscuits',
                 'Cakes',
                 'Coffee And Tea',
-                'ChipsAndSnacks'
+                'Chips And Snacks'
   ]
   const dispatch = useDispatch();
   const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const alert = useAlert()
   // const keyword = match.params.keyword ? match.params.keyword : "all"
-  const keyword = match.params.keyword
+  let keyword = window.location.href === "http://localhost:3000/search/all" ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
@@ -72,7 +72,7 @@ const Home = ( { match } ) => {
           { loading ? <Loader /> : (
             <Fragment>
             <MetaData title={`مقبول جملة ماركت - Makboul Gomla Market`}/>
-            {!keyword && (
+            {keyword === 'home' && (
               <div>
     <div className="row">
     <div className="col-12">                                
@@ -99,7 +99,7 @@ const Home = ( { match } ) => {
 <section id="products" className="container mt-5">
 {/* <img className="img-fluid w-100 animate__animated animate__fadeIn  animate__delay-2.5s" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture" style={{height: '350px', boxShadow: "5px 10px #888888"}}/> */}
   <div className="row">
-    {keyword ? (
+    {keyword && keyword !== 'home' ? (
       <Fragment>
         <div className="col-12 col-md-4 mt-5 mb-5">
               <div className="px-5">
@@ -306,7 +306,8 @@ const Home = ( { match } ) => {
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h3 class="mb-3">كيكات </h3>
+            {/* <Link to={'/search/all'} className="btn" style={{fontSize: '48px'}}>تسوق كل المنتجات</Link> */}
+                <h3 class="mb-3" style={{color: 'white'}}>كيكات </h3>
             </div>
             <div class="col-6 text-right">
                 <a id="view_btn" class="btn  mb-3 mr-1"  href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -404,7 +405,7 @@ const Home = ( { match } ) => {
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h3 class="mb-3">بيسكويت </h3>
+                <h3 class="mb-3" style={{color: 'white'}}>بيسكويت </h3>
             </div>
             <div class="col-6 text-right">
                 <a id="view_btn" class="btn  mb-3 mr-1"   href="#carouselExampleIndicators3" role="button" data-slide="prev">
@@ -516,15 +517,9 @@ const Home = ( { match } ) => {
                 <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <div class="row">
-                            {products.filter(p => {
-                              if(p.category === 'ChipsAndSnacks'){
-                                return p
-                              }else {
-                                console.log(p.category)
-                              }
-                              
-                            }).map((product,index) => {
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Chips And Snacks").slice(0, 4).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div class="col-md-4 mb-3">
@@ -543,9 +538,11 @@ const Home = ( { match } ) => {
                                       )
                                     }
                                           })}
+
                             </div>
                         </div>
-                        {/* <div class="carousel-item">
+                        </div>
+                        <div class="carousel-item">
                             <div class="row">
                             {products.filter(p => p.category === "Chips And Snacks").slice(4, 8).map((product,index) => {
                                     if(index === 0){
@@ -591,7 +588,894 @@ const Home = ( { match } ) => {
                                     }
                                           })}
                             </div>
-                        </div> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>مياه </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Water").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Water").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Water").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>مشروبات عازية </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Soft Drinks").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Soft Drinks").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Soft Drinks").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>مشروبات مخصوصة </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Speciality Drinks").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Speciality Drinks").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Speciality Drinks").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>مشروبات الشعير وغير الكحوليات </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Malt And Non-Alcholic").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Malt And Non-Alcholic").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Malt And Non-Alcholic").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>مشروبات رياضية ومشروبات طاقة </h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Sports And Energy Drinks").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Sports And Energy Drinks").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Sports And Energy Drinks").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>أيس كريم</h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Ice Cream").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Ice Cream").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Ice Cream").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>شوكلاتات</h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Chocolate").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Chocolate").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Chocolate").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>حلويات ومستيكة</h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Candy And Gums").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Candy And Gums").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Candy And Gums").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style={{color: 'white'}}>قهوة وشاي</h3>
+            </div>
+            <div class="col-6 text-right">
+                <a id="view_btn" class="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="view_btn" class="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators4" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Coffee And Tea").slice(0, 4).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Coffee And Tea").slice(4, 8).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {products.filter(p => p.category === "Coffee And Tea").slice(8, 12).map((product,index) => {
+                                    if(index === 0){
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                      <Fragment>
+                                <Product key={product._id} product={product}  col={12}/>
+                                    </Fragment>
+                                    </div>
+                                      )
+                                    }else {
+                                      return (
+                                          <div class="col-md-4 mb-3">
+                                   <Fragment>
+                                <Product key={product._id} product={product}  col={12}  style={{display: 'contents'}}/>
+                                    </Fragment>
+                                  </div>
+                                      )
+                                    }
+                                          })}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
