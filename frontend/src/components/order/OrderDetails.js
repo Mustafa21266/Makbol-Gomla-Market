@@ -5,19 +5,23 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { getOrderDetails, clearErrors } from '../../actions/orderActions'
 import { Link } from 'react-router-dom'
+import { loadUser } from '../../actions/userActions'
 const OrderDetails = ({ history , match}) => {
     const dispatch = useDispatch();
     const alert = useAlert();
+    const { user, isAuthenticated } = useSelector(state => state.auth)
     const { loading , error, order } = useSelector(state => state.orderDetails)
-    const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus} = order;
+    const { shippingInfo, orderItems, paymentInfo, totalPrice, orderStatus} = order;
+    
     // const [data, setData]= useState(setOrders())
     useEffect(()=>{
+        dispatch(loadUser())
         dispatch(getOrderDetails(match.params.id))
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, match.params.id])
+    },[dispatch, isAuthenticated, alert, error, match.params.id])
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>

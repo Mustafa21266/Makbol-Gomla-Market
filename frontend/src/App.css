@@ -629,6 +629,7 @@ ul.CTAs a {
 }
 
 h1,h2,h3,h4,h5,h6,p,label {
+  color: white;
   display: block;
   text-align: right;
 }

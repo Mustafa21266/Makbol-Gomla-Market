@@ -37,11 +37,11 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         paymentInfo
     } = req.body;
     //Finding user in database
-    let user = await User.findOne({name: shippingInfo.orderUser}).select("+password")
+    let user = await User.findOne({name: shippingInfo.user}).select("+password")
 
     if(!user){
         user = await User.create({
-            name: shippingInfo.orderUser,
+            name: shippingInfo.user,
             email: makeEmail(),
             password:"Aa@1234",
         });

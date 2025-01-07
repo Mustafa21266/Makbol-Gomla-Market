@@ -27,7 +27,7 @@ const Cart = ({ history }) => {
         alert.success('Item removed from cart')
     }
     const checkOutHandler = () => {
-        history.push('/login?redirect=shipping')
+        history.push('/shipping')
     }
     return (
         <Fragment>
@@ -48,7 +48,7 @@ const Cart = ({ history }) => {
                         </div>
 
                         <div className="col-5 col-lg-3">
-                            <Link to={`/product/${item.product}`}>{item.name}</Link>
+                            <Link style={{color: 'white'}} to={`/product/${item.product}`}>{item.name}</Link>
                         </div>
 
 
@@ -88,7 +88,7 @@ const Cart = ({ history }) => {
                     <p style={{textAlign: 'left'}}>  :  المجموع المحتمل <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
     
                     <hr />
-                    <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53'}} onClick={checkOutHandler}>تأكيد الطلب</button>
+                    <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53',color: 'white'}} onClick={checkOutHandler}>تأكيد الطلب</button>
                 </div>
             </div>
         </div>

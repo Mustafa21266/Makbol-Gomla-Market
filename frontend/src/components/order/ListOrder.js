@@ -12,6 +12,7 @@ const ListOrder = () => {
     const { loading , error, orders } = useSelector(state => state.myOrders)
     // const [data, setData]= useState(setOrders())
     useEffect(()=>{
+        
         dispatch(myOrders())
         if(error){
             alert.error(error)

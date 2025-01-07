@@ -113,10 +113,10 @@ const ProductDetails = ( { match } ) => {
 
                 <hr></hr>
 
-                <div className="rating-outer">
+                <div className="rating-outer" style={{margin: '2px'}} >
                     <div className="rating-inner" style={{ width: `${(product.ratings / 5) * 100}%`}}></div>
                 </div>
-                <span id="no_of_reviews">({product.numOfReviews} تقييمات)</span>
+                <span id="no_of_reviews">({product.numOfReviews}) تقييمات </span>
 
                 <hr></hr>
 
@@ -128,11 +128,11 @@ const ProductDetails = ( { match } ) => {
 
                     <span className="btn btn-primary plus" style={{padding: '10px 20px'}} onClick={increaseQty}>+</span>
                 </div>
-                 <button type="button" id="cart_btn" className="btn d-inline ml-4" disabled={product.stock === 0}  style={{backgroundColor:'#178a53'}}  onClick={addToCart}>إضافة إلى السلة</button>
+                 <button type="button" id="cart_btn" className="btn d-inline ml-4" disabled={product.stock === 0}  style={{backgroundColor:'#178a53', color: 'white'}}  onClick={addToCart}>إضافة إلى السلة</button>
 
                  <hr></hr>
 
-                <p>المخزون :<span id="stock_status" className={product.stock > 0 ? 'greenColor':'redColor'}>{product.stock > 0 ? 'متوفر':'غير متوفر'}</span></p>
+                <p>المخزون : <span id="stock_status" className={product.stock > 0 ? 'greenColor':'redColor'}>{product.stock > 0 ? 'متوفر':'غير متوفر'}</span></p>
 
                 <hr></hr>
 

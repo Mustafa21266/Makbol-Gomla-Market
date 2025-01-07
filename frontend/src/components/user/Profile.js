@@ -116,13 +116,13 @@ const Profile = () => {
      
             <div className="col-12 col-md-8">
                  <h4>الأسم الكامل</h4>
-                 <p>{user.name}</p>
+                 <span>{user.name}</span>
      
                  <h4>البريد الإلكتروني</h4>
-                 <p>{user.email}</p>
+                 <span>{user.email}</span>
 
                  <h4>رقم التليفون</h4>
-                 <p>{user.phoneNo}</p>
+                 <span>{user.phoneNo}</span>
 
                  <h4>تاريخ تسجيل الحساب</h4>
                  <p>{String(user.createdAt).substring(0, 10)}</p>

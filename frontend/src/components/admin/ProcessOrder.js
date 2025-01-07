@@ -64,10 +64,10 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
 
                         <h4 className="mb-4">عنوان التوصيل</h4>
-                        <p><b>: الإسم</b> {user && user.name}</p>
-                        <p><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</p>
-                        <p className="mb-4"><b>: العنوان</b>{shippingDetails}</p>
-                        <p><b>السعر</b> ${totalPrice}</p>
+                        <span><b>: الإسم</b> {user && user.name}</span>
+                        <span><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</span>
+                        <span className="mb-4"><b>: العنوان</b>{shippingDetails}</span>
+                        <span><b>السعر</b> ${totalPrice}</span>
 
                         <hr />
 

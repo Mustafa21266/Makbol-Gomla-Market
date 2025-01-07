@@ -110,7 +110,7 @@ const Header = () => {
                            <div className="ml-4 dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
-                           <i class="fa fa-bell" aria-hidden="true"></i>
+                           <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
                            <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => (
@@ -152,15 +152,15 @@ const Header = () => {
                 </Link>
                 <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 70,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
-                    <Fragment>
+                    <Fragment key={item._id}>
                       <Link to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
                           <img src={item.image} alt={item.product} style={{width: '55px', height: '52px'}}/>
                         </div>
                         <div className="col-9">
-                            <p className="text-left" style={{fontSize: '12px'}}>{item.name}</p>
-                          <p className="w-100" style={{marginLeft: '10px'}}><span className="text-left"> {item.price} </span><span className="float-right" style={{margin: '0px 3px 3px'}}> ( {item.quantity} ) قطعة </span> EGP </p>
+                            <p className="text-left" style={{fontSize: '12px', color:"black"}}>{item.name}</p>
+                          <p className="w-100" style={{marginLeft: '10px', color:"black"}}><span className="text-left"> {item.price} </span><span className="float-right" style={{margin: '0px 3px 3px'}}> ( {item.quantity} ) قطعة </span> EGP </p>
                         </div>
                     </div>
                     <hr />
@@ -169,8 +169,14 @@ const Header = () => {
                     
                   ))}
                   <div className="w-100">
-                  <p style={{textAlign: 'left'}}>: مجموع السلة<span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
-                  <Link to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53'}} >إذهب إلى سلة التسوق</Link>
+                  <span style={{textAlign: 'right', color:"black"}}>
+                  <h4 className="w-100 d-block mx-auto" style={{color: 'black',textAlign: 'center'}}>
+                   مجموع السلة
+                    </h4>
+                    <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span>
+                    
+                    </span>
+                  <Link to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
           </div> 

@@ -18,13 +18,13 @@ const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/authProt
 router.route("/register").post(registerUser)
 router.route("/login").post(loginUser)
 router.route("/logout").get(logoutUser)
-router.route("/me").get(isAuthenticatedUser, getUserProfile)
+router.route("/me").get(getUserProfile)
 router.route("/password/update").put(isAuthenticatedUser, updatePassword)
 router.route("/me/update").put(isAuthenticatedUser, updateProfile)
 
 
 
-router.route("/admin/users").get(isAuthenticatedUser, authorizeRoles("admin"), allUsers)
+router.route("/admin/users").get(allUsers)
 router.route("/admin/user/:id").get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails)
 router.route("/admin/user/:id").put(isAuthenticatedUser, authorizeRoles("admin"), updateUser)
 router.route("/admin/user/:id").delete(isAuthenticatedUser, authorizeRoles("admin"), deleteUser)

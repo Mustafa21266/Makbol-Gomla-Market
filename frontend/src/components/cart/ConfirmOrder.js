@@ -56,7 +56,7 @@ const ConfirmOrder = ({ history }) => {
                     status: result.paymentIntent.status
                 }
                 dispatch(createOrder(order))
-                sessionStorage.removeItem('cartItems')
+                localStorage.removeItem('cartItems')
                 history.push('/success')
             }
     }
@@ -79,12 +79,12 @@ const ConfirmOrder = ({ history }) => {
             <div className="col-12 col-lg-8 mt-5 order-confirm">
 
                 <h4 className="mb-3" style={{textAlign: 'center'}}>معلومات التوصيل</h4>
-                <p><b>Name:</b> {shippingInfo.orderUser}</p>
-                <p><b>Phone:</b> {shippingInfo.phoneNo}</p>
-                <p className="mb-4"><b>: العنوان</b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
+                <p><b>الإسم : </b> {shippingInfo.orderUser}</p>
+                <p><b>رقم التليفون : </b> {shippingInfo.phoneNo}</p>
+                <p className="mb-4"><b>العنوان : </b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
                 
                 <hr />
-                <h4 className="mt-4">: عدد محتويات السلة</h4>
+                <h4 className="mt-4">عدد محتويات السلة : </h4>
 
                 <hr />
                 {cartItems.map(item => (
@@ -96,21 +96,21 @@ const ConfirmOrder = ({ history }) => {
                         </div>
 
                         <div className="col-5 col-lg-6">
-                            <Link to={`/product/${item.product}`}>{item.name}</Link>
+                            <Link style={{color: 'white'}} to={`/product/${item.product}`}>{item.name}</Link>
                         </div>
 
 
                         <div className="col-12 col-lg-4 mt-4 mt-lg-0 text-right">
-                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center',color: 'white'}}>
                             {item.quantity}
                             </div>
-                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center',color: 'white'}}>
                              x 
                             </div>
-                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center',color: 'white'}}>
                             {item.price}
                             </div>
-                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center'}}>
+                            <div className='w-100 d-block mx-auto' style={{textAlign: 'center',color: 'white'}}>
                             = <b>{(item.quantity * item.price).toFixed(2)} EGP</b>
                             </div>
                         </div>
@@ -127,15 +127,25 @@ const ConfirmOrder = ({ history }) => {
 			
 			<div className="col-12 col-lg-3 my-4">
                     <div id="order_summary">
-                        <h4>ملخص الأوردر</h4>
+                        <h4 style={{textAlign: 'center'}}>ملخص الأوردر</h4>
                         <hr />
-                        <p>: السعر  <span className="order-summary-values">${itemsPrice}</span></p>
+                        <p>
+                            <span className="d-block mx-auto text-right">
+                          السعر : 
+                            </span>
+                            <h4 className="order-summary-values w-100 text-center">{itemsPrice}</h4>
+                        </p>
                         {/* <p>: عنوان التوصيل <span className="order-summary-values">${shippingPrice}</span></p>
                         <p>: ضريبة  <span className="order-summary-values">${taxPrice}</span></p> */}
 
                         <hr />
 
-                        <p> : المجموع <span className="order-summary-values">${totalPrice}</span></p>
+                        <p>
+                        <span className="d-block mx-auto text-right">
+                            المجموع : 
+                             </span>
+                             <h3 className="order-summary-values w-100 text-center">{totalPrice}</h3>
+                        </p>
 
                         <hr />
                         <button id="checkout_btn" className="btn btn-primary btn-block" onClick={proceedToPayment}>إستكمال</button>
