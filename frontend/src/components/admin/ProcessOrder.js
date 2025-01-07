@@ -21,10 +21,12 @@ const ProcessOrder = ({ history, match }) => {
     // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    });
+    const componentRef = useRef<HTMLDivElement>(null);
+    const handlePrint = useReactToPrint({ contentRef: ficheToPrintRef });
+    // const  = useRef();
+    // const handlePrint = useReactToPrint({
+    // content: () => componentRef.current,
+    // });
     // const contentRef = useRef();
     // const reactToPrintFn = useReactToPrint({ contentRef });
     useEffect(() => {
