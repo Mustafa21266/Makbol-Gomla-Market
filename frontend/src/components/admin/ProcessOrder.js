@@ -84,7 +84,7 @@ const ProcessOrder = ({ history, match }) => {
                         <h2  style={{color:'black'}}><b>السعر : </b> {totalPrice} EGP </h2>
 
                         <hr />
-                        <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2>
+                        {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <h4 className="my-4" style={{color:'black'}}>عدد القطع</h4>
                         <div className="cart-item my-1">
                         {orderItems && orderItems.map(item => (
@@ -97,16 +97,19 @@ const ProcessOrder = ({ history, match }) => {
                                 </div>
 
                                 <div className="col-5 col-lg-5">
-                                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                    <h2 style={{color:'black'}}>{item.name}</h2>
+                                    {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
                                 </div>
 
 
                                 <div className="col-3 col-lg-2 mt-4 mt-lg-0">
-                                    <p>${item.price}</p>
+                                <h2 style={{color:'black'}}>{item.price}</h2>
+                                    {/* <p>${item.price}</p> */}
                                 </div>
 
                                 <div className="col-12 col-lg-3 mt-4 mt-lg-0">
-                                    <p className="text-center"> {item.quantity} قطعة </p>
+                                <h2 style={{color:'black'}}>{item.quantity}</h2>
+                                    {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
                             </div>
                            
