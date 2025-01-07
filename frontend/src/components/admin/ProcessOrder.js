@@ -70,33 +70,21 @@ const ProcessOrder = ({ history, match }) => {
 
                         <Fragment>
 <div className="row d-flex justify-content-around">
-                    <div className="col-12 col-lg-7 order-details">
-                        <div style={{display: 'none'}} ref={componentRef}>
-                            <div className="row">
-                                <div className="col-12">
-                                    <h3 style={{color: 'black',textAlign: 'center'}}>فاتورة مبيعات نقدا</h3>
-                                    <hr />
-                                    <h4 className="mb-4">عنوان التوصيل</h4>
-                        <span><b>: الإسم</b> {user && user.name}</span>
-                        <span><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</span>
-                        <span className="mb-4"><b>: العنوان</b>{shippingDetails}</span>
-                        <span><b>السعر</b> ${totalPrice}</span>
-
-                        <hr />
-                                </div>
-                            </div>
-                        </div>
+                    <div className="col-12 col-lg-7 order-details"  ref={componentRef}>
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div>
                         <button onClick={handlePrint}>Print article</button>
   </div>
-                        <h4 className="mb-4">عنوان التوصيل</h4>
-                        <span><b>: الإسم</b> {user && user.name}</span>
-                        <span><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</span>
-                        <span className="mb-4"><b>: العنوان</b>{shippingDetails}</span>
-                        <span><b>السعر</b> ${totalPrice}</span>
+                        <div ref={componentRef} style={{background: 'white',width: '100%'}}>
+                        <h4 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h4>
+                        <h4 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h4>
+                        <span  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</span>
+                        <span  style={{color:'black'}}><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</span>
+                        <span className="mb-4"  style={{color:'black'}}><b>: العنوان</b>{shippingDetails}</span>
+                        <span  style={{color:'black'}}><b>السعر</b> ${totalPrice}</span>
 
                         <hr />
+                        </div>
 
                         <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
                         {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
