@@ -22,7 +22,7 @@ const ProcessOrder = ({ history, match }) => {
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
     // const contentRef = useRef<HTMLDivElement>(null);
-    const reactToPrintFn = useReactToPrint({ contentRef: '123' });
+    const reactToPrintFn = useReactToPrint({ documentTitle: './OrdersList.js' });
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
         if(error){
