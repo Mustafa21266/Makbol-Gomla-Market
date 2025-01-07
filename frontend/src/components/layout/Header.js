@@ -125,7 +125,7 @@ const Header = () => {
                                      }}/>
                                    </div>
                                    <div className="col-9">
-                                       <p key={item._id} style={{fontSize: '12px',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}> أوردر جديد بواسطة :  <b>{item.user.name}</b></p>
+                                       <p key={item._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}> أوردر جديد بواسطة :  <b>{item.user.name}</b></p>
                                      {/* <p className="w-100" style={{marginLeft: '10px'}}><span className="text-left">${item.price}</span><span className="float-right">({item.quantity}) piece(s)</span></p> */}
                                    </div>
                                </div>
