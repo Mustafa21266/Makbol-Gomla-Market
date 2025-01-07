@@ -21,7 +21,7 @@ const ProcessOrder = ({ history, match }) => {
     // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
-    const contentRef = useRef<Fragment>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
     const reactToPrintFn = useReactToPrint({ contentRef });
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
