@@ -72,16 +72,16 @@ const ProcessOrder = ({ history, match }) => {
 <div className="row d-flex justify-content-around">
                     <div className="col-12 col-lg-7 order-details"  ref={componentRef}>
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
-                        <div>
                         <button onClick={handlePrint}>Print article</button>
+                        <div style={{padding: '15px'}}>
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%'}}>
                         <h4 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h4>
                         <h4 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h4>
-                        <span  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</span>
-                        <span  style={{color:'black'}}><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</span>
-                        <span className="mb-4"  style={{color:'black'}}><b>: العنوان</b>{shippingDetails}</span>
-                        <span  style={{color:'black'}}><b>السعر</b> ${totalPrice}</span>
+                        <h5  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</h5>
+                        <h5  style={{color:'black'}}><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</h5>
+                        <h5 className="mb-4"  style={{color:'black'}}><b>: العنوان</b>{shippingDetails}</h5>
+                        <h5  style={{color:'black'}}><b>السعر</b> ${totalPrice}</h5>
 
                         <hr />
                         </div>
