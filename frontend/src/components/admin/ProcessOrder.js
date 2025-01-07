@@ -92,22 +92,22 @@ const ProcessOrder = ({ history, match }) => {
  <div key={item.product} className="cart-item my-1">
                             
                             <div className="row my-5">
-                                <div className="col-4 col-lg-2">
-                                <Link to={`/product/${item.product}`}><img src={item.image} alt={item.name} height="45" width="65" /></Link>
+                                <div className="col-3 col-lg-2">
+                                <img src={item.image} alt={item.name} height="45" width="65" />
                                 </div>
 
-                                <div className="col-5 col-lg-5">
+                                <div className="col-3 col-lg-3">
                                     <h2 style={{color:'black'}}>{item.name}</h2>
                                     {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
                                 </div>
 
 
-                                <div className="col-3 col-lg-2 mt-4 mt-lg-0">
+                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
                                 <h2 style={{color:'black'}}>{item.price}</h2>
                                     {/* <p>${item.price}</p> */}
                                 </div>
 
-                                <div className="col-12 col-lg-3 mt-4 mt-lg-0">
+                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
                                 <h2 style={{color:'black'}}>{item.quantity}</h2>
                                     {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
