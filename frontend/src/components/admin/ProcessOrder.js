@@ -77,28 +77,15 @@ const ProcessOrder = ({ history, match }) => {
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
                         <h1 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h1>
+                        <h2  style={{color:'black'}}><b>الإسم : </b> {user && user.name}  </h2>
                         <h1 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h1>
-                        <h2  style={{color:'black'}}>{user && user.name} <b>الإسم : </b> </h2>
-                        <h2  style={{color:'black'}}>{shippingInfo && shippingInfo.phoneNo} <b>رقم التليفون : </b> </h2>
-                        <h2 className="mb-4"  style={{color:'black'}}>{shippingDetails}<b>العنوان : </b></h2>
-                        <h2  style={{color:'black'}}>{totalPrice} EGP <b>السعر : </b> </h2>
+                        <h2  style={{color:'black'}}><b>رقم التليفون : </b> {shippingInfo && shippingInfo.phoneNo} </h2>
+                        <h2 className="mb-4"  style={{color:'black'}}><b>العنوان : </b> {shippingDetails}</h2>
+                        <h2  style={{color:'black'}}><b>السعر : </b> {totalPrice} EGP </h2>
 
                         <hr />
-                        </div>
-
-                        <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
-                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
-
-                        <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4>
-                        {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
-
-
-                        <h4 className="my-4"> : حالة الأوردر <span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h4>
-                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
-
-                        <h4 className="my-4">عدد القطع</h4>
-
-                        <hr />
+                        <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2>
+                         <h4 className="my-4" style={{color:'black'}}>عدد القطع</h4>
                         <div className="cart-item my-1">
                         {orderItems && orderItems.map(item => (
                             <Fragment>
@@ -129,6 +116,19 @@ const ProcessOrder = ({ history, match }) => {
                            
                         ))}
                         </div>
+                        </div>
+
+                        <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
+                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
+
+                        <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4>
+                        {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
+
+
+                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
+
+
+                        <hr />
                     </div>
 					
 					<div className="col-12 col-lg-3 mt-5">
