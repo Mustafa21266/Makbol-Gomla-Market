@@ -46,7 +46,7 @@ const ListOrder = () => {
             ],
             rows: []
         }
-        orders.forEach(order => {
+        orders && orders.forEach(order => {
             data.rows = data.rows.concat ({
                 id: order._id,
                 numOfItems: order.orderItems.length,
