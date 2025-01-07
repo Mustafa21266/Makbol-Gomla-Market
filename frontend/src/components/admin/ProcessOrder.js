@@ -75,7 +75,7 @@ const ProcessOrder = ({ history, match }) => {
                         <button onClick={handlePrint}>Print article</button>
                         <div style={{padding: '15px'}}>
   </div>
-                        <div ref={componentRef} style={{background: 'white',width: '100%'}}>
+                        <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
                         <h1 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h1>
                         <h1 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h1>
                         <h2  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</h2>
