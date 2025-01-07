@@ -76,12 +76,12 @@ const ProcessOrder = ({ history, match }) => {
                         <div style={{padding: '15px'}}>
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%'}}>
-                        <h4 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h4>
-                        <h4 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h4>
-                        <h5  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</h5>
-                        <h5  style={{color:'black'}}><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</h5>
-                        <h5 className="mb-4"  style={{color:'black'}}><b>: العنوان</b>{shippingDetails}</h5>
-                        <h5  style={{color:'black'}}><b>السعر</b> ${totalPrice}</h5>
+                        <h1 style={{color: 'black',textAlign: 'center'}}>مقبول جملة ماركت</h1>
+                        <h1 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h1>
+                        <h2  style={{color:'black'}}><b>: الإسم</b> {user && user.name}</h2>
+                        <h2  style={{color:'black'}}><b>: رقم التليفون</b> {shippingInfo && shippingInfo.phoneNo}</h2>
+                        <h2 className="mb-4"  style={{color:'black'}}><b>: العنوان</b>{shippingDetails}</h2>
+                        <h2  style={{color:'black'}}><b>السعر</b> ${totalPrice}</h2>
 
                         <hr />
                         </div>
