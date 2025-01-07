@@ -25,8 +25,8 @@ const ProcessOrder = ({ history, match }) => {
     const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     });
-    const contentRef = useRef();
-    const reactToPrintFn = useReactToPrint({ contentRef });
+    // const contentRef = useRef();
+    // const reactToPrintFn = useReactToPrint({ contentRef });
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
         if(error){
@@ -61,13 +61,13 @@ const ProcessOrder = ({ history, match }) => {
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
-            <div className="col-12 col-md-10" style={{padding: '45px'}} ref={componentRef}>
+            <div className="col-12 col-md-10" style={{padding: '45px'}}>
                 <Fragment>
                     {loading ? <Loader /> : (
 
                         <Fragment>
 <div className="row d-flex justify-content-around">
-                    <div className="col-12 col-lg-7 order-details">
+                    <div className="col-12 col-lg-7 order-details"  ref={componentRef}>
 
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div>
