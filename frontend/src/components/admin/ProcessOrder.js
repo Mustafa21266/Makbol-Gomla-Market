@@ -68,7 +68,7 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div>
     <button onClick={() => reactToPrintFn()}>Print</button>
-    <div ref={contentRef}>Content to print</div>
+    <div>Content to print</div>
   </div>
                         <h4 className="mb-4">عنوان التوصيل</h4>
                         <span><b>: الإسم</b> {user && user.name}</span>
