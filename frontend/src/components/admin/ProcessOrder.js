@@ -9,7 +9,7 @@ import Sidebar from './Sidebar'
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
 import { allUsers } from '../../actions/userActions'
 import { useReactToPrint } from "react-to-print";
-import { useRef } from "react";
+// import { useRef } from "react";
 
 const ProcessOrder = ({ history, match }) => {
     const dispatch = useDispatch();
@@ -21,8 +21,8 @@ const ProcessOrder = ({ history, match }) => {
     // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
-    const contentRef = useRef<HTMLDivElement>(null);
-    const reactToPrintFn = useReactToPrint({ contentRef });
+    // const contentRef = useRef<HTMLDivElement>(null);
+    const reactToPrintFn = useReactToPrint({ contentRef: '123' });
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
         if(error){
@@ -68,7 +68,8 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div>
     <button onClick={() => reactToPrintFn()}>Print</button>
-    <div ref={contentRef}>Content to print</div>
+    <div>Content to print</div>
+    {/* <div ref={contentRef}>Content to print</div> */}
   </div>
                         <h4 className="mb-4">عنوان التوصيل</h4>
                         <span><b>: الإسم</b> {user && user.name}</span>
