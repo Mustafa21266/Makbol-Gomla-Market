@@ -21,7 +21,11 @@ const ProcessOrder = ({ history, match }) => {
     // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
-    const contentRef = useRef("123124124");
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    });
+    const contentRef = useRef();
     const reactToPrintFn = useReactToPrint({ contentRef });
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
@@ -57,7 +61,7 @@ const ProcessOrder = ({ history, match }) => {
              <div className="col-12 col-md-2">
                  <Sidebar />
             </div>
-            <div className="col-12 col-md-10" style={{padding: '45px'}}>
+            <div className="col-12 col-md-10" style={{padding: '45px'}} ref={componentRef}>
                 <Fragment>
                     {loading ? <Loader /> : (
 
@@ -67,8 +71,7 @@ const ProcessOrder = ({ history, match }) => {
 
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div>
-    <button onClick={() => reactToPrintFn()}>Print</button>
-    <div ref={contentRef}>Content to print</div>
+                        <button onClick={handlePrint}>Print article</button>
   </div>
                         <h4 className="mb-4">عنوان التوصيل</h4>
                         <span><b>: الإسم</b> {user && user.name}</span>
