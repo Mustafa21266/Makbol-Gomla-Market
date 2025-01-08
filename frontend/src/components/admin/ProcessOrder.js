@@ -76,10 +76,10 @@ const ProcessOrder = ({ history, match }) => {
                         <div style={{padding: '15px'}}>
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
-                        <h1 style={{color: 'black',textAlign: 'center',fontSize: '84px'}}>مقبول جملة ماركت</h1>
-	<br>
+                        <h1 style={{color: 'black',textAlign: 'center',fontSize: '84px',marginBottom: '10px'}}>مقبول جملة ماركت</h1>
+	<br />
 	<hr />
-	<br>
+	<br />
 	<hr />
 	<div className='row'>
 <div className='col-8'>
