@@ -190,7 +190,7 @@ const ProcessOrder = ({ history, match }) => {
                         <hr />
 	<div className='row'>
 <div className='col-12'>
-	<img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "100px", height: "100px",display: 'block',margin: 'auto'}}/>
+	<img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "350px", height: "350px",display: 'block',margin: 'auto'}}/>
 	</div>
 	</div>
                     </div>
