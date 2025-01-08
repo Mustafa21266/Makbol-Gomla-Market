@@ -107,7 +107,7 @@ const Header = () => {
           </div> 
         ) : !loading &&  <Link to="/login" className="btn ml-4" style={{backgroundColor:'#178a53',color: 'white'}} id="login_btn">تسجيل الدخول</Link>}
         {user && user.role === 'admin' && (
-                           <div className="ml-4 dropdown dropleft d-inline"> 
+                           <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
@@ -143,7 +143,7 @@ const Header = () => {
                     
                   )}
                   
-       <div className="ml-4 dropdown dropleft d-inline"> 
+       <div className="dropdown dropleft d-inline"> 
                 <Link to="/cart" style={{ textDecoration: 'none',backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span className="ml-1" id="cart_count">{cartItems.length}</span>
                 <span id="cart" className="ml-2"><svg width="20" height="20" style={{marginBottom: 5}} fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
