@@ -77,12 +77,38 @@ const ProcessOrder = ({ history, match }) => {
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
                         <h1 style={{color: 'black',textAlign: 'center',fontSize: '84px'}}>مقبول جملة ماركت</h1>
+	<br>
 	<hr />
+	<br>
 	<hr />
-                        <h2  style={{color:'black',fontSize: '44px'}}><b>الإسم : </b> {user && user.name}  </h2>
+	<div className='row'>
+<div className='col-8'>
+	<h2  style={{color:'black',fontSize: '44px'}}>{user && user.name}  </h2>
+	</div>
+                         <div className='col-4'>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الإسم : </h4>
+</div>
+                         </div>
+<div className='row'>
+<div className='col-8'>
+	<h2  style={{color:'black',fontSize: '44px'}}>{shippingInfo && shippingInfo.phoneNo} </h2>
+	</div>
+                         <div className='col-4'>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>رقم التليفون : </h4>
+</div>
+                         </div>
+<div className='row'>
+<div className='col-8'>
+	<h2  style={{color:'black',fontSize: '44px'}}><b></b> {shippingDetails}</h2>
+	</div>
+                         <div className='col-4'>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>العنوان : </h4>
+</div>
+                         </div>
+                        
                          {/* <h1 className="mb-4" style={{color:'black',fontSize: '44px'}}>عنوان التوصيل</h1> */}
-                        <h2  style={{color:'black',fontSize: '44px'}}><b>رقم التليفون : </b> {shippingInfo && shippingInfo.phoneNo} </h2>
-                        <h2  style={{color:'black',fontSize: '44px'}}><b>العنوان : </b> {shippingDetails}</h2>
+                        
+                        
                         {/* <h2  className="mb-4" style={{color:'black',fontSize: '44px'}}><b>السعر : </b> {totalPrice}</h2> */}
 
                         <hr />
@@ -164,7 +190,7 @@ const ProcessOrder = ({ history, match }) => {
                         <hr />
 	<div className='row'>
 <div className='col-12'>
-	<img src="./images/main_logo.png" alt="E Commerce Logo" style={{width: "100px", height: "100px",display: 'block',margin: 'auto'}}/>
+	<img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "100px", height: "100px",display: 'block',margin: 'auto'}}/>
 	</div>
 	</div>
                     </div>
