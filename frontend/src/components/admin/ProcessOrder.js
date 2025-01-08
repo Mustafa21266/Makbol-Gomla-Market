@@ -200,28 +200,28 @@ const ProcessOrder = ({ history, match }) => {
                     <div className="col-12 col-lg-7 order-details">
 {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
 	<div className='row'>
-<div className='col-8'>
-	<h2>{user && user.name}  </h2>
-	</div>
                          <div className='col-4'>
                          <h4 className="my-4"> : الإسم</h4>
 </div>
+<div className='col-8'>
+	<h2>{user && user.name}  </h2>
+	</div>
                          </div>
 <div className='row'>
-<div className='col-8'>
-	<h2>{shippingInfo && shippingInfo.phoneNo} </h2>
-	</div>
                          <div className='col-4'>
                          <h4 className="my-4"> : رقم التليفون</h4>
 </div>
+<div className='col-8'>
+	<h2>{shippingInfo && shippingInfo.phoneNo} </h2>
+	</div>
                          </div>
 <div className='row'>
-<div className='col-8'>
-	<h2><b></b> {shippingDetails}</h2>
-	</div>
                          <div className='col-4'>
                          <h4 className="my-4"> : العنوان</h4>
 </div>
+<div className='col-8'>
+	<h2><b></b> {shippingDetails}</h2>
+	</div>
                          </div>
                         
                          {/* <h1 className="mb-4" style={{color:'black',fontSize: '44px'}}>عنوان التوصيل</h1> */}
@@ -232,18 +232,18 @@ const ProcessOrder = ({ history, match }) => {
                         <hr />
                         {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <div className='row'>
+                         <div className='col-3'>
+                         <h4 className="my-4" style={{}}>عدد القطع</h4>
+
+</div>
 <div className='col-3'>
-<h4 className="my-4">الإجمالي</h4>
+<h4 className="my-4">السعر</h4>
 </div>
 <div className='col-3'>
 <h4 className="my-4">الصنف</h4>
 </div>
 <div className='col-3'>
-<h4 className="my-4">السعر</h4>
-</div>
-                         <div className='col-3'>
-                         <h4 className="my-4" style={{}}>عدد القطع</h4>
-
+<h4 className="my-4">الإجمالي</h4>
 </div>
                          </div>
                          
@@ -253,25 +253,21 @@ const ProcessOrder = ({ history, match }) => {
  <div key={item.product} className="cart-item my-1">
                             
                             <div className="row my-5">
-                                <div className="col-3 col-lg-2">
-                                <h2  className="mb-4" style={{textAlign:'center'}}>{totalPrice}</h2>
-                                {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
+                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
+                                <h2 style={{textAlign:'center'}}>{item.quantity}</h2>
+                                    {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
-
-                                <div className="col-3 col-lg-3">
-                                    <h2 style={{textAlign:'center'}}>{item.name}</h2>
-                                    {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
-                                </div>
-
-
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
                                 <h2 style={{textAlign:'center'}}>{item.price}</h2>
                                     {/* <p>${item.price}</p> */}
                                 </div>
-
-                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{textAlign:'center'}}>{item.quantity}</h2>
-                                    {/* <p className="text-center"> {item.quantity} قطعة </p> */}
+                                <div className="col-3 col-lg-3">
+                                    <h2 style={{textAlign:'center'}}>{item.name}</h2>
+                                    {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
+                                </div>
+                                <div className="col-3 col-lg-2">
+                                <h2  className="mb-4" style={{textAlign:'center'}}>{totalPrice}</h2>
+                                {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
                             </div>
                            
@@ -291,16 +287,16 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
                         
 <div className='row'>
-<div className='col-4'>
-<h4 className="w-100" style={{textAlign: 'center'}}>{totalPrice}</h4>
-</div>
-<div className='col-4'>
-
-</div>
                          <div className='col-4'>
 	
                          <h2 className="mb-4"><b> : المجموع</b></h2>
 
+</div>
+<div className='col-4'>
+
+</div>
+<div className='col-4'>
+<h4 className="w-100" style={{textAlign: 'center'}}>{totalPrice}</h4>
 </div>
                          </div>
                         <hr />
