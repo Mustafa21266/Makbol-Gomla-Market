@@ -80,13 +80,15 @@ const ProcessOrder = ({ history, match }) => {
 	<br />
 	<hr />
 	<br />
+	<h1 style={{color: 'black',textAlign: 'center',fontSize: '74px',marginBottom: '10px'}}>فاتورة شراء</h1>
+	<br />
 	<hr />
 	<div className='row'>
 <div className='col-8'>
 	<h2  style={{color:'black',fontSize: '44px'}}>{user && user.name}  </h2>
 	</div>
                          <div className='col-4'>
-                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الإسم : </h4>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}> : الإسم</h4>
 </div>
                          </div>
 <div className='row'>
@@ -94,7 +96,7 @@ const ProcessOrder = ({ history, match }) => {
 	<h2  style={{color:'black',fontSize: '44px'}}>{shippingInfo && shippingInfo.phoneNo} </h2>
 	</div>
                          <div className='col-4'>
-                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>رقم التليفون : </h4>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}> : رقم التليفون</h4>
 </div>
                          </div>
 <div className='row'>
@@ -102,7 +104,7 @@ const ProcessOrder = ({ history, match }) => {
 	<h2  style={{color:'black',fontSize: '44px'}}><b></b> {shippingDetails}</h2>
 	</div>
                          <div className='col-4'>
-                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>العنوان : </h4>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}> : العنوان</h4>
 </div>
                          </div>
                         
