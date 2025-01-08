@@ -145,17 +145,22 @@ const ProcessOrder = ({ history, match }) => {
 
 
                         {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
-                        <div className='row'>
+                        
+<div className='row'>
 <div className='col-3'>
-                         <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>المجموع :</h4>
+<h4 className="w-100" style={{color:'black',textAlign: 'left',fontSize: '64px'}}>{totalPrice}</h4>
+</div>
+<div className='col-3'>
 
 </div>
-				<div className='col-9'> 
-				 <h4 className="w-100" style={{color:'black',textAlign: 'left',fontSize: '64px'}}>{totalPrice}</h4>
-				</div>
-                         </div>
-                   
+<div className='col-3'>
 
+</div>
+                         <div className='col-3'>
+                         <h4 className="my-4" style={{color:'black',fontSize: '64px'}}>المجموع : </h4>
+
+</div>
+                         </div>
                         <hr />
                     </div>
 					
