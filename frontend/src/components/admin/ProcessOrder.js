@@ -124,7 +124,7 @@ const ProcessOrder = ({ history, match }) => {
                                 </div>
 
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black',fontSize: '44px'}}>X       {item.quantity}</h2>
+                                <h2 style={{color:'black',fontSize: '44px'}}>{item.quantity}</h2>
                                     {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
                             </div>
