@@ -154,7 +154,8 @@ const ProcessOrder = ({ history, match }) => {
 
 </div>
                          <div className='col-4'>
-                         <h4 className="my-4" style={{color:'black',fontSize: '58px'}}>المجموع : </h4>
+	
+                         <h2 className="mb-4" style={{color:'black',fontSize: '58px'}}><b>المجموع : </b></h2>
 
 </div>
                          </div>
