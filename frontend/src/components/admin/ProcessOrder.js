@@ -85,7 +85,22 @@ const ProcessOrder = ({ history, match }) => {
 
                         <hr />
                         {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
+                         <div className='row'>
+                         <div className='col-3'>
                          <h4 className="my-4" style={{color:'black'}}>عدد القطع</h4>
+
+</div>
+<div className='col-3'>
+<h4 className="my-4" style={{color:'black'}}>السعر</h4>
+</div>
+<div className='col-3'>
+<h4 className="my-4" style={{color:'black'}}>الصنف</h4>
+</div>
+<div className='col-3'>
+<h4 className="my-4" style={{color:'black'}}>الإجمالي</h4>
+</div>
+                         </div>
+                         
                         <div className="cart-item my-1">
                         {orderItems && orderItems.map(item => (
                             <Fragment>
@@ -93,7 +108,7 @@ const ProcessOrder = ({ history, match }) => {
                             
                             <div className="row my-5">
                                 <div className="col-3 col-lg-2">
-                                <h2  className="mb-4" style={{color:'black'}}><b>السعر : </b> {totalPrice}</h2>
+                                <h2  className="mb-4" style={{color:'black'}}>{totalPrice}</h2>
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
 
@@ -104,12 +119,12 @@ const ProcessOrder = ({ history, match }) => {
 
 
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black'}}>X {item.price}</h2>
+                                <h2 style={{color:'black'}}>{item.price}</h2>
                                     {/* <p>${item.price}</p> */}
                                 </div>
 
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black'}}>X {item.quantity}</h2>
+                                <h2 style={{color:'black'}}>X       {item.quantity}</h2>
                                     {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
                             </div>
