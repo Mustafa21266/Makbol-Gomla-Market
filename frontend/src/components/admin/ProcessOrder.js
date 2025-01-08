@@ -80,7 +80,7 @@ const ProcessOrder = ({ history, match }) => {
 	<br />
 	<hr />
 	<br />
-	<h1 style={{color: 'black',textAlign: 'center',fontSize: '74px',marginBottom: '10px'}}>فاتورة شراء</h1>
+	<h1 style={{color: 'black',textAlign: 'center',fontSize: '74px'}}>فاتورة شراء</h1>
 	<br />
 	<hr />
 	<div className='row'>
