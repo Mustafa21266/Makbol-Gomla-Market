@@ -66,7 +66,7 @@ const OrdersList = ({ history }) => {
                 id: order._id,
                 numOfItems: order.orderItems.length,
                 amount: `${order.totalPrice}EGP`,
-                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green', textAlign: 'center'}}>تم التوصيل</p> : String(order.orderStatus).includes('Processing') ? <p style={{color: 'red', textAlign: 'center'}}>تحت التأكيد</p> : <p style={{color: 'red', textAlign: 'center'}}>جاري التوصيل</p> ,
+                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green', textAlign: 'center'}}>تم التوصيل</p> : String(order.orderStatus).includes('Processing') ? <p style={{color: 'red', textAlign: 'center'}}>تحت التأكيد</p> : <p style={{color: 'orange', textAlign: 'center'}}>جاري التوصيل</p> ,
                 actions: 
                 <Fragment>
                     <div className="row">
