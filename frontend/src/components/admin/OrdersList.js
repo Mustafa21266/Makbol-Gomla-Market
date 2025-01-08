@@ -66,7 +66,7 @@ const OrdersList = ({ history }) => {
                 id: order._id,
                 numOfItems: order.orderItems.length,
                 amount: `${order.totalPrice}EGP`,
-                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>{order.orderStatus}</p> : <p style={{color: 'red'}}>{order.orderStatus}</p> ,
+                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green', textAlign: 'center'}}>{order.orderStatus}</p> : <p style={{color: 'red', textAlign: 'center'}}>{order.orderStatus}</p> ,
                 actions: 
                 <Fragment>
                     <div className="row">
