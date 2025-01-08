@@ -724,3 +724,11 @@ th {
 .sorting {
   color: lemonchiffon;
 }
+
+.printContent {
+  display: none;
+
+  @media print {
+    display: block;
+  }
+}
