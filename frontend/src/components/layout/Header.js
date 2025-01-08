@@ -112,19 +112,19 @@ const Header = () => {
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
-                           <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '25px 15px',width: '250px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                           <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '25px 15px',width: '290px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => (
                                <Fragment>
                                  <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> 
                                    readNotificationHandler(item._id) } className="dropdown-item">
                                  <div key={item.order._id} className="row">
-                                   <div className="col-3 d-flex justify-content-center">
+                                   <div className="col-sm-12 col-md-3 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '25px'
                                        ,
                                        border: "1px solid black", height: '25px', borderRadius: "50%"
                                      }}/>
                                    </div>
-                                   <div className="col-9">
+                                   <div className="col-sm-12 col-md-9">
                                        <p key={item._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}> أوردر جديد بواسطة :  <b>{item.user.name}</b></p>
                                      {/* <p className="w-100" style={{marginLeft: '10px'}}><span className="text-left">${item.price}</span><span className="float-right">({item.quantity}) piece(s)</span></p> */}
                                    </div>
