@@ -19,7 +19,7 @@ const ConfirmOrder = ({ history }) => {
 
     //Calculate order prices
     const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-    const shippingPrice = itemsPrice > 200 ? 0 : 25
+    const shippingPrice = itemsPrice > 200 ? 0 : 0
     const taxPrice = 0.0
     const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
     async function doP(params) {
