@@ -70,7 +70,7 @@ const ProcessOrder = ({ history, match }) => {
 
                         <Fragment>
 <div className="row d-flex justify-content-around">
-                        <button className="btn btn-block py-3" onClick={handlePrint}>طباعة الفاتورة</button>
+                        <button className="btn ml-4" style={{backgroundColor:'#178a53',color: 'white'}} id="login_btn" onClick={handlePrint}>طباعة الفاتورة</button>
                     <div className="col-12 col-lg-7 order-details"  ref={componentRef}>
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div style={{padding: '15px'}}>
@@ -137,10 +137,10 @@ const ProcessOrder = ({ history, match }) => {
                         </div>
                         </div>
 
-                        <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4>
+                        {/* <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4> */}
                         {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
 
-                        <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4>
+                        {/* <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4> */}
                         {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
 
 
