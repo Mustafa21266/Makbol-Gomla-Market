@@ -78,7 +78,7 @@ const ProcessOrder = ({ history, match }) => {
                         <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
                         <h1 style={{color: 'black',textAlign: 'center',fontSize: '54px'}}>مقبول جملة ماركت</h1>
                         <h2  style={{color:'black',fontSize: '44px'}}><b>الإسم : </b> {user && user.name}  </h2>
-                        <h1 className="mb-4" style={{color:'black',fontSize: '44px'}}>عنوان التوصيل</h1>
+                         {/* <h1 className="mb-4" style={{color:'black',fontSize: '44px'}}>عنوان التوصيل</h1> */}
                         <h2  style={{color:'black',fontSize: '44px'}}><b>رقم التليفون : </b> {shippingInfo && shippingInfo.phoneNo} </h2>
                         <h2 className="mb-4"  style={{color:'black',fontSize: '44px'}}><b>العنوان : </b> {shippingDetails}</h2>
                         <h2  className="mb-4" style={{color:'black',fontSize: '44px'}}><b>السعر : </b> {totalPrice}</h2>
@@ -147,9 +147,12 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
                         <div className='row'>
 <div className='col-3'>
-                         <h4 className="my-4" style={{color:'black',textAlign: 'center',fontSize: '54px'}}>المجموع : {totalPrice}</h4>
+                         <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>المجموع :</h4>
 
 </div>
+				<div className='col-9'> 
+				 <h4 className="w-100" style={{color:'black',textAlign: 'left',fontSize: '64px'}}>{totalPrice}</h4>
+				</div>
                          </div>
                    
 
