@@ -70,7 +70,7 @@ const ProcessOrder = ({ history, match }) => {
 
                         <Fragment>
 <div className="row d-flex justify-content-around">
-                        <button className="btn btn-block py-3" onClick={handlePrint}>Print article</button>
+                        <button className="btn btn-block py-3" onClick={handlePrint}>طباعة الفاتورة</button>
                     <div className="col-12 col-lg-7 order-details"  ref={componentRef}>
                         {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
                         <div style={{padding: '15px'}}>
