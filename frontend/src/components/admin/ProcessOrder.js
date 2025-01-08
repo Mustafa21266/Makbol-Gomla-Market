@@ -81,7 +81,7 @@ const ProcessOrder = ({ history, match }) => {
                         <h1 className="mb-4" style={{color:'black'}}>عنوان التوصيل</h1>
                         <h2  style={{color:'black'}}><b>رقم التليفون : </b> {shippingInfo && shippingInfo.phoneNo} </h2>
                         <h2 className="mb-4"  style={{color:'black'}}><b>العنوان : </b> {shippingDetails}</h2>
-                        <h2  style={{color:'black'}}><b>السعر : </b> {totalPrice} EGP </h2>
+                        <h2  className="mb-4" style={{color:'black'}}><b>السعر : </b> {totalPrice}</h2>
 
                         <hr />
                         {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
@@ -93,7 +93,8 @@ const ProcessOrder = ({ history, match }) => {
                             
                             <div className="row my-5">
                                 <div className="col-3 col-lg-2">
-                                <img src={item.image} alt={item.name} height="45" width="65" />
+                                <h2  className="mb-4" style={{color:'black'}}><b>السعر : </b> {totalPrice}</h2>
+                                {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
 
                                 <div className="col-3 col-lg-3">
@@ -103,12 +104,12 @@ const ProcessOrder = ({ history, match }) => {
 
 
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black'}}>{item.price}</h2>
+                                <h2 style={{color:'black'}}>X {item.price}</h2>
                                     {/* <p>${item.price}</p> */}
                                 </div>
 
                                 <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black'}}>{item.quantity}</h2>
+                                <h2 style={{color:'black'}}>X {item.quantity}</h2>
                                     {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
                             </div>
