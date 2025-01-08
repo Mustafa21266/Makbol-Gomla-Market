@@ -86,18 +86,18 @@ const ProcessOrder = ({ history, match }) => {
                         <hr />
                         {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <div className='row'>
-                         <div className='col-3'>
-                         <h4 className="my-4" style={{color:'black'}}>عدد القطع</h4>
-
-</div>
 <div className='col-3'>
-<h4 className="my-4" style={{color:'black'}}>السعر</h4>
+<h4 className="my-4" style={{color:'black'}}>الإجمالي</h4>
 </div>
 <div className='col-3'>
 <h4 className="my-4" style={{color:'black'}}>الصنف</h4>
 </div>
 <div className='col-3'>
-<h4 className="my-4" style={{color:'black'}}>الإجمالي</h4>
+<h4 className="my-4" style={{color:'black'}}>السعر</h4>
+</div>
+                         <div className='col-3'>
+                         <h4 className="my-4" style={{color:'black'}}>عدد القطع</h4>
+
 </div>
                          </div>
                          
@@ -145,7 +145,13 @@ const ProcessOrder = ({ history, match }) => {
 
 
                         {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
+                        <div className='row'>
+<div className='col-3'>
+                         <h4 className="my-4" style={{color:'black',textAlign: 'center'}}>المجموع : {totalPrice}</h4>
 
+</div>
+                         </div>
+                   
 
                         <hr />
                     </div>
