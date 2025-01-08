@@ -76,11 +76,13 @@ const ProcessOrder = ({ history, match }) => {
                         <div style={{padding: '15px'}}>
   </div>
                         <div ref={componentRef} style={{background: 'white',width: '100%',padding: '25px'}}>
-                        <h1 style={{color: 'black',textAlign: 'center',fontSize: '74px'}}>مقبول جملة ماركت</h1>
+                        <h1 style={{color: 'black',textAlign: 'center',fontSize: '84px'}}>مقبول جملة ماركت</h1>
+	<hr />
+	<hr />
                         <h2  style={{color:'black',fontSize: '44px'}}><b>الإسم : </b> {user && user.name}  </h2>
                          {/* <h1 className="mb-4" style={{color:'black',fontSize: '44px'}}>عنوان التوصيل</h1> */}
                         <h2  style={{color:'black',fontSize: '44px'}}><b>رقم التليفون : </b> {shippingInfo && shippingInfo.phoneNo} </h2>
-                        <h2 className="mb-4"  style={{color:'black',fontSize: '44px'}}><b>العنوان : </b> {shippingDetails}</h2>
+                        <h2  style={{color:'black',fontSize: '44px'}}><b>العنوان : </b> {shippingDetails}</h2>
                         {/* <h2  className="mb-4" style={{color:'black',fontSize: '44px'}}><b>السعر : </b> {totalPrice}</h2> */}
 
                         <hr />
@@ -160,6 +162,11 @@ const ProcessOrder = ({ history, match }) => {
 </div>
                          </div>
                         <hr />
+	<div className='row'>
+<div className='col-12'>
+	<img src="./images/main_logo.png" alt="E Commerce Logo" style={{width: "100px", height: "100px",display: 'block',margin: 'auto'}}/>
+	</div>
+	</div>
                     </div>
 					
 					<div className="col-12 col-lg-3 mt-5">
