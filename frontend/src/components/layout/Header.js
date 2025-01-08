@@ -90,7 +90,7 @@ const Header = () => {
                   </figure>
                   <span >{user && user.name}</span>
                 </Link>
-                <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -130,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
+                <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
                   {user && user.role === 'admin' && (
                     <div>
                     <Link to="/dashboard" className="dropdown-item text-center">لوحة التحكم</Link>
@@ -150,7 +150,7 @@ const Header = () => {
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
 </svg></span>
                 </Link>
-                <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 70,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
+                <div className="dropdown-menu dropdown-menu-right animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
                     <Fragment key={item._id}>
                       <Link to={`/product/${item.product}`} className="dropdown-item">
