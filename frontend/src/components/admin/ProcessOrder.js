@@ -201,7 +201,7 @@ const ProcessOrder = ({ history, match }) => {
 {/* <h2 className="my-5">رقم الأوردر {order._id}</h2> */}
 	<div className='row'>
                          <div className='col-4'>
-                         <h4 className="my-4"> : الإسم</h4>
+                         <h4 className="my-4">الإسم : </h4>
 </div>
 <div className='col-8'>
 	<h2>{user && user.name}  </h2>
@@ -209,7 +209,7 @@ const ProcessOrder = ({ history, match }) => {
                          </div>
 <div className='row'>
                          <div className='col-4'>
-                         <h4 className="my-4"> : رقم التليفون</h4>
+                         <h4 className="my-4">رقم التليفون : </h4>
 </div>
 <div className='col-8'>
 	<h2>{shippingInfo && shippingInfo.phoneNo} </h2>
@@ -217,7 +217,7 @@ const ProcessOrder = ({ history, match }) => {
                          </div>
 <div className='row'>
                          <div className='col-4'>
-                         <h4 className="my-4"> : العنوان</h4>
+                         <h4 className="my-4">العنوان : </h4>
 </div>
 <div className='col-8'>
 	<h2><b></b> {shippingDetails}</h2>
@@ -233,7 +233,7 @@ const ProcessOrder = ({ history, match }) => {
                         {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <div className='row'>
                          <div className='col-3'>
-                         <h4 className="my-4" style={{}}>عدد القطع</h4>
+                         <h4 className="my-4">عدد القطع</h4>
 
 </div>
 <div className='col-3'>
@@ -289,7 +289,7 @@ const ProcessOrder = ({ history, match }) => {
 <div className='row'>
                          <div className='col-4'>
 	
-                         <h2 className="mb-4"><b> : المجموع</b></h2>
+                         <h2 className="mb-4"><b>المجموع : </b></h2>
 
 </div>
 <div className='col-4'>
