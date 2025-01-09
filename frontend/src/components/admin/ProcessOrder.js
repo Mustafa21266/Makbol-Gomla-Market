@@ -190,6 +190,8 @@ const ProcessOrder = ({ history, match }) => {
 </div>
                          </div>
 	<hr />
+	<br />
+	<br />
 	<div className='row'>
 <div className='col-4'>
 <h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01224703104</h4>
@@ -201,6 +203,8 @@ const ProcessOrder = ({ history, match }) => {
 <h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}> : للتواصل</h4>
 	</div>
                          </div>
+	<br />
+	<br />
                         <hr />
 	<div className='row'>
 <div className='col-12'>
