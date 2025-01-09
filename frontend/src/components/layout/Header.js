@@ -17,7 +17,7 @@ const Header = () => {
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   useEffect(() => {
-     // dispatch(getNotifications())
+     dispatch(getNotifications())
 
     // if(notifications.length > 0){
     //             // dispatch(getProductDetails(productId))
@@ -64,9 +64,6 @@ const Header = () => {
       }
     }
   }
-  setInterval(function () {
-    dispatch(getNotifications())
-  }, 9000);
     return (
         <Fragment>
             <nav className="navbar row">
