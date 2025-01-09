@@ -42,6 +42,8 @@ import UpdateUser from './components/admin/UpdateUser';
 import ProductReviews from './components/admin/ProductReviews';
 import Search from './components/layout/Search';
 
+import { getNotifications } from './actions/notificationActions';
+
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
