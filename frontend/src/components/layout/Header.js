@@ -52,7 +52,7 @@ const Header = () => {
   }
   const readNotificationHandler = (id) => {
     dispatch(updateNotification(id));
-    dispatch(getNotifications())
+    // dispatch(getNotifications())
     // console.log(e)
     // alert.success('تم تسجيل الخروج بنجاح')
   }
