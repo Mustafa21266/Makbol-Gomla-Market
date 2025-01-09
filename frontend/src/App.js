@@ -56,7 +56,7 @@ function App() {
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
-  }, [store.dispatch])
+  }, [])
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   setInterval(async function () {
     await store.dispatch(getNotifications())
