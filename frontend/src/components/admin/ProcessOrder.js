@@ -142,7 +142,7 @@ const ProcessOrder = ({ history, match }) => {
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
 
-                                <div className="col-3 col-lg-3">
+                                <div className="col-4 col-lg-3">
                                     <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.name}</h2>
                                     {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
                                 </div>
@@ -153,7 +153,7 @@ const ProcessOrder = ({ history, match }) => {
                                     {/* <p>${item.price}</p> */}
                                 </div>
 
-                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
+                                <div className="col-2 col-lg-3 mt-4 mt-lg-0">
                                 <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.quantity}</h2>
                                     {/* <p className="text-center"> {item.quantity} قطعة </p> */}
                                 </div>
