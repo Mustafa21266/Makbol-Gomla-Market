@@ -85,6 +85,16 @@ const ProcessOrder = ({ history, match }) => {
 	<hr />
 	<div className='row'>
 <div className='col-8'>
+	<h2  style={{color:'black',fontSize: '44px'}}>{Datetime.now()} </h2>
+	</div>
+                         <div className='col-4'>
+                         <h4 className="my-4" style={{color:'black',fontSize: '44px'}}> :  التاريخ</h4>
+</div>
+                         </div>
+	<br />
+	<hr />
+	<div className='row'>
+<div className='col-8'>
 	<h2  style={{color:'black',fontSize: '44px'}}>{user && user.name}  </h2>
 	</div>
                          <div className='col-4'>
