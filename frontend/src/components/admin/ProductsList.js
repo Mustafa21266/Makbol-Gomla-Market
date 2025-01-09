@@ -9,7 +9,7 @@ import { getAdminProducts, deleteProduct, clearErrors} from '../../actions/produ
 import { MDBDataTable } from 'mdbreact'
 import Sidebar from './Sidebar'
 import { DELETE_PRODUCT_RESET } from '../../constants/productConstants'
-const ProductsList = ({ history }) => {
+const ProductsList = ({ history, match }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { loading , error, products } = useSelector(state => state.products)
