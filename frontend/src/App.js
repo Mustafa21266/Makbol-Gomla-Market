@@ -48,6 +48,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
     await store.dispatch(loadUser())
+    await store.dispatch(getNotifications())
     store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
