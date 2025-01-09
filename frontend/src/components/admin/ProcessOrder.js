@@ -55,7 +55,7 @@ const ProcessOrder = ({ history, match }) => {
         // formData.set('_id',orderUser)
         dispatch(updateOrder(id,formData));
     }
-    const shippingDetails = shippingInfo &&  `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`
+    const shippingDetails = shippingInfo &&  `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.country}`
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>
@@ -187,6 +187,15 @@ const ProcessOrder = ({ history, match }) => {
 	
                          <h2 className="mb-4" style={{color:'black',fontSize: '58px'}}><b> : المجموع</b></h2>
 
+</div>
+                         </div>
+	<hr />
+	<div className='row'>
+<div className='col-6'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01224703104</h4>
+</div>
+<div className='col-6'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01127807379</h4>
 </div>
                          </div>
                         <hr />
