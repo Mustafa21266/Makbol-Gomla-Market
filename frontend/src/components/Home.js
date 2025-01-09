@@ -289,8 +289,8 @@ const Home = ( { match } ) => {
           prevPageText={'رجوع'}
           firstPageText={'الأولى'}
           lastPageText={'الأخير'}
-          itemclassName="page-item"
-          linkclassName="page-link"
+          itemClassName="page-item"
+          linkClassName="page-link"
         />
 </div>
 )}
