@@ -62,7 +62,7 @@ const ProductsList = ({ history }) => {
             ],
             rows: []
         }
-        products.forEach(product => {
+        products.sort((a, b) => a.category.localeCompare(b.category)).forEach(product => {
             data.rows = data.rows.concat ({
                 id: product._id,
                 name: product.name,
