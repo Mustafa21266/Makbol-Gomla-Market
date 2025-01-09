@@ -87,6 +87,9 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
 //Get logged in user orders      =>      /api/v1/orders/me
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
     const orders = await Order.find({ user: req.user.id });
+    if(!orders){
+        return next(new ErrorHandler(`لم يتم العثور علي اوردرات بالكود ${req.params.id}`,404))
+    }
     res.status(200).json({
         success: true,
         orders
