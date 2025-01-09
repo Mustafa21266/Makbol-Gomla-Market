@@ -48,7 +48,7 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
     await store.dispatch(loadUser())
-    await store.dispatch(getNotifications())
+    
     store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
@@ -58,6 +58,9 @@ function App() {
     getStripeApiKey()
   }, [])
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
+  setInterval(async function () {
+    await store.dispatch(getNotifications())
+  }, 9000);
   return (
     <Router>
         <div className="App">
