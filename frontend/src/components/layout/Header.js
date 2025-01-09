@@ -17,7 +17,7 @@ const Header = () => {
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   useEffect(() => {
-    dispatch(getNotifications())
+     // dispatch(getNotifications())
 
     // if(notifications.length > 0){
     //             // dispatch(getProductDetails(productId))
