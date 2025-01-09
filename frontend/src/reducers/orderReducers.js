@@ -80,8 +80,7 @@ export const myOrdersReducer = (state = initialState, action) => {
         case MY_ORDERS_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
-                orders: action.payload.orders,
-                totalAmount: action.payload.totalAmount
+                orders: action.payload
             });
         case MY_ORDERS_FAIL:
             return Object.assign({}, state, {
