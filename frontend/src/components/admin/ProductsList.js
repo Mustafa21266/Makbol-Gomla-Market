@@ -9,7 +9,7 @@ import { getAdminProducts, deleteProduct, clearErrors} from '../../actions/produ
 import { MDBDataTable } from 'mdbreact'
 import Sidebar from './Sidebar'
 import { DELETE_PRODUCT_RESET } from '../../constants/productConstants'
-const ProductsList = ({ history, match }) => {
+const ProductsList = ({ history }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { loading , error, products } = useSelector(state => state.products)
@@ -115,6 +115,7 @@ const ProductsList = ({ history, match }) => {
                         striped
                         bordered
                         small
+                        disableRetreatAfterSorting={true}
                         noBottomColumns={true}
                         className="text-center mx-auto animate__animated animate__fadeIn  animate__delay-1s"
                         hover
