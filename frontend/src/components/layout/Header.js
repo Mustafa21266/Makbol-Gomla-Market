@@ -64,6 +64,9 @@ const Header = () => {
       }
     }
   }
+  setInterval(function () {
+    dispatch(getNotifications())
+  }, 9000);
     return (
         <Fragment>
             <nav className="navbar row">
