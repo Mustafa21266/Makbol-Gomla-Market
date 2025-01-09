@@ -138,7 +138,7 @@ const ProcessOrder = ({ history, match }) => {
                             
                             <div className="row my-5">
                                 <div className="col-3 col-lg-2">
-                                <h2  className="mb-4" style={{color:'black',fontSize: '44px', textAlign:'center'}}>{totalPrice}</h2>
+                                <h2  className="mb-4" style={{color:'black',fontSize: '44px', textAlign:'center'}}>{parseInt(item.price) * parseInt(item.quantity)}</h2>
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
 
