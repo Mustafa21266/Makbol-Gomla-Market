@@ -21,7 +21,7 @@ const notificationSchema = new mongoose.Schema({
         ref: 'Order',
         required: false
     },
-    review: {
+    product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: false
