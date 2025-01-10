@@ -149,12 +149,12 @@ const Header = () => {
                                   if (item.orderStatus === "Deleted") {
                                     return (<Fragment>
                                       <Link to={`#`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
-                                          <div key={item.order._id} className="row">
+                                          <div key={item._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
                               </div>
              <div className="col-sm-12 col-md-10">
-                      <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                      <p key={item._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
                                       تم إلغاء أوردر :  <b>{item.user.name}</b>
                                 </p>
                              </div>
@@ -254,12 +254,12 @@ const Header = () => {
                                   if (item.orderStatus === "Deleted") {
                                     return (<Fragment>
                                       <Link to={`#`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
-                                          <div key={item.order._id} className="row">
+                                          <div key={item._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
                               </div>
              <div className="col-sm-12 col-md-10">
-                      <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                      <p key={item._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
                                       تم إلغاء أوردر :  <b>{item.user.name}</b>
                                 </p>
                              </div>
