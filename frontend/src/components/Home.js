@@ -273,6 +273,22 @@ const Home = ( { match } ) => {
               </div>
         </div>
         <div className="col-12 col-md-8 animate__animated animate__fadeIn">
+        {resultsPerPage <= count && (
+  <div className="d-flex justify-content-center mt-5">
+<Pagination
+          activePage={currentPage}
+          itemsCountPerPage={resultsPerPage}
+          totalItemsCount={count}
+          onChange={setCurrentPageNo}
+          nextPageText={'التالي'}
+          prevPageText={'رجوع'}
+          firstPageText={'الأولى'}
+          lastPageText={'الأخير'}
+          itemClass="page-item"
+          linkClass="page-link"
+        />
+</div>
+)}
         <div className="row">
         {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
