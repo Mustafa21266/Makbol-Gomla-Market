@@ -141,7 +141,7 @@ const Header = () => {
                                 </Fragment>)
                                 }
                                 else {
-                                  if(item.orderStatus === "Processing"){
+                                  if (item.orderStatus === "Deleted") {
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
@@ -150,12 +150,13 @@ const Header = () => {
                               </div>
              <div className="col-sm-12 col-md-10">
                       <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
-                                      أوردر جديد بواسطة :  <b>{item.user.name}</b>
+                                      تم إلغاء أوردر :  <b>{item.user.name}</b>
                                 </p>
                              </div>
                          </div>
                              </Link>
-                              </Fragment>)}
+                              </Fragment>)
+                                  }
                                   else if(item.orderStatus === "Shipped"){
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
@@ -171,7 +172,8 @@ const Header = () => {
                          </div>
                              </Link>
                               </Fragment>)
-                                  }else if (item.orderStatus === "Delivered") {
+                                  }
+                                  else if (item.orderStatus === "Delivered") {
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
@@ -187,7 +189,7 @@ const Header = () => {
                              </Link>
                               </Fragment>)
                                   }
-                                  else if (item.orderStatus === "Deleted") {
+                                  else if(item.orderStatus === "Processing"){
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
@@ -196,13 +198,14 @@ const Header = () => {
                               </div>
              <div className="col-sm-12 col-md-10">
                       <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
-                                      تم إلغاء أوردر :  <b>{item.user.name}</b>
+                                      أوردر جديد بواسطة :  <b>{item.user.name}</b>
                                 </p>
                              </div>
                          </div>
                              </Link>
-                              </Fragment>)
-                                  }  
+                              </Fragment>)}
+                                  
+                                    
                                   
                                   
 }})}
