@@ -20,7 +20,7 @@ const Header = () => {
   let notificationCount = 0;
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
-  function playAudio() {
+  const playAudio = () => {
     audioPlayer.current.play();
   }
   useEffect(() => {
