@@ -219,7 +219,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
     await product.save({ validateBeforeSave: false });
     const notification = await Notification.create({
         user: req.user._id,
-        review: review._id,
+        product: product._id,
         isRead: false
     })
     res.status(200).json({
