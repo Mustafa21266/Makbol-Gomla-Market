@@ -24,7 +24,13 @@ const ProcessOrder = ({ history, match }) => {
     // const componentRef = useRef<HTMLDivElement>(null);
     const componentRef =  React.createRef()
     const handlePrint = useReactToPrint({ contentRef: componentRef });
-	const now = new Date();
+	// const now = new Date();
+	let date = new Date('2016-12-04');
+var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+  "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+];
+var days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
     // const  = useRef();
     // const handlePrint = useReactToPrint({
     // content: () => componentRef.current,
@@ -86,7 +92,7 @@ const ProcessOrder = ({ history, match }) => {
 	<hr />
 	<div className='row'>
 <div className='col-8'>
-	<h2  style={{color:'black',fontSize: '44px'}}>{now.toLocaleTimeString()} </h2>
+	<h2  style={{color:'black',fontSize: '44px'}}>{delDateString} </h2>
 	</div>
                          <div className='col-4'>
                          <h4 className="my-4" style={{color:'black',fontSize: '44px'}}> :  التاريخ</h4>
