@@ -76,7 +76,7 @@ function App() {
               <Route path="/cart" component={Cart} exact/>
               <ProtectedRoute path="/shipping" component={Shipping} exact/>
               <ProtectedRoute path="/orders/me" component={ListOrder} exact/>
-              <ProtectedRoute path="/myorders/:id" component={OrderDetails} exact/>
+              <ProtectedRoute path="/order/:id" component={OrderDetails} exact/>
               <ProtectedRoute path="/order/confirm" component={ConfirmOrder} exact/>
               <ProtectedRoute path="/success" component={OrderSuccess} exact/>
               {stripeApiKey && 
