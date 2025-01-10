@@ -134,7 +134,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     // order.user = req.body._id;
     await order.save();
     const notification = await Notification.create({
-        user: user._id,
+        user: order.user._id,
         order: order._id,
         orderStatus: req.body.status,
         isRead: false
@@ -157,7 +157,7 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(`لم يتم العثور علي أوردر بذلك الكود :  ${req.params.id}`,404))
     }
     const notification = await Notification.create({
-        user: user._id,
+        user: order.user._id,
         order: order._id,
         orderStatus: "Deleted",
         isRead: false
