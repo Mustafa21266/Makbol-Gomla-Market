@@ -114,23 +114,7 @@ const Header = () => {
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
-                                if(item.product){
-                                    return (<Fragment>
-                                        <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
-                                            <div key={item.order._id} className="row">
-                                             <div className="col-sm-12 col-md-2 d-flex justify-content-center">
-                                                    <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
-                                </div>
-               <div className="col-sm-12 col-md-10">
-                        <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
-                                        أوردر جديد بواسطة :  <b>{item.user.name}</b>
-                                  </p>
-                               </div>
-                           </div>
-                               </Link>
-                                </Fragment>)
-                                }
-                                else {
+                                if(item.product && item.product._id){
                                     return (<Fragment>
                                         <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                             <div key={item.product._id} className="row">
@@ -145,8 +129,22 @@ const Header = () => {
                            </div>
                                </Link>
                                 </Fragment>)
-                                    
                                 }
+                                else {
+                                    return (<Fragment>
+                                        <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                            <div key={item.order._id} className="row">
+                                             <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                                    <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+                                </div>
+               <div className="col-sm-12 col-md-10">
+                        <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                        أوردر جديد بواسطة :  <b>{item.user.name}</b>
+                                  </p>
+                               </div>
+                           </div>
+                               </Link>
+                                </Fragment>)}
                                 
                             })}
                                </div>
