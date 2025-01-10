@@ -133,6 +133,12 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     order.deliveredAt = Date.now();
     // order.user = req.body._id;
     await order.save();
+    const notification = await Notification.create({
+        user: user._id,
+        order: order._id,
+        orderStatus: req.body.status,
+        isRead: false
+    })
     res.status(200).json({
         success: true
     })
@@ -150,6 +156,12 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
     if(!order){
         return next(new ErrorHandler(`لم يتم العثور علي أوردر بذلك الكود :  ${req.params.id}`,404))
     }
+    const notification = await Notification.create({
+        user: user._id,
+        order: order._id,
+        orderStatus: "Deleted",
+        isRead: false
+    })
     await order.remove();
     res.status(200).json({
         success: true
