@@ -59,7 +59,7 @@ const Header = () => {
   }
   const readNotificationHandler = (id) => {
     dispatch(updateNotification(id));
-    playAudio();
+    
     // dispatch(getNotifications())
     // console.log(e)
     // alert.success('تم تسجيل الخروج بنجاح')
@@ -69,6 +69,7 @@ const Header = () => {
     for (let index = 0; index < notifications.length; index++) {
       if(notifications[index].isRead == false){
         notificationCount++;
+        playAudio();
       }
     }
   }
