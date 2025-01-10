@@ -8,14 +8,21 @@ import { logout } from '../../actions/userActions'
 import { updateNotification } from '../../actions/notificationActions'
 import { getNotifications } from '../../actions/notificationActions';
 import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants'
+
+import NotificationSound from './images/main_logo.png';
+
 const Header = () => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
   const { loading, user } = useSelector(state => state.auth)
   const { cartItems } = useSelector(state => state.cart)
+  const audioPlayer = useRef(null);
   let notificationCount = 0;
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
+  function playAudio() {
+    audioPlayer.current.play();
+  }
   useEffect(() => {
      dispatch(getNotifications())
 
@@ -52,6 +59,7 @@ const Header = () => {
   }
   const readNotificationHandler = (id) => {
     dispatch(updateNotification(id));
+    playAudio();
     // dispatch(getNotifications())
     // console.log(e)
     // alert.success('تم تسجيل الخروج بنجاح')
@@ -127,6 +135,7 @@ const Header = () => {
                                   </p>
                                </div>
                            </div>
+                                          <audio ref={audioPlayer} src={NotificationSound} />
                                </Link>
                                 </Fragment>)
                                 }
@@ -143,6 +152,7 @@ const Header = () => {
                                   </p>
                                </div>
                            </div>
+                                          <audio ref={audioPlayer} src={NotificationSound} />
                                </Link>
                                 </Fragment>)}
                                 
