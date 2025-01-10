@@ -18,6 +18,7 @@ const Header = () => {
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
+  let notificationCountUser = 0;
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -69,6 +70,10 @@ const Header = () => {
     for (let index = 0; index < notifications.length; index++) {
       if(notifications[index].isRead == false){
         notificationCount++;
+        playAudio();
+      }
+      if(notifications[index].isRead == false && notifications[index].order.user._id === user._id){
+        notificationCountUser++;
         playAudio();
       }
     }
@@ -223,7 +228,7 @@ const Header = () => {
                           {user && user.role === 'user' && (
                            <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span className="ml-1" id="cart_count">{notificationCount}</span>
+                           <span className="ml-1" id="cart_count">{notificationCountUser}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
