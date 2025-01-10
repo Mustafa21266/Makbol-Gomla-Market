@@ -25,7 +25,7 @@ const ProcessOrder = ({ history, match }) => {
     const componentRef =  React.createRef()
     const handlePrint = useReactToPrint({ contentRef: componentRef });
 	// const now = new Date();
-	let date = new Date('2016-12-04');
+	let date = new Date();
 var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
   "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
 ];
