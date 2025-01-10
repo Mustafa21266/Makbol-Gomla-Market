@@ -117,8 +117,7 @@ const Header = () => {
                                <Fragment>
   <Link to={item.product ? `/product/${item.product._id}` : `/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                 <div key={item.order._id} className="row">
-          {if(item.order && item.order._id){
-          return (
+  {item.order && item.order._id && (
                     <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
                                        ,
@@ -130,23 +129,18 @@ const Header = () => {
                                                 أوردر جديد بواسطة :  <b>{item.user.name}</b>
                                           </p>
                                        </div>
-)
-                            }else {
-return (
+)}
+
+ {item.product && item.product._id && (
                     <div className="col-sm-12 col-md-2 d-flex justify-content-center">
-                                     <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
-                                       ,
-                                       border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
-                                     }}/>
+                                     <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
                                    </div>
- <div className="col-sm-12 col-md-10">
-                                          <p key={item.product._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                       <div className="col-sm-12 col-md-10">
+                                <p key={item.product._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
                                                 تقييم جديد بواسطة :  <b>{item.user.name} على منتح : {item.product.name}</b>
                                           </p>
                                        </div>
-)
-                              
-                            }}
+ )}
                                </div>
                                <hr />
                                  </Link>
