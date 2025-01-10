@@ -34,14 +34,7 @@ const cloudinary = require('cloudinary')
 
 //Get all notifications   =>     /api/v1/notifications
 exports.getNotifications = catchAsyncErrors(async (req, res, next) => {
-    const notifications = await Notification.find().populate('user', 'name email avatar').populate('order').populate({ 
-   path: 'user',
-      populate: {
-         path: 'User',
-         model: User,
-         select:"-_id name email avatar"
-   } 
- });
+    const notifications = await Notification.find().populate('user', 'name email avatar').populate('order');
     res.status(200).json({
         success: true,
         count: notifications.length,
