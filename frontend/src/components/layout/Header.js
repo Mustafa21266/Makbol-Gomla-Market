@@ -11,6 +11,8 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 
 import NotificationSound from './notification.mp3';
 
+
+
 const Header = () => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
@@ -19,10 +21,13 @@ const Header = () => {
   const audioPlayer = useRef(null);
   let notificationCount = 0;
   let notificationCountUser = 0;
+  let isPlayed = false;
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
+    if(isPlayed === false){
     audioPlayer.current.play();
+    }
   }
   useEffect(() => {
      dispatch(getNotifications())
@@ -71,10 +76,12 @@ const Header = () => {
       if(notifications[index].isRead == false){
         notificationCount++;
         playAudio();
+        isPlayed = true;
       }
       if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
         notificationCountUser++;
         playAudio();
+        isPlayed = true;
       }
     }
   }
