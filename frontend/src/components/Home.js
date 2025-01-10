@@ -1531,17 +1531,18 @@ const Home = ( { match } ) => {
 
       <div className='row'>
          <div className='col-12 d-flex justify-content-center'>
-         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "250px", height: "250px",borderRadius: '15px'}}/>
+         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "550px", height: "550px",borderRadius: '15px'}}/>
           </div>
       </div>
       <div className='row'>
          <div className='col-12'>
          <h3>كيفية التحويل : </h3>
-         <ul className="list-group list-group-flush">
-  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
-  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل</li>
-  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى :</li>
-  <li className="list-group-item" style={{textAlign: 'right',color: '#25d366'}}>
+         <br />
+         <ul className="list-group" style={{borderRadius: '15px', width: '550px',display: 'block', margin: 'auto'}}>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل .</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى :</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: '#25d366'}}>
   <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
   </li>
 </ul>
