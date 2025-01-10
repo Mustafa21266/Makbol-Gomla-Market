@@ -1530,8 +1530,8 @@ const Home = ( { match } ) => {
                </Carousel> */}
 
       <div className='row'>
-         <div className='col-12'>
-         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "250px", height: "250px"}}/>
+         <div className='col-12 d-flex justify-content-center'>
+         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "250px", height: "250px",borderRadius: '15px'}}/>
           </div>
       </div>
       <div className='row'>
