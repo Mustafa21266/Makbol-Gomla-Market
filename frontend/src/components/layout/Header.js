@@ -131,7 +131,7 @@ const Header = () => {
                                 </Fragment>)
                                 }else {
                                     return (<Fragment>
-                                        <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                        <Link to={`/admin/order/{item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                             <div key={item.order._id} className="row">
                                              <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                     <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
