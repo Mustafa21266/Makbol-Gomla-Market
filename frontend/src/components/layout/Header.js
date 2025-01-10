@@ -12,6 +12,7 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 import NotificationSound from './notification.mp3';
 
 
+let isPlayed = false;
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Header = () => {
   const audioPlayer = useRef(null);
   let notificationCount = 0;
   let notificationCountUser = 0;
-  let isPlayed = false;
+  
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
