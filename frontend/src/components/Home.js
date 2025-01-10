@@ -1536,13 +1536,13 @@ const Home = ( { match } ) => {
       </div>
       <div className='row'>
          <div className='col-12'>
-         <h3> : كيفية التحويل</h3>
-         <ul class="list-group list-group-flush">
-  <li class="list-group-item">حول علي رقم : 01027168516</li>
-  <li class="list-group-item">خد سكرين شوت من عملية التحويل</li>
-  <li class="list-group-item">إرسل السكرين شوت إلى :</li>
-  <li class="list-group-item">
-  <a className="btn btn-floating m-1" style={{fontSize: '22px',color: 'lemonchiffon'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: 'lemonchiffon'}}></i></a>
+         <h3>كيفية التحويل : </h3>
+         <ul className="list-group list-group-flush">
+  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
+  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل</li>
+  <li className="list-group-item" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى :</li>
+  <li className="list-group-item" style={{textAlign: 'right',color: '#25d366'}}>
+  <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
   </li>
 </ul>
           </div>
