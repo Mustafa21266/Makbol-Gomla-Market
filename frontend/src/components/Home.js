@@ -418,7 +418,6 @@ const Home = ( { match } ) => {
 </section>
   
            </div>
-           <div>
   {/* <h1 id="products_heading" style={{textAlign: 'right'}}>بيسكويت</h1> */}
   <section className="pt-5 pb-5">
     <div className="container">
@@ -517,8 +516,6 @@ const Home = ( { match } ) => {
     </div>
 </section>
   
-           </div>
-           <div>
   {/* <h1 id="products_heading" style={{textAlign: 'right'}}>بيسكويت</h1> */}
   <section className="pt-5 pb-5">
     <div className="container">
@@ -1512,7 +1509,6 @@ const Home = ( { match } ) => {
     </div>
 </section>
   
-           </div>
 {/* <Carousel autoPlay showArrows={true} width="100%" infiniteLoop={true} showThumbs={false}>
       
            <div>
@@ -1532,6 +1528,25 @@ const Home = ( { match } ) => {
           ))}
            </div>
                </Carousel> */}
+
+      <div className='row'>
+         <div className='col-12'>
+         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "250px", height: "250px"}}/>
+          </div>
+      </div>
+      <div className='row'>
+         <div className='col-12'>
+         <h3> : كيفية التحويل</h3>
+         <ul class="list-group list-group-flush">
+  <li class="list-group-item">حول علي رقم : 01027168516</li>
+  <li class="list-group-item">خد سكرين شوت من عملية التحويل</li>
+  <li class="list-group-item">إرسل السكرين شوت إلى :</li>
+  <li class="list-group-item">
+  <a className="btn btn-floating m-1" style={{fontSize: '22px',color: 'lemonchiffon'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: 'lemonchiffon'}}></i></a>
+  </li>
+</ul>
+          </div>
+      </div>
 </div>
   
           </Fragment>
