@@ -90,7 +90,7 @@ const Header = () => {
       </div>
 
       <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
- <audio ref={audioPlayer} src={NotificationSound} webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"/>
+ <audio ref={audioPlayer} src={NotificationSound}/>
         { user ? (
           <div className="dropdown dropleft d-inline"> 
                 <Link to="#!" style={{backgroundColor:'#178a53'}} className="btn text-white" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
