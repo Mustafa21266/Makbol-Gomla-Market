@@ -60,7 +60,7 @@ function App() {
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   setInterval(async function () {
     await store.dispatch(getNotifications())
-  }, 60000);
+  }, 30000);
   return (
     <Router>
         <div className="App">
