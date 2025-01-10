@@ -114,7 +114,7 @@ const Header = () => {
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
-                                if(item.product && item.product._id){
+                                if(item.product){
                                     return (<Fragment>
                                         <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                             <div key={item.product._id} className="row">
