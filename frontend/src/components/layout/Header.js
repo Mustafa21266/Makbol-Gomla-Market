@@ -115,7 +115,7 @@ const Header = () => {
                   </div> 
           </div> 
         ) : !loading &&  <Link to="/login" className="btn ml-4" style={{backgroundColor:'#178a53',color: 'white'}} id="login_btn">تسجيل الدخول</Link>}
-        {user && user.role === 'user' && (
+        {user && user.role === 'admin' && (
                            <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
@@ -227,7 +227,7 @@ const Header = () => {
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
-                             {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((a) => a.order.user._id === user._id).map(item => {
+                             {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
                                 if(item.product){
               //                       return (<Fragment>
               //                           <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
@@ -248,7 +248,7 @@ const Header = () => {
                                 else {
                                   if (item.orderStatus === "Deleted") {
                                     return (<Fragment>
-                                      <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                      <Link to={`/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
@@ -264,7 +264,7 @@ const Header = () => {
                                   }
                                   else if (item.orderStatus === "Delivered") {
                                     return (<Fragment>
-                                      <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                      <Link to={`/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
@@ -280,7 +280,7 @@ const Header = () => {
                                   }
                                   else if(item.orderStatus === "Shipped"){
                                     return (<Fragment>
-                                      <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                      <Link to={`/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
@@ -296,7 +296,7 @@ const Header = () => {
                                   }
                                   else if(item.orderStatus === "Processing"){
                                     return (<Fragment>
-                                      <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                      <Link to={`/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
                                            <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                                   <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
