@@ -117,7 +117,7 @@ const Header = () => {
                                <Fragment>
   <Link to={item.product ? `/product/${item.product._id}` : `/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                 <div key={item.order._id} className="row">
-                            if(item.order && item.order._id){
+          {if(item.order && item.order._id){
           return (
                     <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
@@ -146,7 +146,7 @@ return (
                                        </div>
 )
                               
-                            }
+                            }}
                                </div>
                                <hr />
                                  </Link>
