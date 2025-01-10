@@ -3,6 +3,7 @@ const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures.js');
 const cloudinary = require('cloudinary')
+const Notification = require('../models/notification.js');
 
 //create new product    => /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
