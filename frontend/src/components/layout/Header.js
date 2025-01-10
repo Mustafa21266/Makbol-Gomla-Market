@@ -118,7 +118,8 @@ const Header = () => {
   <Link to={item.product ? `/product/${item.product._id}` : `/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                 <div key={item.order._id} className="row">
   {item.order && item.order._id && (
-                    <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+    <Fragment>
+          <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
                                        ,
                                        border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
@@ -129,9 +130,12 @@ const Header = () => {
                                                 أوردر جديد بواسطة :  <b>{item.user.name}</b>
                                           </p>
                                        </div>
+          </ Fragment>
+                    
 )}
 
  {item.product && item.product._id && (
+       <Fragment>
                     <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
                                    </div>
@@ -140,6 +144,7 @@ const Header = () => {
                                                 تقييم جديد بواسطة :  <b>{item.user.name} على منتح : {item.product.name}</b>
                                           </p>
                                        </div>
+          </ Fragment>
  )}
                                </div>
                                <hr />
