@@ -227,7 +227,7 @@ const Header = () => {
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
-                             {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
+                             {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((order) => order.user._id === user._id).map(item => {
                                 if(item.product){
               //                       return (<Fragment>
               //                           <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
