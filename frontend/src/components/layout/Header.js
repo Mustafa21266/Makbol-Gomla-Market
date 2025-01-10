@@ -115,29 +115,38 @@ const Header = () => {
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -180,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => (
                                <Fragment>
-                                 <Link to={item.product ? `/product/${item.product._id}` : `/admin/order/${item.order._id}`} onClick={(e)=> 
-                                   readNotificationHandler(item._id) } className="dropdown-item">
-                                 <div key={item.order._id} className="row">
-                                   <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+  <Link to={item.product ? `/product/${item.product._id}` : `/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                <div key={item.order._id} className="row">
+                            if(item.order && item.order._id){
+          return (
+                    <div className="col-sm-12 col-md-2 d-flex justify-content-center">
                                      <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
                                        ,
                                        border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
                                      }}/>
                                    </div>
-                                    {item.product && (
-                                      <div className="col-sm-12 col-md-10">
+ <div className="col-sm-12 col-md-10">
+                                          <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                                أوردر جديد بواسطة :  <b>{item.user.name}</b>
+                                          </p>
+                                       </div>
+)
+                            }else {
+return (
+                    <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                     <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px'
+                                       ,
+                                       border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
+                                     }}/>
+                                   </div>
+ <div className="col-sm-12 col-md-10">
                                           <p key={item.product._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
                                                 تقييم جديد بواسطة :  <b>{item.user.name} على منتح : {item.product.name}</b>
                                           </p>
                                        </div>
-                                    )}
-                                      {item.order && (
-                                      <div className="col-sm-12 col-md-10">
-                                          <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
-                                                طلب جديد بواسطة :  <b>{item.user.name} على منتح : {item.order.name}</b>
-                                          </p>
-                                       </div>
-                                    )}
+)
+                              
+                            }
                                </div>
                                <hr />
                                  </Link>
