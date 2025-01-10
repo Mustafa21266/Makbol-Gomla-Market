@@ -72,7 +72,7 @@ const Header = () => {
         notificationCount++;
         playAudio();
       }
-      if(notifications[index].isRead == false && notifications[index].order.user._id === user._id){
+      if(notifications[index].isRead == false && notifications[index].user._id === user._id){
         notificationCountUser++;
         playAudio();
       }
