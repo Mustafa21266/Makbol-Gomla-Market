@@ -141,7 +141,7 @@ const Header = () => {
                                 </Fragment>)
                                 }
                                 else {
-                                  if(order.orderStatus === "Processing"){
+                                  if(item.order.orderStatus === "Processing"){
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
@@ -156,7 +156,7 @@ const Header = () => {
                          </div>
                              </Link>
                               </Fragment>)}
-                                  else if(order.orderStatus === "Shipped"){
+                                  else if(item.order.orderStatus === "Shipped"){
                                     return (<Fragment>
                                       <Link to={`/admin/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
                                           <div key={item.order._id} className="row">
