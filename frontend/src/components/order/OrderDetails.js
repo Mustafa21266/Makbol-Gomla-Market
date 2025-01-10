@@ -15,7 +15,7 @@ const OrderDetails = ({ history , match}) => {
     
     // const [data, setData]= useState(setOrders())
     useEffect(()=>{
-        dispatch(loadUser())
+        // dispatch(loadUser())
         dispatch(getOrderDetails(match.params.id))
         if(error){
             alert.error(error)
