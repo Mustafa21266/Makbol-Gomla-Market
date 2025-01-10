@@ -156,12 +156,13 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
     if(!order){
         return next(new ErrorHandler(`لم يتم العثور علي أوردر بذلك الكود :  ${req.params.id}`,404))
     }
+    const notifications = await Notification.find({order: req.params.id})
     const notification = await Notification.create({
         user: order.user._id,
-        order: req.params.id,
         orderStatus: "Deleted",
         isRead: false
     })
+    await notifications.remove();
     await order.remove();
     res.status(200).json({
         success: true
