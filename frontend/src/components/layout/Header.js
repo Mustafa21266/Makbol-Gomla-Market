@@ -124,22 +124,20 @@ const Header = () => {
                                        border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'
                                      }}/>
                                    </div>
-                                    {item.product && 
-                                    (
+                                    {item.product && (
                                       <div className="col-sm-12 col-md-10">
                                           <p key={item.product._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
                                                 تقييم جديد بواسطة :  <b>{item.user.name} على منتح : {item.product.name}</b>
                                           </p>
                                        </div>
-                                    ) : (
+                                    )}
+                                      {item.order && (
                                       <div className="col-sm-12 col-md-10">
-                                       <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
-طلب جديد بواسطة :  <b>{item.user.name}</b>
-  </p>
+                                          <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                                طلب جديد بواسطة :  <b>{item.user.name} على منتح : {item.order.name}</b>
+                                          </p>
                                        </div>
-                                    )
-                                    }
-                                   
+                                    )}
                                </div>
                                <hr />
                                  </Link>
