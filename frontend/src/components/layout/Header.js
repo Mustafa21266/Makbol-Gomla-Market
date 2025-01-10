@@ -9,7 +9,7 @@ import { updateNotification } from '../../actions/notificationActions'
 import { getNotifications } from '../../actions/notificationActions';
 import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants'
 
-import NotificationSound from './images/main_logo.png';
+import NotificationSound from './images/notification.mp3';
 
 const Header = () => {
   const dispatch = useDispatch();
