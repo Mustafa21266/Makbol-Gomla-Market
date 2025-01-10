@@ -61,6 +61,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     const notification = await Notification.create({
         user: user._id,
         order: order._id,
+        orderStatus: order.orderStatus,
         isRead: false
     })
     res.status(200).json({
