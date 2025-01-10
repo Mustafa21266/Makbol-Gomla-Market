@@ -11,6 +11,13 @@ const notificationSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
+    status: {
+        type: String,
+        default: 'Processing',
+        trim: true,
+        maxLength: [100, "Maximum character length exceeded"]
+    }
+    ,
     isRead: {
         type: Boolean,
         required: true,
