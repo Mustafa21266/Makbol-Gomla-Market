@@ -152,13 +152,13 @@ async function updateStock(id, quantity){
 
 //Delete order      =>      /api/v1/admin/order/:id
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
-    const order = await Order.findById(req.params.id);
+    const order = await Order.findById(req.params.id).populate('user', 'name email avatar');
     if(!order){
         return next(new ErrorHandler(`لم يتم العثور علي أوردر بذلك الكود :  ${req.params.id}`,404))
     }
     const notification = await Notification.create({
         user: order.user._id,
-        order: order._id,
+        order: req.params.id,
         orderStatus: "Deleted",
         isRead: false
     })
