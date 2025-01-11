@@ -11,6 +11,20 @@ const Cart = ({ history }) => {
     const alert = useAlert();
     const [quantity, setQuantity] = useState(1)
     const { cartItems } = useSelector(state => state.cart)
+    const { loading , error, products } = useSelector(state => state.products);
+    const prod_id = useState("");
+    useEffect(()=>{
+            dispatch(getAdminProducts())
+            if(error){
+                alert.error(error)
+                dispatch(clearErrors())
+            }
+        },[dispatch, alert, error,])
+
+const addToCart = (id) => {
+        dispatch(addItemToCart(id, quantity))
+        alert.success('تم إضافة المنتج في سلة التسوق')
+    }
     const decreaseQty = (id, quantity) => {
         const newQty = quantity - 1;
         if(newQty <= 0) return;
@@ -32,7 +46,39 @@ const Cart = ({ history }) => {
     return (
         <Fragment>
             <MetaData title={'Your Cart'} />
-            {cartItems.length === 0 ? <h2 className="mt-5">سلة التسوق</h2> : 
+            {cartItems.length === 0 ? 
+             <Fragment>
+                <h2 className="mt-5">سلة التسوق</h2>
+                <form class="row g-3">
+  <div className="col-auto">
+    <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
+    <div className="form-group">
+                                        <select
+                                            className="form-control"
+                                            name='prod_id'
+                                            value={prod_id}
+                                            id="prod_id"
+                                        >
+                                            {products.map((product, index) => {
+                                                if(index === 0){
+                                                    return (
+                                                    <option value={product._id} selected>{product.name}</option>
+                                                    )
+                                                }else {
+                                                    return (
+                                                        <option value={product._id}>{product.name}</option>
+                                                        )
+                                                }
+                                            })}
+                                        </select>
+                                    </div>
+  </div>
+  <div className="col-auto">
+    <button type="button" className="btn btn-primary mb-3" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
+  </div>
+</form>
+            </Fragment>
+            : 
             <Fragment>
 <h2 className="mt-5">سلتك تحتوي على : <b>{cartItems.length} صنف</b></h2>
         
