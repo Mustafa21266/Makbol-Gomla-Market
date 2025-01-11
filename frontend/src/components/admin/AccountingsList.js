@@ -82,7 +82,7 @@ const AccountingsList = ({ history }) => {
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteAccountHandler(accounting._id)}>
-                    <i class="fa-solid fa-circle-x"></i>
+                    <img src="./images/circle-x.png" alt="Circle X Delete" style={{width: "85px", height: "85px"}}/>
                         </button>
                     </div>
                     </div>
