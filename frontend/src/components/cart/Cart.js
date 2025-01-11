@@ -88,10 +88,8 @@ const addToCart = (id) => {
                 <h2 className="mt-5">سلة التسوق</h2>
                 <br />
                 <hr />
-                <br />
                 <form class="row">
   <div className="col-12 col-md-10">
-  <br />
   <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
                 <br />
     <div className="form-group">
