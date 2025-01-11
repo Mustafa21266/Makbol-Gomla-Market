@@ -86,9 +86,14 @@ const addToCart = (id) => {
             : 
             <Fragment>
                 <h2 className="mt-5">سلة التسوق</h2>
+                <br />
+                <hr />
+                <br />
                 <form class="row">
   <div className="col-12 col-md-10">
-    <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
+  <br />
+  <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
+                <br />
     <div className="form-group">
                                         <select
                                             className="form-control"
@@ -118,8 +123,13 @@ const addToCart = (id) => {
     <button type="button" className="btn btn-primary d-block mx-auto" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
   </div>
 </form>
+<br />
+                <hr />
+                <br />
 <h2 className="mt-5">سلتك تحتوي على : <b>{cartItems.length} صنف</b></h2>
-        
+<br />
+                <hr />
+                <br />
         <div className="row d-flex justify-content-between animate__animated animate__fadeIn">
             <div className="col-12 col-lg-12">
                 {cartItems.map(item => (
