@@ -1543,7 +1543,7 @@ const Home = ( { match } ) => {
          <br />
          <br />
          <hr />
-         <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto',padding: '0px'}}>
+         <ul className="list-group" style={{width: '550px', borderRadius: '25px',display: 'block', margin: 'auto',padding: '0px'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516 . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى : . </li>
@@ -1556,7 +1556,7 @@ const Home = ( { match } ) => {
       <hr />
       <div className='row'>
          <div className='col-12'>
-         <img src="./images/orangecash.png" alt="Orange Cash" style={{width: "550px",borderRadius: '15px',display: 'block', margin: 'auto'}}/>
+         <img src="./images/orangecash.png" alt="Orange Cash" style={{width: "550px",height: '418px',borderRadius: '35px',display: 'block', margin: 'auto'}}/>
           </div>
       </div>
       <div className='row'>
@@ -1568,7 +1568,7 @@ const Home = ( { match } ) => {
          <br />
          <br />
          <hr />
-         <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto',padding: '0px'}}>
+         <ul className="list-group" style={{width: '550px', borderRadius: '25px',display: 'block', margin: 'auto',padding: '0px'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01224703104 . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى : . </li>
