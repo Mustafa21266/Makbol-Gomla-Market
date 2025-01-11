@@ -81,7 +81,7 @@ const ConfirmOrder = ({ history }) => {
                 <h4 className="mb-3" style={{textAlign: 'center'}}>معلومات التوصيل</h4>
                 <p><b>الإسم : </b> {shippingInfo.user}</p>
                 <p><b>رقم التليفون : </b> {shippingInfo.phoneNo}</p>
-                <p className="mb-4"><b>العنوان : </b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
+                <p className="mb-4"><b>العنوان : </b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.country}`}</p>
                 
                 <hr />
                 <h4 className="mt-4">عدد محتويات السلة : </h4>
@@ -139,14 +139,13 @@ const ConfirmOrder = ({ history }) => {
                         <p>: ضريبة  <span className="order-summary-values">${taxPrice}</span></p> */}
 
                         <hr />
-
+                        <hr />
                         <p>
                         <span className="d-block mx-auto text-right">
                             المجموع : 
                              </span>
                              <h3 className="order-summary-values w-100 text-center">{totalPrice}</h3>
                         </p>
-
                         <hr />
                         <button id="checkout_btn" className="btn btn-primary btn-block" onClick={proceedToPayment}>إستكمال</button>
                     </div>
