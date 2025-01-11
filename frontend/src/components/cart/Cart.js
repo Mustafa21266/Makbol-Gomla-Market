@@ -6,6 +6,7 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { addItemToCart, removeFromCart } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
+import { getAdminProducts } from '../../actions/productActions'
 const Cart = ({ history }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
