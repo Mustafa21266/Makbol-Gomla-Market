@@ -14,7 +14,7 @@ const NewProduct = ({ history }) => {
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('Gomla');
     const [stock, setStock] = useState(0);
-    const seller = useState('مقبول جملة ماركت');
+    const [seller, setSeller] = useState('مقبول جملة ماركت');
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
     const categoriesx = [
