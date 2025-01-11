@@ -10,7 +10,8 @@ const OrderDetails = ({ history , match}) => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { user, isAuthenticated } = useSelector(state => state.auth)
-    const { loading , error, order } = useSelector(state => state.order)
+    const { orders } = useSelector(state => state.myOrders)
+    const order = orders.filter(item => item.user._id === user._id)
     const { shippingInfo, orderItems, paymentInfo, totalPrice, orderStatus} = order;
     
     // const [data, setData]= useState(setOrders())
