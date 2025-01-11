@@ -15,7 +15,7 @@ import { refr } from '../Home';
 
 let isPlayed = false;
 
-const Header = () => {
+const Header = ({ history }) => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
   const { loading, user } = useSelector(state => state.auth)
@@ -24,7 +24,10 @@ const Header = () => {
   let notificationCount = 0;
   let notificationCountUser = 0;
   const myRef = refr;
-  const executeScroll = () => myRef.current.scrollIntoView()  
+  const executeScroll = () => {
+    history.push('/')
+    myRef.current.scrollIntoView()
+  }
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
