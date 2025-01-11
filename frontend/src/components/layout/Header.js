@@ -89,9 +89,16 @@ const Header = ({ history }) => {
     }
   }
   const executeScroll = () => {
-    history.push('/')
-    window.location.reload();
-    myRef.current.scrollIntoView()
+    if(window.location.href[window.location.href.length - 1] === "/"){
+      myRef.current.scrollIntoView()
+
+    }else {
+      history.push('/')
+      window.location.reload();
+      myRef.current.scrollIntoView()
+
+    }
+    // window.location.reload();
   }
     return (
         <Fragment>
