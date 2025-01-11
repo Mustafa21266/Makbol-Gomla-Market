@@ -117,7 +117,7 @@ const addToCart = (id) => {
                                         </select>
                                     </div>
   </div>
-  <div className="col-12 col-md-2">
+  <div className="col-12 col-md-2 d-flex">
     <button type="button" className="btn btn-primary d-block mx-auto" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
   </div>
 </form>
