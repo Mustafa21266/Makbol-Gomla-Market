@@ -51,7 +51,7 @@ const NewAccounting = ({ history }) => {
                 <Fragment>
                 <div className="wrapper my-5"> 
                 <form className="shadow-lg" onSubmit={submitHandler}>
-                <h1 className="mb-4" style={{display: 'block',margin: 'auto',textAlign: 'center'}}>إنشاء حساب جديد</h1>
+                <h1 className="mb-4" style={{padding:'15px', display: 'block',margin: 'auto'}}>إنشاء حساب جديد</h1>
                     <div className="form-group select-editable">
                             <label htmlFor="user_field">صاحب الحساب</label>
                             <select

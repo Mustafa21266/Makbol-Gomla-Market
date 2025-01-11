@@ -107,7 +107,7 @@ const AccountingsList = ({ history }) => {
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
-                    <h1 className="my-5 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>كل الحسابات</h1>
+                    <h1 className="my-5 animate__animated animate__fadeIn" style={{padding:'15px', display: 'block',margin: 'auto'}}>كل الحسابات</h1>
                     <hr />
                     {loading ? <Loader /> : (
                         <MDBDataTable

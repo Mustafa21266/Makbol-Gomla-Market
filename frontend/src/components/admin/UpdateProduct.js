@@ -130,7 +130,7 @@ const UpdateProduct = ({ history, match }) => {
                 <Fragment>
                 <div className="wrapper my-5"> 
         <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-            <h1 className="mb-4" style={{display: 'block',margin: 'auto'}}>تحديث المنتج</h1>
+            <h1 className="mb-4" style={{padding:'15px', display: 'block',margin: 'auto'}}>تحديث المنتج</h1>
 
             <div className="form-group">
               <label htmlFor="name_field">الإسم</label>

@@ -84,7 +84,7 @@ const Home = ( { match } ) => {
       <h1 className="animate__animated animate__headShake animate__infinite" style={{marginLeft: '10px',textAlign:'right',color:'white',display: 'block'}} >جودة عالية ، أفضل أسعار</h1>
       </div>
       <div className="col-12 d-flex justify-content-center">
-      <Link id="view_btn" to={'/search/all'} className="btn" style={{fontSize: '48px'}}>تسوق كل المنتجات</Link>
+      <Link id="view_btn" to={'/search/all'} className="btn" style={{fontSize: '2.48rem'}}>تسوق كل المنتجات</Link>
       </div>
       </div>
 
@@ -1531,7 +1531,7 @@ const Home = ( { match } ) => {
 
       <div className='row'>
          <div className='col-12'>
-         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "550px",borderRadius: '15px',display: 'block', margin: 'auto'}}/>
+         <img className="d-block mx-auto img-fluid" src="./images/vodafone.jpg" alt="Vodafone Cash" style={{borderRadius: '15px'}}/>
           </div>
       </div>
       <div className='row'>
@@ -1543,7 +1543,7 @@ const Home = ( { match } ) => {
          <br />
          <br />
          <hr />
-         <ul className="list-group" style={{width: '550px', borderRadius: '25px',display: 'block', margin: 'auto',padding: '0px'}}>
+         <ul className="list-group d-block mx-auto" style={{borderRadius: '25px',padding: '20px'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . حول علي رقم : 01027168516 . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . إرسل السكرين شوت إلى : </li>
@@ -1558,7 +1558,7 @@ const Home = ( { match } ) => {
       <br />
       <div className='row'>
          <div className='col-12'>
-         <img src="./images/orangecash.png" alt="Orange Cash" style={{width: "550px",height: '418px',borderRadius: '35px', backgroundColor: 'wheat',display: 'block', margin: 'auto'}}/>
+         <img className="d-block mx-auto img-fluid" src="./images/orangecash.png" alt="Orange Cash" style={{borderRadius: '15px',backgroundColor: 'orange'}}/>
           </div>
       </div>
       <div className='row'>
@@ -1570,7 +1570,7 @@ const Home = ( { match } ) => {
          <br />
          <br />
          <hr />
-         <ul className="list-group" style={{width: '550px', borderRadius: '25px',display: 'block', margin: 'auto',padding: '0px'}}>
+         <ul className="list-group d-block mx-auto" style={{borderRadius: '25px',padding: '20px'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . حول علي رقم : 01224703104 . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . إرسل السكرين شوت إلى : </li>

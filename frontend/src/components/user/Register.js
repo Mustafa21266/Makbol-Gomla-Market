@@ -69,7 +69,7 @@ const Register = ( { history } ) => {
             <h1 className="mb-3" style={{display: 'block',margin: 'auto'}}>تسجيل كمستخدم جديد</h1>
 
           <div className="form-group">
-            <label htmlFor="name_field">الأسم</label>
+            <label htmlFor="name_field"  style={{float: 'right'}}>الأسم</label>
             <input 
             type="name"
             id="name_field" 
@@ -81,7 +81,7 @@ const Register = ( { history } ) => {
           </div>
 
             <div className="form-group">
-              <label htmlFor="phoneNo_field">رقم التليفون</label>
+              <label htmlFor="phoneNo_field"  style={{float: 'right'}}>رقم التليفون</label>
               <input
                 type="phoneNo"
                 id="phoneNo_field"
@@ -93,7 +93,7 @@ const Register = ( { history } ) => {
             </div>
   
             <div className="form-group">
-              <label htmlFor="password_field">كلمة المرور</label>
+              <label htmlFor="password_field"  style={{float: 'right'}}>كلمة المرور</label>
               <input
                 type="password"
                 id="password_field"

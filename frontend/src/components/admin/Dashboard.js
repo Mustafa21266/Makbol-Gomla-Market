@@ -38,7 +38,7 @@ const Dashboard = () => {
                     </div>
                     <div className="col-12 col-md-10">
                         <br />
-                    <h1 className="my-4 animate__animated animate__fadeIn" style={{display: 'block',margin: 'auto'}}>لوحة التحكم</h1>
+                    <h1 className="my-4 animate__animated animate__fadeIn" style={{padding:'15px', display: 'block',margin: 'auto'}}>لوحة التحكم</h1>
                     <hr />
                     <br />
                     {loading ? <Loader /> : (
