@@ -22,7 +22,7 @@ const OrderDetails = ({ history , match}) => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, isAuthenticated, alert, error, match.params.id])
+    },[dispatch, order, isAuthenticated, alert, error, match.params.id])
     const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>
