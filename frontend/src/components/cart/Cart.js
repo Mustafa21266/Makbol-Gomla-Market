@@ -50,8 +50,8 @@ const addToCart = (id) => {
             {cartItems.length === 0 ? 
              <Fragment>
                 <h2 className="mt-5">سلة التسوق</h2>
-                <form class="row g-3">
-  <div className="col-auto">
+                <form class="row">
+  <div className="col-12 col-md-10">
     <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
     <div className="form-group">
                                         <select
@@ -78,7 +78,7 @@ const addToCart = (id) => {
                                         </select>
                                     </div>
   </div>
-  <div className="col-auto">
+  <div className="col-12 col-md-2">
     <button type="button" className="btn btn-primary mb-3" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
   </div>
 </form>
