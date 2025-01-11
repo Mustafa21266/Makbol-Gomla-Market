@@ -90,6 +90,8 @@ const Header = ({ history }) => {
   }
   const executeScroll = () => {
     history.push('/')
+    window.relo
+    location.reload();
     myRef.current.scrollIntoView()
   }
     return (
