@@ -1548,7 +1548,7 @@ const Home = ( { match } ) => {
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . إرسل السكرين شوت إلى : </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: '#25d366'}}>
-  <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
+  <a className="btn btn-floating m-1 d-block mx-auto" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
   </li>
 </ul>
           </div>
@@ -1575,7 +1575,7 @@ const Home = ( { match } ) => {
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . إرسل السكرين شوت إلى : </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: '#25d366'}}>
-  <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
+  <a className="btn btn-floating m-1 d-block mx-auto" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
   </li>
 </ul>
           </div>
