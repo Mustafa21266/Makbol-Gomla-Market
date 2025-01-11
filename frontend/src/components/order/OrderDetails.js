@@ -3,15 +3,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { getOrderDetails, clearErrors } from '../../actions/orderActions'
+import { getOrderDetails } from '../../actions/orderActions'
 import { Link } from 'react-router-dom'
 import { loadUser } from '../../actions/userActions'
+
+import { myOrders, clearErrors } from '../../actions/orderActions'
+
 const OrderDetails = ({ history , match}) => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { user, isAuthenticated } = useSelector(state => state.auth)
-    const { orders, error, loading } = useSelector(state => state.myOrders)
-    const order = orders.filter(item => item.user._id === user._id)
+    const { loading , error, orders } = useSelector(state => state.myOrders)
+    const order = orders.map(item => {
+        if(item.user._id === match.params.id){
+            return item
+        }
+    })[0]
     const { shippingInfo, orderItems, paymentInfo, totalPrice, orderStatus} = order;
     
     // const [data, setData]= useState(setOrders())
