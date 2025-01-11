@@ -176,20 +176,42 @@ const addToCart = (id) => {
                 <div id="order_summary" className="w-100">
                     <h4 style={{textAlign: 'center'}}>ملخص الأوردر</h4>
                     <hr />
-                    <p style={{textAlign: 'right'}}>عدد القطع : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (Units)</span></p>
-                    <p style={{textAlign: 'right'}}>السعر : 
+                    <div className='row'>
+                    <div className='col-8'>
+<h4 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h4>
+</div>
+<div className='col-4'>
+<p style={{textAlign: 'right'}}><span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (قطع)</span></p>
+</div>
+                    </div>
+                    <div className='row'>
+                    <div className='col-8'>
+                    <h4 style={{color: 'white', textAlign: 'center'}}>السعر : </h4>
+</div>
+<div className='col-4'>
+<p style={{textAlign: 'right'}}> 
                         <span className="order-summary-values">
                             {cartItems.reduce((acc, item)=> {
                         if(String(acc).includes(`${item.price},`)){
 
                         }else {
-                            return String(acc) + `${Number(item.quantity)},`
+                            return String(acc) + `${Number(item.price)},`
                         }
                     }, 0)
                         } 
                         
                         EGP </span></p>
-                    <p style={{textAlign: 'right'}}>المجموع المحتمل  : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
+</div>
+                    </div>
+                    <div className='row'>
+                    <div className='col-8'>
+                    <h4 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h4>
+</div>
+<div className='col-4'>
+<p style={{textAlign: 'right'}}><span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
+
+</div>
+                    </div>
     
                     <hr />
                     <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53',color: 'white'}} onClick={checkOutHandler}>تأكيد الطلب</button>
