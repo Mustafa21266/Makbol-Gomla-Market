@@ -1536,8 +1536,13 @@ const Home = ( { match } ) => {
       </div>
       <div className='row'>
          <div className='col-12'>
+         <br />
+          <br />
+          <hr />
          <h3 style={{textAlign: 'center'}}>كيفية التحويل : </h3>
          <br />
+         <br />
+         <hr />
          <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto',padding: '0px'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل .</li>
