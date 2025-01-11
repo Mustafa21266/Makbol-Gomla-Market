@@ -144,7 +144,12 @@ const ConfirmOrder = ({ history }) => {
                         <span className="d-block mx-auto text-right">
                             المجموع : 
                              </span>
+                             <br />
+                             <hr />
+                    
                              <h3 className="order-summary-values w-100 text-center">{totalPrice}</h3>
+                             <br />
+                             <hr />
                         </p>
                         <hr />
                         <button id="checkout_btn" className="btn btn-primary btn-block" onClick={proceedToPayment}>إستكمال</button>
