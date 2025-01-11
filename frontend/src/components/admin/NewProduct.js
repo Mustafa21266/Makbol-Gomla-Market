@@ -14,7 +14,7 @@ const NewProduct = ({ history }) => {
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('Gomla');
     const [stock, setStock] = useState(0);
-    const seller = "seller";
+    const seller = useState('مقبول جملة ماركت');
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
     const categoriesx = [
@@ -193,8 +193,8 @@ const NewProduct = ({ history }) => {
                 />
               </div>
 
-              {/* <div className="form-group">
-                <label htmlFor="seller_field">Seller Name</label>
+              <div className="form-group">
+                <label htmlFor="seller_field">إسم البائع</label>
                 <input
                   type="text"
                   id="seller_field"
@@ -203,7 +203,7 @@ const NewProduct = ({ history }) => {
                   value={seller}
                   onChange={(e)=> setSeller(e.target.value)}
                 />
-              </div> */}
+              </div>
               
               <div className='form-group'>
                 <label>صور المنتج</label>

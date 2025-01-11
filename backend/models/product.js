@@ -45,7 +45,7 @@ const productSchema = new mongoose.Schema({
     seller: {
         type: String,
         required: false,
-        default: "Me"
+        default: "مقبول جملة ماركت"
     },
     stock: {
         type: Number,

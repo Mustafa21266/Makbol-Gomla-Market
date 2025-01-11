@@ -22,7 +22,7 @@ const UpdateProduct = ({ history, match }) => {
     const [subcategory, setSubCategory] = useState('');
     const [category, setCategory] = useState('');
     const [stock, setStock] = useState(0);
-    const [seller, setSeller] = useState('');
+    const [seller, setSeller] = useState('مقبول جملة ماركت');
     const [images, setImages] = useState([]);
     const [oldImages, setOldImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);

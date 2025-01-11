@@ -139,7 +139,7 @@ const ProductDetails = ( { match } ) => {
                 <h4 className="mt-2">وصف المنتج</h4>
                 <p>{product.description}</p>
                 <hr></hr>
-                {/* <p id="product_seller mb-3">أضيف بواسطة : <strong>{product.seller}</strong></p> */}
+                <p id="product_seller mb-3">يباع بواسطة : <strong>{product.seller}</strong></p>
 				{user ? (
                     <button id="review_btn" type="button" className="btn mt-4" style={{backgroundColor:'#178a53'}} data-toggle="modal" data-target="#ratingModal" onClick={setUserRatings}>
                            إرسل تقيم
