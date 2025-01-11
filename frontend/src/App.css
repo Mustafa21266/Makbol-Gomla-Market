@@ -10,7 +10,7 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   color: lemonchiffon;
   scroll-behavior: smooth;
 }
@@ -670,7 +670,7 @@ style="background-color: black;text-color: white;" */
 .fade-in-image {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 2px;
   z-index: -100;
   width: 100%;
   height: 100%;
@@ -738,9 +738,4 @@ th {
   .drop-carta {
     right: -260px !important;
   }
-}
-
-.App {
-  margin: 0px;
-  padding: 0px;
 }
