@@ -19,13 +19,14 @@ const Shipping = ({ history}) => {
     const [country, setCountry] = useState(shippingInfo.country ? shippingInfo.country:'الإسكندرية');
     const { user, isAuthenticated, loading } = useSelector(state => state.auth)
     const [orderUser, setOrderUser] = useState(user.name ? user.name:'');
+    const { order } = useSelector(state => state.orderDetails)
     const { users } = useSelector(state => state.allUsers)
     const dispatch = useDispatch();
     const alert = useAlert();
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveShippingInfo({ address, city, postalCode, phoneNo, country, user: orderUser}))
-        history.push(`/order/confirm`)
+        history.push(`/order/confirm/${order_id}`)
     }
     useEffect(() => {
         dispatch(allUsers())
