@@ -13,7 +13,7 @@ const Cart = ({ history }) => {
     const [quantity, setQuantity] = useState(1)
     const { cartItems } = useSelector(state => state.cart)
     const { loading , error, products } = useSelector(state => state.products);
-    const prod_id = useState("");
+    const [prod_id, setProdId ] = useState("");
     useEffect(()=>{
             dispatch(getAdminProducts())
             if(error){
@@ -59,6 +59,7 @@ const addToCart = (id) => {
                                             name='prod_id'
                                             value={prod_id}
                                             id="prod_id"
+                                            onChange={(e) => {setProdId(e.target.value)}}
                                         >
                                             {products
                                             .sort((a, b) => a.name.localeCompare(b.name))
