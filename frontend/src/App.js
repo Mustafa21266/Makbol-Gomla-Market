@@ -64,6 +64,7 @@ function App() {
   return (
     <Router>
         <div className="App">
+          <div className='container-fluid'>
               <Route path="/" component={Header} />
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
@@ -111,6 +112,7 @@ function App() {
               {/* {!loading && (
                 
               )} */}
+        </div>
         </div>
     </Router>
     
