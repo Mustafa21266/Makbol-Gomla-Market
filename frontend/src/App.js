@@ -64,9 +64,9 @@ function App() {
   return (
     <Router>
         <div className="App">
+              <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
         <Route path="/" component={Header} />
           {/* <Header /> */}
-              <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
               <Route path="/" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
               <Route path="/login" component={Login} exact/>
