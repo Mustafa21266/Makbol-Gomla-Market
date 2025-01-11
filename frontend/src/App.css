@@ -733,3 +733,9 @@ th {
     display: block;
   }
 }
+
+@media only screen and (min-width: 992px) {
+  .drop-carta {
+    right: -260px !important;
+  }
+}
