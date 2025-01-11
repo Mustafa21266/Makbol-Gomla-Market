@@ -88,14 +88,15 @@ const Header = ({ history }) => {
       }
     }
   }
-  const executeScroll = () => {
+  const executeScroll = (e) => {
     if(window.location.href[window.location.href.length - 1] === "/"){
       myRef.current.scrollIntoView()
 
     }else {
       history.push('/')
       window.location.reload();
-      setTimeout(() => myRef.current.scrollIntoView(), 5000)
+      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
+      e.target.click();
     }
     // window.location.reload();
   }
