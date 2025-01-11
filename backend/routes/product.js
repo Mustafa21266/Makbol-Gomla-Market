@@ -13,7 +13,7 @@ const { getProducts,
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/authProtection');
 
 router.route("/products").get(getProducts)
-router.route("/admin/products").get(isAuthenticatedUser , getAdminProducts)
+router.route("/admin/products").get(getAdminProducts)
 
 
 //Product CRUD
