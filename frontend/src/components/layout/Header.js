@@ -224,7 +224,7 @@ const Header = () => {
 }})}
 
                                </div>
-                               <hr />
+                      
                              {/* <div className="w-100">
                              <p style={{textAlign: 'left'}}>: مجموع السلة<span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
                              </div> 
