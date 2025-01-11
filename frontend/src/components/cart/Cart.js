@@ -178,7 +178,7 @@ const addToCart = (id) => {
                     <hr />
                     <div className='row'>
                     <div className='col-8'>
-<h4 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h4>
+<h5 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h5>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}><span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (قطع)</span></p>
@@ -186,7 +186,7 @@ const addToCart = (id) => {
                     </div>
                     <div className='row'>
                     <div className='col-8'>
-                    <h4 style={{color: 'white', textAlign: 'center'}}>السعر : </h4>
+                    <h5 style={{color: 'white', textAlign: 'center'}}>السعر : </h5>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}> 
@@ -205,7 +205,7 @@ const addToCart = (id) => {
                     </div>
                     <div className='row'>
                     <div className='col-8'>
-                    <h4 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h4>
+                    <h5 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h5>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}>
