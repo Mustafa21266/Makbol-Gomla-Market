@@ -79,7 +79,7 @@ const ConfirmOrder = ({ history }) => {
             <div className="col-12 col-lg-8 mt-5 order-confirm">
 
                 <h4 className="mb-3" style={{textAlign: 'center'}}>معلومات التوصيل</h4>
-                <p><b>الإسم : </b> {shippingInfo.orderUser}</p>
+                <p><b>الإسم : </b> {shippingInfo.user}</p>
                 <p><b>رقم التليفون : </b> {shippingInfo.phoneNo}</p>
                 <p className="mb-4"><b>العنوان : </b>{` ${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.postalCode}, ${shippingInfo.country}`}</p>
                 

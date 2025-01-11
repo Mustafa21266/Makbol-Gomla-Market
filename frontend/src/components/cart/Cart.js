@@ -195,7 +195,7 @@ const addToCart = (id) => {
                         if(String(acc).includes(`${item.price}`)){
 
                         }else {
-                            return `${Number(item.price)} ,`
+                            return `${Number(item.price)}`
                         }
                     }, 0)
                         } 
