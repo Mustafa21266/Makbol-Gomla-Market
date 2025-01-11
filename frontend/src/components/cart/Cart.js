@@ -192,10 +192,10 @@ const addToCart = (id) => {
 <p style={{textAlign: 'right'}}> 
                         <span className="order-summary-values">
                             {cartItems.reduce((acc, item)=> {
-                        if(String(acc).includes(`${item.price},`)){
+                        if(String(acc).includes(`${item.price}`)){
 
                         }else {
-                            return String(acc) + `${Number(item.price)},`
+                            return `${Number(item.price)} ,`
                         }
                     }, 0)
                         } 
