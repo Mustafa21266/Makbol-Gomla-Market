@@ -338,6 +338,13 @@ const Header = () => {
                              </div> 
                     
                   )}
+                  <div className='row'>
+                    <div className='col-12'>
+                        <Link to="/cart" style={{ textDecoration: 'none',backgroundColor:'#A49F48',textAlign: 'center' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                أوردر جديد    
+                        </Link>
+                    </div>
+                  </div>
        <div className="dropdown dropleft d-inline"> 
                 <Link to="/cart" style={{ textDecoration: 'none',backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span className="ml-1" id="cart_count">{cartItems.length}</span>
