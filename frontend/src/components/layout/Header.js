@@ -94,9 +94,9 @@ const Header = ({ history }) => {
 
     }else {
       history.push('/')
-      window.location.reload();
-      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
       e.target.click();
+      // window.location.reload();
+      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
     }
     // window.location.reload();
   }
