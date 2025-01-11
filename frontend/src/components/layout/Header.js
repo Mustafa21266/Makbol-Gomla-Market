@@ -11,6 +11,7 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 
 import NotificationSound from './notification.mp3';
 
+import refr from '../Home';
 
 let isPlayed = false;
 
@@ -22,7 +23,8 @@ const Header = () => {
   const audioPlayer = useRef(null);
   let notificationCount = 0;
   let notificationCountUser = 0;
-  
+  const myRef = refr;
+  const executeScroll = () => myRef.current.scrollIntoView()  
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -393,9 +395,9 @@ const Header = () => {
                   </div>
                   <div className='row'>
                     <div className='col-12'>
-                        <a href="#vodOrCash" style={{ textDecoration: 'none',backgroundColor:'#A49F48',textAlign: 'center' }} className="btn text-white w-100" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button onClick={executeScroll} style={{ textDecoration: 'none',backgroundColor:'#A49F48',textAlign: 'center' }} className="btn text-white w-100" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                خدمات فودافون وأورنج كاش  
-                        </a>
+                        </button>
                     </div>
                   </div>
 

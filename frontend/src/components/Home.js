@@ -1,4 +1,4 @@
-import React, { Fragment, useState ,useEffect } from 'react'
+import React, { Fragment, useState ,useEffect, useRef } from 'react'
 import MetaData from './layout/MetaData'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../actions/productActions'
@@ -13,12 +13,15 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
+let refr = useRef(null);
+export 
 const Home = ( { match } ) => {
   const [currentPage, setcurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [subcategory, setSubCategory] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
+  const myRef = useRef(null);
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',
@@ -50,6 +53,8 @@ const Home = ( { match } ) => {
   const dispatch = useDispatch();
   const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const alert = useAlert()
+    
+  // run this function from an event handler or an effect to execute scroll 
   // const keyword = match.params.keyword ? match.params.keyword : "all"
   let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
@@ -68,6 +73,7 @@ const Home = ( { match } ) => {
     count = filteredProductsCount;
   }
   console.log(products)
+  refr = myRef;
     return (
         <Fragment>
           { loading ? <Loader /> : (
@@ -1529,7 +1535,7 @@ const Home = ( { match } ) => {
            </div>
                </Carousel> */}
 
-      <div className='row' id="vodOrCash">
+      <div className='row' ref={myRef}>
          <div className='col-12'>
          <img className="d-block mx-auto img-fluid" src="./images/vodafone.jpg" alt="Vodafone Cash" style={{borderRadius: '15px'}}/>
           </div>
@@ -1599,4 +1605,4 @@ const Home = ( { match } ) => {
     )
 }
 
-export default Home
+export default { Home , refr } 
