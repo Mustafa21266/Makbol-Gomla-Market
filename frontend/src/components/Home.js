@@ -1531,14 +1531,14 @@ const Home = ( { match } ) => {
 
       <div className='row'>
          <div className='col-12 d-flex justify-content-center'>
-         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "550px", height: "550px",borderRadius: '15px'}}/>
+         <img src="./images/vodafone.jpg" alt="Vodafone Cash" style={{width: "550px", height: "418px",borderRadius: '15px',display: 'block', margin: 'auto'}}/>
           </div>
       </div>
       <div className='row'>
          <div className='col-12'>
-         <h3>كيفية التحويل : </h3>
+         <h3 style={{textAlign: 'center'}}>كيفية التحويل : </h3>
          <br />
-         <ul className="list-group" style={{borderRadius: '15px', width: '550px',display: 'block', margin: 'auto'}}>
+         <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto'}}>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل .</li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى :</li>
