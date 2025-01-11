@@ -1529,7 +1529,7 @@ const Home = ( { match } ) => {
            </div>
                </Carousel> */}
 
-      <div className='row'>
+      <div className='row' id="vodOrCash">
          <div className='col-12'>
          <img className="d-block mx-auto img-fluid" src="./images/vodafone.jpg" alt="Vodafone Cash" style={{borderRadius: '15px'}}/>
           </div>
