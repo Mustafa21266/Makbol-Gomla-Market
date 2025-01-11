@@ -60,7 +60,10 @@ const addToCart = (id) => {
                                             value={prod_id}
                                             id="prod_id"
                                         >
-                                            {products.map((product, index) => {
+                                            {products
+                                            .sort((a, b) => a.name.localeCompare(b.name))
+                                            .sort((a, b) => a.category.localeCompare(b.category))
+                                            .map((product, index) => {
                                                 if(index === 0){
                                                     return (
                                                     <option value={product._id} selected>{product.name}</option>
