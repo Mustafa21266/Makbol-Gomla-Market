@@ -178,7 +178,7 @@ const addToCart = (id) => {
                     <hr />
                     <div className='row'>
                     <div className='col-8'>
-<h5 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h5>
+<h6 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h6>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}><span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (قطع)</span></p>
@@ -186,11 +186,11 @@ const addToCart = (id) => {
                     </div>
                     <div className='row'>
                     <div className='col-8'>
-                    <h5 style={{color: 'white', textAlign: 'center'}}>السعر : </h5>
+                    <h6 style={{color: 'white', textAlign: 'center'}}>السعر : </h6>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}> 
-                       <h5 style={{color: 'white', textAlign: 'center'}}>
+                       <h6 style={{color: 'white', textAlign: 'center'}}>
                             {cartItems.reduce((acc, item)=> {
                         if(String(acc).includes(`${item.price}`)){
 
@@ -199,20 +199,20 @@ const addToCart = (id) => {
                         }
                     }, 0)}
                         <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span> 
-                        </h5>
+                        </h6>
                         </p>
 </div>
                     </div>
                     <div className='row'>
                     <div className='col-8'>
-                    <h5 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h5>
+                    <h6 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h6>
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}>
-   <h5 style={{color: 'white', textAlign: 'center'}}>
+   <h6 style={{color: 'white', textAlign: 'center'}}>
         {cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)}
             <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span>
-            </h5>
+            </h6>
     </p>
 
 </div>
