@@ -79,7 +79,7 @@ const ProductReviews = ({ history, match }) => {
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteReviewHandler(review._id)}>
                         {/*  onClick={()=> deleteReviewHandler(user._id)} */}
-                        <i className="fa">x</i>
+                        <i class="fa-solid fa-circle-x"></i>
                         </button>
                     </div>
                     </div>

@@ -158,7 +158,7 @@ const addToCart = (id) => {
                         </div>
 
                         <div className="col-6 col-lg-1 mt-4 mt-lg-0">
-                            <i id="delete_cart_item" className="fa btn float-right"  style={{textAlign: "center"}} onClick={()=> removeItemFromCartHandler(item.product)}>x</i>
+                            <i id="delete_cart_item" className="fa btn float-right"  style={{textAlign: "center"}} onClick={()=> removeItemFromCartHandler(item.product)}><i class="fa-solid fa-circle-x"></i></i>
                         </div>
 
                     </div>
