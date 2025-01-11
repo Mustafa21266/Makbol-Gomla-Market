@@ -13,8 +13,9 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-let refr = useRef(null);
-export 
+
+let refr = null;
+
 const Home = ( { match } ) => {
   const [currentPage, setcurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
@@ -22,6 +23,7 @@ const Home = ( { match } ) => {
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
   const myRef = useRef(null);
+
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',
