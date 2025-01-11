@@ -393,9 +393,9 @@ const Header = () => {
                   </div>
                   <div className='row'>
                     <div className='col-12'>
-                        <Link to="/#vodOrCash" style={{ textDecoration: 'none',backgroundColor:'#A49F48',textAlign: 'center' }} className="btn text-white w-100" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#vodOrCash" style={{ textDecoration: 'none',backgroundColor:'#A49F48',textAlign: 'center' }} className="btn text-white w-100" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                خدمات فودافون وأورنج كاش  
-                        </Link>
+                        </a>
                     </div>
                   </div>
 

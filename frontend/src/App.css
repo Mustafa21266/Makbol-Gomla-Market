@@ -12,6 +12,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   color: lemonchiffon;
+  scroll-behavior: smooth;
 }
 
 /* Scroll Bar */
