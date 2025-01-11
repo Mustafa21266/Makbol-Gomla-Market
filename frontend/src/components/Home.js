@@ -1544,9 +1544,34 @@ const Home = ( { match } ) => {
          <br />
          <hr />
          <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto',padding: '0px'}}>
-  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516</li>
-  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>خد سكرين شوت من عملية التحويل .</li>
-  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى :</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01027168516 . </li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى : . </li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: '#25d366'}}>
+  <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
+  </li>
+</ul>
+          </div>
+      </div>
+      <hr />
+      <div className='row'>
+         <div className='col-12'>
+         <img src="./images/orangecash.png" alt="Orange Cash" style={{width: "550px",borderRadius: '15px',display: 'block', margin: 'auto'}}/>
+          </div>
+      </div>
+      <div className='row'>
+         <div className='col-12'>
+         <br />
+          <br />
+          <hr />
+         <h3 style={{textAlign: 'center'}}>كيفية التحويل : </h3>
+         <br />
+         <br />
+         <hr />
+         <ul className="list-group" style={{width: '550px', borderRadius: '15px',display: 'block', margin: 'auto',padding: '0px'}}>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>حول علي رقم : 01224703104 . </li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}> . خد سكرين شوت من عملية التحويل .</li>
+  <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: 'black'}}>إرسل السكرين شوت إلى : . </li>
   <li className="list-group-item list-group-item-primary" style={{textAlign: 'right',color: '#25d366'}}>
   <a className="btn btn-floating m-1" style={{fontSize: '28px',color: '#25d366'}} href="https://wa.me/+2001127807379?text=السلام عليكم%20" target="_blank" role="button"><i className="fab fa-whatsapp" style={{color: '#25d366'}}></i></a>
   </li>
