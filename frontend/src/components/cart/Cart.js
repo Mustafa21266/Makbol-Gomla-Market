@@ -172,7 +172,7 @@ const addToCart = (id) => {
            
         </div>
         <div className="row">
-        <div className="col-12 my-4 w-100 d-flex justify-content-center animate__animated animate__fadeIn  animate__delay-2s">
+        <div className="col-12 w-100 d-flex justify-content-center animate__animated animate__fadeIn  animate__delay-2s">
                 <div id="order_summary" className="w-100">
                     <h4 style={{textAlign: 'center'}}>ملخص الأوردر</h4>
                     <hr />
