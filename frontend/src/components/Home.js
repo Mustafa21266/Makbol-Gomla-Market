@@ -1607,4 +1607,6 @@ const Home = ( { match } ) => {
     )
 }
 
-export default { Home , refr } 
+export { refr } ;
+
+export default Home
