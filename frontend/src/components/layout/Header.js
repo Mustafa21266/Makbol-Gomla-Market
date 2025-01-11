@@ -95,8 +95,7 @@ const Header = ({ history }) => {
     }else {
       history.push('/')
       window.location.reload();
-      myRef.current.scrollIntoView()
-
+      setTimeout(() => myRef.current.scrollIntoView(), 5000)
     }
     // window.location.reload();
   }
