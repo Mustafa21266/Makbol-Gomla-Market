@@ -209,17 +209,58 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
 	<hr />
 	<br />
 	<br />
+
+
+
+
+
+
+
+
 	<div className='row'>
-<div className='col-4'>
-<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01224703104</h4>
-</div>
 <div className='col-4'>
 <h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01127807379</h4>
 </div>
-	<div className='col-4'>
+	<div className='col-8'>
 <h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}> : للتواصل</h4>
 	</div>
                          </div>
+
+
+
+
+
+
+
+                         	<div className='row'>
+<div className='col-4'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01027168516</h4>
+</div>
+<div className='col-8'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}> : فودافون كاش</h4>
+</div>
+                         </div>
+
+                         <div className='row'>
+<div className='col-4'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}>01224703104</h4>
+</div>
+<div className='col-8'>
+<h4 className="my-4" style={{color:'black',fontSize: '56px', textAlign: 'center'}}> : أورنج كاش</h4>
+</div>
+                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
 	<br />
 	<br />
                         <hr />
