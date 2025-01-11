@@ -53,7 +53,12 @@ const OrderDetails = ({ history , match}) => {
                         {/* <h4 className="my-4">: حالة الدفع <span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4> */}
                         {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
 
-                        {order.orderStatus && String(order.orderStatus).includes('Delivered') ?  <h4 className="my-4">حالة الأوردر : <span className="greenColor">تم التوصيل</span></h4> : <h4 className="my-4">حالة الأوردر : <span className="greenColor">جارى التأكيد أو التوصيل</span></h4>
+                        {order.orderStatus && String(order.orderStatus).includes('Delivered') ?  <h4 className="my-4">حالة الأوردر : <span className="greenColor">تم التوصيل</span></h4> 
+                        : 
+                        String(order.orderStatus).includes('Processing') ?
+                        <h4 className="my-4">حالة الأوردر : <span style={{color: 'red'}}>تحت التأكيد</span></h4> 
+                        : 
+                        String(order.orderStatus).includes('Shipped') ? <h4 className="my-4">حالة الأوردر : <span style={{color: 'orange'}}>جاري التوصيل</span></h4> : ''
 
                         }
                        
