@@ -190,7 +190,7 @@ const addToCart = (id) => {
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}> 
-                        <span className="order-summary-values">
+                       <h5 style={{color: 'white', textAlign: 'center'}}>
                             {cartItems.reduce((acc, item)=> {
                         if(String(acc).includes(`${item.price}`)){
 
@@ -199,7 +199,7 @@ const addToCart = (id) => {
                         }
                     }, 0)}
                         <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span> 
-                        </span>
+                        </h5>
                         </p>
 </div>
                     </div>
@@ -209,10 +209,10 @@ const addToCart = (id) => {
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}>
-    <span className="order-summary-values">
+   <h5 style={{color: 'white', textAlign: 'center'}}>
         {cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)}
             <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span>
-        </span>
+            </h5>
     </p>
 
 </div>
