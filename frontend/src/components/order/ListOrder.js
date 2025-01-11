@@ -51,7 +51,13 @@ const ListOrder = () => {
                 id: order._id,
                 numOfItems: order.orderItems.length,
                 amount: `${order.totalPrice} EGP`,
-                status: order.orderStatus && String(order.orderStatus).includes('Delivered') ? <p style={{color: 'green'}}>تم التوصيل</p> : String(order.orderStatus).includes('Delivered') ? <p style={{color: 'red'}}>تحت التأكيد</p> : String(order.orderStatus).includes('Shipped') ? <p style={{color: 'red'}}>جاري التوصيل</p> : '',
+                status: order.orderStatus &&
+                 String(order.orderStatus).includes('Delivered') ?
+                <p style={{color: 'green'}}>تم التوصيل</p> 
+                : String(order.orderStatus).includes('Processing') ?
+                <p style={{color: 'red'}}>تحت التأكيد</p> : 
+                String(order.orderStatus).includes('Shipped') ? 
+                <p style={{color: 'red'}}>جاري التوصيل</p> : '',
                 actions: <div className="w-100 d-flex justify-content-center"><Link to={`/order/${order._id}`} className="btn btn-primary"><i className="fa fa-eye"></i></Link></div>
             })
            
