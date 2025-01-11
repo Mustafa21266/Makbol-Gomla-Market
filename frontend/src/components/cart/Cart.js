@@ -180,7 +180,7 @@ const addToCart = (id) => {
                     <p style={{textAlign: 'right'}}>السعر : 
                         <span className="order-summary-values">
                             {cartItems.reduce((acc, item)=> {
-                        if(acc.includes(`${item.price},`)){
+                        if(String(acc).includes(`${item.price},`)){
 
                         }else {
                             return acc + `${Number(item.quantity)},`
