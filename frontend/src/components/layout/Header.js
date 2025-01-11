@@ -128,6 +128,8 @@ const Header = () => {
                   </div> 
           </div> 
         ) : !loading &&  <Link to="/login" className="btn ml-4" style={{backgroundColor:'#178a53',color: 'white'}} id="login_btn">تسجيل الدخول</Link>}
+        <div className='row'>
+        <div className='col-12 col-md-6'>
         {user && user.role === 'admin' && (
                            <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -233,7 +235,9 @@ const Header = () => {
                              </div> 
                     
                   )}
-                          {user && user.role === 'user' && (
+        </div>
+        <div className='col-12 col-md-6'>
+        {user && user.role === 'user' && (
                            <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span className="ml-1" id="cart_count">{notificationCountUser}</span>
@@ -338,6 +342,10 @@ const Header = () => {
                              </div> 
                     
                   )}
+</div>
+        </div>
+
+
        <div className="dropdown dropleft d-inline"> 
                 <Link to="/cart" style={{ textDecoration: 'none',backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span className="ml-1" id="cart_count">{cartItems.length}</span>
