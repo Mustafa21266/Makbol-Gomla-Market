@@ -25,7 +25,7 @@ const Shipping = ({ history}) => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveShippingInfo({ address, city, postalCode, phoneNo, country, user: orderUser}))
-        history.push(`/order/${order._id}/confirm`)
+        history.push(`/order/confirm`)
     }
     useEffect(() => {
         dispatch(allUsers())

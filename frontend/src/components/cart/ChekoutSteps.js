@@ -27,7 +27,7 @@ const ChekoutSteps = ({ shipping, confirmOrder, payment}) => {
 </div>
                 </Link>}
 
-                {confirmOrder ? <Link to={`/order/${order._id}/confirm`} className="float-right">
+                {confirmOrder ? <Link to={`/order/confirm`} className="float-right">
                 <div className="triangle2-active">
 
                 </div>
