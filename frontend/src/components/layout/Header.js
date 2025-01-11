@@ -11,7 +11,7 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 
 import NotificationSound from './notification.mp3';
 
-import refr from '../Home';
+import { refr } from '../Home';
 
 let isPlayed = false;
 
