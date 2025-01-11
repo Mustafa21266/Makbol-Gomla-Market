@@ -79,12 +79,45 @@ const addToCart = (id) => {
                                     </div>
   </div>
   <div className="col-12 col-md-2">
-    <button type="button" className="btn btn-primary mb-3" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
+    <button type="button" style={{ textDecoration: 'none',backgroundColor:'#178a53' }}  className="btn text-white d-block mx-auto" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
   </div>
 </form>
             </Fragment>
             : 
             <Fragment>
+                <h2 className="mt-5">سلة التسوق</h2>
+                <form class="row">
+  <div className="col-12 col-md-10">
+    <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
+    <div className="form-group">
+                                        <select
+                                            className="form-control"
+                                            name='prod_id'
+                                            value={prod_id}
+                                            id="prod_id"
+                                            onChange={(e) => {setProdId(e.target.value)}}
+                                        >
+                                            {products
+                                            .sort((a, b) => a.name.localeCompare(b.name))
+                                            .sort((a, b) => a.category.localeCompare(b.category))
+                                            .map((product, index) => {
+                                                if(index === 0){
+                                                    return (
+                                                    <option value={product._id} selected>{product.name}</option>
+                                                    )
+                                                }else {
+                                                    return (
+                                                        <option value={product._id}>{product.name}</option>
+                                                        )
+                                                }
+                                            })}
+                                        </select>
+                                    </div>
+  </div>
+  <div className="col-12 col-md-2">
+    <button type="button" className="btn btn-primary d-block mx-auto" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
+  </div>
+</form>
 <h2 className="mt-5">سلتك تحتوي على : <b>{cartItems.length} صنف</b></h2>
         
         <div className="row d-flex justify-content-between animate__animated animate__fadeIn">
