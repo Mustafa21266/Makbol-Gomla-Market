@@ -15,7 +15,7 @@ const OrderDetails = ({ history , match}) => {
     const { user, isAuthenticated } = useSelector(state => state.auth)
     const { loading , error, orders } = useSelector(state => state.myOrders)
     const order = orders.map(item => {
-        if(item.user._id === match.params.id){
+        if(item._id === match.params.id){
             return item
         }
     })[0]
