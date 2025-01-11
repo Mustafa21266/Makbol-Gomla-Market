@@ -209,11 +209,10 @@ const addToCart = (id) => {
 </div>
 <div className='col-4'>
 <p style={{textAlign: 'right'}}>
-    
     <span className="order-summary-values">
         {cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)}
+            <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span>
         </span>
-    <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span>
     </p>
 
 </div>
