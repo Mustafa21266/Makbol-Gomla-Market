@@ -200,7 +200,7 @@ const addToCart = (id) => {
                     }, 0)
                         } 
                         
-                        EGP </span></p>
+                        <span style={{marginLeft: '15px',marginRight: '15px'}}>EGP</span></span></p>
 </div>
                     </div>
                     <div className='row'>
