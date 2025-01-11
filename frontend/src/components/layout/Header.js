@@ -74,13 +74,13 @@ const Header = () => {
   console.log(notifications)
   if(notifications.length > 0){
     for (let index = 0; index < notifications.length; index++) {
-      if(notifications[index].isRead == false){
-        notificationCount++;
+      if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
+        notificationCountUser++;
         playAudio();
         isPlayed = true;
       }
-      if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
-        notificationCountUser++;
+      if(notifications[index].isRead == false){
+        notificationCount++;
         playAudio();
         isPlayed = true;
       }
