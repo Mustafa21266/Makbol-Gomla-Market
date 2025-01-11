@@ -24,10 +24,7 @@ const Header = ({ history }) => {
   let notificationCount = 0;
   let notificationCountUser = 0;
   const myRef = refr;
-  const executeScroll = () => {
-    history.push('/')
-    myRef.current.scrollIntoView()
-  }
+  
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -90,6 +87,10 @@ const Header = ({ history }) => {
         isPlayed = true;
       }
     }
+  }
+  const executeScroll = () => {
+    history.push('/')
+    myRef.current.scrollIntoView()
   }
     return (
         <Fragment>
