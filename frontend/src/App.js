@@ -64,10 +64,10 @@ function App() {
   return (
     <Router>
         <div className="App">
-              <Route path="/" component={Header} />
+          <div className='container-fluid'>
+          <Route path="/" component={Header} />
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
-          <div className="container container-fluid">
               <Route path="/" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
               <Route path="/login" component={Login} exact/>
@@ -91,7 +91,6 @@ function App() {
               <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
               <Route path="/product/:id" component={ProductDetails} exact />
               
-          </div>
               <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact/>
 
               <ProtectedRoute path="/admin/accounting" isAdmin={true} component={NewAccounting} exact/>
@@ -111,6 +110,7 @@ function App() {
               {/* {!loading && (
                 
               )} */}
+          </div>
         </div>
     </Router>
     

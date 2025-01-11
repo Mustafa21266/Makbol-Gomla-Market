@@ -739,3 +739,8 @@ th {
     right: -260px !important;
   }
 }
+
+.App {
+  margin: 0px;
+  padding: 0px;
+}
