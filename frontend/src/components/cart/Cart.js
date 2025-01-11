@@ -176,8 +176,8 @@ const addToCart = (id) => {
                 <div id="order_summary" className="w-100">
                     <h4 style={{textAlign: 'center'}}>ملخص الأوردر</h4>
                     <hr />
-                    <p style={{textAlign: 'left'}}>عدد القطع : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (Units)</span></p>
-                    <p style={{textAlign: 'left'}}>السعر : 
+                    <p style={{textAlign: 'right'}}>عدد القطع : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (Units)</span></p>
+                    <p style={{textAlign: 'right'}}>السعر : 
                         <span className="order-summary-values">
                             {cartItems.reduce((acc, item)=> {
                         if(acc.includes(`${item.price},`)){
@@ -189,7 +189,7 @@ const addToCart = (id) => {
                         } 
                         
                         EGP </span></p>
-                    <p style={{textAlign: 'left'}}>المجموع المحتمل  : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
+                    <p style={{textAlign: 'right'}}>المجموع المحتمل  : <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
     
                     <hr />
                     <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53',color: 'white'}} onClick={checkOutHandler}>تأكيد الطلب</button>
