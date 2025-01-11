@@ -177,18 +177,18 @@ const addToCart = (id) => {
                     <h4 style={{textAlign: 'center'}}>ملخص الأوردر</h4>
                     <hr />
                     <div className='row'>
-                    <div className='col-5'>
+                    <div className='col-6'>
 <h6 style={{color: 'white', textAlign: 'center'}}>عدد القطع : </h6>
 </div>
-<div className='col-7'>
+<div className='col-6'>
 <p style={{textAlign: 'right'}}><span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + Number(item.quantity)), 0)} (قطع)</span></p>
 </div>
                     </div>
                     <div className='row'>
-                    <div className='col-5'>
+                    <div className='col-6'>
                     <h6 style={{color: 'white', textAlign: 'center'}}>السعر : </h6>
 </div>
-<div className='col-7'>
+<div className='col-6'>
 <p style={{textAlign: 'right'}}> 
                        <h6 style={{color: 'white', textAlign: 'center'}}>
                             {cartItems.reduce((acc, item)=> {
@@ -204,10 +204,10 @@ const addToCart = (id) => {
 </div>
                     </div>
                     <div className='row'>
-                    <div className='col-5'>
+                    <div className='col-6'>
                     <h6 style={{color: 'white', textAlign: 'center'}}>المجموع المحتمل  :  </h6>
 </div>
-<div className='col-7'>
+<div className='col-6'>
 <p style={{textAlign: 'right'}}>
    <h6 style={{color: 'white', textAlign: 'center'}}>
         {cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)}
