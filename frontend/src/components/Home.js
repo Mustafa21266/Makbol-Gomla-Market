@@ -1553,7 +1553,9 @@ const Home = ( { match } ) => {
 </ul>
           </div>
       </div>
+      <br />
       <hr />
+      <br />
       <div className='row'>
          <div className='col-12'>
          <img src="./images/orangecash.png" alt="Orange Cash" style={{width: "550px",height: '418px',borderRadius: '35px', backgroundColor: 'wheat',display: 'block', margin: 'auto'}}/>
