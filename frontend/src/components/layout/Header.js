@@ -91,7 +91,7 @@ const Header = ({ history }) => {
   const executeScroll = () => {
     history.push('/')
     window.relo
-    location.reload();
+    window.location.reload();
     myRef.current.scrollIntoView()
   }
     return (
