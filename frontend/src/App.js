@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/Home';
@@ -65,7 +64,6 @@ function App() {
   return (
     <Router>
         <div className="App">
-        <AddToHomeScreen />
         <Route path="/" component={Header} />
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
