@@ -114,7 +114,7 @@ const Header = ({ history }) => {
     // window.location.reload();
   }
   const switchHandler = () => {
-    setTimeout(function(){ window.location.reload(); }, 500);
+    setTimeout(function(){ window.location.reload(); }, 100);
   }
     return (
         <Fragment>
