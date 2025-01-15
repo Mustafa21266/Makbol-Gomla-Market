@@ -45,7 +45,7 @@ import Search from './components/layout/Search';
 
 import { getNotifications } from './actions/notificationActions';
 import ScrollToTop from "./components/layout/ScrollToTop";
-import AddToHomeScreen from './components/layout/AddToHomeScreen';
+
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
