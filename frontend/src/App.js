@@ -47,8 +47,10 @@ import { getNotifications } from './actions/notificationActions';
 import ScrollToTop from "./components/layout/ScrollToTop";
 
 // import AddToHomeScreen from './components/layout/AddToHomeScreen';
+import { useAddToHomescreenPrompt } from "./components/AddToHomeScreen";
 
 function App() {
+  const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
     await store.dispatch(loadUser())
@@ -65,6 +67,7 @@ function App() {
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
+  promptToInstall();
   return (
     <Router>
       
