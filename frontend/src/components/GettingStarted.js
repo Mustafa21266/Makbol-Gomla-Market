@@ -18,7 +18,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 let refr = null;
 
-const GettingStarted = ( { match } ) => {
+const GettingStarted = ( { history , match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
   const [subcategory, setSubCategory] = useState('');
@@ -26,7 +26,7 @@ const GettingStarted = ( { match } ) => {
   // const { loading, error, } = useSelector(state => state.products)
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-  useEffect(({ history }) => {
+  useEffect(() => {
 
     
     return () => {
