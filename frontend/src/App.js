@@ -66,7 +66,7 @@ function App() {
   }, 30000);
   return (
     <Router>
-      <AddToHomeScreen />
+      
         <ScrollToTop />
         <div className="App">
         <Route path="/" component={Header} />
@@ -128,6 +128,7 @@ function App() {
                 
               )} */}
         </div>
+                <AddToHomeScreen />
     </Router>
     
   );
