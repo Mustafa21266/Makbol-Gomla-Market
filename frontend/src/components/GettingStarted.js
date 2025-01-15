@@ -39,14 +39,9 @@ const GettingStarted = ( { match } ) => {
     // })
     // dispatch(loadUser());
     // setTimeout(function(){ window.location.reload(); }, 2000);
-    
-    if(error){
-      return alert.error(error)
-    }
   }
     return (
         <Fragment>
-          { loading ? <Loader /> : (
             <Fragment>
             <MetaData title={`مقبول جملة ماركت - Makboul Gomla Market`}/>
               <div>
@@ -66,8 +61,6 @@ const GettingStarted = ( { match } ) => {
               </div>
         
 </Fragment>
-          )}
-            
         </Fragment>
     )
 }
