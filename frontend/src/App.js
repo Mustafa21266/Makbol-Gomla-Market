@@ -84,7 +84,7 @@ function App() {
           </div>
 
         </div>
-        <div className="App">
+        <div className="App fadeInUp-animation">
         {!domainList.includes(window.location.href) && (<Route path="/" component={Header} />) }
        
           {/* <Header /> */}
