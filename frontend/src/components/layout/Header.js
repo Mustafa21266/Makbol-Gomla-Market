@@ -11,7 +11,6 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 import { ALL_PRODUCTS_REQUEST } from '../../constants/productConstants'
 import { getProducts } from '../../actions/productActions'
 import NotificationSound from './notification.mp3';
-import { getProducts } from '../actions/productActions'
 import { refr } from '../Home';
 
 let isPlayed = false;
