@@ -56,6 +56,7 @@ function App() {
     "https://makbol-gomla.store/",
     "http://localhost:3000/"
   ]
+  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
@@ -69,7 +70,6 @@ function App() {
     }
     getStripeApiKey()
   }, [loading])
-  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
