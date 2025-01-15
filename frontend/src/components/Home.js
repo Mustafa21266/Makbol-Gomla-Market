@@ -16,7 +16,8 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 let refr = null;
 
-let a = "";
+const Home = ( { match } ) => {
+      let a = "";
 let b = "";
 if(window.location.href.includes("/search/gomla")){
       a = "Gomla"
@@ -30,8 +31,6 @@ if(window.location.href.includes("/search/gomla")){
       // keyword = ''
     }
 
-
-const Home = ( { match } ) => {
   const [currentPage, setcurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [subcategory, setSubCategory] = useState(a);
