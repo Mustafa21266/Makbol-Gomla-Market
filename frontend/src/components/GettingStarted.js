@@ -21,21 +21,17 @@ let refr = null;
 const GettingStarted = ( { match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
-  const { user, loading, error } = useSelector(state => state.auth)
   // const { loading, error, } = useSelector(state => state.products)
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
-    // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    // dispatch(loadUser())
-    if(error){
-      return alert.error(error)
-    }
+
+    
     return () => {
             // Anything in here is fired on component unmount.
           window.location.reload();
         }
-  }, [dispatch, alert ,error, loading])
+  }, [])
   const switchView = () => {
     // dispatch({
     //   type: ALL_PRODUCTS_REQUEST,
