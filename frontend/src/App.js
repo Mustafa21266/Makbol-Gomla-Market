@@ -78,13 +78,13 @@ function App() {
     <Router>
       
         <ScrollToTop />
-        <div className='row'>
+        <div className="App fadeInUp-animation">
+            <div className='row'>
           <div className='col-12 d-flex justify-content-center animate__animated animate__bounce animate__delay-2.5s' style={{padding: '20px'}}>
           <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق <i className="fa fa-download"></i></button>
           </div>
 
         </div>
-        <div className="App fadeInUp-animation">
         {!domainList.includes(window.location.href) && (<Route path="/" component={Header} />) }
        
           {/* <Header /> */}
