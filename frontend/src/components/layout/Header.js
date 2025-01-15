@@ -41,7 +41,7 @@ const Header = ({ history }) => {
   }
   useEffect(() => {
      dispatch(getNotifications())
-
+dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
     // if(notifications.length > 0){
     //             // dispatch(getProductDetails(productId))
     //   }else {
