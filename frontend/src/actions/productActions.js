@@ -56,7 +56,10 @@ export const getProducts = (keyword = '',currentPage = 1, price, category, subca
             payload: []
         })
         let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
-        if(category){
+       if(category){
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&category=${category}&subcategory=${subcategory}`
+        }
+        if(subcategory){
             link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&category=${category}&subcategory=${subcategory}`
         }
         const { data } = await axios.get(link)
