@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-import { loadUser, clearErrors } from '../actions/userActions'
 
 let refr = null;
 
@@ -89,10 +88,7 @@ if(window.location.href.includes("/search/gomla")){
   useEffect(() => {
     
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-      if(localStorage.getItem("token")){
-          // dispatch(loadUser())
-          // dispatch(clearErrors())
-    }
+        
     if(error){
       return alert.error(error)
     }
