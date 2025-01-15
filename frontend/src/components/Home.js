@@ -21,12 +21,12 @@ const Home = ( { match } ) => {
 let b = "";
 if(window.location.href.includes("/search/gomla")){
       a = "Gomla"
-      b = window.location.href.split("/")[window.location.href.split("/").length - 1]
+      b = match.params.category
       // currentUserPage = "/search/gomla"
       // keyword = ''
     }else if(window.location.href.includes("/search/piece")){
       a = "Piece"
-      b = window.location.href.split("/")[window.location.href.split("/").length - 1]
+      b = match.params.category
       // currentUserPage = "/search/piece"
       // keyword = ''
     }
