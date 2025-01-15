@@ -75,7 +75,7 @@ const Header = ({ history }) => {
   }
   const readNotificationHandler = (id) => {
     dispatch(updateNotification(id));
-    
+    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
     // dispatch(getNotifications())
     // alert.success('تم تسجيل الخروج بنجاح')
   }
