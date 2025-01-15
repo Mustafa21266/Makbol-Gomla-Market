@@ -4,7 +4,7 @@ class APIFeatures{
         this.queryString = queryString;
     }
     search() {
-        if(this.queryString.keyword === 'all'){
+        if(this.queryString.keyword === 'searchAll'){
             return this;
         }else {
             const keyword = this.queryString.keyword ? {
