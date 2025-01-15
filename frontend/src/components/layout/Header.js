@@ -31,7 +31,7 @@ const Header = ({ history }) => {
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
   let keyword = 'home'
-  
+  const { loading } = useSelector(state => state.products)
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -68,7 +68,7 @@ const Header = ({ history }) => {
               dispatch({ type: UPDATE_NOTIFICATION_RESET})
           }
             
-  },[dispatch, alert, isUpdated, error])
+  },[dispatch, alert, isUpdated, error, loading])
   const logOutHandler = () => {
     dispatch(logout());
     alert.success('تم تسجيل الخروج بنجاح')
