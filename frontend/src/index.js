@@ -28,7 +28,7 @@ import 'animate.css';
 // import * as mdb from 'mdb-ui-kit'; // lib
 
 
-// import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals';
 
 
 
@@ -49,4 +49,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-// reportWebVitals();
+reportWebVitals();

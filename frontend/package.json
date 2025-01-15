@@ -2,9 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "v12.18.2"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@react-spring/web": "^9.7.5",
@@ -17,6 +14,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "countries-list": "^2.6.1",
+    "create-vite": "^6.1.1",
     "dotenv": "^16.4.7",
     "external-libs": "^0.1.1",
     "font-awesome": "^4.7.0",
@@ -47,8 +45,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
