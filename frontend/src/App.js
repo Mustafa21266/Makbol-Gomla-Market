@@ -67,11 +67,17 @@ function App() {
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
-  promptToInstall();
+  // promptToInstall();
   return (
     <Router>
       
         <ScrollToTop />
+        <div className='row'>
+          <div className='col-12'>
+          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">Add to Home Screen</button>
+          </div>
+
+        </div>
         <div className="App">
         <Route path="/" component={Header} />
           {/* <Header /> */}
