@@ -65,20 +65,22 @@ const Home = ( { match } ) => {
   // const keyword = match.params.keyword ? match.params.keyword : "all"
   let keyword = window.location.href.includes("/home") ? 'home' : window.location.href.includes("/search/all") ? "searchAll" : match.params.keyword
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+  let count = productsCount;
+  if(keyword){
+    count = filteredProductsCount;
+  }
   useEffect(() => {
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
 
     if(error){
       return alert.error(error)
     }
-  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating, productsCount, resultsPerPage, filteredProductsCount, products])
+    // , productsCount, resultsPerPage, filteredProductsCount, products
+  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating, count])
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
   }
-  let count = productsCount;
-  if(keyword){
-    count = filteredProductsCount;
-  }
+ 
   setTimeout(() => {
     if(window.location.href.includes("/search/gomla")){
       setSubCategory("Gomla")
