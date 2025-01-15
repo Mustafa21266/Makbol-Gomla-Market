@@ -27,22 +27,26 @@ const GettingStarted = ( { history , match } ) => {
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
-
+    if(category){
+        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+        setTimeout(function(){ window.location.reload(); }, 1000);
+    }
     
     return () => {
+        
             // Anything in here is fired on component unmount.
         //   window.location.reload();
         }
-  }, [])
+  }, [category])
   const switchView = (page) => {
     if(page === "home"){
         history.push("/home")
     }
 
-    if(page === "run"){
-        history.push(`/search/${subcategory.toLowerCase()}/${category.toLowerCase()}`)
-        setTimeout(function(){ window.location.reload(); }, 1000);
-    }
+    // if(page === "run"){
+        
+        
+    // }
     // dispatch({
     //   type: ALL_PRODUCTS_REQUEST,
     //   payload: []
@@ -88,7 +92,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Water")
-            switchView("run")
+            // switchView("run")
         }
           }>مياه</Link>
       </div>
@@ -96,7 +100,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Soft Drinks")
-            switchView("run")
+            // switchView("run")
         }
           }>مشروبات غازية</Link>
       </div>
@@ -104,7 +108,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Speciality Drinks")
-            switchView("run")
+            // switchView("run")
         }
           }>مشروبات مخصوصة</Link>
       </div>
@@ -114,7 +118,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Malt And Non-Alcholic")
-            switchView("run")
+            // switchView("run")
         }
           }>مشروبات الشعير وغير الكحوليات</Link>
       </div>
@@ -122,7 +126,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Sports And Energy Drinks")
-            switchView("run")
+            // switchView("run")
         }
           }>مشروبات رياضية ومشروبات طاقة</Link>
       </div>
@@ -130,7 +134,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Ice Cream")
-            switchView("run")
+            // switchView("run")
         }
           }>أيس كريم</Link>
       </div>
@@ -140,7 +144,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Chocolate")
-            switchView("run")
+            // switchView("run")
         }
           }>شوكلاتات</Link>
       </div>
@@ -148,7 +152,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Candy And Gums")
-            switchView("run")
+            // switchView("run")
         }
           }>حلويات ومستيكة</Link>
       </div>
@@ -156,7 +160,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Biscuits")
-            switchView("run")
+            // switchView("run")
         }
           }>بيسكويت</Link>
       </div>
@@ -166,7 +170,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Cakes")
-            switchView("run")
+            // switchView("run")
         }
           }>كيكات</Link>
       </div>
@@ -174,7 +178,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Coffee And Tea")
-            switchView("run")
+            // switchView("run")
         }
           }>قهوة وشاي</Link>
       </div>
@@ -182,7 +186,7 @@ const GettingStarted = ( { history , match } ) => {
         <Link className='getting-started-btn' onClick={()=> 
         {
             setCategory("Chips And Snacks")
-            switchView("run")
+            // switchView("run")
         }
           }>شيبسيهات وسناكس</Link>
       </div>
