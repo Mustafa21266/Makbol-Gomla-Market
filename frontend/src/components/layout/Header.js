@@ -45,7 +45,7 @@ const Header = ({ history }) => {
   }
   const unlisten = history.listen((location, action) => {
     if(!domainList.includes(location.path)){
-      dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+      // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
     }
   });
   useEffect(() => {
