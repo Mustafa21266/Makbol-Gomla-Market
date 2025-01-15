@@ -11,15 +11,21 @@ import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants
 import { ALL_PRODUCTS_REQUEST } from '../../constants/productConstants'
 import { getProducts } from '../../actions/productActions'
 import NotificationSound from './notification.mp3';
-
+import { getProducts } from '../actions/productActions'
 import { refr } from '../Home';
 
 let isPlayed = false;
 
 const Header = ({ history }) => {
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
-  const { loading , user } = useSelector(state => state.auth)
+  const { user } = useSelector(state => state.auth)
+  const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
@@ -38,6 +44,11 @@ const Header = ({ history }) => {
     audioPlayer.current.play();
     }
   }
+  const unlisten = history.listen((location, action) => {
+    if(!domainList.includes(location.path)){
+      dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    }
+  });
   useEffect(() => {
      dispatch(getNotifications())
     // if(notifications.length > 0){
