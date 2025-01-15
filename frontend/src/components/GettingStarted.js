@@ -32,15 +32,11 @@ const GettingStarted = ( { match } ) => {
     }
   }, [dispatch, alert ,error, loading])
   const switchView = () => {
-    dispatch({
-      type: ALL_PRODUCTS_REQUEST,
-      payload: []
-    })
     // dispatch({
     //   type: ALL_PRODUCTS_REQUEST,
     //   payload: []
     // })
-    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    dispatch(loadUser());
     if(error){
       return alert.error(error)
     }
