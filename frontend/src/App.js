@@ -93,6 +93,7 @@ function App() {
               <Route path="/" component={GettingStarted} exact />
               <Route path="/home" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
+              <Route path="/search/:subcategory/:category" component={Home} />
               <Route path="/login" component={Login} exact/>
               <Route path="/register" component={Register} exact/>
               <Route path="/seller/register" component={Register} exact/>
