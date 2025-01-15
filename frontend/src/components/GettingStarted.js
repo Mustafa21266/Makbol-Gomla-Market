@@ -38,6 +38,8 @@ const GettingStarted = ( { match } ) => {
     //   payload: []
     // })
     // dispatch(loadUser());
+    setTimeout(function(){ window.location.reload(); }, 2000);
+    
     if(error){
       return alert.error(error)
     }
