@@ -71,7 +71,7 @@ const Home = ( { match } ) => {
     if(error){
       return alert.error(error)
     }
-  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating])
+  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating, productsCount, resultsPerPage, filteredProductsCount])
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
   }
