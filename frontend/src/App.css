@@ -750,3 +750,7 @@ th {
   color: white;
   text-align: center;
 }
+
+.fadeInUp-animation {
+  animation: 1.5s fadeInUp;
+}
