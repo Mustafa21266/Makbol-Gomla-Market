@@ -29,7 +29,7 @@ const GettingStarted = ( { history , match } ) => {
   useEffect(() => {
     if(category){
         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
-        setTimeout(function(){ window.location.reload(); }, 250);
+        setTimeout(function(){ window.location.reload(); }, 100);
     }
     
     return () => {
@@ -41,7 +41,7 @@ const GettingStarted = ( { history , match } ) => {
   const switchView = (page) => {
     if(page === "home"){
         history.push("/home")
-        setTimeout(function(){ window.location.reload(); }, 100);
+        setTimeout(function(){ window.location.reload(); }, 50);
     }
 
     // if(page === "run"){
