@@ -18,7 +18,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 let refr = null;
 
-const GettingStarted = ( { history, match } ) => {
+const GettingStarted = ( { match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
   const [subcategory, setSubCategory] = useState('');
@@ -26,12 +26,12 @@ const GettingStarted = ( { history, match } ) => {
   // const { loading, error, } = useSelector(state => state.products)
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-  useEffect(() => {
+  useEffect(({ history }) => {
 
     
     return () => {
             // Anything in here is fired on component unmount.
-          window.location.reload();
+        //   window.location.reload();
         }
   }, [])
   const switchView = (page) => {
@@ -41,13 +41,13 @@ const GettingStarted = ( { history, match } ) => {
 
     if(page === "run"){
         history.push(`/search/${subcategory.toLowerCase()}/${category.toLowerCase()}`)
+        setTimeout(function(){ window.location.reload(); }, 1000);
     }
     // dispatch({
     //   type: ALL_PRODUCTS_REQUEST,
     //   payload: []
     // })
     // dispatch(loadUser());
-    // setTimeout(function(){ window.location.reload(); }, 2000);
   }
     return (
             
