@@ -9,11 +9,12 @@ import  Pagination  from 'react-js-pagination'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { Link } from 'react-router-dom'
+import { loadUser, clearErrors } from '../actions/userActions'
 // import { Carousel } from 'react-responsive-carousel';
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-import { loadUser, clearErrors } from '../actions/userActions'
+
 
 let refr = null;
 
