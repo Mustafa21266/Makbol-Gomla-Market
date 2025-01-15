@@ -47,6 +47,12 @@
         "use-force-update": "^1.0.7",
         "web-vitals": "^1.0.1"
       },
+      "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
       "engines": {
         "node": "v12.18.2"
       }
