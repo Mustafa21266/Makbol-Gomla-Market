@@ -25,7 +25,7 @@ const Header = ({ history }) => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
   const { user } = useSelector(state => state.auth)
-  const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
+  const { loading, products, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
