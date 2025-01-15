@@ -753,7 +753,7 @@ if(window.location.href.includes("/search/gomla")){
     <div className="container">
         <div className="row">
             <div className="col-6">
-                <h3 className="mb-3" style={{color: 'white'}}>مشروبات عازية </h3>
+                <h3 className="mb-3" style={{color: 'white'}}>مشروبات غازية </h3>
             </div>
             <div className="col-6 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
