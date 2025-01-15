@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-// import './components/layout/addToHomeScreen.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/Home';
+import GettingStarted from './components/GettingStarted';
 import ProductDetails from './components/product/ProductDetails'
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -45,13 +45,18 @@ import Search from './components/layout/Search';
 
 import { getNotifications } from './actions/notificationActions';
 import ScrollToTop from "./components/layout/ScrollToTop";
+import AddToHomeScreen from './components/layout/AddToHomeScreen';
 
-// import AddToHomeScreen from './components/layout/AddToHomeScreen';
-import { useAddToHomescreenPrompt } from "./components/layout/AddToHomeScreen";
 
 function App() {
-  const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
+  const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
+  const { user, isAuthenticated } = useSelector(state => state.auth)
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   useEffect(async () => {
     await store.dispatch(loadUser())
     
@@ -62,29 +67,27 @@ function App() {
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
-  }, [])
-  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
+  }, [loading])
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
-  // promptToInstall();
   return (
     <Router>
-      
+      <AddToHomeScreen />
         <ScrollToTop />
-        <div className='row'>
-          <div className='col-12 d-flex justify-content-center animate__animated animate__bounce animate__delay-2.5s' style={{padding: '20px'}}>
-          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق</button>
-          </div>
-
-        </div>
         <div className="App">
-        <Route path="/" component={Header} />
-          {/* <Header /> */}
+          {/* {
+          (window.location.href !== "http://localhost:3000/" || window.location.href !== "" || window.location.href !== ) && (<Route path="/" component={Header} />)
+          } */}
+          {
+            domainList.includes(window.location.href) ? '' : <Route path="/" component={Header} />
+          }
               <img className="fade-in-image animate__animated animate__fadeIn" src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736887007/peter-bond-KfvknMhkmw0-unsplash_siptnz.jpg" alt="homepage picture"/>
           <div className="container container-fluid">
-              <Route path="/" component={Home} exact />
+              <Route path="/" component={GettingStarted} exact />
+              <Route path="/home" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
+              <Route path="/search/:subcategory" component={Home} />
               <Route path="/login" component={Login} exact/>
               <Route path="/register" component={Register} exact/>
               <Route path="/seller/register" component={Register} exact/>
@@ -138,7 +141,6 @@ function App() {
                 
               )} */}
         </div>
-                {/* <AddToHomeScreen /> */}
     </Router>
     
   );
