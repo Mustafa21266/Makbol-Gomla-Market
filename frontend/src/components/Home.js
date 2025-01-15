@@ -78,7 +78,7 @@ if(window.location.href.includes("/search/gomla")){
     
   // run this function from an event handler or an effect to execute scroll 
   // const keyword = match.params.keyword ? match.params.keyword : "all"
-  let keyword = window.location.href.includes("/home") ? 'home' : window.location.href.includes("/search/all") ? "searchAll" : match.params.keyword
+  let keyword = window.location.href.includes("/home") ? 'home' : window.location.href.includes("/search/") ? "searchAll" : match.params.keyword
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   let count = productsCount;
   if(keyword){
