@@ -19,7 +19,7 @@ let isPlayed = false;
 const Header = ({ history }) => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
-  const { user } = useSelector(state => state.auth)
+  const { loading , user } = useSelector(state => state.auth)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
@@ -31,7 +31,6 @@ const Header = ({ history }) => {
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
   let keyword = 'home'
-  const { loading } = useSelector(state => state.products)
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -39,7 +38,6 @@ const Header = ({ history }) => {
     audioPlayer.current.play();
     }
   }
-  dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
      dispatch(getNotifications())
     // if(notifications.length > 0){
@@ -68,7 +66,7 @@ const Header = ({ history }) => {
               dispatch({ type: UPDATE_NOTIFICATION_RESET})
           }
             
-  },[dispatch, alert, isUpdated, error, user , loading])
+  },[dispatch, alert, isUpdated, error , loading])
   const logOutHandler = () => {
     dispatch(logout());
     alert.success('تم تسجيل الخروج بنجاح')
