@@ -19,7 +19,7 @@ let isPlayed = false;
 const Header = ({ history }) => {
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
-  const { loading, user } = useSelector(state => state.auth)
+  const { user } = useSelector(state => state.auth)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
