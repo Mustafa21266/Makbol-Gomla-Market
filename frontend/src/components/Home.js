@@ -22,8 +22,13 @@ const Home = ( { match } ) => {
   const [subcategory, setSubCategory] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
+  // let currentUserPage = "/home";
   const myRef = useRef(null);
-
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',
@@ -58,11 +63,11 @@ const Home = ( { match } ) => {
     
   // run this function from an event handler or an effect to execute scroll 
   // const keyword = match.params.keyword ? match.params.keyword : "all"
-  let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
+  let keyword = window.location.href.includes("/home") ? 'home' : window.location.href.includes("/search/all") ? "searchAll" : match.params.keyword
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    
+
     if(error){
       return alert.error(error)
     }
@@ -74,6 +79,20 @@ const Home = ( { match } ) => {
   if(keyword){
     count = filteredProductsCount;
   }
+  setTimeout(() => {
+    if(window.location.href.includes("/search/gomla")){
+      setSubCategory("Gomla")
+      setCategory("Cakes")
+      // currentUserPage = "/search/gomla"
+      // keyword = ''
+    }else if(window.location.href.includes("/search/piece")){
+      setSubCategory("Piece")
+      setCategory("Cakes")
+      // currentUserPage = "/search/piece"
+      // keyword = ''
+    }
+  }, 5000)
+
   refr = myRef;
     return (
         <Fragment>
