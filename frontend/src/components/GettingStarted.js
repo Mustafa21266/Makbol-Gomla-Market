@@ -31,6 +31,10 @@ const GettingStarted = ( { match } ) => {
     if(error){
       return alert.error(error)
     }
+    return () => {
+            // Anything in here is fired on component unmount.
+          window.location.reload();
+        }
   }, [dispatch, alert ,error, loading])
   const switchView = () => {
     // dispatch({
@@ -38,7 +42,7 @@ const GettingStarted = ( { match } ) => {
     //   payload: []
     // })
     // dispatch(loadUser());
-    setTimeout(function(){ window.location.reload(); }, 2000);
+    // setTimeout(function(){ window.location.reload(); }, 2000);
     
     if(error){
       return alert.error(error)
