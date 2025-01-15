@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/Home';
+import GettingStarted from './components/GettingStarted';
 import ProductDetails from './components/product/ProductDetails'
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -83,7 +84,8 @@ function App() {
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736887007/peter-bond-KfvknMhkmw0-unsplash_siptnz.jpg" alt="homepage picture"/>
           <div className="container container-fluid">
-              <Route path="/" component={Home} exact />
+              <Route path="/" component={GettingStarted} exact />
+              <Route path="/home" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
               <Route path="/login" component={Login} exact/>
               <Route path="/register" component={Register} exact/>
