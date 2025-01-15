@@ -69,7 +69,7 @@ function App() {
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
-  }, [loading])
+  }, [])
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
