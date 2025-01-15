@@ -22,6 +22,17 @@ const Home = ( { match } ) => {
   const [subcategory, setSubCategory] = useState('');
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
+    if(window.location.href.includes("/search/gomla")){
+      setSubCategory("Gomla")
+      setCategory("Cakes")
+      // currentUserPage = "/search/gomla"
+      // keyword = ''
+    }else if(window.location.href.includes("/search/piece")){
+      setSubCategory("Piece")
+      setCategory("Cakes")
+      // currentUserPage = "/search/piece"
+      // keyword = ''
+    }
   // let currentUserPage = "/home";
   const myRef = useRef(null);
   const domainList = [
@@ -80,18 +91,6 @@ const Home = ( { match } ) => {
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
   }
- 
-  if(window.location.href.includes("/search/gomla")){
-      setSubCategory("Gomla")
-      setCategory("Cakes")
-      // currentUserPage = "/search/gomla"
-      // keyword = ''
-    }else if(window.location.href.includes("/search/piece")){
-      setSubCategory("Piece")
-      setCategory("Cakes")
-      // currentUserPage = "/search/piece"
-      // keyword = ''
-    }
     return (
         <Fragment>
           { loading ? <Loader /> : (
