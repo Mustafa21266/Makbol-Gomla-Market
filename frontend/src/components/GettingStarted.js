@@ -13,22 +13,24 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
+import { loadUser, clearErrors } from '../actions/userActions'
 
 let refr = null;
 
 const GettingStarted = ( { match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
-  const { loading, error, } = useSelector(state => state.products)
+  const { user, loading } = useSelector(state => state.auth)
+  // const { loading, error, } = useSelector(state => state.products)
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
     // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    
+    dispatch(loadUser())
     if(error){
       return alert.error(error)
     }
-  }, [dispatch, alert ,error])
+  }, [dispatch, alert ,error, loading])
     return (
         <Fragment>
           { loading ? <Loader /> : (
