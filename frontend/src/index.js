@@ -43,7 +43,6 @@ const options = {
 ReactDOM.render(
   <Provider store={store}>
     <AlertProvider template={AlertTemplate} {...options}>
-    <AddToHomeScreen />
     <App />
     </AlertProvider>
     
