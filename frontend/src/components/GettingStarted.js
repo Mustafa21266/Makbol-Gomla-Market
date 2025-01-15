@@ -18,7 +18,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 let refr = null;
 
-const GettingStarted = ( { match } ) => {
+const GettingStarted = ( { history, match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
   const [subcategory, setSubCategory] = useState('');
