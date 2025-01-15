@@ -31,6 +31,20 @@ const GettingStarted = ( { match } ) => {
       return alert.error(error)
     }
   }, [dispatch, alert ,error, loading])
+  const switchView = () => {
+    dispatch({
+      type: ALL_PRODUCTS_REQUEST,
+      payload: []
+    })
+    // dispatch({
+    //   type: ALL_PRODUCTS_REQUEST,
+    //   payload: []
+    // })
+    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    if(error){
+      return alert.error(error)
+    }
+  }
     return (
         <Fragment>
           { loading ? <Loader /> : (
@@ -41,13 +55,13 @@ const GettingStarted = ( { match } ) => {
                 <br />
     <div className="row">
     <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
-      <Link to={'/home'} className='getting-started-btn'>الرئيسية</Link>
+      <Link to={'/home'} className='getting-started-btn' onClick={()=> switchView()}>الرئيسية</Link>
     </div>
     <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
-      <Link to={'/search/gomla'} className='getting-started-btn'>الجملة</Link>
+      <Link to={'/search/gomla'} className='getting-started-btn' onClick={()=> switchView()}>الجملة</Link>
     </div>
     <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
-      <Link to={'/search/piece'} className='getting-started-btn'>القطاعي</Link>
+      <Link to={'/search/piece'} className='getting-started-btn' onClick={()=> switchView()}>القطاعي</Link>
     </div>
 </div>
               </div>
