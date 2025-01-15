@@ -340,7 +340,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                     {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
                                 </div>
                                 <div className="col-3 col-lg-2">
-                                <h2  className="mb-4" style={{textAlign:'center'}}>{totalPrice}</h2>
+                                <h2  className="mb-4" style={{textAlign:'center'}}>{parseFloat(item.price) * parseInt(item.quantity)}</h2>
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
                             </div>
