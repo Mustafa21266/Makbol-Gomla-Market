@@ -11,7 +11,7 @@ const Product = ( { product, col } ) => {
           alt={`${product.name}`}
         />
         <div className="card-body d-flex flex-column">
-          <h5 className="card-title">
+          <h5 className="card-title" style={{color: 'black'}}>
            {product.name}
           </h5>
           <div className="ratings">
