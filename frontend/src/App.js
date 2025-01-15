@@ -58,6 +58,7 @@ function App() {
   ]
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
+  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   useEffect(async () => {
     await store.dispatch(loadUser())
     
@@ -68,7 +69,7 @@ function App() {
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
-  }, [])
+  }, [loading])
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   setInterval(async function () {
     await store.dispatch(getNotifications())
