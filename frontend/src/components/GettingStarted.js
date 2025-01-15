@@ -53,13 +53,13 @@ const GettingStarted = ( { match } ) => {
                 <br />
                 <br />
     <div className="row">
-    <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
+    <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
       <Link to={'/home'} className='getting-started-btn' onClick={()=> switchView()}>الرئيسية</Link>
     </div>
-    <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
+    <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-3" style={{padding: '50px'}}>
       <Link to={'/search/gomla'} className='getting-started-btn' onClick={()=> switchView()}>الجملة</Link>
     </div>
-    <div className="col-12 col-md-4 d-flex justify-content-center" style={{padding: '50px'}}>
+    <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-4" style={{padding: '50px'}}>
       <Link to={'/search/piece'} className='getting-started-btn' onClick={()=> switchView()}>القطاعي</Link>
     </div>
 </div>
