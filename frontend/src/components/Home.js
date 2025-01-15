@@ -21,12 +21,16 @@ const Home = ( { match } ) => {
 let b = "";
 if(window.location.href.includes("/search/gomla")){
       a = "Gomla"
-      b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}` 
+      if(match.params.category){
+        b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}` 
+      }
       // currentUserPage = "/search/gomla"
       // keyword = ''
     }else if(window.location.href.includes("/search/piece")){
       a = "Piece"
-      b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}` 
+      if(match.params.category){
+      b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
+      }
       // currentUserPage = "/search/piece"
       // keyword = ''
     }
