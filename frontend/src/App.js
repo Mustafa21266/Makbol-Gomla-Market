@@ -73,7 +73,7 @@ function App() {
       
         <ScrollToTop />
         <div className='row'>
-          <div className='col-12 d-flex justify-content-center'>
+          <div className='col-12 d-flex justify-content-center animate__animated animate__flash animate__infinite' style={{padding: '20px'}}>
           <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق</button>
           </div>
 
