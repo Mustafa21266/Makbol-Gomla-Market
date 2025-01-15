@@ -61,7 +61,7 @@ app.use('/api/v1', accounting);
 // console.log("sdfsdf")
     app.use(express.static(path.join(__dirname, '../frontend/build')))
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
+        res.sendFile(path.resolve(__dirname, '../frontend/public/index.html'))
     })
 if(process.env.NODE_ENV === 'PRODUCTION'){}
     
