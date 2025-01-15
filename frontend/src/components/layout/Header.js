@@ -113,26 +113,15 @@ const Header = ({ history }) => {
     }
     // window.location.reload();
   }
-  const deleteAccountHandler = () => {
-    dispatch({
-      type: ALL_PRODUCTS_REQUEST,
-      payload: []
-    })
-    // dispatch({
-    //   type: ALL_PRODUCTS_REQUEST,
-    //   payload: []
-    // })
-    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    if(error){
-      return alert.error(error)
-    }
+  const switchHandler = () => {
+    setTimeout(function(){ window.location.reload(); }, 500);
   }
     return (
         <Fragment>
             <nav className="navbar row">
       <div className="col-12 col-md-3 d-flex justify-content-center">
         <div>
-          <Link to="/" onClick={()=> deleteAccountHandler()}>
+          <Link to="/" onClick={()=> switchHandler()}>
           <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "300px", height: "300px"}}/>
           </Link>
          
