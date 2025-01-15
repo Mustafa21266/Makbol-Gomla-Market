@@ -27,7 +27,7 @@ const GettingStarted = ( { match } ) => {
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
     // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    dispatch(loadUser())
+    // dispatch(loadUser())
     if(error){
       return alert.error(error)
     }
@@ -37,7 +37,7 @@ const GettingStarted = ( { match } ) => {
     //   type: ALL_PRODUCTS_REQUEST,
     //   payload: []
     // })
-    dispatch(loadUser());
+    // dispatch(loadUser());
     if(error){
       return alert.error(error)
     }
