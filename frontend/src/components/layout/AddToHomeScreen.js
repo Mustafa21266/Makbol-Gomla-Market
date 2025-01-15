@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
-import './addToHomeScreen.css';
+// import './addToHomeScreen.css';
 import DEFAULT_CONFIGURATION from './addToHomeScreenConfiguration.json';
 
 export default function AddToHomeScreen(props) {
