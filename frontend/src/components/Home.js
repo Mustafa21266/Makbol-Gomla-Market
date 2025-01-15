@@ -90,8 +90,8 @@ if(window.location.href.includes("/search/gomla")){
     
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
       if(localStorage.getItem("token")){
-          dispatch(loadUser())
-          dispatch(clearErrors())
+          // dispatch(loadUser())
+          // dispatch(clearErrors())
     }
     if(error){
       return alert.error(error)
