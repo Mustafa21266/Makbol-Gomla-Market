@@ -739,3 +739,14 @@ th {
     right: -260px !important;
   }
 }
+
+.getting-started-btn {
+  height: 200px;
+  width: 200px;
+  font-size: 2.48rem;
+  padding: 75px 55px;
+  border-radius: 25px;
+  background-color: #178a53;
+  color: white;
+  text-align: center;
+}
