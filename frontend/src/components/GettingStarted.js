@@ -20,7 +20,7 @@ let refr = null;
 const GettingStarted = ( { match } ) => {
   const dispatch = useDispatch();
   const alert = useAlert()
-  const { user, loading } = useSelector(state => state.auth)
+  const { user, loading, error } = useSelector(state => state.auth)
   // const { loading, error, } = useSelector(state => state.products)
   // let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
