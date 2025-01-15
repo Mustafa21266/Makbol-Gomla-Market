@@ -1,7 +1,7 @@
 import * as React from "react";
 
 // Taken from: https://gist.github.com/rikukissa/cb291a4a82caa670d2e0547c520eae53
-export default function useAddToHomescreenPrompt() {
+export function useAddToHomescreenPrompt() {
   const [prompt, setState] = React.useState(null);
 
   const promptToInstall = () => {
