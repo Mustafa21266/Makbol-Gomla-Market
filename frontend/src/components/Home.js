@@ -96,6 +96,7 @@ if(window.location.href.includes("/search/gomla")){
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
   }
+      refr = myRef;
     return (
         <Fragment>
           { loading ? <Loader /> : (
