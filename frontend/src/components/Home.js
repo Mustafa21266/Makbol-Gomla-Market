@@ -16,23 +16,28 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 let refr = null;
 
-const Home = ( { match } ) => {
-  const [currentPage, setcurrentPage] = useState(1);
-  const [price, setPrice] = useState([1, 1000]);
-  const [subcategory, setSubCategory] = useState('');
-  const [category, setCategory] = useState('');
-  const [rating, setRating] = useState(0);
-    if(window.location.href.includes("/search/gomla")){
-      setSubCategory("Gomla")
-      setCategory("Cakes")
+let a = "";
+let b = "";
+if(window.location.href.includes("/search/gomla")){
+      a = "Gomla"
+      b = "Cakes"
       // currentUserPage = "/search/gomla"
       // keyword = ''
     }else if(window.location.href.includes("/search/piece")){
-      setSubCategory("Piece")
-      setCategory("Cakes")
+      a = "Piece"
+      b = "Cakes"
       // currentUserPage = "/search/piece"
       // keyword = ''
     }
+
+
+const Home = ( { match } ) => {
+  const [currentPage, setcurrentPage] = useState(1);
+  const [price, setPrice] = useState([1, 1000]);
+  const [subcategory, setSubCategory] = useState(a);
+  const [category, setCategory] = useState(b);
+  const [rating, setRating] = useState(0);
+    
   // let currentUserPage = "/home";
   const myRef = useRef(null);
   const domainList = [
