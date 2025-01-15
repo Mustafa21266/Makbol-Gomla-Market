@@ -39,9 +39,9 @@ const Header = ({ history }) => {
     audioPlayer.current.play();
     }
   }
+  dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
   useEffect(() => {
      dispatch(getNotifications())
-dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
     // if(notifications.length > 0){
     //             // dispatch(getProductDetails(productId))
     //   }else {
@@ -68,7 +68,7 @@ dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
               dispatch({ type: UPDATE_NOTIFICATION_RESET})
           }
             
-  },[dispatch, alert, isUpdated, error, loading])
+  },[dispatch, alert, isUpdated, error, user , loading])
   const logOutHandler = () => {
     dispatch(logout());
     alert.success('تم تسجيل الخروج بنجاح')
