@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
+import { loadUser, clearErrors } from '../actions/userActions'
 
 let refr = null;
 
