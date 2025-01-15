@@ -76,13 +76,12 @@ const Home = ( { match } ) => {
       return alert.error(error)
     }
     // , productsCount, resultsPerPage, filteredProductsCount, products
-  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating, count])
+  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating])
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
   }
  
-  setTimeout(() => {
-    if(window.location.href.includes("/search/gomla")){
+  if(window.location.href.includes("/search/gomla")){
       setSubCategory("Gomla")
       setCategory("Cakes")
       // currentUserPage = "/search/gomla"
@@ -93,9 +92,6 @@ const Home = ( { match } ) => {
       // currentUserPage = "/search/piece"
       // keyword = ''
     }
-  }, 5000)
-
-  refr = myRef;
     return (
         <Fragment>
           { loading ? <Loader /> : (
