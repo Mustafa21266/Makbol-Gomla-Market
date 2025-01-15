@@ -8,7 +8,8 @@ import { logout } from '../../actions/userActions'
 import { updateNotification } from '../../actions/notificationActions'
 import { getNotifications } from '../../actions/notificationActions';
 import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants'
-
+import { ALL_PRODUCTS_REQUEST } from '../../constants/productConstants'
+import { getProducts } from '../../actions/productActions'
 import NotificationSound from './notification.mp3';
 
 import { refr } from '../Home';
@@ -24,6 +25,12 @@ const Header = ({ history }) => {
   let notificationCount = 0;
   let notificationCountUser = 0;
   const myRef = refr;
+  const [currentPage, setcurrentPage] = useState(1);
+  const [price, setPrice] = useState([1, 1000]);
+  const [subcategory, setSubCategory] = useState('');
+  const [category, setCategory] = useState('');
+  const [rating, setRating] = useState(0);
+  let keyword = 'home'
   
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
@@ -98,12 +105,26 @@ const Header = ({ history }) => {
     }
     // window.location.reload();
   }
+  const deleteAccountHandler = () => {
+    dispatch({
+      type: ALL_PRODUCTS_REQUEST,
+      payload: []
+    })
+    // dispatch({
+    //   type: ALL_PRODUCTS_REQUEST,
+    //   payload: []
+    // })
+    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    if(error){
+      return alert.error(error)
+    }
+  }
     return (
         <Fragment>
             <nav className="navbar row">
       <div className="col-12 col-md-3 d-flex justify-content-center">
         <div>
-          <Link to="/">
+          <Link to="/" onClick={()=> deleteAccountHandler()}>
           <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "300px", height: "300px"}}/>
           </Link>
          
