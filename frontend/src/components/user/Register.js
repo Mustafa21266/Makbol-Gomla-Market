@@ -7,13 +7,25 @@ import { useAlert } from 'react-alert'
 import { Link } from 'react-router-dom';
 
 const Register = ( { history } ) => {
-    const [user, setUser] = useState({
-        name: '',
-        phoneNo: '',
-        email: '',
-        password: '',
-
-    })
+    let stateObj = {}
+    if(window.location.href.includes("/seller/register")){
+        stateObj = {
+            name: '',
+            phoneNo: '',
+            role: 'seller',
+            email: '',
+            password: '',
+        }
+    }else {
+        stateObj = {
+            name: '',
+            phoneNo: '',
+            role: 'user',
+            email: '',
+            password: '',
+        }
+    }
+    const [user, setUser] = useState(stateObj)
     const { name, email, phoneNo, password } = user;
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('./images/logo.png')
@@ -53,7 +65,6 @@ const Register = ( { history } ) => {
             reader.readAsDataURL(e.target.files[0])
             document.getElementsByClassName('custom-file-label')[0].innerHTML = e.target.files[0].name
             // e.target.placeholder = e.target.value
-            // console.log(e.target.value)
         }else {
             setUser({ ...user, [e.target.name]: [e.target.value] })
         }

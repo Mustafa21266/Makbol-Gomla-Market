@@ -62,7 +62,6 @@ export const notificationsReducer = (state = initialState, action) => {
             });
         case ALL_NOTIFICATIONS_FAIL:
         case ADMIN_NOTIFICATIONS_FAIL:
-            console.log(action.payload)
             return Object.assign({}, state, {
                 loading: false,
                 error: action.payload

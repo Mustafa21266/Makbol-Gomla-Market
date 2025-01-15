@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const User = require('../models/user');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures.js');
@@ -26,6 +27,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     }
     req.body.images = imagesLinks;
     req.body.user = req.user.id;
+    delete req.body.token
     const product = await Product.create(req.body);
     res.status(201).json({
         success: true,
@@ -38,45 +40,48 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     const resultsPerPage = 9;
     const productsCount = await Product.countDocuments();
     console.log(req.query.keyword)
-    if(req.query.keyword ==="home"){
-        let products = await Product.find()
-        // for(let i =0;i < products.length;i++){
-        //     if(products[i].category === 'Chips And Snacks'){
-        //         console.log(products[i].category)
-        //       }else {
-        //         console.log(products[i].category)
-        //       }
-    
-        // }
-        // console.log(products)
-        res.status(200).json({
-            success: true,
-            count: products.length,
-            productsCount,
-            products
-            
-        })
-        return ''
-
-    }
+    let products;
+    let filteredProductsCount;
     const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
-    // const products = await Product.find();
-    // .pagination(resultsPerPage);
-    let products = await apiFeatures.query;
-    let filteredProductsCount = products.length;
+    if(req.query.keyword ==="home"){
+    products = await Product.find()
+    //     // for(let i =0;i < products.length;i++){
+    //     //     if(products[i].category === 'Chips And Snacks'){
+    //     //         console.log(products[i].category)
+    //     //       }else {
+    //     //         console.log(products[i].category)
+    //     //       }
+    
+    //     // }
+    //     // console.log(products)
+        
+    //     return ''
 
-    apiFeatures.pagination(resultsPerPage);
-
-
-    products = await apiFeatures.query;
-    for(let i =0;i < products.length;i++){
-        if(products[i].category === 'Chips And Snacks'){
-            console.log(products[i].category)
-          }else {
-            console.log(products[i].category)
-          }
-
+    }else {
+        
+        // const products = await Product.find();
+        // .pagination(resultsPerPage);
+        products = await apiFeatures.query;
+        filteredProductsCount = products.length;
+        apiFeatures.pagination(resultsPerPage);
+        // products = await apiFeatures.query;
+        for(let i =0;i < products.length;i++){
+            if(products[i].category === 'Chips And Snacks'){
+                console.log(products[i].category)
+              }else {
+                console.log(products[i].category)
+              }
+    
+        }
     }
+    // res.status(200).json({
+    //         success: true,
+    //         count: products.length,
+    //         productsCount,
+    //         products
+            
+    //     })
+    
     // console.log(products)
     res.status(200).json({
         success: true,
@@ -145,7 +150,7 @@ let imagesLinks = [];
     }
     req.body.images = imagesLinks;
     }
-    
+    delete req.body.token
 
 
         product = await Product.findByIdAndUpdate(req.params.id, req.body, {
@@ -172,7 +177,10 @@ exports.deleteSingleProduct = catchAsyncErrors(async (req, res, next) => {
         if(!product){
             return next(new ErrorHandler("المنتج غير متوفر !", 404))
         }
-
+        const user = await User.findById(req.user._id)
+        if((user.role !== "seller" || user._id !== product.seller_id) || user.role === "admin"){
+            return next(new ErrorHandler("حدث خطأ ما", 500))
+        }
         //Delete product images using id's
         for(let i = 0;i < product.images.length; i++){
             const result = await cloudinary.v2.uploader.destroy(product.images[i].public_id)

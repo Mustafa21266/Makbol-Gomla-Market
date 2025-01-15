@@ -87,7 +87,6 @@ export const productsReducer = (state = initialState, action) => {
             });
         case ALL_PRODUCTS_FAIL:
         case ADMIN_PRODUCTS_FAIL:
-            console.log(action.payload)
             return Object.assign({}, state, {
                 loading: false,
                 error: action.payload

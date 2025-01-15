@@ -30,6 +30,12 @@ const orderSchema = mongoose.Schema({
         ref: 'User',
         required: true
     },
+    seller_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+        default: "6768297b32eaba11a883414d"
+    },
     orderItems: [
         {
             name: {

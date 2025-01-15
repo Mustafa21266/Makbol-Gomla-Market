@@ -9,6 +9,7 @@ import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
 import Sidebar from './Sidebar'
 
 const UpdateProduct = ({ history, match }) => {
+  const { user } = useSelector(state => state.auth)
     const dispatch = useDispatch();
     const alert = useAlert();
     const { loading , error: updateError, isUpdated } = useSelector(state => state.product)
@@ -22,7 +23,7 @@ const UpdateProduct = ({ history, match }) => {
     const [subcategory, setSubCategory] = useState('');
     const [category, setCategory] = useState('');
     const [stock, setStock] = useState(0);
-    const [seller, setSeller] = useState('مقبول جملة ماركت');
+    const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
     const [oldImages, setOldImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
@@ -77,7 +78,11 @@ const UpdateProduct = ({ history, match }) => {
             dispatch(clearErrors())
         }
         if(isUpdated){
-          history.push('/admin/products')
+            if(user.role === "admin"){
+              history.push('/admin/products')
+            }else {
+              history.push('/seller/products')
+            }
           alert.success('! تم تحديث بيانات المنتج')
           dispatch({ type: UPDATE_PRODUCT_RESET})
       }
@@ -90,12 +95,18 @@ const UpdateProduct = ({ history, match }) => {
         formData.set('name',name)
         formData.set('price',price)
         formData.set('description',description)
-        formData.set('seller',seller)
+        if(user.role === "seller"){
+          formData.set('seller',user.name)
+          formData.set('seller_id',user._id)
+        }else {
+          formData.set('seller','مقبول جملة ماركت')
+          formData.set('seller_id','6768297b32eaba11a883414d')
+        }
         formData.set('stock',stock)
         formData.set('subcategory',subcategory)
         formData.set('category',category)
         formData.set('description',description)
-        console.log(category)
+        formData.set('token',localStorage.getItem('token'))
         images.forEach(image => {
             formData.append('images', image)
         })
@@ -212,7 +223,7 @@ const UpdateProduct = ({ history, match }) => {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="seller_field">إسم البائع</label>
                 <input
                   type="text"
@@ -222,7 +233,7 @@ const UpdateProduct = ({ history, match }) => {
                   value={seller}
                   onChange={(e)=> setSeller(e.target.value)}
                 />
-              </div>
+              </div> */}
               
               <div className='form-group'>
                 <label>صور المنتج</label>

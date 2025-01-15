@@ -79,7 +79,7 @@ const ProductReviews = ({ history, match }) => {
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteReviewHandler(review._id)}>
                         {/*  onClick={()=> deleteReviewHandler(user._id)} */}
-                        <img src="./images/circle-x.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
+                        <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736898894/circle-x_mggwcv.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
                         </button>
                     </div>
                     </div>

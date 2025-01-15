@@ -17,10 +17,13 @@ router.route("/admin/products").get(getAdminProducts)
 
 
 //Product CRUD
+router.route("/seller/product/new").post(isAuthenticatedUser, authorizeRoles("seller"),newProduct)
+router.route("/seller/product/:id").put(isAuthenticatedUser, authorizeRoles("seller"),updateSingleProduct)
+router.route("/seller/product/delete/:id").put(isAuthenticatedUser, authorizeRoles("seller"),deleteSingleProduct)
 router.route("/admin/product/new").post(isAuthenticatedUser, authorizeRoles("admin"),newProduct)
 router.route("/product/:id").get(getSingleProduct)
 router.route("/admin/product/:id").put(isAuthenticatedUser, authorizeRoles("admin"),updateSingleProduct)
-router.route("/admin/product/:id").delete(isAuthenticatedUser, authorizeRoles("admin"),deleteSingleProduct)
+router.route("/admin/product/delete/:id").put(isAuthenticatedUser, authorizeRoles("admin"),deleteSingleProduct)
 
 
 

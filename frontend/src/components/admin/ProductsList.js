@@ -12,7 +12,10 @@ import { DELETE_PRODUCT_RESET } from '../../constants/productConstants'
 const ProductsList = ({ history }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { loading , error, products } = useSelector(state => state.products)
+    const { user } = useSelector(state => state.auth)
+    const { loading , error } = useSelector(state => state.products)
+    let { products } = useSelector(state => state.products)
+    
     const { error: deleteError, isDeleted } = useSelector(state => state.product)
     // const [data, setData]= useState(setOrders())
     useEffect(()=>{
@@ -28,10 +31,16 @@ const ProductsList = ({ history }) => {
         if(isDeleted){
             alert.success("! تم إلغاء المنتج")
             dispatch({ type: DELETE_PRODUCT_RESET})
-            history.push('/admin/products')
+            if(user.role === "admin"){
+                history.push('/admin/products')
+            }else {
+                history.push('/seller/products')
+            }
         }
     },[dispatch, alert, error, deleteError, isDeleted])
-
+    if(user.role === "seller"){
+        products = products.filter(p => p.seller_id === user._id)
+    }
     const setProducts = () => {
         const data = {
             columns: [
@@ -76,7 +85,7 @@ const ProductsList = ({ history }) => {
                 <Fragment>
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
-                    <Link to={`/admin/product/${product._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
+                    <Link to={user.role === "admin" ? `/admin/product/${product._id}` : `/seller/product/${product._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
                     </div>
                     
                         
@@ -85,7 +94,7 @@ const ProductsList = ({ history }) => {
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
                     <button className="btn btn-danger py-2 px-3" onClick={()=> deleteProductHandler(product._id)}>
-                    <img src="./images/circle-x.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
+                    <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736898894/circle-x_mggwcv.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
                         </button>
                     </div>
                     </div>

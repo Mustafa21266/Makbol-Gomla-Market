@@ -35,7 +35,7 @@ import 'animate.css';
 const options = {
   // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,
-  timeout: 60000,
+  timeout: 5000,
   offset: '80px',
   // you can also just use 'scale'
   transition: transitions.SCALE

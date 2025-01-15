@@ -121,8 +121,10 @@ exports.allOrders = catchAsyncErrors(async (req, res, next) => {
 //Update/ Process order - FOR ADMIN      =>      /api/v1/admin/order/:id
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
-    
-
+    const user = await User.findById(req.user._id)
+    if((user.role !== "seller" || user._id !== order.seller_id) || user.role === "admin"){
+        return next(new ErrorHandler("حدث خطأ ما", 500))
+    }
     if(order.orderStatus === 'Delivered'){
         return next(new ErrorHandler(`هذا الأوردر تم توصيله !`,400))
     }
@@ -157,6 +159,10 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
     if(!order){
         return next(new ErrorHandler(`لم يتم العثور علي أوردر بذلك الكود :  ${req.params.id}`,404))
     }
+    const user = await User.findById(req.user._id)
+        if((user.role !== "seller" || user._id !== order.seller_id) || user.role === "admin"){
+            return next(new ErrorHandler("حدث خطأ ما", 500))
+        }
     const notification = await Notification.create({
         user: order.user._id,
         orderStatus: "Deleted",

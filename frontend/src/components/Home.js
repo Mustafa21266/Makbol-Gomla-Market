@@ -74,7 +74,6 @@ const Home = ( { match } ) => {
   if(keyword){
     count = filteredProductsCount;
   }
-  console.log(products)
   refr = myRef;
     return (
         <Fragment>

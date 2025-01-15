@@ -25,17 +25,13 @@ const Profile = () => {
                 dispatch(clearErrors())
             }
         },[dispatch, alert, error])
-    console.log(accountings)
     for (let index = 0; index < accountings.length; index++) {
         receivables = receivables + accountings[index].receivables
         returns = returns + accountings[index].returns
-        console.log(receivables)
-        console.log(returns)
                 
     }
     for (let index = 0; index < orders.length; index++) {
         bills = bills + orders[index].totalPrice
-        console.log(bills)
     }
     
     // filteredAccountings

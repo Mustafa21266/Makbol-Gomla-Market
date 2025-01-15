@@ -5,7 +5,8 @@ const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const User = require('../models/user');
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-    const { token } = req.cookies;
+    // const token = req.body;
+    const { token } = req.body;
     console.log(token);
     if(!token){
         return next(new ErrorHandler("Unauthorized action! Login first to access",401))

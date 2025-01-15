@@ -70,10 +70,8 @@ const Header = ({ history }) => {
     dispatch(updateNotification(id));
     
     // dispatch(getNotifications())
-    // console.log(e)
     // alert.success('تم تسجيل الخروج بنجاح')
   }
-  console.log(notifications)
   if(notifications.length > 0){
     for (let index = 0; index < notifications.length; index++) {
       if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
@@ -106,7 +104,7 @@ const Header = ({ history }) => {
       <div className="col-12 col-md-3 d-flex justify-content-center">
         <div>
           <Link to="/">
-          <img src="./images/main_logo.png" alt="E Commerce Logo" style={{width: "100px", height: "100px"}}/>
+          <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "300px", height: "300px"}}/>
           </Link>
          
         </div>
@@ -127,9 +125,9 @@ const Header = ({ history }) => {
                   <span >{user && user.name}</span>
                 </Link>
                 <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
-                  {user && user.role === 'admin' && (
+                  {user && (user.role === 'admin' || user.role === 'seller') && (
                     <div>
-                    <Link to="/dashboard" className="dropdown-item text-center">لوحة التحكم</Link>
+                    <Link to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
                     </div>
                     
@@ -257,6 +255,111 @@ const Header = ({ history }) => {
                            </Link>
                            <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((order) => order.user._id === user._id).map(item => {
+                                if(item.product){
+              //                       return (<Fragment>
+              //                           <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+              //                               <div key={item.product._id} className="row">
+              //                                <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+              //                                       <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+              //                   </div>
+              //  <div className="col-sm-12 col-md-10">
+              //           <p key={item.product._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+              //                           تقييم جديد بواسطة :  <b>{item.user.name} على منتح : {item.product.name}</b>
+              //                     </p>
+              //                  </div>
+              //              </div>
+                                         
+              //                  </Link>
+              //                   </Fragment>)
+                                }
+                                else {
+                                  if (item.orderStatus === "Deleted") {
+                                    return (<Fragment>
+                                      <Link to={`#`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                          <div key={item._id} className="row">
+                                           <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                                  <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+                              </div>
+             <div className="col-sm-12 col-md-10">
+                      <p key={item._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                      تم إلغاء أوردر :  <b>{item.user.name}</b>
+                                </p>
+                             </div>
+                         </div>
+                             </Link>
+                              </Fragment>)
+                                  }
+                                 if (item.orderStatus === "Delivered") {
+                                    return (<Fragment>
+                                      <Link to={`/myorders/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                          <div key={item.order._id} className="row">
+                                           <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                                  <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+                              </div>
+             <div className="col-sm-12 col-md-10">
+                      <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                      تم توصيل أوردر :  <b>{item.user.name}</b>
+                                </p>
+                             </div>
+                         </div>
+                             </Link>
+                              </Fragment>)
+                                  }
+                                  else if(item.orderStatus === "Shipped"){
+                                    return (<Fragment>
+                                      <Link to={`/myorders/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                          <div key={item.order._id} className="row">
+                                           <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                                  <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+                              </div>
+             <div className="col-sm-12 col-md-10">
+                      <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                      جاري توصيل أوردر :  <b>{item.user.name}</b>
+                                </p>
+                             </div>
+                         </div>
+                             </Link>
+                              </Fragment>)
+                                  }
+                                  else if(item.orderStatus === "Processing"){
+                                    return (<Fragment>
+                                      <Link to={`/order/${item.order._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">
+                                          <div key={item.order._id} className="row">
+                                           <div className="col-sm-12 col-md-2 d-flex justify-content-center">
+                                                  <img src={item.user.avatar.url} alt={item.user.name} style={{width: '50px', border: "1px solid black", height: '50px', borderRadius: "50%",margin: '15px'}} className="rounded-circle"></img>
+                              </div>
+             <div className="col-sm-12 col-md-10">
+                      <p key={item.order._id} style={{fontSize: '12px', color: 'black',textAlign:'right',fontWeight: item.isRead === true ?  "300" : "bold"}}>
+                                      أوردر جديد بواسطة :  <b>{item.user.name}</b>
+                                </p>
+                             </div>
+                         </div>
+                             </Link>
+                              </Fragment>)}
+                                  
+                                    
+                                  
+                                  
+}})}
+
+                               </div>
+                               <hr />
+                             {/* <div className="w-100">
+                             <p style={{textAlign: 'left'}}>: مجموع السلة<span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span></p>
+                             </div> 
+                             <Link to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53'}} >إذهب إلى سلة التسوق</Link>
+                             </div> */}
+                             </div> 
+                    
+                  )}
+        {user && user.role === 'seller' && (
+                           <div className="dropdown dropleft d-inline"> 
+                           <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span className="ml-1" id="cart_count">{notificationCountUser}</span>
+                           <i className="fa fa-bell" aria-hidden="true"></i>
+                           </Link>
+                           <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                             {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((order) => order.seller_id === user._id).map(item => {
                                 if(item.product){
               //                       return (<Fragment>
               //                           <Link to={`/product/${item.product._id}`} onClick={(e)=> readNotificationHandler(item._id) } className="dropdown-item">

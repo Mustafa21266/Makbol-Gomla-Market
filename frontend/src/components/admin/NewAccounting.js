@@ -26,7 +26,7 @@ const NewAccounting = ({ history }) => {
           }
           if(success){
             history.push('/admin/accountings')
-            alert.success('Accounting Created Successully!')
+            alert.success('! تم إنشاء الحساب بنجاح')
             dispatch({ type: NEW_ACCOUNTING_RESET})
         }
       },[dispatch, alert, error, success, history])
@@ -37,6 +37,7 @@ const NewAccounting = ({ history }) => {
         formData.set('receivables',receivables)
         formData.set('returns',returns)
         formData.set('user',user)
+        formData.set('token',localStorage.getItem('token'))
         dispatch(createAccounting(formData));
     }
   

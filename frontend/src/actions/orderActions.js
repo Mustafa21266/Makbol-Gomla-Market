@@ -46,7 +46,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/order/new`, order,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/order/new`, order,config)
         dispatch({
             type: CREATE_ORDER_SUCCESS,
             payload: data
@@ -72,7 +72,7 @@ export const updateOrder = (id, orderData) => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/order/${id}`, orderData,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/order/${id}`, orderData,config)
         dispatch({
             type: UPDATE_ORDER_SUCCESS,
             payload: data.success
@@ -94,7 +94,12 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
             type: DELETE_ORDER_REQUEST,
             payload: []
         })
-        const { data } = await axios.delete(`/api/v1/admin/order/${id}`)
+        const config = {
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        }
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/order/delete/${id}`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: DELETE_ORDER_SUCCESS,
             payload: data.success
@@ -115,7 +120,12 @@ export const myOrders = () => async (dispatch, getState) => {
             type: MY_ORDERS_REQUEST,
             payload: []
         })
-        const { data } = await axios.get(`/api/v1/orders/me`)
+        const config = {
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        }
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/orders/me`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: MY_ORDERS_SUCCESS,
             payload: data.orders
@@ -137,7 +147,12 @@ export const allOrders = () => async (dispatch, getState) => {
             type: ALL_ORDERS_REQUEST,
             payload: []
         })
-        const { data } = await axios.get(`/api/v1/admin/orders`)
+        const config = {
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        }
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/admin/orders`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: ALL_ORDERS_SUCCESS,
             payload: data
@@ -158,7 +173,12 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
             type: ORDER_DETAILS_REQUEST,
             payload: []
         })
-        const { data } = await axios.get(`/api/v1/order/${id}`)
+        const config = {
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        }
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/order/${id}`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
             payload: data.order

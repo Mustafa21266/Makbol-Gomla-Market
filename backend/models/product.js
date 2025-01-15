@@ -53,6 +53,12 @@ const productSchema = new mongoose.Schema({
         maxLength: [100, "Maximum product stock length exceeded"],
         default: 0
     },
+    seller_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+        default: "6768297b32eaba11a883414d"
+    },
     numOfReviews: {
         type: Number,
         default: 0

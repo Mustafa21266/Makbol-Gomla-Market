@@ -43,6 +43,8 @@ import ProductReviews from './components/admin/ProductReviews';
 import Search from './components/layout/Search';
 
 import { getNotifications } from './actions/notificationActions';
+import ScrollToTop from "./components/layout/ScrollToTop";
+import AddToHomeScreen from './components/layout/AddToHomeScreen';
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
@@ -52,7 +54,7 @@ function App() {
     store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
-      // const { data } = await axios.get('http://127.0.0.1:3000/api/v1/stripeapi')
+      // const { data } = await axios.get('http://127.0.0.1:3000http://127.0.0.1:8000/api/v1/stripeapi')
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
@@ -63,15 +65,18 @@ function App() {
   }, 30000);
   return (
     <Router>
+      <AddToHomeScreen />
+        <ScrollToTop />
         <div className="App">
         <Route path="/" component={Header} />
           {/* <Header /> */}
-              <img className="fade-in-image animate__animated animate__fadeIn" src="./images/peter-bond-KfvknMhkmw0-unsplash.jpg" alt="homepage picture"/>
+              <img className="fade-in-image animate__animated animate__fadeIn" src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736887007/peter-bond-KfvknMhkmw0-unsplash_siptnz.jpg" alt="homepage picture"/>
           <div className="container container-fluid">
               <Route path="/" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
               <Route path="/login" component={Login} exact/>
               <Route path="/register" component={Register} exact/>
+              <Route path="/seller/register" component={Register} exact/>
               <Route path="/password/forgot" component={ForgotPassword} exact/>
               <Route path="/password/reset/:token" component={NewPassword}/>
               <Route path="/cart" component={Cart} exact/>
@@ -92,6 +97,7 @@ function App() {
               <Route path="/product/:id" component={ProductDetails} exact />
               
           </div>
+              <ProtectedRoute path="/seller/dashboard" isSeller={true} component={Dashboard} exact/>
               <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact/>
 
               <ProtectedRoute path="/admin/accounting" isAdmin={true} component={NewAccounting} exact/>
@@ -101,8 +107,17 @@ function App() {
               <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact/>
               <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
               <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact/>
+
+
+              <ProtectedRoute path="/seller/products" isSeller={true} component={ProductsList} exact/>
+              <ProtectedRoute path="/seller/product" isSeller={true} component={NewProduct} exact/>
+              <ProtectedRoute path="/seller/product/:id" isSeller={true} component={UpdateProduct} exact/>
+
+
               <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact/>
               <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact/>
+
+
               <ProtectedRoute path="/admin/users" isAdmin={true} component={UsersList} exact/>
               <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact/>
               <ProtectedRoute path="/admin/reviews" isAdmin={true} component={ProductReviews} exact/>

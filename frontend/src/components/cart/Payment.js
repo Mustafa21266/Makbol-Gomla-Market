@@ -44,7 +44,6 @@ const Payment = ({ history }) => {
     const { error } = useSelector(state => state.newOrder)
     useEffect(() => {
         if(error){
-            console.log(error)
             alert.error(error)
             dispatch(clearErrors())
         }
@@ -60,14 +59,13 @@ const submitHandler = async (e) => {
                 'Content-Type': 'application/json' 
             }
         }
-        res = await axios.post('/api/v1/payment/process', paymentData, config);
+        res = await axios.post('http://127.0.0.1:8000/api/v1/payment/process', paymentData, config);
         const clientSecret = res.data.client_secret
         let result = {
             paymentIntent : {
                 status: 'succeeded'
             }
         }
-            console.log(result)
             if(result.paymentIntent.status === 'succeeded'){
                 order.paymentInfo = {
                     id: result.paymentIntent.id,
@@ -94,7 +92,6 @@ const submitHandler = async (e) => {
         //     document.querySelector('#pay_btn').disabled = false
         // }else {
         //     //Payment is processed or not
-        //     console.log(result)
         //     if(result.paymentIntent.status === 'succeeded'){
         //         order.paymentInfo = {
         //             id: result.paymentIntent.id,
@@ -110,7 +107,6 @@ const submitHandler = async (e) => {
     } catch (error) {
         document.querySelector('#pay_btn').disabled = false
         // alert.error(error.response.statusText)
-        console.log(error)
     }
 }
     return (

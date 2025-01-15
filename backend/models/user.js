@@ -46,6 +46,7 @@ const userSchema = new mongoose.Schema({
         enum: {
             values: [
                 'user',
+                'seller',
                 'admin',
                 ],
             message: "Please select correct role"

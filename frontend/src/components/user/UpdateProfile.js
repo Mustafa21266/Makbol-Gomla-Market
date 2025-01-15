@@ -44,6 +44,7 @@ const UpdateProfile = ( { history } ) => {
         formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('avatar',avatar)
+        formData.set('token',localStorage.getItem('token'))
         await dispatch(updateProfile(formData));
         alert.success('! تم تحديث بيانات الحساب');
             dispatch(loadUser());

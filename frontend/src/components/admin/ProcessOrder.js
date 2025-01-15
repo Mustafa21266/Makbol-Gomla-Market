@@ -55,10 +55,10 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
       }
         
     },[dispatch, error, alert, isUpdated, orderId])
-    console.log(users)
     function updateOrderHandler(id){
         const formData = new FormData();
         formData.set('status',status)
+        formData.set('token',localStorage.getItem('token'))
         // formData.set('_id',orderUser)
         dispatch(updateOrder(id,formData));
     }

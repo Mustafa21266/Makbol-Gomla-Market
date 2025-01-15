@@ -36,7 +36,6 @@ const Shipping = ({ history}) => {
         // }
         
     },[dispatch, alert])
-      console.log(users)
     return (
         <Fragment>
             <MetaData title={'معلومات التوصيل'} />

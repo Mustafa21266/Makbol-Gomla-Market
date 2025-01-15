@@ -39,7 +39,7 @@ const addToCart = (id) => {
     }
     const removeItemFromCartHandler = (id) => {
         dispatch(removeFromCart(id))
-        alert.success('Item removed from cart')
+        alert.success('! تمت إزالة المنتج بنجاح')
     }
     const checkOutHandler = () => {
         history.push('/shipping')
@@ -158,7 +158,7 @@ const addToCart = (id) => {
                         </div>
 
                         <div className="col-6 col-lg-1 mt-4 mt-lg-0">
-                            <i id="delete_cart_item" className="fa btn float-right"  style={{textAlign: "center"}} onClick={()=> removeItemFromCartHandler(item.product)}><img src="./images/circle-x.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/></i>
+                            <i id="delete_cart_item" className="fa btn float-right"  style={{textAlign: "center"}} onClick={()=> removeItemFromCartHandler(item.product)}><img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736898894/circle-x_mggwcv.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/></i>
                         </div>
 
                     </div>

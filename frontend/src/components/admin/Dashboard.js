@@ -12,19 +12,47 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { loading , error, products } = useSelector(state => state.products)
+    const { user } = useSelector(state => state.auth)
     const { users } = useSelector(state => state.allUsers)
-    const { orders, totalAmount, loading: allOrdersLoading } = useSelector(state => state.allOrders)
+    // if(!window.location.href.includes("/seller/dashboard")){
+        
+    // }
+    let totalAmount= 0;
+    const { orders, totalAmount: ta, loading: allOrdersLoading } = useSelector(state => state.allOrders)
+    if(user && user.role === "admin"){
+        totalAmount = ta;
+    }else {
+        orders.forEach(order => {
+            totalAmount += order.totalPrice
+        })
+    }
     // const [data, setData]= useState(setOrders())
     let outOfStockProducts = 0;
-    products.forEach(c => {
-        if(products.stock === 0){
-            outOfStockProducts += 1
-        }
-    })
+    
+    if(user && user.role === "admin"){
+        products.forEach(c => {
+            if(c.stock === 0){
+                outOfStockProducts += 1
+            }
+        })
+    }else {
+        products.forEach(c => {
+            if(c.stock === 0 && c.seller_id === user._id){
+                outOfStockProducts += 1
+            }
+        })
+    }
+    
+    
+    
+    
+    
     useEffect(()=>{
         dispatch(getAdminProducts())
         dispatch(allOrders())
-        dispatch(allUsers())
+        if(!window.location.href.includes("/seller/dashboard")){
+            dispatch(allUsers())
+        }
         if(error){
             alert.error(error)
             dispatch(clearErrors())
@@ -67,9 +95,11 @@ const Dashboard = () => {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-success o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">المنتجات<br /> <b>{products && products.length}</b></div>
+                                            <div className="text-center card-font-size">المنتجات<br /> <b>{products && user.role === "admin" ? 
+                                            products.length : products.filter(p => p.seller_id === user._id).length
+                                            }</b></div>
                                         </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
+                                        <Link className="card-footer text-white clearfix small z-1" to="/seller/products">
                                             <span className="float-left">عرض التفاصيل</span>
                                             <span className="float-right">
                                                 <i className="fa fa-angle-right"></i>
@@ -82,7 +112,7 @@ const Dashboard = () => {
                                 <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-danger o-hidden h-100">
                                         <div className="card-body">
-                                            <div className="text-center card-font-size">الأوردرات<br /> <b>{orders && orders.length}</b></div>
+                                            <div className="text-center card-font-size">الأوردرات<br /> <b>{orders && user.role === "admin" ? orders.length : orders.filter(o => o.seller_id === user._id).length}</b></div>
                                         </div>
                                         <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
                                             <span className="float-left">عرض التفاصيل</span>
@@ -93,8 +123,8 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
-
-                                <div className="col-xl-3 col-sm-6 mb-3">
+                                {user && user.role === "admin" && (
+                                    <div className="col-xl-3 col-sm-6 mb-3">
                                     <div className="card text-white bg-info o-hidden h-100">
                                         <div className="card-body">
                                             <div className="text-center card-font-size">المستخدمين<br /> <b>{users && users.length}</b></div>
@@ -107,6 +137,9 @@ const Dashboard = () => {
                                         </Link>
                                     </div>
                                 </div>
+                                )
+                                }
+                                
 
 
                                 <div className="col-xl-3 col-sm-6 mb-3">

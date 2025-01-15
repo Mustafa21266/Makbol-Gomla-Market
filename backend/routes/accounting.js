@@ -12,13 +12,13 @@ const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/authProt
 
 //Order CRUD
 router.route("/accounting/new").post(isAuthenticatedUser ,newAccounting)
-router.route("/accounting/:id").get(isAuthenticatedUser ,getSingleAccounting)
-router.route("/accountings/me").get(isAuthenticatedUser ,myAccountings)
+router.route("/accounting/:id").post(isAuthenticatedUser ,getSingleAccounting)
+router.route("/accountings/me").post(isAuthenticatedUser ,myAccountings)
 
 //ADMIN
-router.route("/admin/accountings").get(isAuthenticatedUser, authorizeRoles("admin") ,allAccountings)
+router.route("/admin/accountings").post(isAuthenticatedUser, authorizeRoles("admin") ,allAccountings)
 router.route("/admin/accounting/:id").put(isAuthenticatedUser, authorizeRoles("admin") ,updateAccounting)
-router.route("/admin/accounting/:id").delete(isAuthenticatedUser, authorizeRoles("admin") ,deleteAccounting)
+router.route("/admin/accounting/delete/:id").put(isAuthenticatedUser, authorizeRoles("admin") ,deleteAccounting)
 // router.route("/product/:id").get(getSingleProduct)
 // router.route("/admin/product/:id").put(isAuthenticatedUser, authorizeRoles("admin"),updateSingleProduct)
 // router.route("/admin/product/:id").delete(isAuthenticatedUser, authorizeRoles("admin"),deleteSingleProduct)

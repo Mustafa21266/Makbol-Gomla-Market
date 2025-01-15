@@ -34,13 +34,14 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         width: 250,
         crop: 'scale'
     })
-    const { name, phoneNo, password } = req.body
+    const { name, phoneNo, role, password } = req.body
     const email = makeEmail()
     console.log(result)
     const user = await User.create({
         name,
         phoneNo,
         email,
+        role,
         password,
         avatar: {
             public_id: result.public_id,

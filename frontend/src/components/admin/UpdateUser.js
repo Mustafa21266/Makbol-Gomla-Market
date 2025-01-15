@@ -47,6 +47,7 @@ const UpdateUser = ({ history, match }) => {
         formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('role',role)
+        formData.set('token',localStorage.getItem('token'))
         await dispatch(updateUser(user._id,formData));
         // alert.success('User updated successfully!');
         // history.push('/admin/users')

@@ -86,6 +86,7 @@ const ProductDetails = ( { match } ) => {
         formData.set('rating', rating)
         formData.set('comment', comment)
         formData.set('productId', match.params.id)
+        formData.set('token', localStorage.getItem('token'))
         dispatch(newReview(formData))
 
     }

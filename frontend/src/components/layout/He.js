@@ -46,7 +46,6 @@ const Header = () => {
     dispatch(logout());
     alert.success('تم تسجيل الخروج بنجاح')
   }
-  console.log(notifications)
     return (
         <Fragment>
             <nav className="navbar row">

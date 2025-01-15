@@ -32,6 +32,7 @@ const UpdatePassword = ( { history } ) => {
         const formData = new FormData();
         formData.set('oldPassword',oldPassword)
         formData.set('password',password)
+        formData.set('token',localStorage.getItem('token'))
         await dispatch(updatePassword(formData));
         alert.success('! تم تغيير كلمة المرور');
             history.push('/me')

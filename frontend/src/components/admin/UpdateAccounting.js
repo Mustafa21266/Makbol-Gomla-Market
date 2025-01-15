@@ -51,6 +51,7 @@ const UpdateAccounting = ({ history, match }) => {
         formData.set('receivables',receivables)
         formData.set('returns',returns)
         formData.set('user',user)
+        formData.set('token',localStorage.getItem('token'))
         dispatch(updateAccounting(accounting._id,formData));
     }
 

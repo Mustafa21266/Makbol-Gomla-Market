@@ -13,7 +13,9 @@ import { DELETE_ORDER_RESET } from '../../constants/orderConstants'
 const OrdersList = ({ history }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { loading , error, orders } = useSelector(state => state.allOrders)
+    const { user } = useSelector(state => state.auth)
+    let { orders } = useSelector(state => state.allOrders)
+    const { loading , error } = useSelector(state => state.allOrders)
     const { isDeleted } = useSelector(state => state.order)
     // const { error: deleteError, isDeleted } = useSelector(state => state.product)
     // const [data, setData]= useState(setOrders())
@@ -30,12 +32,19 @@ const OrdersList = ({ history }) => {
         if(isDeleted){
             alert.success("تم إلغاء الأوردر بنجاح")
             dispatch({ type: DELETE_ORDER_RESET})
-            history.push('/admin/orders')
+            if(user.role === "admin"){
+                history.push('/admin/orders')
+            }else {
+                history.push('/seller/orders')
+            }
+            // history.push('/admin/orders')
         }
 
         // , deleteError, isDeleted
     },[dispatch, alert, error, history, isDeleted])
-
+    if(user.role === "seller"){
+        orders = orders.filter(o => o.seller_id === user._id)
+    }
     const setOrders = () => {
         const data = {
             columns: [
@@ -71,7 +80,7 @@ const OrdersList = ({ history }) => {
                 <Fragment>
                     <div className="row">
                     <div className="col-12 d-flex justify-content-center">
-                    <Link to={`/admin/order/${order._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-eye"></i></Link>
+                    <Link to={user.role === "admin" ? `/admin/order/${order._id}` : `/seller/order/${order._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-eye"></i></Link>
                     </div>
                     </div>
                     <hr />
