@@ -41,6 +41,7 @@ const GettingStarted = ( { history , match } ) => {
   const switchView = (page) => {
     if(page === "home"){
         history.push("/home")
+        setTimeout(function(){ window.location.reload(); }, 1000);
     }
 
     // if(page === "run"){
