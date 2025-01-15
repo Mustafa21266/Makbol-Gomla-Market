@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "@ideasio/add-to-homescreen-react": "^1.0.10",
     "@react-spring/web": "^9.7.5",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.16.0",
@@ -44,6 +43,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "use-force-update": "^1.0.7",
+    "vite-plugin-pwa": "^0.21.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -71,5 +71,8 @@
     ]
   },
   "proxy": "http://127.0.0.1:4000",
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.6"
+  }
 }

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import './components/layout/addToHomeScreen.css';
+// import './components/layout/addToHomeScreen.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/Home';
@@ -46,7 +46,7 @@ import Search from './components/layout/Search';
 import { getNotifications } from './actions/notificationActions';
 import ScrollToTop from "./components/layout/ScrollToTop";
 
-import AddToHomeScreen from './components/layout/AddToHomeScreen';
+// import AddToHomeScreen from './components/layout/AddToHomeScreen';
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState('')
@@ -129,7 +129,7 @@ function App() {
                 
               )} */}
         </div>
-                <AddToHomeScreen />
+                {/* <AddToHomeScreen /> */}
     </Router>
     
   );
