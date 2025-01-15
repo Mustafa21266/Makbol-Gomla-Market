@@ -73,8 +73,8 @@ function App() {
       
         <ScrollToTop />
         <div className='row'>
-          <div className='col-12'>
-          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">Add to Home Screen</button>
+          <div className='col-12 d-flex justify-content-center'>
+          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق</button>
           </div>
 
         </div>
