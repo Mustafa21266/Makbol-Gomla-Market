@@ -58,9 +58,9 @@ function App() {
     "http://localhost:3000/"
   ]
   useEffect(async () => {
-    await store.dispatch(loadUser())
+    // await store.dispatch(loadUser())
     
-    store.dispatch(clearErrors())
+    // store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
       // const { data } = await axios.get('http://127.0.0.1:3000/api/v1/stripeapi')
