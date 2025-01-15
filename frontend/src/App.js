@@ -51,6 +51,11 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 import { useAddToHomescreenPrompt } from "./components/layout/AddToHomeScreen";
 
 function App() {
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
@@ -80,7 +85,8 @@ function App() {
 
         </div>
         <div className="App">
-        <Route path="/" component={Header} />
+        {!domainList.includes(window.location.href) && (<Route path="/" component={Header} />) }
+       
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736887007/peter-bond-KfvknMhkmw0-unsplash_siptnz.jpg" alt="homepage picture"/>
           <div className="container container-fluid">
