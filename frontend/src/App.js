@@ -53,7 +53,7 @@ import { useAddToHomescreenPrompt } from "./components/layout/AddToHomeScreen";
 function App() {
   const domainList = [
     "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
-    "https://makbol-gomla.store/",
+    "https://www.makbol-gomla.store/",
     "http://localhost:3000/"
   ]
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
