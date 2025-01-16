@@ -45,7 +45,7 @@ if(window.location.href.includes("/search/gomla")){
   const myRef = useRef(null);
   const domainList = [
     "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
-    "https://makbol-gomla.store/",
+    "https://www.makbol-gomla.store/",
     "http://localhost:3000/"
   ]
   const categoriesx = [
