@@ -324,25 +324,25 @@ if(window.location.href.includes("/search/gomla")){
 </div>
 )}
 <div className="row">
-      <div className="col-12">
       {products.slice(0, 3).map(product => (
+      <div className="col-12 col-md-3">
         <Product  key={product._id} product={product}  col={4}/>
+      </div>
       ))}
       </div>
-      </div>
 <div className="row">
-      <div className="col-12">
       {products.slice(3, 6).map(product => (
+      <div className="col-12 col-md-3">
         <Product  key={product._id} product={product}  col={4}/>
-      ))}
       </div>
+      ))}
       </div>
 <div className="row">
-      <div className="col-12">
       {products.slice(6, 9).map(product => (
+      <div className="col-12 col-md-3">
         <Product  key={product._id} product={product}  col={4}/>
-      ))}
       </div>
+      ))}
       </div>
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
