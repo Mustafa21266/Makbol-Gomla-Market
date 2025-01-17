@@ -102,18 +102,18 @@ const Header = ({ history }) => {
     }
   }
   const executeScroll = (e) => {
-    // if(window.location.href[window.location.href.length - 1] === "/"){
-    //   myRef.current.scrollIntoView()
+    if(domainList.includes(window.location.href.replace("home","")){
+      myRef.current.scrollIntoView()
 
-    // }else {
-    //   history.push('/')
-    //   e.target.click();
-    //   // window.location.reload();
-    //   // setTimeout(() => myRef.current.scrollIntoView(), 5000)
-    // }
+    }else {
+      history.push('/home')
+      e.target.click();
+      // window.location.reload();
+      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
+    }
     // window.location.reload();
-    history.push('/home')
-    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
+    // history.push('/home')
+    // setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
   }
   const switchHandler = () => {
     setTimeout(function(){ window.location.reload(); }, 15);
