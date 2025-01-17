@@ -766,7 +766,7 @@ th {
   animation: 1.5s fadeInUp;
 }
 
-#dropDownMenuButton:hover {
+/* #dropDownMenuButton:hover {
   #parent1 {
     display: block;
   }
@@ -800,4 +800,4 @@ th {
   #parent3 {
     display: block;
   }
-}
+} */
