@@ -82,7 +82,7 @@ const domainList = [
     alert.success('تم تسجيل الخروج بنجاح')
   }
   const readNotificationHandler = (id) => {
-    // document.getElementById('parent2').style.display = ""
+    document.getElementById('parent2').style.display = "none"
     document.getElementById('parent2').style.display = ""
     dispatch(updateNotification(id));
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
@@ -162,8 +162,8 @@ const domainList = [
                     <Link 
                     onClick={(e) => 
                       {
-                        document.getElementById('parent1').style.display = ""
-                        // setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "") 
                         }} 
                         to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
@@ -172,14 +172,14 @@ const domainList = [
                   )}
                 <Link to="/orders/me" onClick={(e) => 
                       {
-                        document.getElementById('parent1').style.display = ""
-                        // setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "") 
                         }} className="dropdown-item text-center">الأوردرات</Link>
                 <hr />
                 <Link to="/me" onClick={(e) => 
                       {
-                        document.getElementById('parent1').style.display = ""
-                        // setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "") 
                         }} className="dropdown-item text-center">حسابي</Link>
                 <hr />
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
@@ -515,7 +515,11 @@ const domainList = [
                 <div id="parent3" className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
                     <Fragment key={item._id}>
-                      <Link  onClick={(e) => document.getElementById('parent3').style.display = "" }  to={`/product/${item.product}`} className="dropdown-item">
+                      <Link  onClick={(e) => 
+                      {
+                        document.getElementById('parent3').style.display = "none"
+                        setTimeout(() => document.getElementById('parent3').style.display = "") 
+                        }}  to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
                           <img src={item.image} alt={item.product} style={{width: '55px', height: '52px'}}/>
@@ -538,7 +542,11 @@ const domainList = [
                     <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span>
                     
                     </span>
-                  <Link onClick={(e) => document.getElementById('parent1').style.display = "" } to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
+                  <Link onClick={(e) => 
+                      {
+                        document.getElementById('parent3').style.display = "none"
+                        setTimeout(() => document.getElementById('parent3').style.display = "") 
+                        }} to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
           </div> 
