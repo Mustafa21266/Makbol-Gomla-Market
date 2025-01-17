@@ -40,7 +40,7 @@ if(window.location.href.includes("/search/gomla")){
   const [subcategory, setSubCategory] = useState(a);
   const [category, setCategory] = useState(b);
   const [rating, setRating] = useState(0);
-    
+      let filteredProducts = [];
   // let currentUserPage = "/home";
   const myRef = useRef(null);
   const domainList = [
@@ -92,6 +92,7 @@ if(window.location.href.includes("/search/gomla")){
   useEffect(() => {
     
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    filteredProducts = products;
         
     if(error){
       return alert.error(error)
@@ -99,6 +100,11 @@ if(window.location.href.includes("/search/gomla")){
     // , productsCount, resultsPerPage, filteredProductsCount, products
   }, [dispatch, alert ,error,keyword, currentPage,price, rating])
   function setCurrentPageNo(pageNumber){
+        if(pageNumber === 1){
+            filteredProducts = products.slice(0,9)  
+        }else {
+              filteredProducts = products.slice((pageNumber * 2) / 2,(pageNumber * 2))  
+        }
     setcurrentPage(pageNumber)
   }
       refr = myRef;
@@ -311,7 +317,7 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
               {products && (
               <Pagination
-          activePage={1}
+          activePage={currentPage}
           itemsCountPerPage={9}
           totalItemsCount={products.count}
           onChange={setCurrentPageNo}
@@ -336,7 +342,7 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 {products && (
               <Pagination
-          activePage={1}
+          activePage={currentPage}
           itemsCountPerPage={9}
           totalItemsCount={products.count}
           onChange={setCurrentPageNo}
