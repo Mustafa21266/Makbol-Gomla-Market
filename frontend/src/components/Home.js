@@ -325,21 +325,21 @@ if(window.location.href.includes("/search/gomla")){
 )}
 <div className="row">
       {products.slice(0, 3).map(product => (
-      <div className="col-12 col-md-3">
+      <div className="col-12 col-md-6 col-lg-4">
         <Product  key={product._id} product={product}  col={4}/>
       </div>
       ))}
       </div>
 <div className="row">
       {products.slice(3, 6).map(product => (
-      <div className="col-12 col-md-3">
+      <div className="col-12 col-md-6 col-lg-4">
         <Product  key={product._id} product={product}  col={4}/>
       </div>
       ))}
       </div>
 <div className="row">
       {products.slice(6, 9).map(product => (
-      <div className="col-12 col-md-3">
+      <div className="col-12 col-md-6 col-lg-4">
         <Product  key={product._id} product={product}  col={4}/>
       </div>
       ))}
