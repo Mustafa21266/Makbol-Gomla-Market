@@ -103,11 +103,13 @@ const domainList = [
   }
   const executeScroll = (e) => {
     if(domainList.includes(window.location.href.replace("home",""))){
-      myRef.current.scrollIntoView()
+      // myRef.current.scrollIntoView()
+        setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
 
     }else {
       history.push('/home')
-      e.target.click();
+      // e.target.click();
+        setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
       // window.location.reload();
       // setTimeout(() => myRef.current.scrollIntoView(), 5000)
     }
