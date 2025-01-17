@@ -153,17 +153,17 @@ const domainList = [
                   </figure>
                   <span >{user && user.name}</span>
                 </Link>
-                <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
+                <div id="parent1" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
                   {user && (user.role === 'admin' || user.role === 'seller') && (
                     <div>
-                    <Link to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
+                    <Link onClick={(e) => document.getElementById('parent1').style.display = "none" } to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
                     </div>
                     
                   )}
-                <Link to="/orders/me" className="dropdown-item text-center">الأوردرات</Link>
+                <Link to="/orders/me"  onClick={(e) => document.getElementById('parent1').style.display = "none" } className="dropdown-item text-center">الأوردرات</Link>
                 <hr />
-                <Link to="/me" className="dropdown-item text-center">حسابي</Link>
+                <Link to="/me"  onClick={(e) => document.getElementById('parent1').style.display = "none" } className="dropdown-item text-center">حسابي</Link>
                 <hr />
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
                   </div> 
