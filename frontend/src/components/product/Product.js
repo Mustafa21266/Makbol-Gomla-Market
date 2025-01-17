@@ -6,7 +6,7 @@ const Product = ( { product, col } ) => {
         <Link to={`/product/${product._id}`}>
       <div className="card p-3 rounded">
         <img
-          className="card-img-top mx-auto"
+          className="card-img-top img-fluid mx-auto"
           src={product.images[0].url}
           alt={`${product.name}`}
         />
