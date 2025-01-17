@@ -306,7 +306,7 @@ if(window.location.href.includes("/search/gomla")){
 
               </div>
         </div>
-        <div className="col-12 col-md-8 animate__animated animate__fadeIn">
+            <div className="col-12 col-md-8 animate__animated animate__fadeIn">
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
 <Pagination
@@ -323,28 +323,7 @@ if(window.location.href.includes("/search/gomla")){
         />
 </div>
 )}
-// <div className="row">
-//       {products.slice(0, 3).map(product => (
-//       <div className="col-12 col-md-6 col-lg-4">
-//         <Product  key={product._id} product={product}  col={4}/>
-//       </div>
-//       ))}
-//       </div>
-// <div className="row">
-//       {products.slice(3, 6).map(product => (
-//       <div className="col-12 col-md-6 col-lg-4">
-//         <Product  key={product._id} product={product}  col={4}/>
-//       </div>
-//       ))}
-//       </div>
-// <div className="row">
-//       {products.slice(6, 9).map(product => (
-//       <div className="col-12 col-md-6 col-lg-4">
-//         <Product  key={product._id} product={product}  col={4}/>
-//       </div>
-//       ))}
-//       </div>
-     <div className="row">
+        <div className="row">
         {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
