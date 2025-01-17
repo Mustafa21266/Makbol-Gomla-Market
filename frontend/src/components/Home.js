@@ -1563,7 +1563,7 @@ if(window.location.href.includes("/search/gomla")){
            </div>
                </Carousel> */}
 
-      <div className='row' ref={myRef}>
+      <div className='row' id="vodCashId" ref={myRef}>
          <div className='col-12'>
          <img className="d-block mx-auto img-fluid" src="./images/vodafone.jpg" alt="Vodafone Cash" style={{borderRadius: '15px'}}/>
           </div>
