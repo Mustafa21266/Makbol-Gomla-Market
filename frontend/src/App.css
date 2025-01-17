@@ -765,3 +765,21 @@ th {
 .fadeInUp-animation {
   animation: 1.5s fadeInUp;
 }
+
+#parentOf1:hover {
+  #parent1 {
+    display: block;
+  }
+}
+
+#parentOf2:hover {
+  #parent2 {
+    display: block;
+  }
+}
+
+#parentOf3:hover {
+  #parent3 {
+    display: block;
+  }
+}
