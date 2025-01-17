@@ -323,27 +323,32 @@ if(window.location.href.includes("/search/gomla")){
         />
 </div>
 )}
-<div className="row">
-      {products.slice(0, 3).map(product => (
-      <div className="col-12 col-md-6 col-lg-4">
+// <div className="row">
+//       {products.slice(0, 3).map(product => (
+//       <div className="col-12 col-md-6 col-lg-4">
+//         <Product  key={product._id} product={product}  col={4}/>
+//       </div>
+//       ))}
+//       </div>
+// <div className="row">
+//       {products.slice(3, 6).map(product => (
+//       <div className="col-12 col-md-6 col-lg-4">
+//         <Product  key={product._id} product={product}  col={4}/>
+//       </div>
+//       ))}
+//       </div>
+// <div className="row">
+//       {products.slice(6, 9).map(product => (
+//       <div className="col-12 col-md-6 col-lg-4">
+//         <Product  key={product._id} product={product}  col={4}/>
+//       </div>
+//       ))}
+//       </div>
+     <div className="row">
+        {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
-      </div>
       ))}
-      </div>
-<div className="row">
-      {products.slice(3, 6).map(product => (
-      <div className="col-12 col-md-6 col-lg-4">
-        <Product  key={product._id} product={product}  col={4}/>
-      </div>
-      ))}
-      </div>
-<div className="row">
-      {products.slice(6, 9).map(product => (
-      <div className="col-12 col-md-6 col-lg-4">
-        <Product  key={product._id} product={product}  col={4}/>
-      </div>
-      ))}
-      </div>
+        </div>
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
 <Pagination
