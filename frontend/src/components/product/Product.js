@@ -4,7 +4,7 @@ const Product = ( { product, col } ) => {
     return (
         <div className={`col-sm-10 col-md-6 col-lg-${col} my-3 d-inline-block mx-auto`}>
         <Link to={`/product/${product._id}`}>
-      <div className="card p-3 rounded">
+      <div className="card p-3 rounded w-100">
         <img
           className="card-img-top img-fluid mx-auto"
           src={product.images[0].url}
