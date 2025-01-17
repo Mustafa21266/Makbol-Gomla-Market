@@ -311,7 +311,7 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
               {products && (
               <Pagination
-          activePage={currentPage}
+          activePage={1}
           itemsCountPerPage={9}
           totalItemsCount={products.count}
           onChange={setCurrentPageNo}
@@ -336,7 +336,7 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 {products && (
               <Pagination
-          activePage={currentPage}
+          activePage={1}
           itemsCountPerPage={9}
           totalItemsCount={products.count}
           onChange={setCurrentPageNo}
