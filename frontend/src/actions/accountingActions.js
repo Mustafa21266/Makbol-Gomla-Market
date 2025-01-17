@@ -46,7 +46,7 @@ export const createAccounting = (accounting) => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/accounting/new`, accounting,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/accounting/new`, accounting,config)
         dispatch({
             type: CREATE_ACCOUNTING_SUCCESS,
             payload: data
@@ -72,7 +72,7 @@ export const updateAccounting = (id, accountingData) => async (dispatch, getStat
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/accounting/${id}`, accountingData,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/accounting/${id}`, accountingData,config)
         dispatch({
             type: UPDATE_ACCOUNTING_SUCCESS,
             payload: data.success
@@ -99,7 +99,7 @@ export const deleteAccounting = (id) => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/accounting/delete/${id}`, { token: localStorage.getItem('token') } ,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/accounting/delete/${id}`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: DELETE_ACCOUNTING_SUCCESS,
             payload: data.success
@@ -125,7 +125,7 @@ export const myAccountings = () => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/accountings/me`, { token: localStorage.getItem('token') } ,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/accountings/me`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: MY_ACCOUNTINGS_SUCCESS,
             payload: data.accountings
@@ -152,7 +152,7 @@ export const allAccountings = () => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/admin/accountings`, { token: localStorage.getItem('token') } ,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/admin/accountings`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: ALL_ACCOUNTINGS_SUCCESS,
             payload: data
@@ -178,7 +178,7 @@ export const getAccountingDetails = (id) => async (dispatch, getState) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/accounting/${id}`, { token: localStorage.getItem('token') } ,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/accounting/${id}`, { token: localStorage.getItem('token') } ,config)
         dispatch({
             type: ACCOUNTING_DETAILS_SUCCESS,
             payload: data.accounting

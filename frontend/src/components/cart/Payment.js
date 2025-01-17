@@ -59,7 +59,7 @@ const submitHandler = async (e) => {
                 'Content-Type': 'application/json' 
             }
         }
-        res = await axios.post('/api/v1/payment/process', paymentData, config);
+        res = await axios.post('http://127.0.0.1:8000/api/v1/payment/process', paymentData, config);
         const clientSecret = res.data.client_secret
         let result = {
             paymentIntent : {
