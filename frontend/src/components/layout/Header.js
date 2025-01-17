@@ -82,8 +82,10 @@ const domainList = [
     alert.success('تم تسجيل الخروج بنجاح')
   }
   const readNotificationHandler = (id) => {
+    document.getElementById('parent2').classList.toggle("show")
     dispatch(updateNotification(id));
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+
     // dispatch(getNotifications())
     // alert.success('تم تسجيل الخروج بنجاح')
   }
@@ -177,7 +179,7 @@ const domainList = [
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
-                           <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -120,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                           <div id="parent2" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -120,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
                                 if(item.product){
                                     return (<Fragment>
@@ -387,7 +389,7 @@ const domainList = [
                            <span className="ml-1" id="cart_count">{notificationCountUser}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
-                           <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                           <div id="parent2" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((order) => order.seller_id === user._id).map(item => {
                                 if(item.product){
               //                       return (<Fragment>
@@ -495,10 +497,10 @@ const domainList = [
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
 </svg></span>
                 </Link>
-                <div className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
+                <div id="parent3" className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
                     <Fragment key={item._id}>
-                      <Link to={`/product/${item.product}`} className="dropdown-item">
+                      <Link  onClick={(e) => document.getElementById('parent3').classList.toggle("show") }  to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
                           <img src={item.image} alt={item.product} style={{width: '55px', height: '52px'}}/>
@@ -521,7 +523,7 @@ const domainList = [
                     <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span>
                     
                     </span>
-                  <Link to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
+                  <Link onClick={(e) => document.getElementById('parent1').classList.toggle("show") } to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
           </div> 
