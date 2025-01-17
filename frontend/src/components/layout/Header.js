@@ -113,7 +113,7 @@ const Header = ({ history }) => {
     // }
     // window.location.reload();
     history.push('/home')
-    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 20);
+    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
   }
   const switchHandler = () => {
     setTimeout(function(){ window.location.reload(); }, 15);
