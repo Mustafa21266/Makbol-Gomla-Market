@@ -82,7 +82,7 @@ const domainList = [
     alert.success('تم تسجيل الخروج بنجاح')
   }
   const readNotificationHandler = (id) => {
-    document.getElementById('parent2').classList.toggle("show")
+    document.getElementById('parent2').classList.remove("show")
     dispatch(updateNotification(id));
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
 
@@ -158,14 +158,14 @@ const domainList = [
                 <div id="parent1" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
                   {user && (user.role === 'admin' || user.role === 'seller') && (
                     <div>
-                    <Link onClick={(e) => document.getElementById('parent1').classList.toggle("show") } to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
+                    <Link onClick={(e) => document.getElementById('parent1').classList.remove("show") } to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
                     </div>
                     
                   )}
-                <Link to="/orders/me"  onClick={(e) => document.getElementById('parent1').classList.toggle("show") } className="dropdown-item text-center">الأوردرات</Link>
+                <Link to="/orders/me"  onClick={(e) => document.getElementById('parent1').classList.remove("show") } className="dropdown-item text-center">الأوردرات</Link>
                 <hr />
-                <Link to="/me"  onClick={(e) => document.getElementById('parent1').classList.toggle("show") } className="dropdown-item text-center">حسابي</Link>
+                <Link to="/me"  onClick={(e) => document.getElementById('parent1').classList.remove("show") } className="dropdown-item text-center">حسابي</Link>
                 <hr />
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
                   </div> 
@@ -500,7 +500,7 @@ const domainList = [
                 <div id="parent3" className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
                     <Fragment key={item._id}>
-                      <Link  onClick={(e) => document.getElementById('parent3').classList.toggle("show") }  to={`/product/${item.product}`} className="dropdown-item">
+                      <Link  onClick={(e) => document.getElementById('parent3').classList.remove("show") }  to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
                           <img src={item.image} alt={item.product} style={{width: '55px', height: '52px'}}/>
@@ -523,7 +523,7 @@ const domainList = [
                     <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span>
                     
                     </span>
-                  <Link onClick={(e) => document.getElementById('parent1').classList.toggle("show") } to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
+                  <Link onClick={(e) => document.getElementById('parent1').classList.remove("show") } to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
           </div> 
