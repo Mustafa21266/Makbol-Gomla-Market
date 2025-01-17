@@ -309,10 +309,11 @@ if(window.location.href.includes("/search/gomla")){
             <div className="col-12 col-md-8 animate__animated animate__fadeIn">
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
-<Pagination
+              {products && (
+              <Pagination
           activePage={currentPage}
           itemsCountPerPage={9}
-          totalItemsCount={products ?  products.count : 0 }
+          totalItemsCount={products.count}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -322,6 +323,8 @@ if(window.location.href.includes("/search/gomla")){
           linkClass="page-link"
           // pageRangeDisplayed={5}
         />
+              )}
+
 </div>
 )}
         <div className="row">
@@ -331,10 +334,11 @@ if(window.location.href.includes("/search/gomla")){
         </div>
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
-<Pagination
+{products && (
+              <Pagination
           activePage={currentPage}
           itemsCountPerPage={9}
-          totalItemsCount={products ?  products.count : 0 }
+          totalItemsCount={products.count}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -344,6 +348,7 @@ if(window.location.href.includes("/search/gomla")){
           linkClass="page-link"
           // pageRangeDisplayed={5}
         />
+              )}
 </div>
 )}
         </div>
