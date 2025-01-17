@@ -40,7 +40,7 @@ if(window.location.href.includes("/search/gomla")){
   const [subcategory, setSubCategory] = useState(a);
   const [category, setCategory] = useState(b);
   const [rating, setRating] = useState(0);
-      let filteredProducts = [];
+    
   // let currentUserPage = "/home";
   const myRef = useRef(null);
   const domainList = [
@@ -92,7 +92,6 @@ if(window.location.href.includes("/search/gomla")){
   useEffect(() => {
     
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    filteredProducts = products;
         
     if(error){
       return alert.error(error)
@@ -100,11 +99,6 @@ if(window.location.href.includes("/search/gomla")){
     // , productsCount, resultsPerPage, filteredProductsCount, products
   }, [dispatch, alert ,error,keyword, currentPage,price, rating])
   function setCurrentPageNo(pageNumber){
-        if(pageNumber === 1){
-            filteredProducts = products.slice(0,9)  
-        }else {
-              filteredProducts = products.slice((pageNumber * 2) / 2,(pageNumber * 2))  
-        }
     setcurrentPage(pageNumber)
   }
       refr = myRef;
@@ -312,14 +306,13 @@ if(window.location.href.includes("/search/gomla")){
 
               </div>
         </div>
-            <div className="col-12 col-md-8 animate__animated animate__fadeIn">
+        <div className="col-12 col-md-8 animate__animated animate__fadeIn">
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
-              {products && (
-              <Pagination
+<Pagination
           activePage={currentPage}
-          itemsCountPerPage={9}
-          totalItemsCount={products.count}
+          itemsCountPerPage={resultsPerPage}
+          totalItemsCount={count}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -327,24 +320,20 @@ if(window.location.href.includes("/search/gomla")){
           lastPageText={'الأخير'}
           itemClass="page-item"
           linkClass="page-link"
-          // pageRangeDisplayed={5}
         />
-              )}
-
 </div>
 )}
         <div className="row">
-        {filteredProducts.map(product => (
+        {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
         </div>
         {resultsPerPage <= count && (
   <div className="d-flex justify-content-center mt-5">
-{products && (
-              <Pagination
+<Pagination
           activePage={currentPage}
-          itemsCountPerPage={9}
-          totalItemsCount={products.count}
+          itemsCountPerPage={resultsPerPage}
+          totalItemsCount={count}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -352,9 +341,7 @@ if(window.location.href.includes("/search/gomla")){
           lastPageText={'الأخير'}
           itemClass="page-item"
           linkClass="page-link"
-          // pageRangeDisplayed={5}
         />
-              )}
 </div>
 )}
         </div>
@@ -1576,7 +1563,7 @@ if(window.location.href.includes("/search/gomla")){
            </div>
                </Carousel> */}
 
-      <div className='row' id="vodCashId" ref={myRef}>
+      <div className='row' ref={myRef}>
          <div className='col-12'>
          <img className="d-block mx-auto img-fluid" src="./images/vodafone.jpg" alt="Vodafone Cash" style={{borderRadius: '15px'}}/>
           </div>
