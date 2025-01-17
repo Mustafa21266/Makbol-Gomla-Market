@@ -334,7 +334,7 @@ if(window.location.href.includes("/search/gomla")){
 </div>
 )}
         <div className="row">
-        {products.map(product => (
+        {filteredProducts.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
         </div>
