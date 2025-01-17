@@ -83,7 +83,10 @@ const domainList = [
   }
   const readNotificationHandler = (id) => {
     document.getElementById('parent2').style.display = "none"
-    document.getElementById('parent2').style.display = ""
+    setTimeout(() => {
+      document.getElementById('parent2').style.display = ""
+    }, 50)
+    
     dispatch(updateNotification(id));
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
 
@@ -163,7 +166,7 @@ const domainList = [
                     onClick={(e) => 
                       {
                         document.getElementById('parent1').style.display = "none"
-                        setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
                         }} 
                         to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
@@ -173,13 +176,13 @@ const domainList = [
                 <Link to="/orders/me" onClick={(e) => 
                       {
                         document.getElementById('parent1').style.display = "none"
-                        setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
                         }} className="dropdown-item text-center">الأوردرات</Link>
                 <hr />
                 <Link to="/me" onClick={(e) => 
                       {
                         document.getElementById('parent1').style.display = "none"
-                        setTimeout(() => document.getElementById('parent1').style.display = "") 
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
                         }} className="dropdown-item text-center">حسابي</Link>
                 <hr />
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
@@ -518,7 +521,7 @@ const domainList = [
                       <Link  onClick={(e) => 
                       {
                         document.getElementById('parent3').style.display = "none"
-                        setTimeout(() => document.getElementById('parent3').style.display = "") 
+                        setTimeout(() => document.getElementById('parent3').style.display = "", 50) 
                         }}  to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
@@ -545,7 +548,7 @@ const domainList = [
                   <Link onClick={(e) => 
                       {
                         document.getElementById('parent3').style.display = "none"
-                        setTimeout(() => document.getElementById('parent3').style.display = "") 
+                        setTimeout(() => document.getElementById('parent3').style.display = "", 50) 
                         }} to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
