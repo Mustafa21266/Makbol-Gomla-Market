@@ -99,6 +99,7 @@ if(window.location.href.includes("/search/gomla")){
     // , productsCount, resultsPerPage, filteredProductsCount, products
   }, [dispatch, alert ,error,keyword, currentPage,price, rating])
   function setCurrentPageNo(pageNumber){
+    // console.log(pageNumber)
     setcurrentPage(pageNumber)
   }
       refr = myRef;
@@ -311,8 +312,8 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 <Pagination
           activePage={currentPage}
-          itemsCountPerPage={resultsPerPage}
-          totalItemsCount={count}
+          itemsCountPerPage={9}
+          totalItemsCount={filteredProductsCount}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
