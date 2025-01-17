@@ -102,17 +102,20 @@ const domainList = [
     }
   }
   const executeScroll = (e) => {
-    if(domainList.includes(window.location.href.replace("home",""))){
-      // myRef.current.scrollIntoView()
-        setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
+    // if(domainList.includes(window.location.href.replace("home",""))){
+    //   // myRef.current.scrollIntoView()
+    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
 
-    }else {
+    // }else {
+    //   history.push('/home')
+    //   // e.target.click();
+    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
+    //   // window.location.reload();
+    //   // setTimeout(() => myRef.current.scrollIntoView(), 5000)
+    // }
       history.push('/home')
       // e.target.click();
         setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
-      // window.location.reload();
-      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
-    }
     // window.location.reload();
     // history.push('/home')
     // setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
