@@ -45,7 +45,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
     if(req.query.keyword ==="home"){
     products = await Product.find()
-    filteredProductsCount = products.length;
+    // filteredProductsCount = products.length;
     //     // for(let i =0;i < products.length;i++){
     //     //     if(products[i].category === 'Chips And Snacks'){
     //     //         console.log(products[i].category)
@@ -57,7 +57,9 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     //     // console.log(products)
         
     //     return ''
-
+products = await apiFeatures.query;
+        filteredProductsCount = products.length;
+        apiFeatures.pagination(resultsPerPage);
     }else {
         
         // const products = await Product.find();
