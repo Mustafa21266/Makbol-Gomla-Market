@@ -102,19 +102,25 @@ const Header = ({ history }) => {
     }
   }
   const executeScroll = (e) => {
-    if(window.location.href[window.location.href.length - 1] === "/"){
-      myRef.current.scrollIntoView()
+    // if(window.location.href[window.location.href.length - 1] === "/"){
+    //   myRef.current.scrollIntoView()
 
-    }else {
-      history.push('/')
-      e.target.click();
-      // window.location.reload();
-      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
-    }
+    // }else {
+    //   history.push('/')
+    //   e.target.click();
+    //   // window.location.reload();
+    //   // setTimeout(() => myRef.current.scrollIntoView(), 5000)
+    // }
     // window.location.reload();
+    history.push('/home')
+    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 20);
   }
   const switchHandler = () => {
     setTimeout(function(){ window.location.reload(); }, 15);
+  }
+  const switchHandlerCash = () => {
+    history.push('/home')
+    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 20);
   }
     return (
         <Fragment>
