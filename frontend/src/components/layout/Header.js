@@ -16,9 +16,9 @@ import { refr } from '../Home';
 let isPlayed = false;
 
 const Header = ({ history }) => {
-  const domainList = [
+const domainList = [
     "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
-    "https://makbol-gomla.store/",
+    "https://www.makbol-gomla.store/",
     "http://localhost:3000/"
   ]
   const dispatch = useDispatch();
@@ -102,7 +102,7 @@ const Header = ({ history }) => {
     }
   }
   const executeScroll = (e) => {
-    if(domainList.includes(window.location.href.replace("home","")){
+    if(domainList.includes(window.location.href.replace("home",""))){
       myRef.current.scrollIntoView()
 
     }else {
