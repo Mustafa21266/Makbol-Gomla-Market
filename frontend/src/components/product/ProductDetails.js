@@ -102,7 +102,7 @@ const ProductDetails = ( { match } ) => {
             <Carousel pause="hover">
                 {product.images && product.images.map(image => (
                     <Carousel.Item key={image.public_id} >
-                        <img className="d-block w-100" src={image.url} alt={product.name}></img>
+                        <img className="img-fluid d-block w-100" src={image.url} alt={product.name}></img>
                     </Carousel.Item>
                 ))}
             </Carousel>
