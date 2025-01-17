@@ -148,7 +148,7 @@ const domainList = [
       <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
  <audio ref={audioPlayer} src={NotificationSound}/>
         { user ? (
-          <div id="parentOf1" className="dropdown dropleft d-inline"> 
+          <div className="dropdown dropleft d-inline"> 
                 <Link to="#!" style={{backgroundColor:'#178a53'}} className="btn text-white" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <figure className="avatar avatar-nav">
                     <img src={user.avatar && user.avatar.url} alt={user && `${user.name} Avatar`} className="rounded-circle"></img>
@@ -174,7 +174,7 @@ const domainList = [
         <div className='row'>
         <div className='col-12 col-md-6'>
         {user && user.role === 'admin' && (
-                           <div id="parentOf2" className="dropdown dropleft d-inline"> 
+                           <div className="dropdown dropleft d-inline"> 
                            <Link to="#" style={{ textDecoration: 'none', backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
@@ -490,7 +490,7 @@ const domainList = [
                   )}
         </div>
         <div className='col-12 col-md-6'>
-       <div id="parentOf3" className="dropdown dropleft d-inline"> 
+       <div className="dropdown dropleft d-inline"> 
                 <Link to="/cart" style={{ textDecoration: 'none',backgroundColor:'#178a53' }} className="btn text-white" type="button" id="dropDownMenuButtonTwo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span className="ml-1" id="cart_count">{cartItems.length}</span>
                 <span id="cart" className="ml-2"><svg width="20" height="20" style={{marginBottom: 5}} fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">

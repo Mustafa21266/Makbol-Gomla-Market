@@ -766,19 +766,37 @@ th {
   animation: 1.5s fadeInUp;
 }
 
-#parentOf1:hover {
+#dropDownMenuButton:hover {
   #parent1 {
     display: block;
   }
 }
 
-#parentOf2:hover {
+#dropDownMenuButtonTwo:hover {
   #parent2 {
     display: block;
   }
 }
 
-#parentOf3:hover {
+#dropDownMenuButton3:hover {
+  #parent3 {
+    display: block;
+  }
+}
+
+#dropDownMenuButton:active {
+  #parent1 {
+    display: block;
+  }
+}
+
+#dropDownMenuButtonTwo:active {
+  #parent2 {
+    display: block;
+  }
+}
+
+#dropDownMenuButton3:active {
   #parent3 {
     display: block;
   }
