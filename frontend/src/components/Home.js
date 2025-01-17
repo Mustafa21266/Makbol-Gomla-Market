@@ -311,8 +311,8 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 <Pagination
           activePage={currentPage}
-          itemsCountPerPage={resultsPerPage}
-          totalItemsCount={count}
+          itemsCountPerPage={9}
+          totalItemsCount={products ?  products.count : 0 }
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -320,6 +320,7 @@ if(window.location.href.includes("/search/gomla")){
           lastPageText={'الأخير'}
           itemClass="page-item"
           linkClass="page-link"
+          // pageRangeDisplayed={5}
         />
 </div>
 )}
@@ -332,8 +333,8 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 <Pagination
           activePage={currentPage}
-          itemsCountPerPage={resultsPerPage}
-          totalItemsCount={count}
+          itemsCountPerPage={9}
+          totalItemsCount={products ?  products.count : 0 }
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -341,6 +342,7 @@ if(window.location.href.includes("/search/gomla")){
           lastPageText={'الأخير'}
           itemClass="page-item"
           linkClass="page-link"
+          // pageRangeDisplayed={5}
         />
 </div>
 )}
