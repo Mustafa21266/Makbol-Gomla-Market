@@ -327,7 +327,7 @@ element.scrollIntoView();
         />
 </div>
 )}
-        <div className="row">
+        <div className="row"  id="contentXXX">
         {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
@@ -373,7 +373,7 @@ element.scrollIntoView();
                 </a>
             </div>
             </div>
-        <div className="row" id="contentXXX">
+        <div className="row">
             <div className="col-12">
                 <div id="carouselExampleIndicators2" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
