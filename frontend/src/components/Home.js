@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-
 let refr = null;
 
 const Home = ( { match } ) => {
@@ -100,6 +99,8 @@ if(window.location.href.includes("/search/gomla")){
   }, [dispatch, alert ,error,keyword, category , subcategory , currentPage,price, rating])
   const setCurrentPageNo = (pageNumber) => {
     // console.log(pageNumber)
+        let element = document.getElementById("contentXXX");
+element.scrollIntoView();
     window.scrollTo(0, 0);
     setcurrentPage(pageNumber)
        
@@ -372,7 +373,7 @@ if(window.location.href.includes("/search/gomla")){
                 </a>
             </div>
             </div>
-        <div className="row">
+        <div className="row" id="contentXXX">
             <div className="col-12">
                 <div id="carouselExampleIndicators2" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
