@@ -100,8 +100,9 @@ if(window.location.href.includes("/search/gomla")){
   }, [dispatch, alert ,error,keyword, category , subcategory , currentPage,price, rating])
   function setCurrentPageNo(pageNumber){
     // console.log(pageNumber)
+         window.scrollTo(0, 0);
     setcurrentPage(pageNumber)
-        window.scrollTo(0, 0);
+       
   }
       refr = myRef;
     return (
