@@ -98,9 +98,9 @@ if(window.location.href.includes("/search/gomla")){
     }
     // , productsCount, resultsPerPage, filteredProductsCount, products
   }, [dispatch, alert ,error,keyword, category , subcategory , currentPage,price, rating])
-  function setCurrentPageNo(pageNumber){
+  const setCurrentPageNo = (pageNumber) => {
     // console.log(pageNumber)
-         window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     setcurrentPage(pageNumber)
        
   }
