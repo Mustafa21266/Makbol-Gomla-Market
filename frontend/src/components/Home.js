@@ -101,6 +101,7 @@ if(window.location.href.includes("/search/gomla")){
   function setCurrentPageNo(pageNumber){
     // console.log(pageNumber)
     setcurrentPage(pageNumber)
+        window.scrollTo(0, 0);
   }
       refr = myRef;
     return (
