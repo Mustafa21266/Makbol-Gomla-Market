@@ -45,7 +45,9 @@ const Product = ( { product, col } ) => {
             {/* <span id="no_of_reviews">({product.numOfReviews} تقييمات)</span> */}
           </div>
           {/* <p className="card-text" style={{color: 'black !important',textAlign: 'right'}}>يباع بواسطة  : {product.seller}</p> */}
-          <p className="card-text" style={{color: 'black !important',textAlign: 'center'}}>السعر : {product.price} EGP</p>
+          <div className='w-100 d-block mx-auto'>
+          <h4 className='w-100 d-block mx-auto' style={{color: 'black !important',textAlign: 'center'}}>السعر : {product.price} EGP</h4>
+          </div>
           {/* <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">إظهار التفاصيل</Link> */}
         </div>
       </div>
