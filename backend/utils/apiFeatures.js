@@ -4,7 +4,7 @@ class APIFeatures{
         this.queryString = queryString;
     }
     search() {
-        if(this.queryString.keyword === 'all'){
+        if(this.queryString.keyword === 'searchAll'){
             return this;
         }else {
             const keyword = this.queryString.keyword ? {
@@ -28,7 +28,7 @@ class APIFeatures{
         //ADVANCED FILTER
         let queryStr = JSON.stringify(queryCopy)
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g,match => `$${match}`)
-        // console.log(queryStr)
+        console.log(queryStr)
 
         this.query = this.query.find(JSON.parse(queryStr));
         return this;

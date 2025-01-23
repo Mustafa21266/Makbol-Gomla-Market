@@ -42,37 +42,25 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     console.log(req.query.keyword)
     let products;
     let filteredProductsCount;
-    const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter()
+    const apiFeatures = new APIFeatures(Product.find(), req.query).search().filter();
     if(req.query.keyword ==="home"){
-    products = await Product.find()
-    //     // for(let i =0;i < products.length;i++){
-    //     //     if(products[i].category === 'Chips And Snacks'){
-    //     //         console.log(products[i].category)
-    //     //       }else {
-    //     //         console.log(products[i].category)
-    //     //       }
-    
-    //     // }
-    //     // console.log(products)
-        
-    //     return ''
-
+        products = await Product.find();
+        filteredProductsCount = products.length;
+        // apiFeatures.pagination(resultsPerPage);
+        // products = await apiFeatures.query;
     }else {
-        
-        // const products = await Product.find();
-        // .pagination(resultsPerPage);
         products = await apiFeatures.query;
         filteredProductsCount = products.length;
         apiFeatures.pagination(resultsPerPage);
-        // products = await apiFeatures.query;
-        for(let i =0;i < products.length;i++){
-            if(products[i].category === 'Chips And Snacks'){
-                console.log(products[i].category)
-              }else {
-                console.log(products[i].category)
-              }
+        products = await apiFeatures.query;
+        // for(let i =0;i < products.length;i++){
+        //     if(products[i].category === 'Chips And Snacks'){
+        //         console.log(products[i].category)
+        //       }else {
+        //         console.log(products[i].category)
+        //       }
     
-        }
+        // }
     }
     // res.status(200).json({
     //         success: true,

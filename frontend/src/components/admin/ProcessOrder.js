@@ -137,10 +137,10 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
 <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الإجمالي</h4>
 </div>
 <div className='col-3'>
-<h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الصنف</h4>
+<h4 className="my-4" style={{color:'black',fontSize: '44px'}}>السعر</h4>
 </div>
 <div className='col-3'>
-<h4 className="my-4" style={{color:'black',fontSize: '44px'}}>السعر</h4>
+<h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الصنف</h4>
 </div>
                          <div className='col-3'>
                          <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>عدد القطع</h4>
@@ -158,6 +158,11 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                 <h2  className="mb-4" style={{color:'black',fontSize: '44px', textAlign:'center'}}>{parseFloat(item.price) * parseInt(item.quantity)}</h2>
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
+                                
+                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
+                                <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.price}</h2>
+                                    {/* <p>${item.price}</p> */}
+                                </div>
 
                                 <div className="col-4 col-lg-3">
                                     <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.name}</h2>
@@ -165,10 +170,6 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                 </div>
 
 
-                                <div className="col-3 col-lg-3 mt-4 mt-lg-0">
-                                <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.price}</h2>
-                                    {/* <p>${item.price}</p> */}
-                                </div>
 
                                 <div className="col-2 col-lg-3 mt-4 mt-lg-0">
                                 <h2 style={{color:'black',fontSize: '44px', textAlign:'center'}}>{item.quantity}</h2>
@@ -340,7 +341,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                     {/* <Link to={`/product/${item.product}`}>{item.name}</Link> */}
                                 </div>
                                 <div className="col-3 col-lg-2">
-                                <h2  className="mb-4" style={{textAlign:'center'}}>{totalPrice}</h2>
+                                <h2  className="mb-4" style={{textAlign:'center'}}>{parseFloat(item.price) * parseInt(item.quantity)}</h2>
                                 {/* <img src={item.image} alt={item.name} height="45" width="65" /> */}
                                 </div>
                             </div>

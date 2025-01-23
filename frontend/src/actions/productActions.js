@@ -49,14 +49,17 @@ import { ALL_PRODUCTS_REQUEST,
       CLEAR_ERRORS
 }  from '../constants/productConstants';
 
-export const getProducts = (keyword = '',currentPage = 1, price, category, subcategory, rating = 0) => async (dispatch) => {
+export const getProducts = (keyword = '',currentPage, price, category, subcategory, rating = 0) => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCTS_REQUEST,
             payload: []
         })
         let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
-        if(category){
+       if(category){
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&category=${category}&subcategory=${subcategory}`
+        }
+        if(subcategory){
             link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}&category=${category}&subcategory=${subcategory}`
         }
         const { data } = await axios.get(link)

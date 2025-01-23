@@ -8,23 +8,34 @@ import { logout } from '../../actions/userActions'
 import { updateNotification } from '../../actions/notificationActions'
 import { getNotifications } from '../../actions/notificationActions';
 import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants'
-
+import { ALL_PRODUCTS_REQUEST } from '../../constants/productConstants'
+import { getProducts } from '../../actions/productActions'
 import NotificationSound from './notification.mp3';
-
 import { refr } from '../Home';
 
 let isPlayed = false;
 
 const Header = ({ history }) => {
+const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://www.makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
-  const { loading, user } = useSelector(state => state.auth)
+  const { user } = useSelector(state => state.auth)
+  const { loading, products, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
   let notificationCountUser = 0;
   const myRef = refr;
-  
+  const [currentPage, setcurrentPage] = useState(1);
+  const [price, setPrice] = useState([1, 1000]);
+  const [subcategory, setSubCategory] = useState('');
+  const [category, setCategory] = useState('');
+  const [rating, setRating] = useState(0);
+  let keyword = 'home'
   // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
@@ -32,9 +43,13 @@ const Header = ({ history }) => {
     audioPlayer.current.play();
     }
   }
+  const unlisten = history.listen((location, action) => {
+    if(!domainList.includes(location.path)){
+      // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+    }
+  });
   useEffect(() => {
      dispatch(getNotifications())
-
     // if(notifications.length > 0){
     //             // dispatch(getProductDetails(productId))
     //   }else {
@@ -61,14 +76,20 @@ const Header = ({ history }) => {
               dispatch({ type: UPDATE_NOTIFICATION_RESET})
           }
             
-  },[dispatch, alert, isUpdated, error])
+  },[dispatch, alert, isUpdated, error , loading])
   const logOutHandler = () => {
     dispatch(logout());
     alert.success('تم تسجيل الخروج بنجاح')
   }
   const readNotificationHandler = (id) => {
-    dispatch(updateNotification(id));
+    document.getElementById('parent2').style.display = "none"
+    setTimeout(() => {
+      document.getElementById('parent2').style.display = ""
+    }, 50)
     
+    dispatch(updateNotification(id));
+    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+
     // dispatch(getNotifications())
     // alert.success('تم تسجيل الخروج بنجاح')
   }
@@ -87,23 +108,37 @@ const Header = ({ history }) => {
     }
   }
   const executeScroll = (e) => {
-    if(window.location.href[window.location.href.length - 1] === "/"){
-      myRef.current.scrollIntoView()
+    // if(domainList.includes(window.location.href.replace("home",""))){
+    //   // myRef.current.scrollIntoView()
+    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
 
-    }else {
-      history.push('/')
-      e.target.click();
-      // window.location.reload();
-      // setTimeout(() => myRef.current.scrollIntoView(), 5000)
-    }
+    // }else {
+    //   history.push('/home')
+    //   // e.target.click();
+    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
+    //   // window.location.reload();
+    //   // setTimeout(() => myRef.current.scrollIntoView(), 5000)
+    // }
+      history.push('/home')
+      // e.target.click();
+        setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
     // window.location.reload();
+    // history.push('/home')
+    // setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
+  }
+  const switchHandler = () => {
+    setTimeout(function(){ window.location.reload(); }, 15);
+  }
+  const switchHandlerCash = () => {
+    history.push('/home')
+    setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 20);
   }
     return (
         <Fragment>
             <nav className="navbar row">
       <div className="col-12 col-md-3 d-flex justify-content-center">
         <div>
-          <Link to="/">
+          <Link to="/" onClick={()=> switchHandler()}>
           <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736366445/main_logo_h0dsxc.png" alt="E Commerce Logo" style={{width: "300px", height: "300px"}}/>
           </Link>
          
@@ -124,17 +159,31 @@ const Header = ({ history }) => {
                   </figure>
                   <span >{user && user.name}</span>
                 </Link>
-                <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
+                <div id="parent1" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
                   {user && (user.role === 'admin' || user.role === 'seller') && (
                     <div>
-                    <Link to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
+                    <Link 
+                    onClick={(e) => 
+                      {
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
+                        }} 
+                        to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
                     <hr />
                     </div>
                     
                   )}
-                <Link to="/orders/me" className="dropdown-item text-center">الأوردرات</Link>
+                <Link to="/orders/me" onClick={(e) => 
+                      {
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
+                        }} className="dropdown-item text-center">الأوردرات</Link>
                 <hr />
-                <Link to="/me" className="dropdown-item text-center">حسابي</Link>
+                <Link to="/me" onClick={(e) => 
+                      {
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
+                        }} className="dropdown-item text-center">حسابي</Link>
                 <hr />
                 <Link to="/" className="dropdown-item text-danger text-center" onClick={logOutHandler}>تسجيل الخروج</Link>
                   </div> 
@@ -148,7 +197,7 @@ const Header = ({ history }) => {
                            <span className="ml-1" id="cart_count">{notificationCount}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
-                           <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -120,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                           <div id="parent2" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: -120,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).map(item => {
                                 if(item.product){
                                     return (<Fragment>
@@ -358,7 +407,7 @@ const Header = ({ history }) => {
                            <span className="ml-1" id="cart_count">{notificationCountUser}</span>
                            <i className="fa fa-bell" aria-hidden="true"></i>
                            </Link>
-                           <div className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
+                           <div id="parent2" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px',height:'200px',overflowY: 'scroll'}} aria-labelledby="dropDownMenuButtonTwo">
                              {notifications && notifications.sort(function (a, b) { return a.isRead - b.isRead; }).filter((order) => order.seller_id === user._id).map(item => {
                                 if(item.product){
               //                       return (<Fragment>
@@ -466,10 +515,14 @@ const Header = ({ history }) => {
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
 </svg></span>
                 </Link>
-                <div className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
+                <div id="parent3" className="dropdown-menu drop-carta dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute', right: -120 ,top: 35,padding: '25px 15px',width: '350px'}} aria-labelledby="dropDownMenuButtonTwo">
                   {cartItems && cartItems.map(item => (
                     <Fragment key={item._id}>
-                      <Link to={`/product/${item.product}`} className="dropdown-item">
+                      <Link  onClick={(e) => 
+                      {
+                        document.getElementById('parent3').style.display = "none"
+                        setTimeout(() => document.getElementById('parent3').style.display = "", 50) 
+                        }}  to={`/product/${item.product}`} className="dropdown-item">
                       <div key={item.product} className="row">
                         <div className="col-3 d-flex justify-content-center">
                           <img src={item.image} alt={item.product} style={{width: '55px', height: '52px'}}/>
@@ -492,7 +545,11 @@ const Header = ({ history }) => {
                     <span className="order-summary-values">{cartItems.reduce((acc, item)=> (acc + item.quantity * item.price), 0).toFixed(2)} EGP</span>
                     
                     </span>
-                  <Link to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
+                  <Link onClick={(e) => 
+                      {
+                        document.getElementById('parent3').style.display = "none"
+                        setTimeout(() => document.getElementById('parent3').style.display = "", 50) 
+                        }} to={'/cart'} className="btn w-100"  style={{backgroundColor:'#178a53', color:"white"}} >إذهب إلى سلة التسوق</Link>
                   </div>
                   </div> 
           </div> 

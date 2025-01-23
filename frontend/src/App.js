@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './components/Home';
+import GettingStarted from './components/GettingStarted';
 import ProductDetails from './components/product/ProductDetails'
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -50,6 +51,12 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 import { useAddToHomescreenPrompt } from "./components/layout/AddToHomeScreen";
 
 function App() {
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://www.makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
+  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
@@ -58,12 +65,11 @@ function App() {
     store.dispatch(clearErrors())
    
     async function getStripeApiKey(){
-      // const { data } = await axios.get('http://127.0.0.1:3000/api/v1/stripeapi')
+      // const { data } = await axios.get('/api/v1/stripeapi')
       // setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
   }, [])
-  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
@@ -72,19 +78,22 @@ function App() {
     <Router>
       
         <ScrollToTop />
-        <div className='row'>
+        <div className="App fadeInUp-animation">
+            <div className='row'>
           <div className='col-12 d-flex justify-content-center animate__animated animate__bounce animate__delay-2.5s' style={{padding: '20px'}}>
-          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق</button>
+          <button onClick={promptToInstall} style={{backgroundColor:'#178a53'}} className="btn text-white">تثبيت التطبيق <i className="fa fa-download"></i></button>
           </div>
 
         </div>
-        <div className="App">
-        <Route path="/" component={Header} />
+        {!domainList.includes(window.location.href) && (<Route path="/" component={Header} />) }
+       
           {/* <Header /> */}
               <img className="fade-in-image animate__animated animate__fadeIn" src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736887007/peter-bond-KfvknMhkmw0-unsplash_siptnz.jpg" alt="homepage picture"/>
           <div className="container container-fluid">
-              <Route path="/" component={Home} exact />
+              <Route path="/" component={GettingStarted} exact />
+              <Route path="/home" component={Home} exact />
               <Route path="/search/:keyword" component={Home} />
+              <Route path="/search/:subcategory/:category" component={Home} />
               <Route path="/login" component={Login} exact/>
               <Route path="/register" component={Register} exact/>
               <Route path="/seller/register" component={Register} exact/>

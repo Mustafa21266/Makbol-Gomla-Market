@@ -750,3 +750,57 @@ th {
   color: white;
   text-align: center;
 }
+<<<<<<< HEAD
+=======
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.fadeInUp-animation {
+  animation: 1.5s fadeInUp;
+}
+
+/* #dropDownMenuButton:hover {
+  #parent1 {
+    display: block;
+  }
+}
+
+#dropDownMenuButtonTwo:hover {
+  #parent2 {
+    display: block;
+  }
+}
+
+#dropDownMenuButton3:hover {
+  #parent3 {
+    display: block;
+  }
+}
+
+#dropDownMenuButton:active {
+  #parent1 {
+    display: block;
+  }
+}
+
+#dropDownMenuButtonTwo:active {
+  #parent2 {
+    display: block;
+  }
+}
+
+#dropDownMenuButton3:active {
+  #parent3 {
+    display: block;
+  }
+} */
+>>>>>>> 610d4232599bf9c0bc12c9052d4a43873421d96c

@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom'
 let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
-
 let refr = null;
 
 const Home = ( { match } ) => {
@@ -45,7 +44,11 @@ if(window.location.href.includes("/search/gomla")){
   const myRef = useRef(null);
   const domainList = [
     "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+<<<<<<< HEAD
     "https://makbol-gomla.store/",
+=======
+    "https://www.makbol-gomla.store/",
+>>>>>>> 610d4232599bf9c0bc12c9052d4a43873421d96c
     "http://localhost:3000/"
   ]
   const categoriesx = [
@@ -97,9 +100,20 @@ if(window.location.href.includes("/search/gomla")){
       return alert.error(error)
     }
     // , productsCount, resultsPerPage, filteredProductsCount, products
+<<<<<<< HEAD
   }, [dispatch, alert ,error,keyword, currentPage,price, rating])
   function setCurrentPageNo(pageNumber){
     setcurrentPage(pageNumber)
+=======
+  }, [dispatch, alert ,error,keyword, category , subcategory , currentPage,price, rating])
+  const setCurrentPageNo = (pageNumber) => {
+    // console.log(pageNumber)
+        let element = document.getElementById("contentXXX");
+element.scrollIntoView();
+    window.scrollTo(0, 0);
+    setcurrentPage(pageNumber)
+       
+>>>>>>> 610d4232599bf9c0bc12c9052d4a43873421d96c
   }
       refr = myRef;
     return (
@@ -311,8 +325,8 @@ if(window.location.href.includes("/search/gomla")){
   <div className="d-flex justify-content-center mt-5">
 <Pagination
           activePage={currentPage}
-          itemsCountPerPage={resultsPerPage}
-          totalItemsCount={count}
+          itemsCountPerPage={9}
+          totalItemsCount={filteredProductsCount}
           onChange={setCurrentPageNo}
           nextPageText={'التالي'}
           prevPageText={'رجوع'}
@@ -323,7 +337,7 @@ if(window.location.href.includes("/search/gomla")){
         />
 </div>
 )}
-        <div className="row">
+        <div className="row"  id="contentXXX">
         {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
