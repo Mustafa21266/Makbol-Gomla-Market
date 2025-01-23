@@ -25,6 +25,7 @@ const Product = ( { product, col } ) => {
           }
           const addToCart = () => {
               dispatch(addItemToCart(product._id, quantity))
+              setQuantity(1)
               alert.success('تم إضافة المنتج في سلة التسوق')
           }
     return (
@@ -58,7 +59,7 @@ const Product = ( { product, col } ) => {
         <hr></hr>
                  <div className='row'>
                   <div className='col-12 w-100 d-block mx-auto'>
-                  <div className="stockCounter d-inline">
+                  <div className="stockCounter d-flex ">
                     <span className="btn btn-danger minus" style={{padding: '10px 20px'}} onClick={decreaseQty}>-</span>
 
                     <input type="number" className="form-control count d-inline" value={quantity} readOnly />
