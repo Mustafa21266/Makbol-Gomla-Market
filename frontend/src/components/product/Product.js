@@ -22,7 +22,6 @@ const Product = ( { product, col } ) => {
               if(newQty > stock) return;
               dispatch(addItemToCart(id, newQty))
           }
-          con
     return (
         // <div className={`col-sm-10 col-md-6 col-lg-${col} my-3 d-inline-block mx-auto`}>
         <div className={`col my-3 d-inline-block mx-auto`}>
@@ -61,7 +60,7 @@ const Product = ( { product, col } ) => {
 
                     <span className="btn btn-primary plus" style={{padding: '10px 20px'}} onClick={increaseQty}>+</span> */}
                                                     <span className="btn minus"  style={{padding: '10px 20px',backgroundColor:'red'}}  onClick={ () => decreaseQty(product._id, product.quantity)}>-</span>
-                                <input type="number" className="form-control count d-inline" value={item.quantity} readOnly />
+                                <input type="number" className="form-control count d-inline" value={quantity} readOnly />
 
 								<span className="btn btn-primary plus" style={{padding: '10px 20px'}}  onClick={() => increaseQty(product._id, product.quantity, product.stock)}>+</span>
                 </div>
