@@ -57,7 +57,7 @@ let initialState = {
     error: null,
     product: {},
     count: 0,
-    resultsPerPage: 9,
+    resultsPerPage: 30,
     filteredProductsCount: 0,
 }
 export const productsReducer = (state = initialState, action) => {

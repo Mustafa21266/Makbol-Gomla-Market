@@ -17,13 +17,37 @@ const Range = createSliderWithTooltip(Slider.Range);
 let refr = null;
 
 const Home = ( { match } ) => {
+      let a = "";
+let b = "";
+if(window.location.href.includes("/search/gomla")){
+      a = "Gomla"
+      if(match.params.category){
+        b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}` 
+      }
+      // currentUserPage = "/search/gomla"
+      // keyword = ''
+    }else if(window.location.href.includes("/search/piece")){
+      a = "Piece"
+      if(match.params.category){
+      b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
+      }
+      // currentUserPage = "/search/piece"
+      // keyword = ''
+    }
+
   const [currentPage, setcurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
-  const [subcategory, setSubCategory] = useState('');
-  const [category, setCategory] = useState('');
+  const [subcategory, setSubCategory] = useState(a);
+  const [category, setCategory] = useState(b);
   const [rating, setRating] = useState(0);
+    
+  // let currentUserPage = "/home";
   const myRef = useRef(null);
-
+  const domainList = [
+    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
+    "https://makbol-gomla.store/",
+    "http://localhost:3000/"
+  ]
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',
@@ -58,23 +82,26 @@ const Home = ( { match } ) => {
     
   // run this function from an event handler or an effect to execute scroll 
   // const keyword = match.params.keyword ? match.params.keyword : "all"
-  let keyword = window.location.href.includes("/search/all") ? match.params.keyword : 'home'
+      
+  let keyword = window.location.href.includes("/home") ? 'home' : (window.location.href.includes("/search/all") || window.location.href.includes("/search/gomla") || window.location.href.includes("/search/piece")) ? "searchAll" : match.params.keyword
   // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-  useEffect(() => {
-    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    
-    if(error){
-      return alert.error(error)
-    }
-  }, [dispatch, alert ,error,keyword, currentPage,price,category, subcategory, rating])
-  function setCurrentPageNo(pageNumber){
-    setcurrentPage(pageNumber)
-  }
   let count = productsCount;
   if(keyword){
     count = filteredProductsCount;
   }
-  refr = myRef;
+  useEffect(() => {
+    
+    dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
+        
+    if(error){
+      return alert.error(error)
+    }
+    // , productsCount, resultsPerPage, filteredProductsCount, products
+  }, [dispatch, alert ,error,keyword, currentPage,price, rating])
+  function setCurrentPageNo(pageNumber){
+    setcurrentPage(pageNumber)
+  }
+      refr = myRef;
     return (
         <Fragment>
           { loading ? <Loader /> : (
@@ -730,7 +757,7 @@ const Home = ( { match } ) => {
     <div className="container">
         <div className="row">
             <div className="col-6">
-                <h3 className="mb-3" style={{color: 'white'}}>مشروبات عازية </h3>
+                <h3 className="mb-3" style={{color: 'white'}}>مشروبات غازية </h3>
             </div>
             <div className="col-6 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
