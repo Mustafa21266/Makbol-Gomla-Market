@@ -44,11 +44,7 @@ if(window.location.href.includes("/search/gomla")){
   const myRef = useRef(null);
   const domainList = [
     "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
-<<<<<<< HEAD
-    "https://makbol-gomla.store/",
-=======
     "https://www.makbol-gomla.store/",
->>>>>>> 610d4232599bf9c0bc12c9052d4a43873421d96c
     "http://localhost:3000/"
   ]
   const categoriesx = [
@@ -100,11 +96,6 @@ if(window.location.href.includes("/search/gomla")){
       return alert.error(error)
     }
     // , productsCount, resultsPerPage, filteredProductsCount, products
-<<<<<<< HEAD
-  }, [dispatch, alert ,error,keyword, currentPage,price, rating])
-  function setCurrentPageNo(pageNumber){
-    setcurrentPage(pageNumber)
-=======
   }, [dispatch, alert ,error,keyword, category , subcategory , currentPage,price, rating])
   const setCurrentPageNo = (pageNumber) => {
     // console.log(pageNumber)
@@ -113,7 +104,6 @@ element.scrollIntoView();
     window.scrollTo(0, 0);
     setcurrentPage(pageNumber)
        
->>>>>>> 610d4232599bf9c0bc12c9052d4a43873421d96c
   }
       refr = myRef;
     return (
