@@ -23,28 +23,28 @@ const NewProduct = ({ history }) => {
       'مياه',
                   'مشروبات بارده',
                   'مشروبات مخصوصة',
-                  'شعير خالى من الكحول',
+                  'مولتو',
                   'مشروبات الطافة والرياضة',
                   'آبس كريم',
                   'شوكلاتة',
                   'حلويات متنوعة',
                   'بيسكويت',
                   'كيكات',
-                  'شاى وقهوة',
+                  'نيسكافيه',
                   'شيبسيهات وسناكس'
     ]
     const categories = [
       'Water',
                   'Soft Drinks',
                   'Speciality Drinks',
-                  'Malt And Non-Alcholic',
+                  'Molto',
                   'Sports And Energy Drinks',
                   'Ice Cream',
                   'Chocolate',
                   'Candy And Gums',
                   'Biscuits',
                   'Cakes',
-                  'Coffee And Tea',
+                  'Nescafe',
                   'Chips And Snacks'
     ]
      const dispatch = useDispatch();

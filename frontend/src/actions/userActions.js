@@ -65,7 +65,7 @@ export const login = (phoneNo, password) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/login`, { phoneNo, password },config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/login`, { phoneNo, password },config)
         localStorage.setItem('token', data.token)
         dispatch({
             type: LOGIN_SUCCESS,
@@ -92,7 +92,7 @@ export const register = (userData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data' 
             }
         }
-        const { data } = await axios.post(`/api/v1/register`, userData,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/register`, userData,config)
         dispatch({
             type: REGISTER_USER_SUCCESS,
             payload: data
@@ -117,7 +117,7 @@ export const loadUser = () => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/me`, { token: localStorage.getItem('token') },config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/me`, { token: localStorage.getItem('token') },config)
         dispatch({
             type: LOAD_USER_SUCCESS,
             payload: data
@@ -136,7 +136,7 @@ export const loadUser = () => async (dispatch) => {
 //Log out User
 export const logout = () => async (dispatch) => {
     try {
-        await axios.get(`/api/v1/logout`)
+        await axios.get(`http://127.0.0.1:8000/api/v1/logout`)
         localStorage.removeItem('token')
         dispatch({
             type: LOGOUT_USER_SUCCESS
@@ -162,7 +162,7 @@ export const updateProfile = (userData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data' 
             }
         }
-        const { data } = await axios.put(`/api/v1/me/update`, userData,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/me/update`, userData,config)
         dispatch({
             type: UPDATE_PROFILE_SUCCESS,
             payload: data.success
@@ -189,7 +189,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/password/update`, passwords,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/password/update`, passwords,config)
         dispatch({
             type: UPDATE_PASSWORD_SUCCESS,
             payload: data.success
@@ -216,7 +216,7 @@ export const forgotPassword = (email) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/password/forgot`,  email,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/password/forgot`,  email,config)
         dispatch({
             type: FORGOT_PASSWORD_SUCCESS,
             payload: data.message
@@ -242,7 +242,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/password/reset/${token}`,  passwords,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/password/reset/${token}`,  passwords,config)
         dispatch({
             type: NEW_PASSWORD_SUCCESS,
             payload: data.success
@@ -262,7 +262,7 @@ export const allUsers = () => async (dispatch) => {
             type: ALL_USERS_REQUEST,
             payload: []
         })
-        const { data } = await axios.get(`/api/v1/admin/users`)
+        const { data } = await axios.get(`http://127.0.0.1:8000/api/v1/admin/users`)
         dispatch({
             type: ALL_USERS_SUCCESS,
             payload: data.users
@@ -290,7 +290,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/user/${id}`,  userData,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/user/${id}`,  userData,config)
         dispatch({
             type: UPDATE_USER_SUCCESS,
             payload: data.success
@@ -316,7 +316,7 @@ export const getUserDetails = (id) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.post(`/api/v1/admin/user/${id}`, { token: localStorage.getItem('token')} ,config)
+        const { data } = await axios.post(`http://127.0.0.1:8000/api/v1/admin/user/${id}`, { token: localStorage.getItem('token')} ,config)
         dispatch({
             type: USER_DETAILS_SUCCESS,
             payload: data.user
@@ -342,7 +342,7 @@ export const deleteUser = (id) => async (dispatch) => {
                 'Content-Type': 'application/json' 
             }
         }
-        const { data } = await axios.put(`/api/v1/admin/user/delete/${id}`, { token: localStorage.getItem('token')} ,config)
+        const { data } = await axios.put(`http://127.0.0.1:8000/api/v1/admin/user/delete/${id}`, { token: localStorage.getItem('token')} ,config)
         dispatch({
             type: DELETE_USER_SUCCESS,
             payload: data.success

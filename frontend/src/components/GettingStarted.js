@@ -118,7 +118,7 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-4" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Malt And Non-Alcholic")
+            setCategory("Molto")
             // switchView("run")
         }
           }>مشروبات الشعير وغير الكحوليات</Link>
@@ -178,10 +178,10 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-6" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Coffee And Tea")
+            setCategory("Nescafe")
             // switchView("run")
         }
-          }>قهوة وشاي</Link>
+          }>نيسكافيه</Link>
       </div>
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
