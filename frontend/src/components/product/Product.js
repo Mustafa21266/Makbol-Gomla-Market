@@ -8,15 +8,23 @@ const Product = ( { product, col } ) => {
       const [quantity, setQuantity] = useState(1)
       const dispatch = useDispatch();
       const alert = useAlert();
+<<<<<<< HEAD
       const decreaseQty = () => {
         const count = document.querySelector('.count')
+=======
+      const { cartItems } = useSelector(state => state.cart)
+      const { loading , error, products } = useSelector(state => state.products);
+      const [prod_id, setProdId ] = useState("");
+      const decreaseQty = (id) => {
+        const count = document.getElementById(id)
+>>>>>>> 63fc83cddf50c9f297f36d54aa294a9391a0f955
         if(count.valueAsNumber <= 1) return;
         const qty = count.valueAsNumber - 1;
         setQuantity(qty);
 
     }
-      const increaseQty = () => {
-              const count = document.querySelector('.count')
+      const increaseQty = (id) => {
+              const count = document.getElementById(id)
               if(count.valueAsNumber >= product.stock) return;
               const qty = count.valueAsNumber + 1;
               setQuantity(qty);
@@ -54,7 +62,28 @@ const Product = ( { product, col } ) => {
         </div>
       </div>
         </Link>
+<<<<<<< HEAD
         <AddToCartUtil key={product._id} product={product}  col={4} />
+=======
+        <hr></hr>
+                 <div className='row'>
+                  <div className='col-12 w-100 d-block mx-auto'>
+                  <div className="stockCounter d-flex justify-content-center">
+                    <span className="btn btn-danger minus" style={{padding: '10px 20px'}} onClick={() => decreaseQty(`key${product._id}`)}>-</span>
+
+                    <input id={`key${product._id}`} type="number" className="form-control count d-inline" value={quantity} readOnly />
+
+                    <span className="btn btn-primary plus" style={{padding: '10px 20px'}} onClick={() => increaseQty(`key${product._id}`)}>+</span>
+                </div>
+                  </div>
+                 <hr></hr>
+                  <div className='col-12 w-100 d-flex justify-content-center' style={{marginTop: '20px'}}>
+                 
+                 <button type="button" id="cart_btn" className="btn d-inline ml-4" disabled={product.stock === 0}  style={{backgroundColor:'#178a53', color: 'white'}}  onClick={addToCart}>إضافة إلى السلة</button>
+                  </div>
+
+                 </div>
+>>>>>>> 63fc83cddf50c9f297f36d54aa294a9391a0f955
     </div>
     )
 }
