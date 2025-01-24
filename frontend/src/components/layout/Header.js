@@ -93,7 +93,7 @@ const domainList = [
     // dispatch(getNotifications())
     // alert.success('تم تسجيل الخروج بنجاح')
   }
-  if(notifications.length > 0){
+  if(notifications && notifications.length > 0){
     for (let index = 0; index < notifications.length; index++) {
       if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
         notificationCountUser++;
