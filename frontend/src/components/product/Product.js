@@ -8,16 +8,11 @@ const Product = ( { product, col } ) => {
       const [quantity, setQuantity] = useState(1)
       const dispatch = useDispatch();
       const alert = useAlert();
-<<<<<<< HEAD
-      const decreaseQty = () => {
-        const count = document.querySelector('.count')
-=======
       const { cartItems } = useSelector(state => state.cart)
       const { loading , error, products } = useSelector(state => state.products);
       const [prod_id, setProdId ] = useState("");
       const decreaseQty = (id) => {
         const count = document.getElementById(id)
->>>>>>> 63fc83cddf50c9f297f36d54aa294a9391a0f955
         if(count.valueAsNumber <= 1) return;
         const qty = count.valueAsNumber - 1;
         setQuantity(qty);
@@ -62,9 +57,6 @@ const Product = ( { product, col } ) => {
         </div>
       </div>
         </Link>
-<<<<<<< HEAD
-        <AddToCartUtil key={product._id} product={product}  col={4} />
-=======
         <hr></hr>
                  <div className='row'>
                   <div className='col-12 w-100 d-block mx-auto'>
@@ -83,7 +75,6 @@ const Product = ( { product, col } ) => {
                   </div>
 
                  </div>
->>>>>>> 63fc83cddf50c9f297f36d54aa294a9391a0f955
     </div>
     )
 }
