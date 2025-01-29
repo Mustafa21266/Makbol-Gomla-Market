@@ -8,10 +8,12 @@ import { useAlert } from 'react-alert'
 import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
+import { getAdminProducts, clearErrors} from '../../actions/productActions'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { loading , error, products } = useSelector(state => state.products)
+    const { loading , error } = useSelector(state => state.products)
+    let { products } = useSelector(state => state.products)
     const { user } = useSelector(state => state.auth)
     const { users } = useSelector(state => state.allUsers)
     let totalAmount= 0;
