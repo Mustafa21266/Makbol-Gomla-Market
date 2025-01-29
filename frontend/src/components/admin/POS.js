@@ -70,7 +70,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error])
+    },[dispatch, alert, error,])
     return (
         <Fragment>
             <div className="row">
@@ -118,7 +118,7 @@ const POS = () => {
                                         </h2>
                                         <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
-        {products.filter(p => p.category === categories[categories.indexOf(category)]).map(product => (
+        {products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
                                           </div>
