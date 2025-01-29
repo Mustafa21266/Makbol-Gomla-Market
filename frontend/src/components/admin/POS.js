@@ -11,8 +11,7 @@ import Product from '../product/Product'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { loading , error } = useSelector(state => state.products)
-    let { products } = useSelector(state => state.products)
+    const { products , loading , error } = useSelector(state => state.products)
     const { user } = useSelector(state => state.auth)
     const { users } = useSelector(state => state.allUsers)
     let totalAmount= 0;
@@ -70,7 +69,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, products ])
+    },[dispatch, alert, error, loading ])
     return (
         <Fragment>
             <div className="row">
