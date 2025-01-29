@@ -136,7 +136,10 @@ const POS = () => {
                                         </h2>
                                         <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
-                                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+
+                                          {products.filter(p => p.category === categoriesx[categories.indexOf(category)]).map(product => (
+        <Product  key={product._id} product={product}  col={4}/>
+      ))}
                                           </div>
                                         </div>
                                       </div>   
