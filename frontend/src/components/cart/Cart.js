@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductDetails, clearErrors } from '../../actions/productActions'
-import Loader from '../layout/Loader'
+import { clearErrors } from '../../actions/productActions'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { addItemToCart, removeFromCart } from '../../actions/cartActions'
@@ -12,7 +11,7 @@ const Cart = ({ history }) => {
     const alert = useAlert();
     const [quantity, setQuantity] = useState(1)
     const { cartItems } = useSelector(state => state.cart)
-    const { loading , error, products } = useSelector(state => state.products);
+    const { error, products } = useSelector(state => state.products);
     const [prod_id, setProdId ] = useState("");
     useEffect(()=>{
             dispatch(getAdminProducts())

@@ -6,11 +6,10 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { Link } from 'react-router-dom';
 const Login = ( { history, location } ) => {
-    const [email, setEmail] = useState('')
     const [phoneNo, setPhoneNo] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
-    const { loading, user, error, isAuthenticated } = useSelector(state => state.auth)
+    const { loading, error, isAuthenticated } = useSelector(state => state.auth)
     const alert = useAlert()
     const redirect = location.search ? `/${location.search.split('=')[1]}`:'/'
     useEffect(() => {
@@ -21,7 +20,6 @@ const Login = ( { history, location } ) => {
             return alert.error(error)
             dispatch(clearErrors())
           }
-        //   dispatch(getProductDetails(match.params.id));
     },[dispatch, alert,error, isAuthenticated, history ])
     function submitHandler(e){
         e.preventDefault();

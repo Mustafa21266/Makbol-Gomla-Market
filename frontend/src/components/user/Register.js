@@ -1,10 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, clearErrors, register } from '../../actions/userActions'
+import { clearErrors, register } from '../../actions/userActions'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom';
 
 const Register = ( { history } ) => {
     let stateObj = {}
@@ -27,9 +26,6 @@ const Register = ( { history } ) => {
     }
     const [user, setUser] = useState(stateObj)
     const { name, email, phoneNo, password } = user;
-    const [avatar, setAvatar] = useState('')
-    const [avatarPreview, setAvatarPreview] = useState('./images/logo.png')
-    // const [password, setPassword] = useState('')
     const dispatch = useDispatch();
     const { loading, error, isAuthenticated } = useSelector(state => state.auth)
     const alert = useAlert()
@@ -41,7 +37,6 @@ const Register = ( { history } ) => {
             alert.error(error)
             dispatch(clearErrors())
           }
-        //   dispatch(getProductDetails(match.params.id));
     },[dispatch, alert,error, isAuthenticated, history ])
     function submitHandler(e){
         e.preventDefault();
@@ -50,7 +45,6 @@ const Register = ( { history } ) => {
         formData.set('phoneNo',phoneNo)
         formData.set('email',email)
         formData.set('password',password)
-        // formData.set('avatar',avatar)
         dispatch(register(formData));
     }
     const onChange = e => {
@@ -58,13 +52,12 @@ const Register = ( { history } ) => {
             const reader = new FileReader();
             reader.onload = () => {
                 if(reader.readyState === 2){
-                    setAvatar(reader.result)
-                    setAvatarPreview(reader.result)
+                    // setAvatar(reader.result)
+                    // setAvatarPreview(reader.result)
                 }
             }
             reader.readAsDataURL(e.target.files[0])
             document.getElementsByClassName('custom-file-label')[0].innerHTML = e.target.files[0].name
-            // e.target.placeholder = e.target.value
         }else {
             setUser({ ...user, [e.target.name]: [e.target.value] })
         }
@@ -114,35 +107,6 @@ const Register = ( { history } ) => {
                 onChange={onChange}
               />
             </div>
-
-            {/* <div className='form-group'>
-              <label htmlFor='avatar_upload'>صورة الحساب</label>
-              <div className='d-flex align-items-center'>
-                  <div>
-                      <figure className='avatar mr-3 item-rtl'>
-                          <img
-                              src={avatarPreview}
-                              className='rounded-circle'
-                              alt='Avatar Preview'
-                          />
-                      </figure>
-                  </div>
-                  <div className='custom-file'>
-                      <input
-                          type='file'
-                          name='avatar'
-                          className='custom-file-input'
-                          id='customFile'
-                          accept="images/*"
-                          onChange={onChange}
-                      />
-                      <label className='custom-file-label' htmlFor='customFile'  style={{textAlign: 'left'}}>
-                          إختر صورة الحساب
-                      </label>
-                  </div>
-              </div>
-          </div> */}
-  
             <button
               id="register_button"
               type="submit"

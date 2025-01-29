@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -14,23 +14,12 @@ const UsersList = ({ history }) => {
     const alert = useAlert();
     const { loading , error, users } = useSelector(state => state.allUsers)
     const { isDeleted } = useSelector(state => state.user)
-
-
-    // const { error: deleteError, isDeleted } = useSelector(state => state.product)
-    // const [data, setData]= useState(setOrders())
     useEffect(()=>{
         dispatch(allUsers())
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
-        // if(deleteError){
-        //     alert.error(deleteError)
-        //     dispatch(clearErrors())
-        // }
-
-
-
         if(isDeleted){
             alert.success("تم إلغاء المستخدم")
             dispatch({ type: DELETE_USER_RESET})

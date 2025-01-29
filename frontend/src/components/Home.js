@@ -9,8 +9,6 @@ import  Pagination  from 'react-js-pagination'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { Link } from 'react-router-dom'
-// import { Carousel } from 'react-responsive-carousel';
-let Carousel = require('react-responsive-carousel').Carousel;
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 let refr = null;
@@ -42,11 +40,6 @@ if(window.location.href.includes("/search/gomla")){
     
   // let currentUserPage = "/home";
   const myRef = useRef(null);
-  const domainList = [
-    "https://mokbel-gomla-market-08529c6a328e.herokuapp.com/",
-    "https://www.makbol-gomla.store/",
-    "http://localhost:3000/"
-  ]
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',

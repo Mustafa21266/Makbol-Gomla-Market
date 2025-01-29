@@ -3,22 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom'
 import { getOrderDetails, updateOrder, clearErrors} from '../../actions/orderActions'
 import Sidebar from './Sidebar'
 import { UPDATE_ORDER_RESET } from '../../constants/orderConstants'
 import { allUsers } from '../../actions/userActions'
 import { useReactToPrint } from "react-to-print";
-import { useRef } from "react";
 
 const ProcessOrder = ({ history, match }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { loading, order } = useSelector(state => state.orderDetails)
-    const { shippingInfo, orderItems, paymentInfo, user, totalPrice, orderStatus } = order
+    const { shippingInfo, orderItems, paymentInfo, user, totalPrice } = order
     const { error, isUpdated } = useSelector(state => state.order)
     const [status, setStatus] = useState('Processing');
-    // const [orderUser, setOrderUser] = useState('');
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
     // const componentRef = useRef<HTMLDivElement>(null);
@@ -63,7 +60,6 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
         dispatch(updateOrder(id,formData));
     }
     const shippingDetails = shippingInfo &&  `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.country}`
-    const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>
         <MetaData title={`: معالجة الأوردر ${order && order._id}`} />
@@ -131,7 +127,6 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                         {/* <h2  className="mb-4" style={{color:'black',fontSize: '44px'}}><b>السعر : </b> {totalPrice}</h2> */}
 
                         <hr />
-                        {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <div className='row'>
 <div className='col-3'>
 <h4 className="my-4" style={{color:'black',fontSize: '44px'}}>الإجمالي</h4>
@@ -183,17 +178,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                            
                         ))}
                         </div>
-                        </div>
-
-                        {/* <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4> */}
-                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
-
-                        {/* <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4> */}
-                        {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
-
-
-                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
-                        
+                        </div>         
 <div className='row'>
 <div className='col-4'>
 <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>{totalPrice}</h4>
@@ -305,7 +290,6 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                         {/* <h2  className="mb-4" style={{color:'black',fontSize: '44px'}}><b>السعر : </b> {totalPrice}</h2> */}
 
                         <hr />
-                        {/* <h2 className="my-4" style={{color:'black'}}> <b>حالة الأوردر : </b><span className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" }>{orderStatus}</span></h2> */}
                          <div className='row'>
                          <div className='col-3'>
                          <h4 className="my-4">عدد القطع</h4>
@@ -351,16 +335,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                             </Fragment>
                            
                         ))}
-                        </div>
-                        {/* <h4 className="my-4">: الدفع<span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4> */}
-                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
-
-                        {/* <h4 className="my-4">Stripe ID : <span>{paymentInfo && paymentInfo.id}</span></h4> */}
-                        {/* <p><b>{paymentInfo && paymentInfo.id}</b></p> */}
-
-
-                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
-                        
+                        </div>             
 <div className='row'>
                          <div className='col-4'>
 	
@@ -392,20 +367,6 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                         </select>
                                     </div>
                                     <h4 className="my-4">العميل</h4>
-
-                                    {/* <div className="form-group">
-                                        <select
-                                            className="form-control"
-                                            name='orderUser'
-                                            value={orderUser}
-                                            onChange={(e)=> setOrderUser(e.target.value)}
-                                        >
-                                            {users.map(user => (
-                                                <option key={user._id} value={user._id}>{user.name}</option>
-                    ))}
-                                        </select>
-                                    </div> */}
-
                                     <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
                                         حفظ
                                 </button>

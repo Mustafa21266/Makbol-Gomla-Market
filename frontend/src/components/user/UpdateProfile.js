@@ -1,10 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateProfile, loadUser, clearErrors } from '../../actions/userActions'
-import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom';
 import { UPDATE_PROFILE_RESET } from '../../constants/userConstants'
 const UpdateProfile = ( { history } ) => {
     const [name, setName] = useState('');
@@ -12,7 +10,6 @@ const UpdateProfile = ( { history } ) => {
     const [phoneNo, setPhoneNo] = useState('');
     const [avatar, setAvatar] = useState('')
     const [avatarPreview, setAvatarPreview] = useState('./images/logo.png')
-    // const [password, setPassword] = useState('')
     const dispatch = useDispatch();
     const { user, error, isUpdated, loading } = useSelector(state => state.auth)
     const alert = useAlert()
@@ -35,7 +32,6 @@ const UpdateProfile = ( { history } ) => {
                 type: UPDATE_PROFILE_RESET
             })
         }
-        //   dispatch(getProductDetails(match.params.id));
     },[dispatch, alert,error, history, isUpdated ])
     async function submitHandler(e){
         e.preventDefault();

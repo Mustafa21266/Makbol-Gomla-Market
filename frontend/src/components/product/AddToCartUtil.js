@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../../actions/cartActions'
 import { useAlert } from 'react-alert'
 const AddToCartUtil = ( { product, col } ) => {
@@ -26,7 +25,6 @@ const AddToCartUtil = ( { product, col } ) => {
               alert.success('تم إضافة المنتج في سلة التسوق')
           }
     return (
-        // <div className={`col-sm-10 col-md-6 col-lg-${col} my-3 d-inline-block mx-auto`}>
         <div className={`col d-block mx-auto`}>
             <hr></hr>
                  <div className='row'>

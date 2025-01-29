@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom'
-import { updateProduct, getProductDetails, clearErrors} from '../../actions/productActions'
+import { updateProduct, clearErrors} from '../../actions/productActions'
 import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
 import Sidebar from './Sidebar'
 
@@ -186,7 +184,7 @@ const UpdateProduct = ({ history, match }) => {
                 required
                 >
                     {['جملة', 'قطاعي'].map(category => { 
-                      if (category == "جملة"){
+                      if (category === "جملة"){
                         return (<option key={"Gomla"} value={"Gomla"}>{category}</option> )
                       }else {
                         return (<option key={"Piece"} value={"Piece"}>{category}</option> )

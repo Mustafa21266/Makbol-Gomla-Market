@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { productsReducer,productDetailsReducer, newReviewReducer, newProductReducer, productReducer, productReviewsReducer, deleteReviewReducer } from './reducers/productReducers';
-import { notificationsReducer, notificationReducer } from './reducers/notificationReducers';
+import { notificationsReducer } from './reducers/notificationReducers';
 import { authReducer, userReducer, forgotPasswordReducer, allUsersReducer, userDetailsReducer } from './reducers/userReducers';
 import { cartReducer } from './reducers/cartReducers'
 import { newOrderReducer, myOrdersReducer, orderDetailsReducer, allOrdersReducer, orderReducer } from './reducers/orderReducers' 

@@ -1,23 +1,14 @@
 
-import React, { Fragment, useEffect} from 'react'
+import React, { Fragment } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
-import { createOrder, clearErrors } from '../../actions/orderActions'
+import { createOrder } from '../../actions/orderActions'
 import MetaData from '../layout/MetaData'
-import { useAlert } from 'react-alert'
-import { saveShippingInfo } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
 import ChekoutSteps from './ChekoutSteps'
-import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement} from '@stripe/react-stripe-js'
 import axios from 'axios'
-import { getProductDetails } from '../../actions/productActions'
-import Loader from '../layout/Loader'
-
 const ConfirmOrder = ({ history }) => {
     const { cartItems, shippingInfo } = useSelector(state => state.cart)
-    const { user } = useSelector(state => state.auth)
     const dispatch = useDispatch();
-
-    //Calculate order prices
     const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
     const shippingPrice = itemsPrice > 200 ? 0 : 0
     const taxPrice = 0.0

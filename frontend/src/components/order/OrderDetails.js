@@ -1,13 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { getOrderDetails } from '../../actions/orderActions'
 import { Link } from 'react-router-dom'
-import { loadUser } from '../../actions/userActions'
-
-import { myOrders, clearErrors } from '../../actions/orderActions'
+import { clearErrors } from '../../actions/orderActions'
 
 const OrderDetails = ({ history , match}) => {
     const dispatch = useDispatch();
@@ -19,18 +16,13 @@ const OrderDetails = ({ history , match}) => {
             return item
         }
     })[0]
-    const { shippingInfo, orderItems, paymentInfo, totalPrice, orderStatus} = order;
-    
-    // const [data, setData]= useState(setOrders())
+    const { shippingInfo, orderItems, totalPrice } = order;
     useEffect(()=>{
-        // dispatch(loadUser())
-        // dispatch(getOrderDetails(match.params.id))
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
     },[dispatch, order, isAuthenticated, alert, error, match.params.id])
-    const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false
     return (
         <Fragment>
             <MetaData title={'Order Details'} />
@@ -39,20 +31,12 @@ const OrderDetails = ({ history , match}) => {
 
 <div className="row d-flex justify-content-between  animate__animated animate__fadeIn">
                     <div className="col-12 col-lg-8 mt-5 order-details">
-
-                        {/* <h2 className="my-5">أوردر رقم  {order._id}</h2> */}
-
                         <h4 className="mb-4">تفاصيل التوصيل</h4>
                         <p><b>الإسم :</b> {user && user.name}</p>
                         <p><b>رقم التليفون :</b> {shippingInfo && shippingInfo.phoneNo}</p>
                         <p className="mb-4"><b>العنوان : </b>{` ${shippingInfo && shippingInfo.address}, ${shippingInfo && shippingInfo.city}, ${shippingInfo && shippingInfo.country}`}</p>
                         <p><b>السعر : </b> EGP {totalPrice}</p>
-
                         <hr />
-
-                        {/* <h4 className="my-4">: حالة الدفع <span className={isPaid ? "greenColor" : "redColor" }>{isPaid ? "PAID" : "NOT PAID" }</span></h4> */}
-                        {/* <p className={isPaid ? "greenColor" : "redColor" }><b>{isPaid ? "PAID" : "NOT PAID" }</b></p> */}
-
                         {order.orderStatus && String(order.orderStatus).includes('Delivered') ?  
                         <h4 className="my-4">حالة الأوردر : <span className="greenColor">تم التوصيل</span></h4> : 
                         String(order.orderStatus).includes('Processing') ?
@@ -61,12 +45,7 @@ const OrderDetails = ({ history , match}) => {
                         String(order.orderStatus).includes('Shipped') ? <h4 className="my-4">حالة الأوردر : <span style={{color: 'orange'}}>جاري التوصيل</span></h4> : ''
 
                         }
-                       
-                        {/* <p className={order.orderStatus && String(order.orderStatus).includes('Delivered') ? "greenColor" : "redColor" } ><b>{orderStatus}</b></p> */}
-
-
                         <h4 className="my-4">محتويات الأوردر :</h4>
-
                         <hr />
                         {orderItems && orderItems.map(item => (
                             <div key={item.product} className="cart-item my-1">

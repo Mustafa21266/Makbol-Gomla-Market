@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -14,7 +14,6 @@ const AccountingsList = ({ history }) => {
     const alert = useAlert();
     const { loading , error, accountings } = useSelector(state => state.accountings)
     const { error: deleteError, isDeleted } = useSelector(state => state.accounting)
-    // const [data, setData]= useState(setOrders())
     useEffect(()=>{
         dispatch(allAccountings())
         if(error){

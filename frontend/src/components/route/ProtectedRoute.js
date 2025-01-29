@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 const ProtectedRoute = ( { isAdmin, isSeller,component: Component, ...rest} ) => {
     const { user, loading, isAuthenticated } = useSelector(state => state.auth)
     return (

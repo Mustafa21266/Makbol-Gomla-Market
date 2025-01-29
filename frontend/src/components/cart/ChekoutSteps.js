@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {  useDispatch, useSelector } from 'react-redux'
 const ChekoutSteps = ({ shipping, confirmOrder, payment}) => {
-    const { user } = useSelector(state => state.auth)
     return (
         <div className="checkout-progress d-flex justify-content-center mt-5 animate__animated animate__backInLeft">
             {shipping ? <Link to="/shipping" className="float-right">

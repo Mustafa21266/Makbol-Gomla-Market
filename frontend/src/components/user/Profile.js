@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import { Route, Link } from 'react-router-dom';
+import React, { Fragment, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -19,7 +19,6 @@ const Profile = () => {
     useEffect(()=>{
             dispatch(myAccountings())
             dispatch(myOrders())
-            // let filteredAccountings =  accountings.filter(accounting => accounting.user._id === user._id)
             if(error){
                 alert.error(error)
                 dispatch(clearErrors())
@@ -34,8 +33,6 @@ const Profile = () => {
         bills = bills + orders[index].totalPrice
     }
     
-    // filteredAccountings
-    const accounting = filteredAccountings[0]
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -48,12 +45,6 @@ const Profile = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">الفواتير<br /> <b>{orders && bills}</b></div>
                                         </div>
-                                        {/* <Link className="card-footer text-white clearfix small z-1" to="/admin/products">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link> */}
                                     </div>
                                 </div>
 
@@ -63,12 +54,6 @@ const Profile = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">الدفعات<br /> <b>{accountings && receivables}</b></div>
                                         </div>
-                                        {/* <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link> */}
                                     </div>
                                 </div>
 
@@ -78,12 +63,6 @@ const Profile = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">مرتجعات<br /> <b>{accountings && returns}</b></div>
                                         </div>
-                                        {/* <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link> */}
                                     </div>
                                 </div>
                                 <div className="col-xl-3 col-sm-6 mb-3">
@@ -91,12 +70,6 @@ const Profile = () => {
                                         <div className="card-body">
                                             <div className="text-center card-font-size">صافي<br /> <b>{accountings && (bills - returns - receivables )}</b></div>
                                         </div>
-                                        {/* <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link> */}
                                     </div>
                                 </div>
                             </div>

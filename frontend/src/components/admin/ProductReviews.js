@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom'
 import { getProductReviews, deleteReview, clearErrors} from '../../actions/productActions'
 
 import { MDBDataTable } from 'mdbreact'

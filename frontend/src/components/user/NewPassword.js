@@ -1,10 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetPassword, clearErrors } from '../../actions/userActions'
-import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom';
 
 const NewPassword = ({ history, match }) => {
     const [password, setPassword] = useState('');
@@ -17,14 +15,6 @@ const NewPassword = ({ history, match }) => {
             alert.error(error)
             dispatch(clearErrors())
           }
-        // if(isUpdated){
-        //     alert.success('Password updated successfully!');
-        //     history.push('/me')
-        //     dispatch({
-        //         type: UPDATE_PASSWORD_RESET
-        //     })
-        // }
-        //   dispatch(getProductDetails(match.params.id));
     },[dispatch, alert,error, history, success ])
     async function submitHandler(e){
         e.preventDefault();

@@ -8,7 +8,6 @@ import { logout } from '../../actions/userActions'
 import { updateNotification } from '../../actions/notificationActions'
 import { getNotifications } from '../../actions/notificationActions';
 import { UPDATE_NOTIFICATION_RESET } from '../../constants/notificationConstants'
-import { ALL_PRODUCTS_REQUEST } from '../../constants/productConstants'
 import { getProducts } from '../../actions/productActions'
 import NotificationSound from './notification.mp3';
 import { refr } from '../Home';
@@ -24,7 +23,7 @@ const domainList = [
   const dispatch = useDispatch();
   const {  error, isUpdated, notifications } = useSelector(state => state.notifications)
   const { user } = useSelector(state => state.auth)
-  const { loading, products, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
+  const { loading } = useSelector(state => state.products)
   const { cartItems } = useSelector(state => state.cart)
   const audioPlayer = useRef(null);
   let notificationCount = 0;
@@ -36,7 +35,6 @@ const domainList = [
   const [category, setCategory] = useState('');
   const [rating, setRating] = useState(0);
   let keyword = 'home'
-  // const { notifications } = useSelector(state => state.notifications)
   const alert = useAlert()
   const playAudio = () => {
     if(isPlayed === false){
@@ -44,35 +42,10 @@ const domainList = [
     }
   }
   const unlisten = history.listen((location, action) => {
-    if(!domainList.includes(location.path)){
-      // dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-    }
   });
   useEffect(() => {
      dispatch(getNotifications())
-    // if(notifications.length > 0){
-    //             // dispatch(getProductDetails(productId))
-    //   }else {
-    //     // setName(product.name);
-    //     // setPrice(product.price);
-    //     // setDescription(product.description);
-    //     // setSubCategory(product.subcategory);
-    //     // setCategory(product.category);
-    //     // setStock(product.stock);
-    //     // setSeller(product.seller);
-    //     // setOldImages(product.images);
-    //         }
-    //         if(error){
-    //             alert.error(error)
-    //             dispatch(clearErrors())
-    //         }
-    //         if(updateError){
-    //             alert.error(updateError)
-    //             dispatch(clearErrors())
-    //         }
             if(isUpdated){
-              // history.push('/admin/products')
-              // alert.success('')
               dispatch({ type: UPDATE_NOTIFICATION_RESET})
           }
             
@@ -86,21 +59,17 @@ const domainList = [
     setTimeout(() => {
       document.getElementById('parent2').style.display = ""
     }, 50)
-    
     dispatch(updateNotification(id));
     dispatch(getProducts(keyword,currentPage,price,category, subcategory, rating));
-
-    // dispatch(getNotifications())
-    // alert.success('تم تسجيل الخروج بنجاح')
   }
   if(notifications && notifications.length > 0){
     for (let index = 0; index < notifications.length; index++) {
-      if(notifications[index].isRead == false && user && notifications[index].user._id === user._id){
+      if(notifications[index].isRead === false && user && notifications[index].user._id === user._id){
         notificationCountUser++;
         playAudio();
         isPlayed = true;
       }
-      if(notifications[index].isRead == false){
+      if(notifications[index].isRead === false){
         notificationCount++;
         playAudio();
         isPlayed = true;
@@ -108,23 +77,8 @@ const domainList = [
     }
   }
   const executeScroll = (e) => {
-    // if(domainList.includes(window.location.href.replace("home",""))){
-    //   // myRef.current.scrollIntoView()
-    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
-
-    // }else {
-    //   history.push('/home')
-    //   // e.target.click();
-    //     setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
-    //   // window.location.reload();
-    //   // setTimeout(() => myRef.current.scrollIntoView(), 5000)
-    // }
       history.push('/home')
-      // e.target.click();
         setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 1000);
-    // window.location.reload();
-    // history.push('/home')
-    // setTimeout(function(){ document.getElementById("vodCashId").scrollIntoView(); }, 50);
   }
   const switchHandler = () => {
     setTimeout(function(){ window.location.reload(); }, 15);
@@ -169,6 +123,20 @@ const domainList = [
                         setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
                         }} 
                         to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
+                    <hr />
+                    </div>
+                    
+                  )}
+                  
+                  {user && user.role === 'admin' && (
+                    <div>
+                    <Link 
+                    onClick={(e) => 
+                      {
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
+                        }} 
+                        to={"/admin/pos"} className="dropdown-item text-center">نقطة البيع</Link>
                     <hr />
                     </div>
                     

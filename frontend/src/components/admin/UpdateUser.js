@@ -4,7 +4,6 @@ import { updateUser, getUserDetails, clearErrors } from '../../actions/userActio
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar'
 import { UPDATE_USER_RESET } from '../../constants/userConstants'
 

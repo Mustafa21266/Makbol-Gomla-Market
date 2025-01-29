@@ -1,9 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { Link } from 'react-router-dom'
 import { newProduct, clearErrors} from '../../actions/productActions'
 import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
 import Sidebar from './Sidebar'
@@ -15,8 +13,6 @@ const NewProduct = ({ history }) => {
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('Gomla');
     const [stock, setStock] = useState(0);
-    // const [seller, setSeller] = useState('مقبول جملة ماركت');
-    const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
     const categoriesx = [
@@ -162,7 +158,7 @@ const NewProduct = ({ history }) => {
                 required
                 >
                      {['جملة', 'قطاعي'].map((category,index) => { 
-                      if (category == "جملة"){
+                      if (category === "جملة"){
                         return (<option key={"Gomla"} value={"Gomla"} selected>{category}</option> )
                       }else {
                         return (<option key={"Piece"} value={"Piece"}>{category}</option> )
@@ -183,7 +179,7 @@ const NewProduct = ({ history }) => {
                 required
                 >
                     {categories.map((category,index) => {
-                      if(index == 1){
+                      if(index === 1){
                         return <option key={category} value={category} selected>{categoriesx[categories.indexOf(category)]}</option>
                       }else {
                         return <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>

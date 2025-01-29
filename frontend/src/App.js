@@ -21,7 +21,6 @@ import NewPassword from './components/user/NewPassword';
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
-import axios from 'axios';
 import Payment from './components/cart/Payment';
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
@@ -42,13 +41,12 @@ import ProcessOrder from './components/admin/ProcessOrder';
 import UsersList from './components/admin/UsersList';
 import UpdateUser from './components/admin/UpdateUser';
 import ProductReviews from './components/admin/ProductReviews';
-import Search from './components/layout/Search';
-
 import { getNotifications } from './actions/notificationActions';
 import ScrollToTop from "./components/layout/ScrollToTop";
 
 // import AddToHomeScreen from './components/layout/AddToHomeScreen';
 import { useAddToHomescreenPrompt } from "./components/layout/AddToHomeScreen";
+import POS from './components/admin/POS';
 
 function App() {
   const domainList = [
@@ -56,24 +54,15 @@ function App() {
     "https://www.makbol-gomla.store/",
     "http://localhost:3000/"
   ]
-  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
-  const [stripeApiKey, setStripeApiKey] = useState('')
   useEffect(async () => {
     await store.dispatch(loadUser())
     
     store.dispatch(clearErrors())
-   
-    async function getStripeApiKey(){
-      // const { data } = await axios.get('/api/v1/stripeapi')
-      // setStripeApiKey(data.stripeApiKey)
-    }
-    getStripeApiKey()
   }, [])
   setInterval(async function () {
     await store.dispatch(getNotifications())
   }, 30000);
-  // promptToInstall();
   return (
     <Router>
       
@@ -106,11 +95,7 @@ function App() {
               <ProtectedRoute path="/order/:id" component={OrderDetails} exact/>
 
               <ProtectedRoute path="/success" component={OrderSuccess} exact/>
-              {stripeApiKey && 
-              <Elements stripe={loadStripe(stripeApiKey)}>
-                <ProtectedRoute path="/payment" component={Payment} exact/>
-              </Elements>
-              }
+              <ProtectedRoute path="/payment" component={Payment} exact/>
               <ProtectedRoute path="/me" component={Profile} exact/>
               <ProtectedRoute path="/me/update" component={UpdateProfile} exact/>
               <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
@@ -119,6 +104,7 @@ function App() {
           </div>
               <ProtectedRoute path="/seller/dashboard" isSeller={true} component={Dashboard} exact/>
               <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact/>
+              <ProtectedRoute path="/admin/pos" isAdmin={true} component={POS} exact/>
 
               <ProtectedRoute path="/admin/accounting" isAdmin={true} component={NewAccounting} exact/>
               <ProtectedRoute path="/admin/accountings" isAdmin={true} component={AccountingsList} exact/>
