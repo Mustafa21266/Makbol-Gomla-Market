@@ -104,106 +104,20 @@ const POS = () => {
                             </div> */}
 
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
-                                <div class="accordion" id="accordionExample">
-                            {categories.map((category, index) => {
-                                if(index === 0){
-                                    return (
-                                        <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                          <button className='btn btn-primary accordion-button' style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`collapse${categories.indexOf(category)}`}>
-                                          {categoriesx[categories.indexOf(category)]}
-                                          </button>
-                                        </h2>
-                                        <div id={`collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                          <div class="accordion-body">
-        {products && products.map(product => (
-        <Product  key={product._id} product={product}  col={4}/>
-      ))}
-                                          </div>
-                                        </div>
-                                      </div>         
-                                    )
-                                }else {
-                                    return (
-                                        <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                          <button  className='btn btn-primary accordion-button'  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`collapse${categories.indexOf(category)}`}>
-                                          {categoriesx[categories.indexOf(category)]}
-                                          </button>
-                                        </h2>
-                                        <div id={`collapse${categories.indexOf(category)}`} class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                          <div class="accordion-body">
-
-                                          {products && products.map(product => (
-        <Product  key={product._id} product={product}  col={4}/>
-      ))}
-                                          </div>
-                                        </div>
-                                      </div>   
-                                    )
-                                }
-                            }
-
-                    )}
-</div>
-                                {/* <div className="col-xl-3 col-sm-6 mb-3">
-                                    <div className="card text-white bg-success o-hidden h-100">
-                                        <div className="card-body">
-                                            <div className="text-center card-font-size">المنتجات<br /> <b>{products && user.role === "admin" ? 
-                                            products.length : products.filter(p => p.seller_id === user._id).length
-                                            }</b></div>
-                                        </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/seller/products">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-
-
-                                <div className="col-xl-3 col-sm-6 mb-3">
-                                    <div className="card text-white bg-danger o-hidden h-100">
-                                        <div className="card-body">
-                                            <div className="text-center card-font-size">الأوردرات<br /> <b>{orders && user.role === "admin" ? orders.length : orders.filter(o => o.seller_id === user._id).length}</b></div>
-                                        </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/orders">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-
-                                {user && user.role === "admin" && (
-                                    <div className="col-xl-3 col-sm-6 mb-3">
-                                    <div className="card text-white bg-info o-hidden h-100">
-                                        <div className="card-body">
-                                            <div className="text-center card-font-size">المستخدمين<br /> <b>{users && users.length}</b></div>
-                                        </div>
-                                        <Link className="card-footer text-white clearfix small z-1" to="/admin/users">
-                                            <span className="float-left">عرض التفاصيل</span>
-                                            <span className="float-right">
-                                                <i className="fa fa-angle-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                                )
-                                }
+                            {categories.map(category => (
+                                <p class="d-inline-flex gap-1">
+                                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                {categoriesx[categories.indexOf(category)]}
+                                </a>
+                                </p>
+                        // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
+                                ))}
                                 
-
-
-                                <div className="col-xl-3 col-sm-6 mb-3">
-                                    <div className="card text-white bg-warning o-hidden h-100">
-                                        <div className="card-body">
-                                            <br />
-                                            <div className="text-center card-font-size">منتج غير متوفر <br /> <b>{outOfStockProducts}</b></div>
-                                        </div>
-                                    </div>
-                                </div> */}
+                                <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                                </div>
+                                </div>
                             </div>
                         </Fragment>
                         
