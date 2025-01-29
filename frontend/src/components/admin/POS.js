@@ -113,7 +113,7 @@ const POS = () => {
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button className='btn btn-primary' style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
@@ -130,7 +130,7 @@ const POS = () => {
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button  className='btn btn-primary'  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
