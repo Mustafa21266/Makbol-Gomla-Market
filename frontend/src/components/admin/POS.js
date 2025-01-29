@@ -114,7 +114,7 @@ const POS = () => {
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
-                                        <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div id={`collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
         {products && products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
@@ -131,7 +131,7 @@ const POS = () => {
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
-                                        <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div id={`collapse${categories.indexOf(category)}`} class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
 
                                           {products && products.map(product => (
