@@ -111,17 +111,15 @@ const POS = () => {
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
                                         <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
-                                          <div className="row"  id="contentXXX">
         {products.filter(p => p.category === categories[categories.indexOf(category)]).map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
-        </div>
                                           </div>
                                         </div>
                                       </div>         
@@ -130,7 +128,7 @@ const POS = () => {
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
