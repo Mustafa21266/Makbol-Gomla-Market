@@ -11,9 +11,9 @@ import Product from '../product/Product'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { products , loading , error } = useSelector(state => state.products)
+    const { products  , error } = useSelector(state => state.products)
     const { user } = useSelector(state => state.auth)
-    const { users } = useSelector(state => state.allUsers)
+    const { users , loading } = useSelector(state => state.allUsers)
     let totalAmount= 0;
     const { orders, totalAmount: ta } = useSelector(state => state.allOrders)
     const [category, setCategory] = useState('');
@@ -69,7 +69,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, loading ])
+    },[dispatch, alert, error ])
     return (
         <Fragment>
             <div className="row">
@@ -106,18 +106,17 @@ const POS = () => {
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
                                 <div class="accordion" id="accordionExample">
                             {categories.map((category, index) => {
-
                                 if(index === 0){
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button className='btn btn-primary' style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button className='btn btn-primary accordion-button' style={{color: 'white'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
                                         <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
-        {products.map(product => (
+        {products && products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
                                           </div>
@@ -128,14 +127,14 @@ const POS = () => {
                                     return (
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                          <button  className='btn btn-primary'  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`#collapse${categories.indexOf(category)}`}>
+                                          <button  className='btn btn-primary accordion-button'  style={{color: 'white'}}  type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${categories.indexOf(category)}`} aria-expanded="true" aria-controls={`collapse${categories.indexOf(category)}`}>
                                           {categoriesx[categories.indexOf(category)]}
                                           </button>
                                         </h2>
                                         <div id={`#collapse${categories.indexOf(category)}`} class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                           <div class="accordion-body">
 
-                                          {products.map(product => (
+                                          {products && products.map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
                                           </div>
