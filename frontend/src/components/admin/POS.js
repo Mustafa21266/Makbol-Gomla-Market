@@ -8,7 +8,6 @@ import { useAlert } from 'react-alert'
 import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
-import { getAdminProducts, clearErrors} from '../../actions/productActions'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
