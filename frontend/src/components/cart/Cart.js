@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { clearErrors } from '../../actions/productActions'
 import MetaData from '../layout/MetaData'
@@ -6,8 +7,9 @@ import { useAlert } from 'react-alert'
 import { addItemToCart, removeFromCart } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
 import { getAdminProducts } from '../../actions/productActions'
-const Cart = ({ history }) => {
+const Cart = () => {
     const dispatch = useDispatch();
+    let history = useHistory();
     const alert = useAlert();
     const [quantity, setQuantity] = useState(1)
     const { cartItems } = useSelector(state => state.cart)
