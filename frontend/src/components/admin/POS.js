@@ -43,9 +43,10 @@ const POS = () => {
         'Nescafe',
         'Chips And Snacks'
     ]
+    let filteredProducts;
     useEffect(()=>{
         dispatch(getAdminProducts())
-        products = products.filter(p => p.category === category)
+        filteredProducts = products.filter(p => p.category === category)
         if(error){
             alert.error(error)
             dispatch(clearErrors())
@@ -99,7 +100,7 @@ const POS = () => {
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
-                                {products.map(p => (
+                                {filteredProducts.map(p => (
                                         <Fragment>
                                             <Product key={p._id} product={p}  col={12}/>
                                         </Fragment>
