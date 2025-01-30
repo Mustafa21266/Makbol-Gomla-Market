@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import { getAdminProducts, clearErrors} from '../../actions/productActions'
@@ -58,7 +59,9 @@ const POS = () => {
         <Fragment>
             <div className='row'> 
             <div className='col-12'> 
+            <Router>
                 <Cart />
+            </Router>
             </div>
             </div>
             {products && (
