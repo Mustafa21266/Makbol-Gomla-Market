@@ -112,7 +112,7 @@ const POS = () => {
                                     if(p.category === category){
                                         return (
                                                 <Fragment>
-                                                    <Product key={p._id} product={p}  col={12}/>
+                                                    <Product key={p._id} product={p}  col={3}/>
                                                 </Fragment>
                                         )
                                     }
