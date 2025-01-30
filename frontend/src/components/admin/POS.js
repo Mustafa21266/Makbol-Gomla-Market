@@ -43,10 +43,10 @@ const POS = () => {
         'Nescafe',
         'Chips And Snacks'
     ]
-    let filteredProducts;
+    // let filteredProducts;
     useEffect(()=>{
         dispatch(getAdminProducts())
-        filteredProducts = products.filter(p => p.category === category)
+        // filteredProducts = products.filter(p => p.category === category)
         if(error){
             alert.error(error)
             dispatch(clearErrors())
@@ -100,12 +100,14 @@ const POS = () => {
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
-                                {filteredProducts && filteredProducts.map(p => {
-                                    return (
-                                            <Fragment>
-                                                <Product key={p._id} product={p}  col={12}/>
-                                            </Fragment>
-                                    )
+                                {products && products.map(p => {
+                                    if(p.category === category){
+                                        return (
+                                                <Fragment>
+                                                    <Product key={p._id} product={p}  col={12}/>
+                                                </Fragment>
+                                        )
+                                    }
 
                                 }
                                 
