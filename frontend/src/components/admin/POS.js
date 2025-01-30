@@ -107,20 +107,20 @@ const POS = () => {
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                     <div className='row'>
-                                    <div className='col-12'>
                                 {products && products.map(p => {
                                     if(p.category === category){
                                         return (
+                                            <div className='col-12 col-md-3'>
                                                 <Fragment>
-                                                    <Product key={p._id} product={p}  col={3}/>
+                                                    <Product key={p._id} product={p}  col={12}/>
                                                 </Fragment>
+                                            </div>
                                         )
                                     }
 
                                 }
                                 
                                 )}
-                                    </div>
                                     </div>
                                 {/* <div class="card card-body">
                                 </div> */}
