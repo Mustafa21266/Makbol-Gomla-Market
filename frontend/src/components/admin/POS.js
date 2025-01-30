@@ -98,7 +98,7 @@ const POS = () => {
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
-                                {products.forEach(p => (
+                                {products.map(p => (
                                         <Fragment>
                                             <Product key={p._id} product={p}  col={12}/>
                                         </Fragment>
