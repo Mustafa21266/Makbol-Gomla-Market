@@ -114,6 +114,20 @@ const domainList = [
                   <span >{user && user.name}</span>
                 </Link>
                 <div id="parent1" className="dropdown-menu dropdown-menu-left animate__animated animate__fadeIn"  style={{position: 'absolute',right: 0,top: 35,padding: '15px 0px'}} aria-labelledby="dropDownMenuButton">
+                                    
+                {user && user.role === 'admin' && (
+                    <div>
+                    <Link 
+                    onClick={(e) => 
+                      {
+                        document.getElementById('parent1').style.display = "none"
+                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
+                        }} 
+                        to={"/admin/pos"} className="dropdown-item text-center">نقطة البيع</Link>
+                    <hr />
+                    </div>
+                    
+                  )}
                   {user && (user.role === 'admin' || user.role === 'seller') && (
                     <div>
                     <Link 
@@ -123,20 +137,6 @@ const domainList = [
                         setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
                         }} 
                         to={user.role === "admin" ? "/dashboard" : "/seller/dashboard"} className="dropdown-item text-center">لوحة التحكم</Link>
-                    <hr />
-                    </div>
-                    
-                  )}
-                  
-                  {user && user.role === 'admin' && (
-                    <div>
-                    <Link 
-                    onClick={(e) => 
-                      {
-                        document.getElementById('parent1').style.display = "none"
-                        setTimeout(() => document.getElementById('parent1').style.display = "", 50) 
-                        }} 
-                        to={"/admin/pos"} className="dropdown-item text-center">نقطة البيع</Link>
                     <hr />
                     </div>
                     
