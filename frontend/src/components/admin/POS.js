@@ -14,7 +14,7 @@ const POS = () => {
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('Water');
     const categoriesx = [
         'مياه',
         'مشروبات بارده',
@@ -43,8 +43,8 @@ const POS = () => {
         'Nescafe',
         'Chips And Snacks'
     ]
+    dispatch(getAdminProducts())
     useEffect(()=>{
-        dispatch(getAdminProducts())
         if(error){
             alert.error(error)
             dispatch(clearErrors())
