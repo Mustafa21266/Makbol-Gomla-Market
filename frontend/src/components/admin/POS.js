@@ -49,7 +49,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error])
+    },[dispatch, alert, error, category])
     return (
         <Fragment>
             <div className="row">
