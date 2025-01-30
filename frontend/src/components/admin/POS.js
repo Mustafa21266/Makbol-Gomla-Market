@@ -85,18 +85,14 @@ const POS = () => {
 
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
                             {categories.map((category, index) => (
-                                <div>
- <button onClick={() => {
-    setCategory(category)
-    document.getElementById("collapseExample").classList.toggle("show")
- }} class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    <div onClick={() => {
+                                        setCategory(category)
+                                        document.getElementById("collapseExample").classList.toggle("show")
+                                     }} >
+ <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 {categoriesx[categories.indexOf(category)]}
                                 </button>
-                        {/* // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option> */}
-                                
-
                                     </div>
-                               
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
