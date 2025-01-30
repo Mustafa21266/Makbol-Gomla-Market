@@ -109,7 +109,7 @@ const POS = () => {
  <button class="btn btn-primary" type="button" data-bs-toggle={`collapse${index}`} data-bs-target={`#collapse${index}Example`} aria-expanded="false" aria-controls={`collapse${index}Example`}>
                                 {categoriesx[categories.indexOf(category)]}
                                 </button>
-                        // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
+                        {/* // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option> */}
                                 <div class="collapse" id={`collapse${index}Example`}>
                                 <div class="card card-body">
                                 {products && products.filter(p => p.category === categories[index]).map(p => {
