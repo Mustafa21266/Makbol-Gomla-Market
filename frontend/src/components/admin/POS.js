@@ -11,7 +11,6 @@ import Product from '../product/Product'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { loading, products, error  } = useSelector(state => state.products)
     const { user } = useSelector(state => state.auth)
     const { users } = useSelector(state => state.allUsers)
     let totalAmount= 0;
@@ -30,8 +29,8 @@ const POS = () => {
         'كيكات',
         'نيسكافيه',
         'شيبسيهات وسناكس'
-        ]
-        const categories = [
+    ]
+    const categories = [
         'Water',
         'Soft Drinks',
         'Speciality Drinks',
@@ -44,7 +43,8 @@ const POS = () => {
         'Cakes',
         'Nescafe',
         'Chips And Snacks'
-        ]
+    ]
+    const { loading, products, error  } = useSelector(state => state.products)
     if(user && user.role === "admin"){
         totalAmount = ta;
     }else {
@@ -106,13 +106,20 @@ const POS = () => {
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
                             {categories.map((category, index) => (
                                 <div>
- <button class="btn btn-primary" type="button" data-bs-toggle={`collapse${index}`} data-bs-target={`#collapse${index}Example`} aria-expanded="false" aria-controls={`collapse${index}Example`}>
+ <button onClick={() => {
+    setCategory(category)
+ }} class="btn btn-primary" type="button" data-bs-toggle={`collapse${index}`} data-bs-target={`#collapse${index}Example`} aria-expanded="false" aria-controls={`collapse${index}Example`}>
                                 {categoriesx[categories.indexOf(category)]}
                                 </button>
                         {/* // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option> */}
-                                <div class="collapse" id={`collapse${index}Example`}>
+                                
+
+                                    </div>
+                               
+                                ))}
+                                <div class="collapse" id={`collapseExample`}>
                                 <div class="card card-body">
-                                {products && products.filter(p => p.category === categories[index]).map(p => {
+                                {products && products.filter(p => p.category === category).map(p => {
 
                             <Fragment>
                             <Product key={p._id} product={p}  col={12}/>
@@ -120,10 +127,6 @@ const POS = () => {
                                 })}
                                 </div>
                                 </div>
-
-                                    </div>
-                               
-                                ))}
                                 
                             </div>
                         </Fragment>
