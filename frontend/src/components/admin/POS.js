@@ -69,7 +69,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error ])
+    },[dispatch, alert, error, category ])
     return (
         <Fragment>
             <div className="row">
@@ -108,7 +108,7 @@ const POS = () => {
                                 <div>
  <button onClick={() => {
     setCategory(category)
- }} class="btn btn-primary" type="button" data-bs-toggle={`collapse${index}`} data-bs-target={`#collapse${index}Example`} aria-expanded="false" aria-controls={`collapse${index}Example`}>
+ }} class="btn btn-primary" type="button" data-bs-toggle={`collapse`} data-bs-target={`#collapseExample`} aria-expanded="false" aria-controls={`collapseExample`}>
                                 {categoriesx[categories.indexOf(category)]}
                                 </button>
                         {/* // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option> */}
