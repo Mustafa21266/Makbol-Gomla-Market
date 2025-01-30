@@ -89,7 +89,7 @@ const POS = () => {
  <button onClick={() => {
     setCategory(category)
     document.getElementById("collapseExample").classList.toggle("show")
- }} class="btn btn-primary" type="button" data-bs-toggle={`collapse`} data-bs-target={`#collapseExample`} aria-expanded="false" aria-controls={`collapseExample`}>
+ }} class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 {categoriesx[categories.indexOf(category)]}
                                 </button>
                         {/* // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option> */}
@@ -98,7 +98,7 @@ const POS = () => {
                                     </div>
                                
                                 ))}
-                                <div class="collapse show" id={`collapseExample`}>
+                                <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
                                 {products.map(p => (
                                         <Fragment>
