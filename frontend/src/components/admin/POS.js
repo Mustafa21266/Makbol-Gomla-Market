@@ -51,7 +51,7 @@ const POS = () => {
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, category])
+    },[dispatch, alert, error, filteredProducts])
     return (
         <Fragment>
             {products && (
