@@ -8,13 +8,14 @@ import { useAlert } from 'react-alert'
 import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
+import Cart from '../cart/Cart'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
-    const [category, setCategory] = useState('Water');
+    const [category, setCategory] = useState('Cakes');
     const categoriesx = [
         'مياه',
         'مشروبات بارده',
@@ -55,9 +56,14 @@ const POS = () => {
     },[dispatch, alert, error])
     return (
         <Fragment>
+            <div className='row'> 
+            <div className='col-12'> 
+                <Cart />
+            </div>
+            </div>
             {products && (
-
-            <div className="row">
+                <Fragment>
+<div className="row">
                     <div className="col-12 col-md-2">
                         {/* <SidebarPOS /> */}
                     </div>
@@ -124,6 +130,8 @@ const POS = () => {
                             
                 </div>
             </div>
+                </Fragment>
+            
             )}
         </Fragment>
     )
