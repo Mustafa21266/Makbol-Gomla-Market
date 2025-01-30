@@ -106,7 +106,8 @@ const POS = () => {
                                     </div>
                                 ))}
                                 <div class="collapse show" id="collapseExample">
-                                <div class="card card-body">
+                                    <div className='row'>
+                                    <div className='col-12'>
                                 {products && products.map(p => {
                                     if(p.category === category){
                                         return (
@@ -119,7 +120,10 @@ const POS = () => {
                                 }
                                 
                                 )}
-                                </div>
+                                    </div>
+                                    </div>
+                                {/* <div class="card card-body">
+                                </div> */}
                                 </div>
                                 
                             </div>
