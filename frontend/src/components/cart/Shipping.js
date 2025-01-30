@@ -14,7 +14,7 @@ const Shipping = ({ history}) => {
     const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo ? shippingInfo.phoneNo:'');
     const [country, setCountry] = useState(shippingInfo.country ? shippingInfo.country:'الإسكندرية');
     const { user } = useSelector(state => state.auth)
-    const [orderUser, setOrderUser] = useState(user.name ? user.name:'');
+    const [orderUser, setOrderUser] = useState(user.role === "admin" ? "قطاعي" : user.name);
     const { users } = useSelector(state => state.allUsers)
     const dispatch = useDispatch();
     const alert = useAlert();
