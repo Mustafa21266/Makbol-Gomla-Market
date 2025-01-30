@@ -87,7 +87,7 @@ const POS = () => {
                             {categories.map((category, index) => (
                                     <div onClick={() => {
                                         setCategory(category)
-                                        document.getElementById("collapseExample").classList.toggle("show")
+                                        // document.getElementById("collapseExample").classList.toggle("show")
                                      }} >
  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 {categoriesx[categories.indexOf(category)]}
