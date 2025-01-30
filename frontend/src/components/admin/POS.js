@@ -43,8 +43,8 @@ const POS = () => {
         'Nescafe',
         'Chips And Snacks'
     ]
-    dispatch(getAdminProducts())
     useEffect(()=>{
+        dispatch(getAdminProducts())
         if(error){
             alert.error(error)
             dispatch(clearErrors())
