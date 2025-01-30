@@ -52,6 +52,8 @@ const POS = () => {
     },[dispatch, alert, error, category])
     return (
         <Fragment>
+            {products && (
+
             <div className="row">
                     <div className="col-12 col-md-2">
                         {/* <SidebarPOS /> */}
@@ -96,7 +98,7 @@ const POS = () => {
                                 ))}
                                 <div class="collapse show" id="collapseExample">
                                 <div class="card card-body">
-                                {products.filter(p => p.category === category).forEach(p => (
+                                {products.forEach(p => (
                                         <Fragment>
                                             <Product key={p._id} product={p}  col={12}/>
                                         </Fragment>
@@ -113,6 +115,7 @@ const POS = () => {
                             
                 </div>
             </div>
+            )}
         </Fragment>
     )
 }
