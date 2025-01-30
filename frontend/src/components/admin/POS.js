@@ -119,7 +119,7 @@ const POS = () => {
                                 ))}
                                 <div class="collapse" id={`collapseExample`}>
                                 <div class="card card-body">
-                                {products && products.filter(p => p.category === category).map(p => (
+                                {products && products.map(p => (
                                         <Fragment>
                                             <Product key={p._id} product={p}  col={12}/>
                                         </Fragment>
