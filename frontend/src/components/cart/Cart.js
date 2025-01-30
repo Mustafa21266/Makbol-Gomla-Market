@@ -88,7 +88,7 @@ const addToCart = (id) => {
                 <h2 className="mt-5">سلة التسوق</h2>
                 <br />
                 <hr />
-                <form class="row">
+                {/* <form class="row">
   <div className="col-12 col-md-10">
   <label for="inputPassword2" className="visually-hidden">إسم المنتج : </label>
                 <br />
@@ -120,10 +120,8 @@ const addToCart = (id) => {
   <div className="col-12 col-md-2 d-flex">
     <button type="button" className="btn btn-primary d-block mx-auto" onClick={(e)=> addToCart(prod_id)}>إضافة</button>
   </div>
-</form>
+</form> */}
 <br />
-                <hr />
-                <br />
 <h2 className="mt-5">سلتك تحتوي على : <b>{cartItems.length} صنف</b></h2>
 <br />
                 <hr />
