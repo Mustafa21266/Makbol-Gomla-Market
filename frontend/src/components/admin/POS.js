@@ -12,9 +12,8 @@ const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const { user } = useSelector(state => state.auth)
-    const { users } = useSelector(state => state.allUsers)
-    let totalAmount= 0;
-    const { orders, totalAmount: ta } = useSelector(state => state.allOrders)
+    const { loading , error } = useSelector(state => state.products)
+    let { products } = useSelector(state => state.products)
     const [category, setCategory] = useState('');
     const categoriesx = [
         'مياه',
@@ -44,32 +43,13 @@ const POS = () => {
         'Nescafe',
         'Chips And Snacks'
     ]
-    const { loading, products, error  } = useSelector(state => state.products)
-    if(user && user.role === "admin"){
-        totalAmount = ta;
-    }else {
-        orders.forEach(order => {
-            totalAmount += order.totalPrice
-        })
-    }
-    // const [data, setData]= useState(setOrders())
-    let outOfStockProducts = 0;
-    products.forEach(c => {
-        if(c.stock === 0){
-            outOfStockProducts += 1
-        }
-    })
     useEffect(()=>{
         dispatch(getAdminProducts())
-        dispatch(allOrders())
-        if(!window.location.href.includes("/seller/dashboard")){
-            dispatch(allUsers())
-        }
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, category ])
+    },[dispatch, alert, error])
     return (
         <Fragment>
             <div className="row">
@@ -119,7 +99,7 @@ const POS = () => {
                                 ))}
                                 <div class="collapse" id={`collapseExample`}>
                                 <div class="card card-body">
-                                {products && products.map(p => (
+                                {products.map(p => (
                                         <Fragment>
                                             <Product key={p._id} product={p}  col={12}/>
                                         </Fragment>
