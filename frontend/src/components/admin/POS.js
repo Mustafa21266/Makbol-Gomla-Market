@@ -45,6 +45,7 @@ const POS = () => {
     ]
     useEffect(()=>{
         dispatch(getAdminProducts())
+        products = products.filter(p => p.category === category)
         if(error){
             alert.error(error)
             dispatch(clearErrors())
