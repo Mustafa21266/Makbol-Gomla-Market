@@ -11,9 +11,9 @@ import Product from '../product/Product'
 const POS = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { products  , error } = useSelector(state => state.products)
+    const { loading, products, error  } = useSelector(state => state.products)
     const { user } = useSelector(state => state.auth)
-    const { users , loading } = useSelector(state => state.allUsers)
+    const { users } = useSelector(state => state.allUsers)
     let totalAmount= 0;
     const { orders, totalAmount: ta } = useSelector(state => state.allOrders)
     const [category, setCategory] = useState('');
@@ -104,20 +104,27 @@ const POS = () => {
                             </div> */}
 
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
-                            {categories.map(category => (
-                                <p class="d-inline-flex gap-1">
-                                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            {categories.map((category, index) => (
+                                <div>
+ <button class="btn btn-primary" type="button" data-bs-toggle={`collapse${index}`} data-bs-target={`#collapse${index}Example`} aria-expanded="false" aria-controls={`collapse${index}Example`}>
                                 {categoriesx[categories.indexOf(category)]}
-                                </a>
-                                </p>
+                                </button>
                         // <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
+                                <div class="collapse" id={`collapse${index}Example`}>
+                                <div class="card card-body">
+                                {products && products.filter(p => p.category === categories[index]).map(p => {
+
+                            <Fragment>
+                            <Product key={p._id} product={p}  col={12}/>
+                                </Fragment>
+                                })}
+                                </div>
+                                </div>
+
+                                    </div>
+                               
                                 ))}
                                 
-                                <div class="collapse" id="collapseExample">
-                                <div class="card card-body">
-                                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                </div>
-                                </div>
                             </div>
                         </Fragment>
                         
