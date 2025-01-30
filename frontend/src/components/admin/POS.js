@@ -46,12 +46,13 @@ const POS = () => {
     // let filteredProducts;
     useEffect(()=>{
         dispatch(getAdminProducts())
+        // filteredProducts
         // filteredProducts = products.filter(p => p.category === category)
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
-    },[dispatch, alert, error, filteredProducts])
+    },[dispatch, alert, error])
     return (
         <Fragment>
             {products && (
