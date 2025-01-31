@@ -68,5 +68,41 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader@10.0.21/dist/dbr.bundle.js"></script>
+<div id="cameraViewContainer" style="width: 100%; height: 60vh"></div>
+<textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
+<script>
+  Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+  (async () => {
+    let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+
+    let view = await Dynamsoft.DCE.CameraView.createInstance();
+    let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+    document.querySelector("#cameraViewContainer").append(view.getUIElement());
+    router.setInput(cameraEnhancer);
+
+    const resultsContainer = document.querySelector("#results");
+    router.addResultReceiver({ onDecodedBarcodesReceived: (result) => {
+      if (result.barcodeResultItems.length > 0) {
+        resultsContainer.textContent = '';
+        for (let item of result.barcodeResultItems) {
+          resultsContainer.textContent += `${item.formatString}: ${item.text}\n\n`;
+        }
+      }
+    }});
+
+    let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
+    filter.enableResultCrossVerification(
+      Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+    );
+    filter.enableResultDeduplication(
+      Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+    );
+    await router.addResultFilter(filter);
+
+    await cameraEnhancer.open();
+    await router.startCapturing("ReadSingleBarcode");
+  })();
+</script>
 </body>
 </html>
