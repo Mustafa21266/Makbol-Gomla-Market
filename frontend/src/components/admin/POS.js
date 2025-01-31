@@ -53,6 +53,10 @@ const POS = ({ history }) => {
             dispatch(clearErrors())
         }
     },[dispatch, alert, error])
+    setInterval(() => {
+        const resultsContainer = document.querySelector("#results");
+        alert(resultsContainer.textContent)
+    },1000)
     return (
         <Fragment>
             {products && (
