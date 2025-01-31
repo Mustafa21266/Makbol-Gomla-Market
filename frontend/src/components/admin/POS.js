@@ -55,7 +55,8 @@ const POS = ({ history }) => {
     },[dispatch, alert, error])
     setInterval(() => {
         const resultsContainer = document.querySelector("#results");
-        console.log(resultsContainer.textContent)
+        // EAN_13: 
+        console.log(resultsContainer.textContent.replace('EAN_13: ',''))
     },1000)
     return (
         <Fragment>
