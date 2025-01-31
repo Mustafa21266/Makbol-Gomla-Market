@@ -73,7 +73,7 @@
   <div className='row'>
     <div className='col-12'>
     <h2>EAN Scanner</h2>
-<button id="startScanBtn">Start Scanning</button>
+<button id="startScanBtn" onclick="startPlease()">Start Scanning</button>
 <div id="status">Loading...</div>
 <div id="cameraView"></div>
 <div id="result"></div>
@@ -117,7 +117,7 @@ function displayResults(result){
 await cameraEnhancer.open();
 await cvRouter.startCapturing("ReadBarcodes_Balance");
       }
-      startPlease();
+      
 </script>
 </body>
 </html>
