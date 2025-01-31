@@ -61,7 +61,7 @@ const POS = ({ history }) => {
         products.forEach(p => {
             console.log(p.ean.includes(resultsContainer.textContent))
             console.log(p.ean, "    - -     ", resultsContainer.textContent)
-            if(resultsContainer.textContent.includes(p.ean.trim())){
+            if( p.ean.includes(resultsContainer.textContent.trim())){
                 dispatch(addItemToCart(p._id, 1))
                 alert.success('تم إضافة المنتج في سلة التسوق')
             }else {
