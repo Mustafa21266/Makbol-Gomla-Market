@@ -13,7 +13,7 @@ import Cart from '../cart/Cart'
 
 const POS = ({ history }) => {
     const dispatch = useDispatch();
-    const alert = useAlert();
+    // const alert = useAlert();
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
@@ -56,6 +56,7 @@ const POS = ({ history }) => {
     setInterval(() => {
         const resultsContainer = document.querySelector("#results");
         // EAN_13: 
+        alert(resultsContainer.textContent)
         console.log(resultsContainer.textContent.replace('EAN_13: ',''))
     },1000)
     return (
