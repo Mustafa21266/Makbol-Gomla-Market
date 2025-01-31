@@ -57,7 +57,7 @@ const POS = ({ history }) => {
         <Fragment>
             {products && (
                 <Fragment>
-                    <div className='row'>
+                    {/* <div className='row'>
                     <div className='col-12'>
                     <h2>EAN Scanner</h2>
     <button id="startScanBtn">Start Scanning</button>
@@ -65,7 +65,7 @@ const POS = ({ history }) => {
     <div id="cameraView"></div>
     <div id="result"></div>
                         </div>
-                    </div>
+                    </div> */}
 <div className="row">
                     <div className="col-12 col-md-5">
                         <Cart />
