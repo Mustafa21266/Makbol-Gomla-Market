@@ -60,7 +60,7 @@ const POS = ({ history }) => {
         // alert(resultsContainer.textContent)
         products.forEach(p => {
             if(p.ean && p.ean === resultsContainer.textContent){
-                addItemToCart(p._id, 1)
+                dispatch(addItemToCart(p._id, 1))
             }
             
         });
