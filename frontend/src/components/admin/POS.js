@@ -61,13 +61,15 @@ const POS = ({ history }) => {
         products.forEach(p => {
             console.log(p.ean.includes(resultsContainer.textContent))
             console.log(p.ean, "    - -     ", resultsContainer.textContent)
-            if(p.ean.replace('EAN_13: ', '') === resultsContainer.textContent.replace('EAN_13: ', '') ){
+            if(resultsContainer.textContent.includes(p.ean.trim())){
                 dispatch(addItemToCart(p._id, 1))
                 alert.success('تم إضافة المنتج في سلة التسوق')
+            }else {
+                alert.error('try again')
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
-    },60000)
+    },30000)
     return (
         <Fragment>
             {products && (
