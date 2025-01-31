@@ -289,7 +289,4 @@ const addToCart = (id) => {
 }
 
 
-
-
-
 export default Cart

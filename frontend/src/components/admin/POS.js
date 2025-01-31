@@ -8,7 +8,7 @@ import { useAlert } from 'react-alert'
 import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
-import {Cart , addToCart } from '../cart/Cart'
+import Cart from '../cart/Cart'
 import { addItemToCart, removeFromCart, clearCart } from '../../actions/cartActions'
 
 
