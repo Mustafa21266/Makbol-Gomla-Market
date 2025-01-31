@@ -55,7 +55,7 @@ const POS = ({ history }) => {
     },[dispatch, alert, error])
     setInterval(() => {
         const resultsContainer = document.querySelector("#results");
-        alert(resultsContainer.textContent)
+        console.log(resultsContainer.textContent)
     },1000)
     return (
         <Fragment>
