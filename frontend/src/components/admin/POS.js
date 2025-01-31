@@ -59,12 +59,13 @@ const POS = ({ history }) => {
         // EAN_13: 
         // alert(resultsContainer.textContent)
         products.forEach(p => {
+            console.log(p.ean.includes(resultsContainer.textContent))
+            console.log(p.ean, "    - -     ", resultsContainer.textContent)
             if(p.ean && p.ean.includes(resultsContainer.textContent)){
                 dispatch(addItemToCart(p._id, 1))
             }
-            
+        // console.log(p.ean.includes(resultsContainer.textContent))
         });
-        console.log(p.ean.includes(resultsContainer.textContent))
     },60000)
     return (
         <Fragment>
