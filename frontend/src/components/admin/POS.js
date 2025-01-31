@@ -14,7 +14,7 @@ import { addItemToCart, removeFromCart, clearCart } from '../../actions/cartActi
 
 const POS = ({ history }) => {
     const dispatch = useDispatch();
-    // const alert = useAlert();
+    const alert = useAlert();
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
@@ -61,8 +61,9 @@ const POS = ({ history }) => {
         products.forEach(p => {
             console.log(p.ean.includes(resultsContainer.textContent))
             console.log(p.ean, "    - -     ", resultsContainer.textContent)
-            if(p.ean && p.ean.includes(resultsContainer.textContent)){
+            if(p.ean.replace('EAN_13: ', '') === resultsContainer.textContent.replace('EAN_13: ', '') ){
                 dispatch(addItemToCart(p._id, 1))
+                alert.success('تم إضافة المنتج في سلة التسوق')
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
