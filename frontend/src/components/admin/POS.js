@@ -53,12 +53,12 @@ const POS = ({ history }) => {
             dispatch(clearErrors())
         }
     },[dispatch, alert, error])
-    setInterval(() => {
+    setTimeout(() => {
         const resultsContainer = document.querySelector("#results");
         // EAN_13: 
-        alert(resultsContainer.textContent)
+        // alert(resultsContainer.textContent)
         console.log(resultsContainer.textContent.replace('EAN_13: ',''))
-    },60000)
+    },30000)
     return (
         <Fragment>
             {products && (
@@ -66,6 +66,7 @@ const POS = ({ history }) => {
 <div className="row">
                     <div className="col-12 col-md-5">
                         <Cart />
+                        <button type="button" className="btn update-btn btn-block mt-4 mb-3" disabled={ loading ? true: false}>سكان</button>
                     </div>
                     <div className="col-12 col-md-7">
                         <br />

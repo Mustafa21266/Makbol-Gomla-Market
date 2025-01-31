@@ -16,7 +16,13 @@ const productSchema = new mongoose.Schema({
     description: {
         type: String,
         required: [true, "Please enter product description"],
-    },
+    }
+    ,
+    ean: {
+        type: String,
+        required: [true, "Please enter product EAN_13 Code"],
+    }
+    ,
     ratings: {
         type: Number,
         default: 0
