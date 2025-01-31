@@ -58,7 +58,7 @@ const POS = ({ history }) => {
         // EAN_13: 
         alert(resultsContainer.textContent)
         console.log(resultsContainer.textContent.replace('EAN_13: ',''))
-    },6000)
+    },60000)
     return (
         <Fragment>
             {products && (
