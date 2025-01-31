@@ -59,13 +59,11 @@ const POS = ({ history }) => {
         // EAN_13: 
         // alert(resultsContainer.textContent)
         products.forEach(p => {
-            console.log(p.ean.includes(resultsContainer.textContent))
-            console.log(p.ean, "    - -     ", resultsContainer.textContent)
-            if( p.ean.includes(resultsContainer.textContent.trim())){
+            // console.log(p.ean.includes(resultsContainer.textContent))
+            // console.log(p.ean, "    - -     ", resultsContainer.textContent)
+            if(p.ean.includes(resultsContainer.textContent.trim())){
                 dispatch(addItemToCart(p._id, 1))
                 alert.success('تم إضافة المنتج في سلة التسوق')
-            }else {
-                alert.error('try again')
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
