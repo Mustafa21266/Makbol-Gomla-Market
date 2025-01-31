@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState, useRef } from 'react'
 import MetaData from '../layout/MetaData'
 import Loader from '../layout/Loader'
 import { getAdminProducts, clearErrors} from '../../actions/productActions'
@@ -9,6 +9,8 @@ import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
 import Cart from '../cart/Cart'
+
+
 const POS = ({ history }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
@@ -44,11 +46,8 @@ const POS = ({ history }) => {
         'Nescafe',
         'Chips And Snacks'
     ]
-    // let filteredProducts;
-    useEffect(()=>{
+    useEffect(async ()=>{
         dispatch(getAdminProducts())
-        // filteredProducts
-        // filteredProducts = products.filter(p => p.category === category)
         if(error){
             alert.error(error)
             dispatch(clearErrors())
@@ -56,18 +55,22 @@ const POS = ({ history }) => {
     },[dispatch, alert, error])
     return (
         <Fragment>
-            <div className='row'> 
-            <div className='col-12'> 
-                <Cart />
-            </div>
-            </div>
             {products && (
                 <Fragment>
-<div className="row">
-                    <div className="col-12 col-md-2">
-                        {/* <SidebarPOS /> */}
+                    <div className='row'>
+                    <div className='col-12'>
+                    <h2>EAN Scanner</h2>
+    <button id="startScanBtn">Start Scanning</button>
+    <div id="status">Loading...</div>
+    <div id="cameraView"></div>
+    <div id="result"></div>
+                        </div>
                     </div>
-                    <div className="col-12 col-md-10">
+<div className="row">
+                    <div className="col-12 col-md-5">
+                        <Cart />
+                    </div>
+                    <div className="col-12 col-md-7">
                         <br />
                     <h1 className="my-4 animate__animated animate__fadeIn" style={{padding:'15px', display: 'block',margin: 'auto'}}>نقطة البيع</h1>
                     <hr />
@@ -75,25 +78,6 @@ const POS = ({ history }) => {
                     {loading ? <Loader /> : (
                         <Fragment>
                             <MetaData title={'نقطة البيع'} />
-                            {/* <div className="row animate__animated animate__fadeIn animate__delay-1s">
-                                <div className="col-xl-12 col-sm-12 mb-3" style={{padding: '0px 65px'}}>
-                                    <div className="card text-white bg-primary o-hidden h-100">
-                                        <div className="card-body">
-                                            <div className="text-center card-font-size">المجموع 
-                                                <br /> 
-                                                <b>
-                                                     {totalAmount && totalAmount.toFixed(2)}
-                                                </b>
-                                                <br /> 
-                                                <b>
-                                                     EGP
-                                                </b>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-
                             <div className="row  animate__animated animate__fadeIn animate__delay-2s" style={{padding: '0px 50px'}}>
                             {categories.map((category, index) => (
                                     <div onClick={() => {
@@ -122,16 +106,11 @@ const POS = ({ history }) => {
                                 
                                 )}
                                     </div>
-                                {/* <div class="card card-body">
-                                </div> */}
                                 </div>
                                 
                             </div>
                         </Fragment>
-                        
-
-                    )}
-                            
+                    )}       
                 </div>
             </div>
                 </Fragment>

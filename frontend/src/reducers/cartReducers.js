@@ -1,6 +1,7 @@
 import { 
     ADD_TO_CART,
     REMOVE_FROM_CART,
+    CLEAR_CART,
     SAVE_SHIPPING_INFO
 }  from '../constants/cartConstants';
 
@@ -35,6 +36,11 @@ export const cartReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 loading: false,
                 cartItems: state.cartItems.filter(i => i.product !== action.payload)
+            });
+        case CLEAR_CART:
+            return Object.assign({}, state, {
+                loading: false,
+                cartItems: []
             });
         case SAVE_SHIPPING_INFO:
             return Object.assign({}, state, {

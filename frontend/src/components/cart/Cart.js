@@ -4,24 +4,39 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearErrors } from '../../actions/productActions'
 import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
-import { addItemToCart, removeFromCart } from '../../actions/cartActions'
+import { addItemToCart, removeFromCart, clearCart } from '../../actions/cartActions'
 import { Link } from 'react-router-dom'
 import { getAdminProducts } from '../../actions/productActions'
+import axios from 'axios'
+import { createOrder } from '../../actions/orderActions'
 const Cart = () => {
     const dispatch = useDispatch();
     let history = useHistory();
     const alert = useAlert();
     const [quantity, setQuantity] = useState(1)
+    const [refresh, setRefresh] = useState(false)
     const { cartItems } = useSelector(state => state.cart)
+    const itemsPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    const shippingPrice = itemsPrice > 200 ? 0 : 0
+    const taxPrice = 0.0
+    const totalPrice = (itemsPrice + shippingPrice + taxPrice).toFixed(2)
     const { error, products } = useSelector(state => state.products);
+    const [orderUser, setOrderUser] = useState("قطاعي");
     const [prod_id, setProdId ] = useState("");
+    const data = {
+        itemsPrice: itemsPrice.toFixed(2),
+        shippingPrice,
+        taxPrice,
+        totalPrice
+    }
+    sessionStorage.setItem('orderInfo',JSON.stringify(data))
     useEffect(()=>{
             dispatch(getAdminProducts())
             if(error){
                 alert.error(error)
                 dispatch(clearErrors())
             }
-        },[dispatch, alert, error,])
+        },[dispatch, alert, error, refresh])
 
 const addToCart = (id) => {
         dispatch(addItemToCart(id, quantity))
@@ -45,6 +60,45 @@ const addToCart = (id) => {
     const checkOutHandler = () => {
         history.push('/shipping')
     }
+    const checkOutHandlerPOS = () => {
+        const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
+        let order = {
+            orderItems: cartItems,
+            shippingInfo: { address: "شارع إبن مماتي", city: "الحضرة", postalCode: "55555", phoneNo: "01224703104", country: "الإسكندرية", user: orderUser}
+        }
+        if(orderInfo){
+            order.itemsPrice = orderInfo.itemsPrice
+            order.taxPrice = orderInfo.taxPrice
+            order.shippingPrice = orderInfo.shippingPrice
+            order.totalPrice = orderInfo.totalPrice
+        }
+        const paymentData = {
+            amount: Math.round(orderInfo.totalPrice * 100)
+        }
+        const config = {
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        }
+            let res = axios.post('/api/v1/payment/process', paymentData, config);
+            // const clientSecret = res.data.client_secret
+            let result = {
+                paymentIntent : {
+                    status: 'succeeded'
+                }
+            }
+                if(result.paymentIntent.status === 'succeeded'){
+                    order.paymentInfo = {
+                        id: result.paymentIntent.id,
+                        status: result.paymentIntent.status
+                    }
+                    order.token = localStorage.getItem('token')
+                    dispatch(createOrder(order))
+                    dispatch(clearCart())
+                    setRefresh(!refresh)
+                    alert.success('تم عمل الأوردر بنجاح !')
+    }
+}
     return (
         <Fragment>
             <MetaData title={'Your Cart'} />
@@ -150,10 +204,10 @@ const addToCart = (id) => {
 
                         <div className="col-6 col-lg-3 mt-4 mt-lg-0">
                             <div className="stockCounter d-inline">
-                                <span className="btn minus"  style={{padding: '10px 20px',backgroundColor:'red'}}  onClick={ () => decreaseQty(item.product, item.quantity)}>-</span>
+                                <span className="btn minus"  style={{padding: '10px 10px',backgroundColor:'red'}}  onClick={ () => decreaseQty(item.product, item.quantity)}>-</span>
                                 <input type="number" className="form-control count d-inline" value={item.quantity} readOnly />
 
-								<span className="btn btn-primary plus" style={{padding: '10px 20px'}}  onClick={() => increaseQty(item.product, item.quantity, item.stock)}>+</span>
+								<span className="btn btn-primary plus" style={{padding: '10px 10px'}}  onClick={() => increaseQty(item.product, item.quantity, item.stock)}>+</span>
                             </div>
                         </div>
 
@@ -219,7 +273,12 @@ const addToCart = (id) => {
                     </div>
     
                     <hr />
+                    {!window.location.href.includes("/admin/pos") && (
                     <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53',color: 'white'}} onClick={checkOutHandler}>تأكيد الطلب</button>
+                    )}
+                    {window.location.href.includes("/admin/pos") && (
+                    <button id="checkout_btn" className="btn btn-block" style={{backgroundColor:'#178a53',color: 'white'}} onClick={checkOutHandlerPOS}>تأكيد الطلب</button>
+                    )}
                 </div>
             </div>
         </div>

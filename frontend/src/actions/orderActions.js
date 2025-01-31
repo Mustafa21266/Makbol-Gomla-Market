@@ -49,6 +49,8 @@ export const createOrder = (order) => async (dispatch, getState) => {
             type: CREATE_ORDER_SUCCESS,
             payload: data
         })
+        // localStorage.removeItem('cartItems');
+        // localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
     } catch (error) {
         dispatch({
             type: CREATE_ORDER_FAIL,
