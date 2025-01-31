@@ -69,7 +69,7 @@ const POS = ({ history }) => {
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
-    },30000)
+    },10000)
     return (
         <Fragment>
             {products && (
