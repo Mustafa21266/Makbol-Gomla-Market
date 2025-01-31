@@ -8,7 +8,8 @@ import { useAlert } from 'react-alert'
 import { allUsers } from '../../actions/userActions'
 import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
-import Cart from '../cart/Cart'
+import {Cart , addToCart } from '../cart/Cart'
+import { addItemToCart, removeFromCart, clearCart } from '../../actions/cartActions'
 
 
 const POS = ({ history }) => {
@@ -57,6 +58,12 @@ const POS = ({ history }) => {
         const resultsContainer = document.querySelector("#results");
         // EAN_13: 
         // alert(resultsContainer.textContent)
+        products.forEach(p => {
+            if(p.ean && p.ean === resultsContainer.textContent){
+                addItemToCart(p._id, 1)
+            }
+            
+        });
         console.log(resultsContainer.textContent.replace('EAN_13: ',''))
     },30000)
     return (
