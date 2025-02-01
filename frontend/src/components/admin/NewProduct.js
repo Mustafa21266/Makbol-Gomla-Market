@@ -12,6 +12,7 @@ const NewProduct = ({ history }) => {
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('Gomla');
+    const [ean, setEAN] = useState('');
     const [stock, setStock] = useState(0);
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
@@ -76,6 +77,7 @@ const NewProduct = ({ history }) => {
           formData.set('seller','مقبول جملة ماركت')
           formData.set('seller_id','6768297b32eaba11a883414d')
         }
+        formData.set('ean',ean)
         formData.set('stock',stock)
         formData.set('subcategory',subcategory)
         formData.set('category',category)
@@ -212,7 +214,17 @@ const NewProduct = ({ history }) => {
                   onChange={(e)=> setSeller(e.target.value)}
                 />
               </div> */}
-              
+                            <div className="form-group">
+              <label htmlFor="seller_field">كود المنتج</label>
+              <input
+              type="text"
+              id="ean_field"
+              className="form-control"
+              name="ean"
+              value={ean}
+              onChange={(e)=> setEAN(e.target.value)}
+              />
+              </div>
               <div className='form-group'>
                 <label>صور المنتج</label>
                 
