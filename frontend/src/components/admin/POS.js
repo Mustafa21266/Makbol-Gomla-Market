@@ -63,22 +63,22 @@ const POS = ({ history }) => {
             dispatch(clearErrors())
         }
     },[dispatch, alert, error])
-    setTimeout(() => {
-        const resultsContainer = document.querySelector("#results");
-        // EAN_13: 
-        // alert(resultsContainer.textContent)
-        products.forEach(p => {
-            console.log(p.ean.includes(resultsContainer.textContent))
-            console.log(p.ean, "    - -     ", resultsContainer.textContent)
-            if( p.ean.includes(resultsContainer.textContent.trim())){
-                dispatch(addItemToCart(p._id, 1))
-                alert.success('تم إضافة المنتج في سلة التسوق')
-            }else {
-                // alert.error('try again')
-            }
-        // console.log(p.ean.includes(resultsContainer.textContent))
-        });
-    },10000)
+    // setTimeout(() => {
+    //     const resultsContainer = document.querySelector("#results");
+    //     // EAN_13: 
+    //     // alert(resultsContainer.textContent)
+    //     products.forEach(p => {
+    //         console.log(p.ean.includes(resultsContainer.textContent))
+    //         console.log(p.ean, "    - -     ", resultsContainer.textContent)
+    //         if( p.ean.includes(resultsContainer.textContent.trim())){
+    //             dispatch(addItemToCart(p._id, 1))
+    //             alert.success('تم إضافة المنتج في سلة التسوق')
+    //         }else {
+    //             // alert.error('try again')
+    //         }
+    //     // console.log(p.ean.includes(resultsContainer.textContent))
+    //     });
+    // },10000)
     // const prepareScanner = async () => {
     //     let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 
