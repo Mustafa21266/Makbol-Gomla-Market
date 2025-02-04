@@ -10,6 +10,14 @@ import SidebarPOS from './SidebarPOS'
 import Product from '../product/Product'
 import Cart from '../cart/Cart'
 import { addItemToCart, removeFromCart, clearCart } from '../../actions/cartActions'
+import "../../dbr";
+import { BarcodeReader } from 'dynamsoft-javascript-barcode';
+import ComponentBarcodeScanner from "./BarcodeScanner";
+
+import HelloWorld from './HelloWorld';
+// import 'dynamsoft-barcode-reader/dist/dbr.bundle.js';
+
+// Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAzNjUzMzI0LVRYbFFjbTlxIiwibWFpblNlcnZlclVSTCI6Imh0dHBzOi8vbWRscy5keW5hbXNvZnRvbmxpbmUuY29tIiwib3JnYW5pemF0aW9uSUQiOiIxMDM2NTMzMjQiLCJzdGFuZGJ5U2VydmVyVVJMIjoiaHR0cHM6Ly9zZGxzLmR5bmFtc29mdG9ubGluZS5jb20iLCJjaGVja0NvZGUiOi05NDg0NDA5Mjd9");
 
 
 const POS = ({ history }) => {
@@ -49,6 +57,7 @@ const POS = ({ history }) => {
     ]
     useEffect(async ()=>{
         dispatch(getAdminProducts())
+        // (prepareScanner)();
         if(error){
             alert.error(error)
             dispatch(clearErrors())
@@ -70,10 +79,76 @@ const POS = ({ history }) => {
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
     },10000)
+    // const prepareScanner = async () => {
+    //     let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+
+    //     let view = await Dynamsoft.DCE.CameraView.createInstance();
+    //     let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+    //     document.querySelector("#cameraViewContainer").append(view.getUIElement());
+    //     router.setInput(cameraEnhancer);
+    
+    //     const resultsContainer = document.querySelector("#results");
+    //     router.addResultReceiver({ onDecodedBarcodesReceived: (result) => {
+    //       if (result.barcodeResultItems.length > 0) {
+    //         resultsContainer.textContent = '';
+    //         for (let item of result.barcodeResultItems) {
+    //           resultsContainer.textContent += `${item.formatString}: ${item.text}\n\n`;
+    //         }
+    //       }
+    //     }});
+    
+    //     let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
+    //     filter.enableResultCrossVerification(
+    //       Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+    //     );
+    //     filter.enableResultDeduplication(
+    //       Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+    //     );
+    //     await router.addResultFilter(filter);
+    
+    //     await cameraEnhancer.open();
+    //     await router.startCapturing("ReadSingleBarcode");
+    // }
     return (
         <Fragment>
             {products && (
                 <Fragment>
+                    <HelloWorld />
+                {/* <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader@10.0.21/dist/dbr.bundle.js"></script>
+<div id="cameraViewContainer" style="width: 100%; height: 60vh;display: none;"></div>
+<textarea id="results" style="width: 100%; min-height: 10vh; font-size: 3vmin; overflow: auto" disabled></textarea>
+<script>
+async () => {
+        let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+
+        let view = await Dynamsoft.DCE.CameraView.createInstance();
+        let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+        document.querySelector("#cameraViewContainer").append(view.getUIElement());
+        router.setInput(cameraEnhancer);
+    
+        const resultsContainer = document.querySelector("#results");
+        router.addResultReceiver({ onDecodedBarcodesReceived: (result) => {
+          if (result.barcodeResultItems.length > 0) {
+            resultsContainer.textContent = '';
+            for (let item of result.barcodeResultItems) {
+              resultsContainer.textContent += `${item.formatString}: ${item.text}\n\n`;
+            }
+          }
+        }});
+    
+        let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
+        filter.enableResultCrossVerification(
+          Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+        );
+        filter.enableResultDeduplication(
+          Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+        );
+        await router.addResultFilter(filter);
+    
+        await cameraEnhancer.open();
+        await router.startCapturing("ReadSingleBarcode");
+    }
+</script> */}
 <div className="row">
                     <div className="col-12 col-md-5">
                         <Cart />
