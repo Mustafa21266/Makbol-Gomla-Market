@@ -45,6 +45,11 @@ const ProductsList = ({ history }) => {
         const data = {
             columns: [
                 {
+                    label: 'الصنف',
+                    field: 'category',
+                    sort: 'asc'
+                },
+                {
                     label: 'الإسم',
                     field: 'name',
                     sort: 'asc'
@@ -77,6 +82,7 @@ const ProductsList = ({ history }) => {
             .forEach(product => {
             data.rows = data.rows.concat ({
                 id: product._id,
+                category: product.category,
                 name: product.name,
                 picture: <img src={product.images[0].url} style={{width: '100px',height:'100px'}} />,
                 price: `${product.price} EGP`,
