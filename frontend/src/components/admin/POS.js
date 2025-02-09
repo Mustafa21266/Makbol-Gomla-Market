@@ -63,13 +63,13 @@ const POS = ({ history }) => {
             console.log(p.ean, "    - -     ", resultsContainer.textContent)
             if(p.ean.trim().length > 1 && resultsContainer.textContent.trim().length > 1 &&  p.ean.includes(resultsContainer.textContent.trim())){
                 dispatch(addItemToCart(p._id, 1))
-                // alert.success('تم إضافة المنتج في سلة التسوق')
+                alert.success('تم إضافة المنتج في سلة التسوق')
             }else {
                 // alert.error('try again')
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
-    },5000)
+    },10000)
     return (
         <Fragment>
             {products && (
