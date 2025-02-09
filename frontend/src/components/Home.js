@@ -370,7 +370,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>شيبسيهات وسناكس </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -390,7 +390,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -488,7 +488,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>بيسكويت </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -508,7 +508,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"   href="#carouselExampleIndicators3" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -607,7 +607,7 @@ element.scrollIntoView();
             {/* <Link to={'/search/all'} classNameName="btn" style={{fontSize: '48px'}}>تسوق كل المنتجات</Link> */}
                 <h3 className="mb-3" style={{color: 'white'}}>كيكات </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -627,7 +627,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"  href="#carouselExampleIndicators2" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -724,7 +724,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>حلويات ومستيكة</h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -744,7 +744,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -844,7 +844,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مولتو </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -864,7 +864,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -961,7 +961,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>شوكلاتات</h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -981,7 +981,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1083,7 +1083,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>نيسكافيه</h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -1103,7 +1103,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1204,7 +1204,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مشروبات باردة </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -1224,7 +1224,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1320,7 +1320,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مياه </h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -1340,7 +1340,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1436,7 +1436,7 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>أيس كريم</h3>
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-12 col-md-4">
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
@@ -1456,7 +1456,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-2 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
