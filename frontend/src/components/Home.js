@@ -159,7 +159,7 @@ element.scrollIntoView();
     <div className="collapse multi-collapse" id="multiCollapseExample1">
     <ul className="pl-0" style={{textAlign: 'center',padding:'10px'}}>
                     {categoriesx.map(category => (
-                    <li className="btn btn-link" style={{ cursor: 'pointer',listStyleType: 'none', color: 'blue'}}
+                    <li className="btn btn-link" style={{ cursor: 'pointer',listStyleType: 'none', color: 'white'}}
                     key={category}
                     onClick={ () => {
                       setCategory(categories[categoriesx.indexOf(category)])
