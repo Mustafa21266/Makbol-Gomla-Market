@@ -390,7 +390,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -508,7 +508,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn  mb-3 mr-1"   href="#carouselExampleIndicators3" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -627,7 +627,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn  mb-3 mr-1"  href="#carouselExampleIndicators2" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -744,7 +744,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -864,7 +864,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -981,7 +981,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1103,7 +1103,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1224,7 +1224,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1340,7 +1340,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1456,7 +1456,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-12 col-md-4 text-right">
+            <div className="col-12 col-md-4 text-right d-flex justify-content-end">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
