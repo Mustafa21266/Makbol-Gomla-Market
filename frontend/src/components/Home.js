@@ -19,14 +19,26 @@ let b = "";
 if(window.location.href.includes("/search/gomla")){
       a = "Gomla"
       if(match.params.category){
-        b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}` 
+        if(match.params.category.includes('and')){
+          let strArr = match.params.category.split('and')
+          b = `${strArr[0].toUpperCase()}And${strArr[1].toUpperCase()}` 
+        }else {
+          b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
+        }
+        
       }
       // currentUserPage = "/search/gomla"
       // keyword = ''
     }else if(window.location.href.includes("/search/piece")){
       a = "Piece"
       if(match.params.category){
-      b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
+        if(match.params.category.includes('and')){
+          let strArr = match.params.category.split('and')
+          b = `${strArr[0].toUpperCase()}And${strArr[1].toUpperCase()}` 
+        }else {
+          b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
+        }
+        
       }
       // currentUserPage = "/search/piece"
       // keyword = ''
