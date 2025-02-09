@@ -133,7 +133,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     })
     order.orderStatus = req.body.status;
     if(parseFloat(req.body.discount) > 0.0){
-        order.totalPrice -= parseFloat(req.body.discount);
+        order.totalPrice = order.totalPrice - parseFloat(req.body.discount);
     }
     order.discount = parseFloat(req.body.discount);
     order.deliveredAt = Date.now();

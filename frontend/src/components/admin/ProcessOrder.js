@@ -180,22 +180,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                            
                         ))}
                         </div>
-                        </div>  
-{order.discount && (
-                            <div className='row'>
-                            <div className='col-4'>
-                            <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>{order.discount}</h4>
-                            </div>
-                            <div className='col-4'>
-                            
-                            </div>
-                                                     <div className='col-4'>
-                                
-                                                     <h2 className="mb-4" style={{color:'black',fontSize: '58px'}}><b> : خصم</b></h2>
-                            
-                            </div>
-                                                     </div>  
-)}     
+                        </div>         
 <div className='row'>
 <div className='col-4'>
 <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>{totalPrice}</h4>
@@ -367,9 +352,26 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
 </div>
                          </div>
                         <hr />
-                 
-                    <div className='row'>
-					<div className="col-12 col-lg-3 mt-5">
+                    </div>
+                    <div className="col-12 col-lg-3 mt-5">
+                    <h4 className="my-4">خصم</h4>
+                                    <div className="form-group">
+                                    <input
+                                    type="text"
+                                    id="discount_field"
+                                    className="form-control"
+                                    name="discount"
+                                    value={discount}
+                                    onChange={(e)=> setDiscount(e.target.value)}
+                                    />
+                                    </div>
+                                    <h4 className="my-4">العميل</h4>
+                                    <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
+                                        حفظ
+                                </button>
+                    <br />
+                        <hr />
+                        <br />
                                     <h4 className="my-4">الحالة</h4>
 
                                     <div className="form-group">
@@ -389,25 +391,8 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                         حفظ
                                 </button>
                                 </div>
-                                <div className="col-12 col-lg-3 mt-5">
-                                    <h4 className="my-4">خصم</h4>
-                                    <div className="form-group">
-                                    <input
-                                    type="text"
-                                    id="discount_field"
-                                    className="form-control"
-                                    name="discount"
-                                    value={discount}
-                                    onChange={(e)=> setDiscount(e.target.value)}
-                                    />
-                                    </div>
-                                    <h4 className="my-4">العميل</h4>
-                                    <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
-                                        حفظ
-                                </button>
-                                </div>
-                    </div>
-                    </div>
+                    
+
 					
                 </div>
 
