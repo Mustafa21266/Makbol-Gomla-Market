@@ -122,9 +122,9 @@ exports.allOrders = catchAsyncErrors(async (req, res, next) => {
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
     const user = await User.findById(req.user._id)
-    if((user.role !== "seller" || user._id !== order.seller_id) || user.role !== "admin"){
-        return next(new ErrorHandler("حدث خطأ ما", 500))
-    }
+    // if((user.role !== "seller" || user._id !== order.seller_id) || user.role !== "admin"){
+    //     return next(new ErrorHandler("حدث خطأ ما", 500))
+    // }
     if(order.orderStatus === 'Delivered'){
         return next(new ErrorHandler(`هذا الأوردر تم توصيله !`,400))
     }
