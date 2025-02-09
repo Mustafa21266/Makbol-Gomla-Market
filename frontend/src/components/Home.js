@@ -367,7 +367,7 @@ element.scrollIntoView();
     <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>شيبسيهات وسناكس </h3>
             </div>
             <div className="col-12 col-md-4">
@@ -390,7 +390,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -485,7 +485,7 @@ element.scrollIntoView();
   <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>بيسكويت </h3>
             </div>
             <div className="col-12 col-md-4">
@@ -508,7 +508,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"   href="#carouselExampleIndicators3" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -603,7 +603,7 @@ element.scrollIntoView();
   <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
             {/* <Link to={'/search/all'} classNameName="btn" style={{fontSize: '48px'}}>تسوق كل المنتجات</Link> */}
                 <h3 className="mb-3" style={{color: 'white'}}>كيكات </h3>
             </div>
@@ -627,7 +627,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"  href="#carouselExampleIndicators2" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -721,7 +721,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>حلويات ومستيكة</h3>
             </div>
             <div className="col-12 col-md-4">
@@ -744,7 +744,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -841,7 +841,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>مولتو </h3>
             </div>
             <div className="col-12 col-md-4">
@@ -864,7 +864,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -958,7 +958,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>شوكلاتات</h3>
             </div>
             <div className="col-12 col-md-4">
@@ -981,7 +981,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1080,7 +1080,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>نيسكافيه</h3>
             </div>
             <div className="col-12 col-md-4">
@@ -1103,7 +1103,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1201,7 +1201,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>مشروبات باردة </h3>
             </div>
             <div className="col-12 col-md-4">
@@ -1224,7 +1224,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1317,7 +1317,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>مياه </h3>
             </div>
             <div className="col-12 col-md-4">
@@ -1340,7 +1340,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1433,7 +1433,7 @@ element.scrollIntoView();
 <section className="pt-5 pb-5">
     <div className="container">
         <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-4">
                 <h3 className="mb-3" style={{color: 'white'}}>أيس كريم</h3>
             </div>
             <div className="col-12 col-md-4">
@@ -1456,7 +1456,7 @@ element.scrollIntoView();
                     }
                       }>القطاعي</Link>
             </div>
-            <div className="col-2 text-right">
+            <div className="col-12 col-md-4 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
