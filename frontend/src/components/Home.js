@@ -13,7 +13,7 @@ const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 let refr = null;
 
-const Home = ( { match } ) => {
+const Home = ( { history, match } ) => {
       let a = "";
 let b = "";
 if(window.location.href.includes("/search/gomla")){
@@ -95,6 +95,9 @@ element.scrollIntoView();
        
   }
       refr = myRef;
+    // const handleChangeProd = () => {
+        
+    // }
     return (
         <Fragment>
           { loading ? <Loader /> : (
@@ -353,7 +356,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>شيبسيهات وسناكس </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Chips And Snacks")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Chips And Snacks")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -451,7 +474,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>بيسكويت </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Biscuits")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Biscuits")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"   href="#carouselExampleIndicators3" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -550,7 +593,27 @@ element.scrollIntoView();
             {/* <Link to={'/search/all'} classNameName="btn" style={{fontSize: '48px'}}>تسوق كل المنتجات</Link> */}
                 <h3 className="mb-3" style={{color: 'white'}}>كيكات </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Cakes")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Cakes")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn  mb-3 mr-1"  href="#carouselExampleIndicators2" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -647,7 +710,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>حلويات ومستيكة</h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Candy And Gums")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Candy And Gums")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -747,7 +830,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مولتو </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Molto")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Molto")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -844,7 +947,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>شوكلاتات</h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Chocolate")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Chocolate")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -946,7 +1069,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>نيسكافيه</h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Nescafe")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Nescafe")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1047,7 +1190,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مشروبات باردة </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Soft Drinks")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Soft Drinks")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1143,7 +1306,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>مياه </h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Water")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Water")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>
@@ -1239,7 +1422,27 @@ element.scrollIntoView();
             <div className="col-6">
                 <h3 className="mb-3" style={{color: 'white'}}>أيس كريم</h3>
             </div>
-            <div className="col-6 text-right">
+            <div className="col-12 col-md-3">
+                    <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Gomla")
+                        setCategory("Ice Cream")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>الجملة</Link>
+                      <Link className='btn btn-primary' onClick={()=> 
+                    {
+                        setSubCategory("Piece")
+                        setCategory("Ice Cream")
+                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setTimeout(function(){ window.location.reload(); }, 50);
+                      //   switchView("categories")
+                    }
+                      }>القطاعي</Link>
+            </div>
+            <div className="col-3 text-right">
                 <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left"></i>
                 </a>

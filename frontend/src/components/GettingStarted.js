@@ -81,14 +81,6 @@ const GettingStarted = ( { history , match } ) => {
         }
           }>مشروبات الشعير وغير الكحوليات</Link>
       </div>
-      <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-6" style={{padding: '50px'}}>
-        <Link className='getting-started-btn' onClick={()=> 
-        {
-            setCategory("Sports And Energy Drinks")
-            // switchView("run")
-        }
-          }>مشروبات رياضية ومشروبات طاقة</Link>
-      </div>
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
