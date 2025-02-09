@@ -54,15 +54,15 @@ if(window.location.href.includes("/search/gomla")){
   ]
   const categories = [
     'Water',
-                'Soft Drinks',
+                'SoftDrinks',
                 'Molto',
-                'Ice Cream',
+                'IceCream',
                 'Chocolate',
-                'Candy And Gums',
+                'CandyAndGums',
                 'Biscuits',
                 'Cakes',
                 'Nescafe',
-                'Chips And Snacks'
+                'ChipsAndSnacks'
   ]
   const dispatch = useDispatch();
   const { loading, products, error, productsCount, resultsPerPage, filteredProductsCount } = useSelector(state => state.products)
@@ -360,8 +360,8 @@ element.scrollIntoView();
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
-                        setCategory("Chips And Snacks")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        setCategory("ChipsAndSnacks")
+                        history.push(`/search/gomla/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -369,7 +369,7 @@ element.scrollIntoView();
                       <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Piece")
-                        setCategory("Chips And Snacks")
+                        setCategory("ChipsAndSnacks")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -391,7 +391,7 @@ element.scrollIntoView();
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <div className="row">
-                            {products.filter(p => p.category === "Chips And Snacks").slice(0, 3).map((product,index) => {
+                            {products.filter(p => p.category === "ChipsAndSnacks").slice(0, 3).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -415,7 +415,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Chips And Snacks").slice(3, 6).map((product,index) => {
+                            {products.filter(p => p.category === "ChipsAndSnacks").slice(3, 6).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -439,7 +439,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Chips And Snacks").slice(6, 9).map((product,index) => {
+                            {products.filter(p => p.category === "ChipsAndSnacks").slice(6, 9).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -714,7 +714,7 @@ element.scrollIntoView();
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
-                        setCategory("Candy And Gums")
+                        setCategory("CandyAndGums")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -723,7 +723,7 @@ element.scrollIntoView();
                       <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Piece")
-                        setCategory("Candy And Gums")
+                        setCategory("CandyAndGums")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -746,7 +746,7 @@ element.scrollIntoView();
                         <div className="carousel-item active">
                 
                             <div className="row">
-                            {products.filter(p => p.category === "Candy And Gums").slice(0, 3).map((product,index) => {
+                            {products.filter(p => p.category === "CandyAndGums").slice(0, 3).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -771,7 +771,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Candy And Gums").slice(3, 6).map((product,index) => {
+                            {products.filter(p => p.category === "CandyAndGums").slice(3, 6).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -795,7 +795,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Candy And Gums").slice(6, 9).map((product,index) => {
+                            {products.filter(p => p.category === "CandyAndGums").slice(6, 9).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1194,7 +1194,7 @@ element.scrollIntoView();
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
-                        setCategory("Soft Drinks")
+                        setCategory("SoftDrinks")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -1203,7 +1203,7 @@ element.scrollIntoView();
                       <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Piece")
-                        setCategory("Soft Drinks")
+                        setCategory("SoftDrinks")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -1225,7 +1225,7 @@ element.scrollIntoView();
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <div className="row">
-                            {products.filter(p => p.category === "Soft Drinks").slice(0, 3).map((product,index) => {
+                            {products.filter(p => p.category === "SoftDrinks").slice(0, 3).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1248,7 +1248,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Soft Drinks").slice(3, 6).map((product,index) => {
+                            {products.filter(p => p.category === "SoftDrinks").slice(3, 6).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1272,7 +1272,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Soft Drinks").slice(6, 9).map((product,index) => {
+                            {products.filter(p => p.category === "SoftDrinks").slice(6, 9).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1426,7 +1426,7 @@ element.scrollIntoView();
                     <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Gomla")
-                        setCategory("Ice Cream")
+                        setCategory("IceCream")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -1435,7 +1435,7 @@ element.scrollIntoView();
                       <Link className='btn btn-primary' onClick={()=> 
                     {
                         setSubCategory("Piece")
-                        setCategory("Ice Cream")
+                        setCategory("IceCream")
                         history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
@@ -1458,7 +1458,7 @@ element.scrollIntoView();
                         <div className="carousel-item active">
             
                             <div className="row">
-                            {products.filter(p => p.category === "Ice Cream").slice(0, 3).map((product,index) => {
+                            {products.filter(p => p.category === "IceCream").slice(0, 3).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1483,7 +1483,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Ice Cream").slice(3, 6).map((product,index) => {
+                            {products.filter(p => p.category === "IceCream").slice(3, 6).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">
@@ -1507,7 +1507,7 @@ element.scrollIntoView();
                         </div>
                         <div className="carousel-item">
                             <div className="row">
-                            {products.filter(p => p.category === "Ice Cream").slice(6, 9).map((product,index) => {
+                            {products.filter(p => p.category === "IceCream").slice(6, 9).map((product,index) => {
                                     if(index === 0){
                                       return (
                                           <div className="col-md-4 mb-3">

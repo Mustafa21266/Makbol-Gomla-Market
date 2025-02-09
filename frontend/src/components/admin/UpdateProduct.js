@@ -41,15 +41,15 @@ const UpdateProduct = ({ history, match }) => {
     ]
     const categories = [
       'Water',
-                  'Soft Drinks',
+                  'SoftDrinks',
                   'Molto',
-                  'Ice Cream',
+                  'IceCream',
                   'Chocolate',
-                  'Candy And Gums',
+                  'CandyAndGums',
                   'Biscuits',
                   'Cakes',
                   'Nescafe',
-                  'Chips And Snacks'
+                  'ChipsAndSnacks'
     ]
     useEffect(() => {
         if(product && product._id !== productId){

@@ -66,7 +66,7 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-6" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Soft Drinks")
+            setCategory("SoftDrinks")
             // switchView("run")
         }
           }>مشروبات غازية</Link>
@@ -84,7 +84,7 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Ice Cream")
+            setCategory("IceCream")
             // switchView("run")
         }
           }>أيس كريم</Link>
@@ -102,7 +102,7 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-6" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Candy And Gums")
+            setCategory("CandyAndGums")
             // switchView("run")
         }
           }>حلويات ومستيكة</Link>
@@ -136,7 +136,7 @@ const GettingStarted = ( { history , match } ) => {
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
         <Link className='getting-started-btn' onClick={()=> 
         {
-            setCategory("Chips And Snacks")
+            setCategory("ChipsAndSnacks")
             // switchView("run")
         }
           }>شيبسيهات وسناكس</Link>

@@ -30,15 +30,15 @@ const NewProduct = ({ history }) => {
     ]
     const categories = [
       'Water',
-                  'Soft Drinks',
+                  'SoftDrinks',
                   'Molto',
-                  'Ice Cream',
+                  'IceCream',
                   'Chocolate',
-                  'Candy And Gums',
+                  'CandyAndGums',
                   'Biscuits',
                   'Cakes',
                   'Nescafe',
-                  'Chips And Snacks'
+                  'ChipsAndSnacks'
     ]
      const dispatch = useDispatch();
       const alert = useAlert();
