@@ -20,7 +20,7 @@ if(window.location.href.includes("/search/gomla")){
       a = "Gomla"
       if(match.params.category){
         if(match.params.category.includes('and')){
-          console.log(match.params.category.split('and'))
+          // console.log(match.params.category.split('and'))
           let strArr = match.params.category.split('and')
           b = `${strArr[0][0].toUpperCase()}${strArr[0].slice(1)}And${strArr[1][0].toUpperCase()}${strArr[1].slice(1)}` 
         }else {
@@ -34,7 +34,7 @@ if(window.location.href.includes("/search/gomla")){
       a = "Piece"
       if(match.params.category){
         if(match.params.category.includes('and')){
-          console.log(match.params.category.split('and'))
+          // console.log(match.params.category.split('and'))
           let strArr = match.params.category.split('and')
           b = `${strArr[0][0].toUpperCase()}${strArr[0].slice(1)}And${strArr[1][0].toUpperCase()}${strArr[1].slice(1)}` 
         }else {
