@@ -365,9 +365,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                     onChange={(e)=> setDiscount(e.target.value)}
                                     />
                                     </div>
-                    <br />
                         <hr />
-                        <br />
                                     <h4 className="my-4">الحالة</h4>
 
                                     <div className="form-group">
