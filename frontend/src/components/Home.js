@@ -43,7 +43,6 @@ if(window.location.href.includes("/search/gomla")){
   const categoriesx = [
     'مياه',
                 'مشروبات بارده',
-                'مشروبات مخصوصة',
                 'مولتو',
                 'مشروبات الطافة والرياضة',
                 'آبس كريم',
@@ -849,19 +848,6 @@ element.scrollIntoView();
 
 <section className="pt-5 pb-5">
     <div className="container">
-        <div className="row">
-            <div className="col-6">
-                <h3 className="mb-3" style={{color: 'white'}}>مشروبات مخصوصة </h3>
-            </div>
-            <div className="col-6 text-right">
-                <a id="view_btn" className="btn mb-3 mr-1"    href="#carouselExampleIndicators4" role="button" data-slide="prev">
-                    <i className="fa fa-arrow-left"></i>
-                </a>
-                <a id="view_btn" className="btn mb-3 "   href="#carouselExampleIndicators4" role="button" data-slide="next">
-                    <i className="fa fa-arrow-right"></i>
-                    </a>
-            </div>
-        </div>
     <div className="row">
             <div className="col-12">
                 <div id="carouselExampleIndicators4" className="carousel slide" data-ride="carousel">

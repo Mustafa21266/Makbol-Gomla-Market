@@ -71,14 +71,6 @@ const GettingStarted = ( { history , match } ) => {
         }
           }>مشروبات غازية</Link>
       </div>
-      <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-2" style={{padding: '50px'}}>
-        <Link className='getting-started-btn' onClick={()=> 
-        {
-            setCategory("Speciality Drinks")
-            // switchView("run")
-        }
-          }>مشروبات مخصوصة</Link>
-      </div>
   </div>
   <div className="row">
       <div className="col-12 col-md-4 d-flex justify-content-center animate__animated animate__zoomIn animate__delay-4" style={{padding: '50px'}}>
