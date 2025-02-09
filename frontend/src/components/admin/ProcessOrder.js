@@ -180,7 +180,22 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                            
                         ))}
                         </div>
-                        </div>         
+                        </div>
+                        {order.discount && (
+                            <div className='row'>
+                            <div className='col-4'>
+                            <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>{order.discount}</h4>
+                            </div>
+                            <div className='col-4'>
+                            
+                            </div>
+                                                     <div className='col-4'>
+                                
+                                                     <h2 className="mb-4" style={{color:'black',fontSize: '58px'}}><b> : الخصم</b></h2>
+                            
+                            </div>
+                                                     </div>
+                        )}         
 <div className='row'>
 <div className='col-4'>
 <h4 className="w-100" style={{color:'black',textAlign: 'center',fontSize: '64px'}}>{totalPrice}</h4>
