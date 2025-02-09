@@ -133,9 +133,10 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     })
     order.orderStatus = req.body.status;
     if(Number(req.body.discount) > 0.0){
-        order.totalPrice = order.totalPrice - Number(req.body.discount);
+        let newPrice = Number(order.totalPrice) - Number(req.body.discount);
+        order.totalPrice = newPrice.toString()
     }
-    order.discount = Number(req.body.discount);
+    order.discount = req.body.discount;
     order.deliveredAt = Date.now();
     // order.user = req.body._id;
     await order.save();
