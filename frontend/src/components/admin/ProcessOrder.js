@@ -16,6 +16,7 @@ const ProcessOrder = ({ history, match }) => {
     const { shippingInfo, orderItems, paymentInfo, user, totalPrice } = order
     const { error, isUpdated } = useSelector(state => state.order)
     const [status, setStatus] = useState('Processing');
+    const [discount, setDiscount] = useState(0.0);
     const { users } = useSelector(state => state.allUsers)
     const orderId = match.params.id
     // const componentRef = useRef<HTMLDivElement>(null);
@@ -55,6 +56,7 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
     function updateOrderHandler(id){
         const formData = new FormData();
         formData.set('status',status)
+        formData.set('discount', discount)
         formData.set('token',localStorage.getItem('token'))
         // formData.set('_id',orderUser)
         dispatch(updateOrder(id,formData));
@@ -365,6 +367,23 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                             <option value="Shipped">جارى التوصيل</option>
                                             <option value="Delivered">تم التوصيل</option>
                                         </select>
+                                    </div>
+                                    <h4 className="my-4">العميل</h4>
+                                    <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
+                                        حفظ
+                                </button>
+                                </div>
+                                <div className="col-12 col-lg-3 mt-5">
+                                    <h4 className="my-4">خصم</h4>
+                                    <div className="form-group">
+                                    <input
+                                    type="text"
+                                    id="discount_field"
+                                    className="form-control"
+                                    name="discount"
+                                    value={discount}
+                                    onChange={(e)=> setDiscount(e.target.value)}
+                                    />
                                     </div>
                                     <h4 className="my-4">العميل</h4>
                                     <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
