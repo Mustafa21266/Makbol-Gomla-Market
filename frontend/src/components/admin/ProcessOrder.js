@@ -352,7 +352,8 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
 </div>
                          </div>
                         <hr />
-                    </div>
+                 
+                    <div className='row'>
 					<div className="col-12 col-lg-3 mt-5">
                                     <h4 className="my-4">الحالة</h4>
 
@@ -390,6 +391,8 @@ var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[d
                                         حفظ
                                 </button>
                                 </div>
+                    </div>
+                    </div>
 					
                 </div>
 
