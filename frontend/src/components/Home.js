@@ -22,7 +22,7 @@ if(window.location.href.includes("/search/gomla")){
         if(match.params.category.includes('and')){
           console.log(match.params.category.split('and'))
           let strArr = match.params.category.split('and')
-          b = `${strArr[0].toUpperCase()}And${strArr[1].toUpperCase()}` 
+          b = `${strArr[0][0].toUpperCase()}${strArr[0].slice(1)}And${strArr[1][0].toUpperCase()}${strArr[1].slice(1)}` 
         }else {
           b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
         }
@@ -36,7 +36,7 @@ if(window.location.href.includes("/search/gomla")){
         if(match.params.category.includes('and')){
           console.log(match.params.category.split('and'))
           let strArr = match.params.category.split('and')
-          b = `${strArr[0].toUpperCase()}And${strArr[1].toUpperCase()}` 
+          b = `${strArr[0][0].toUpperCase()}${strArr[0].slice(1)}And${strArr[1][0].toUpperCase()}${strArr[1].slice(1)}` 
         }else {
           b = `${match.params.category[0].toUpperCase()}${match.params.category.slice(1)}`
         }
