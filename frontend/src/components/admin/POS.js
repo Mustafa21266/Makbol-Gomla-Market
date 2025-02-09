@@ -54,13 +54,13 @@ const POS = ({ history }) => {
             dispatch(clearErrors())
         }
     },[dispatch, alert, error])
-    setTimeout(() => {
+    setInterval(() => {
         const resultsContainer = document.querySelector("#results");
         // EAN_13: 
         // alert(resultsContainer.textContent)
         products.forEach(p => {
             // console.log(p.ean.includes(resultsContainer.textContent))
-            console.log(p.ean, "    - -     ", resultsContainer.textContent)
+            // console.log(p.ean, "    - -     ", resultsContainer.textContent)
             if(p.ean.trim().length > 1 && resultsContainer.textContent.trim().length > 1 &&  p.ean.includes(resultsContainer.textContent.trim())){
                 dispatch(addItemToCart(p._id, 1))
                 alert.success('تم إضافة المنتج في سلة التسوق')
@@ -69,7 +69,7 @@ const POS = ({ history }) => {
             }
         // console.log(p.ean.includes(resultsContainer.textContent))
         });
-    },10000)
+    },5000)
     return (
         <Fragment>
             {products && (
