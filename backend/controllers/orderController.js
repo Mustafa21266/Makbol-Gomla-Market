@@ -132,10 +132,10 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
         await updateStock(item.product, item.quantity)
     })
     order.orderStatus = req.body.status;
-    if(parseFloat(req.body.discount) > 0.0){
-        order.totalPrice = order.totalPrice - parseFloat(req.body.discount);
+    if(Number(req.body.discount) > 0.0){
+        order.totalPrice = order.totalPrice - Number(req.body.discount);
     }
-    order.discount = parseFloat(req.body.discount);
+    order.discount = Number(req.body.discount);
     order.deliveredAt = Date.now();
     // order.user = req.body._id;
     await order.save();
