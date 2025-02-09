@@ -361,7 +361,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("ChipsAndSnacks")
-                        history.push(`/search/gomla/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/chipsandsnacks`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -370,7 +370,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("ChipsAndSnacks")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/chipsandsnacks`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -479,7 +479,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Biscuits")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/biscuits`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -488,7 +488,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Biscuits")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/biscuits`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -598,7 +598,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Cakes")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/cakes`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -607,7 +607,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Cakes")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/cakes`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -715,7 +715,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("CandyAndGums")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/candyandgums`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -724,7 +724,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("CandyAndGums")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/candyandgums`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -835,7 +835,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Molto")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/molto`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -844,7 +844,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Molto")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/molto`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -952,7 +952,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Chocolate")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/chocolate`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -961,7 +961,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Chocolate")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/chocolate`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1074,7 +1074,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Nescafe")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/nescafe`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1083,7 +1083,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Nescafe")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/nescafe`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1195,7 +1195,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("SoftDrinks")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/softdrinks`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1204,7 +1204,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("SoftDrinks")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/softdrinks`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1311,7 +1311,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("Water")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/water`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1320,7 +1320,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("Water")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/water`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1427,7 +1427,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Gomla")
                         setCategory("IceCream")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/gomla/icecream`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
@@ -1436,7 +1436,7 @@ element.scrollIntoView();
                     {
                         setSubCategory("Piece")
                         setCategory("IceCream")
-                        history.push(`/search/${subcategory.toLowerCase()}/` + `${category.toLowerCase()}`)
+                        history.push(`/search/piece/icecream`)
                         setTimeout(function(){ window.location.reload(); }, 50);
                       //   switchView("categories")
                     }
