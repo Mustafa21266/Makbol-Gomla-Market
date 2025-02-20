@@ -165,10 +165,10 @@ exports.deleteSingleProduct = catchAsyncErrors(async (req, res, next) => {
         if(!product){
             return next(new ErrorHandler("المنتج غير متوفر !", 404))
         }
-        const user = await User.findById(req.user._id)
-        if((user.role !== "seller" || user._id !== product.seller_id) || user.role === "admin"){
-            return next(new ErrorHandler("حدث خطأ ما", 500))
-        }
+        // const user = await User.findById(req.user._id)
+        // if((user.role !== "seller" || user._id !== product.seller_id) || user.role === "admin"){
+        //    return next(new ErrorHandler("حدث خطأ ما", 500))
+        // }
         //Delete product images using id's
         for(let i = 0;i < product.images.length; i++){
             const result = await cloudinary.v2.uploader.destroy(product.images[i].public_id)
