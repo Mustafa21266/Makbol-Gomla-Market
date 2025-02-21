@@ -65,7 +65,7 @@ const ProductsList = ({ history }) => {
                 history.push('/seller/products')
             }
         }
-    },[dispatch, alert, error, deleteError, isDeleted, category, keywords ])
+    },[dispatch, alert, error, deleteError, isDeleted, category ])
     if(user.role === "seller"){
         products = products.filter(p => p.seller_id === user._id)
     }
@@ -113,6 +113,7 @@ const ProductsList = ({ history }) => {
             .filter(p => p.category === category)
             .forEach(product => {
             if(product.name.contains(searchTerm)){
+                keywords.push(product.name)
                 data.rows = data.rows.concat ({
                     id: product._id,
                     subcategory: product.subcategory === "Gomla" ? "جملة" : "قطاعي",
@@ -143,6 +144,7 @@ const ProductsList = ({ history }) => {
             }
            
         });
+        keywords = [...new Set(keywords)];
             return data
     }
     const deleteProductHandler = (id) => {
