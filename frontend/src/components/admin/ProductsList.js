@@ -15,6 +15,7 @@ const ProductsList = ({ history }) => {
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
+    const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('');
     const [price, setPrice] = useState(0);
@@ -190,6 +191,36 @@ const ProductsList = ({ history }) => {
                         return <option key={category} value={category} selected>{categoriesx[categories.indexOf(category)]}</option>
                       }else {
                         return <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
+                      }
+})}
+                    
+                    
+                  </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="searchTerm_field">المنتج</label>
+                <input
+                type="text"
+                id="searchTerm_field"
+                className="form-control"
+                name="searchTerm"
+                value={searchTerm}
+                onChange={(e)=> setSearchTerm(e.target.value)}
+              />
+                <select className="form-control" id="searchTerm_field"
+                name="searchTerm"
+                value={searchTerm}
+                onChange={(e)=> setSearchTerm(e.target.value)}
+                // onChange={(e)=> setName(e.target.value)}
+                >
+                    {products
+                                .filter(p => p.subcategory === subcategory)
+                                .filter(p => p.category === category)
+                    .filter(p => p.name.contains(searchTerm)).map((product,index) => {
+                      if(index === 1){
+                        return <option key={product._id} value={product.name} selected>{product.name}</option>
+                      }else {
+                        return <option key={product} value={product.name}>{product.name}</option>
                       }
 })}
                     
