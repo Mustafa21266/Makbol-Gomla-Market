@@ -65,7 +65,7 @@ const ProductsList = ({ history }) => {
                 history.push('/seller/products')
             }
         }
-    },[dispatch, alert, error, deleteError, isDeleted, category, searchTerm, filteredKeywords ])
+    },[dispatch, alert, error, deleteError, isDeleted, category, searchTerm ])
     if(user.role === "seller"){
         products = products.filter(p => p.seller_id === user._id)
     }
@@ -107,7 +107,6 @@ const ProductsList = ({ history }) => {
         // .sort((a, b) => a.name.localeCompare(b.name))
 
         // .sort((a, b) => b.subcategory.localeCompare(a.subcategory))
-        const regex = /[^\w\s']/g;
         let keywords = [];
         products
             .filter(p => p.subcategory === subcategory)
@@ -219,12 +218,12 @@ const ProductsList = ({ history }) => {
                 onChange={(e)=> setSearchTerm(e.target.value)}
                 // onChange={(e)=> setName(e.target.value)}
                 >
-                    {filteredKeywords
-                   .map((keyword,index) => {
+                    {products
+                   .map((product,index) => {
                       if(index === 1){
-                        return <option key={keyword} value={keyword} selected>{keyword}</option>
+                        return <option key={product._id} value={product.name} selected>{product.name}</option>
                       }else {
-                        return <option key={keyword} value={keyword}>{keyword}</option>
+                        return <option key={product._id} value={product.name}>{product.name}</option>
                       }
 })}
                     
