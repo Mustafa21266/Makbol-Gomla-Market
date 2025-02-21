@@ -220,7 +220,7 @@ const ProductsList = ({ history }) => {
                       if(index === 1){
                         return <option key={product._id} value={product.name} selected>{product.name}</option>
                       }else {
-                        return <option key={product} value={product.name}>{product.name}</option>
+                        return <option key={product._id} value={product.name}>{product.name}</option>
                       }
 })}
                     
