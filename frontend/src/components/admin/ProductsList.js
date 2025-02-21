@@ -219,6 +219,9 @@ const ProductsList = ({ history }) => {
                 // onChange={(e)=> setName(e.target.value)}
                 >
                     {products
+                    .filter(p => p.subcategory === subcategory)
+                    .filter(p => p.category === category)
+                    .sort((a, b) => a.name.localeCompare(b.name))
                    .map((product,index) => {
                       if(index === 1){
                         return <option key={product._id} value={product.name} selected>{product.name}</option>
