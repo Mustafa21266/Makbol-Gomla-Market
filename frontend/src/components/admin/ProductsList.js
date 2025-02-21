@@ -145,7 +145,8 @@ const ProductsList = ({ history }) => {
             }
            
         });
-        filteredKeywords = [...new Set(keywords)];
+        // filteredKeywords = [...new Set(keywords)];
+        filteredKeywords = keywords;
             return data
     }
     const deleteProductHandler = (id) => {
