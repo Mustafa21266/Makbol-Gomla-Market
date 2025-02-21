@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
@@ -15,7 +15,33 @@ const ProductsList = ({ history }) => {
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
-    
+    const [category, setCategory] = useState('');
+    const [subcategory, setSubCategory] = useState('');
+    const [price, setPrice] = useState(0);
+    const categoriesx = [
+        'مياه',
+                    'مشروبات بارده',
+                    'مولتو',
+                    'آبس كريم',
+                    'شوكلاتة',
+                    'حلويات ومستيكة',
+                    'بيسكويت',
+                    'كيكات',
+                    'نيسكافيه',
+                    'شيبسيهات وسناكس'
+      ]
+      const categories = [
+        'Water',
+                    'SoftDrinks',
+                    'Molto',
+                    'IceCream',
+                    'Chocolate',
+                    'CandyAndGums',
+                    'Biscuits',
+                    'Cakes',
+                    'Nescafe',
+                    'ChipsAndSnacks'
+      ]
     const { error: deleteError, isDeleted } = useSelector(state => state.product)
     // const [data, setData]= useState(setOrders())
     useEffect(()=>{
@@ -37,7 +63,7 @@ const ProductsList = ({ history }) => {
                 history.push('/seller/products')
             }
         }
-    },[dispatch, alert, error, deleteError, isDeleted])
+    },[dispatch, alert, error, deleteError, isDeleted, category , subcategory])
     if(user.role === "seller"){
         products = products.filter(p => p.seller_id === user._id)
     }
@@ -77,8 +103,11 @@ const ProductsList = ({ history }) => {
             rows: []
         }
         // .sort((a, b) => a.name.localeCompare(b.name))
+
+        // .sort((a, b) => b.subcategory.localeCompare(a.subcategory))
         products
-            .sort((a, b) => b.subcategory.localeCompare(a.subcategory))
+            .filter(p => p.subcategory === subcategory)
+            .filter(p => p.category === category)
             .forEach(product => {
             data.rows = data.rows.concat ({
                 id: product._id,
@@ -125,6 +154,61 @@ const ProductsList = ({ history }) => {
             </div>
             <div className="col-12 col-md-10">
                 <Fragment>
+                    <div className='row'>
+                        <div className='col-12'>
+                        <div className="form-group">
+                <label htmlFor="subcategory_field">التصنيف</label>
+                <select className="form-control" id="subcategory_field"
+                name="subcategory"
+                value={subcategory}
+                onChange={(e)=> setSubCategory(e.target.value)}
+                required
+                >
+                     {['جملة', 'قطاعي'].map((category,index) => { 
+                      if (category === "جملة"){
+                        return (<option key={"Gomla"} value={"Gomla"} selected>{category}</option> )
+                      }else {
+                        return (<option key={"Piece"} value={"Piece"}>{category}</option> )
+                      }
+                      }   
+                    )}
+                    
+                    
+                  </select>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="category_field">التصنيف</label>
+                <select className="form-control" id="category_field"
+                name="category"
+                value={category}
+                onChange={(e)=> setCategory(e.target.value)}
+                required
+                >
+                    {categories.map((category,index) => {
+                      if(index === 1){
+                        return <option key={category} value={category} selected>{categoriesx[categories.indexOf(category)]}</option>
+                      }else {
+                        return <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
+                      }
+})}
+                    
+                    
+                  </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="price_field">السعر</label>
+                <input
+                  type="text"
+                  id="price_field"
+                  className="form-control"
+                  name="price"
+                  value={price}
+                  onChange={(e)=> setPrice(e.target.value)}
+                />
+              </div>
+                        </div>
+                    </div>
                     <h1 className="my-5 animate__animated animate__fadeIn" style={{padding:'15px', display: 'block',margin: 'auto'}}>كل المنتجات</h1>
                     <hr />
                     {loading ? <Loader /> : (
