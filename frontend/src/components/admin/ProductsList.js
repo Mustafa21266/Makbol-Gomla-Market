@@ -204,14 +204,14 @@ const ProductsList = ({ history }) => {
               </div>
               <div className="form-group">
                 <label htmlFor="searchTerm_field">المنتج</label>
-                <input
+                {/* <input
                 type="text"
                 id="searchTerm_field"
                 className="form-control"
                 name="searchTerm"
                 value={searchTerm}
                 onChange={(e)=> setSearchTerm(e.target.value)}
-              />
+              /> */}
                 <select className="form-control" id="searchTerm_field"
                 name="searchTerm"
                 value={searchTerm}
