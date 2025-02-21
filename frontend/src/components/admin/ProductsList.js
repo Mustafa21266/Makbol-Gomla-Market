@@ -109,7 +109,6 @@ const ProductsList = ({ history }) => {
         products
             .filter(p => p.subcategory === subcategory)
             .filter(p => p.category === category)
-            .filter(p => p.name.contains(searchTerm))
             .forEach(product => {
             data.rows = data.rows.concat ({
                 id: product._id,
@@ -217,7 +216,7 @@ const ProductsList = ({ history }) => {
                     {products
                                 .filter(p => p.subcategory === subcategory)
                                 .filter(p => p.category === category)
-                    .filter(p => p.name.contains(searchTerm)).map((product,index) => {
+                   .map((product,index) => {
                       if(index === 1){
                         return <option key={product._id} value={product.name} selected>{product.name}</option>
                       }else {
