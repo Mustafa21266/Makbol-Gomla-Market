@@ -109,6 +109,7 @@ const ProductsList = ({ history }) => {
         products
             .filter(p => p.subcategory === subcategory)
             .filter(p => p.category === category)
+            .filter(p => p.name.contains(searchTerm))
             .forEach(product => {
             data.rows = data.rows.concat ({
                 id: product._id,
