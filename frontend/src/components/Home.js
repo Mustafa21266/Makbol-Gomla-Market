@@ -334,7 +334,7 @@ element.scrollIntoView();
 </div>
 )}
         <div className="row"  id="contentXXX">
-        {products.map(product => (
+        {products.filter(pr => pr.stock >= 2).map(product => (
         <Product  key={product._id} product={product}  col={4}/>
       ))}
         </div>
