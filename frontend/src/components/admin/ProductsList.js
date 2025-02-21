@@ -19,6 +19,7 @@ const ProductsList = ({ history }) => {
     const [category, setCategory] = useState('ChipsAndSnacks');
     const [subcategory, setSubCategory] = useState('Piece');
     const [price, setPrice] = useState(0);
+    let keywords = [];
     const categoriesx = [
         'مياه',
                     'مشروبات بارده',
@@ -64,7 +65,7 @@ const ProductsList = ({ history }) => {
                 history.push('/seller/products')
             }
         }
-    },[dispatch, alert, error, deleteError, isDeleted, category ])
+    },[dispatch, alert, error, deleteError, isDeleted, category, keywords ])
     if(user.role === "seller"){
         products = products.filter(p => p.seller_id === user._id)
     }
@@ -106,39 +107,40 @@ const ProductsList = ({ history }) => {
         // .sort((a, b) => a.name.localeCompare(b.name))
 
         // .sort((a, b) => b.subcategory.localeCompare(a.subcategory))
+        const regex = /[^\w\s']/g;
         products
             .filter(p => p.subcategory === subcategory)
             .filter(p => p.category === category)
             .forEach(product => {
-            data.rows = data.rows.concat ({
-                id: product._id,
-                subcategory: product.subcategory === "Gomla" ? "جملة" : "قطاعي",
-                name: product.name,
-                picture: <img src={product.images[0].url} style={{width: '100px',height:'100px'}} />,
-                price: `${product.price} EGP`,
-                stock: product.stock,
-                actions: 
-                <Fragment>
-                    <div className="row">
-                    <div className="col-12 d-flex justify-content-center">
-                    <Link to={user.role === "admin" ? `/admin/product/${product._id}` : `/seller/product/${product._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
-                    </div>
-                    
+            if(product.name.contains(searchTerm)){
+                data.rows = data.rows.concat ({
+                    id: product._id,
+                    subcategory: product.subcategory === "Gomla" ? "جملة" : "قطاعي",
+                    name: product.name,
+                    picture: <img src={product.images[0].url} style={{width: '100px',height:'100px'}} />,
+                    price: `${product.price} EGP`,
+                    stock: product.stock,
+                    actions: 
+                    <Fragment>
+                        <div className="row">
+                        <div className="col-12 d-flex justify-content-center">
+                        <Link to={user.role === "admin" ? `/admin/product/${product._id}` : `/seller/product/${product._id}`} className="btn btn-primary py-2 px-3"><i className="fa fa-pencil"></i></Link>
+                        </div>
                         
-                    </div>
-                    <hr />
-                    <div className="row">
-                    <div className="col-12 d-flex justify-content-center">
-                    <button className="btn btn-danger py-2 px-3" onClick={()=> deleteProductHandler(product._id)}>
-                    <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736898894/circle-x_mggwcv.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
-                        </button>
-                    </div>
-                    </div>
-                 
-                </Fragment>
-                
-                
-            })
+                            
+                        </div>
+                        <hr />
+                        <div className="row">
+                        <div className="col-12 d-flex justify-content-center">
+                        <button className="btn btn-danger py-2 px-3" onClick={()=> deleteProductHandler(product._id)}>
+                        <img src="https://res.cloudinary.com/dvlnovdyu/image/upload/v1736898894/circle-x_mggwcv.png" alt="Circle X Delete" style={{width: "40px", height: "40px"}}/>
+                            </button>
+                        </div>
+                        </div>
+                     
+                    </Fragment>
+                })
+            }
            
         });
             return data
@@ -213,14 +215,12 @@ const ProductsList = ({ history }) => {
                 onChange={(e)=> setSearchTerm(e.target.value)}
                 // onChange={(e)=> setName(e.target.value)}
                 >
-                    {products
-                                .filter(p => p.subcategory === subcategory)
-                                .filter(p => p.category === category)
-                   .map((product,index) => {
+                    {keywords
+                   .map((keyword,index) => {
                       if(index === 1){
-                        return <option key={product._id} value={product.name} selected>{product.name}</option>
+                        return <option key={keyword} value={keyword} selected>{keyword}</option>
                       }else {
-                        return <option key={product._id} value={product.name}>{product.name}</option>
+                        return <option key={keyword} value={keyword}>{keyword}</option>
                       }
 })}
                     
