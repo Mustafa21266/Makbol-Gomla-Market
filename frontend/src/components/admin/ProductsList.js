@@ -65,7 +65,7 @@ const ProductsList = ({ history }) => {
                 history.push('/seller/products')
             }
         }
-    },[dispatch, alert, error, deleteError, isDeleted, category ])
+    },[dispatch, alert, error, deleteError, isDeleted, category, filteredKeywords ])
     if(user.role === "seller"){
         products = products.filter(p => p.seller_id === user._id)
     }
