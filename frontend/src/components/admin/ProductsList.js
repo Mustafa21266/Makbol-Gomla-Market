@@ -233,7 +233,7 @@ const ProductsList = ({ history }) => {
                     
                   </select>
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="price_field">السعر</label>
                 <input
                   type="text"
@@ -243,7 +243,7 @@ const ProductsList = ({ history }) => {
                   value={price}
                   onChange={(e)=> setPrice(e.target.value)}
                 />
-              </div>
+              </div> */}
                         </div>
                     </div>
                     <h1 className="my-5 animate__animated animate__fadeIn" style={{padding:'15px', display: 'block',margin: 'auto'}}>كل المنتجات</h1>
