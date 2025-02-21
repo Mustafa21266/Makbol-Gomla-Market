@@ -15,7 +15,7 @@ const ProductsList = ({ history }) => {
     const { user } = useSelector(state => state.auth)
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState(' ');
     const [category, setCategory] = useState('ChipsAndSnacks');
     const [subcategory, setSubCategory] = useState('Piece');
     const [price, setPrice] = useState(0);
