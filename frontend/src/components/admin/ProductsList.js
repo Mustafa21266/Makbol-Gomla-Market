@@ -112,7 +112,7 @@ const ProductsList = ({ history }) => {
             .filter(p => p.subcategory === subcategory)
             .filter(p => p.category === category)
             .forEach(product => {
-            if(product.name.contains(searchTerm)){
+            if(product.name.includes(searchTerm)){
                 keywords.push(product.name.replace(/[0-9]{2,4}ج/g, ""))
                 data.rows = data.rows.concat ({
                     id: product._id,
