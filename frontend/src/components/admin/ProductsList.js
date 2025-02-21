@@ -19,7 +19,7 @@ const ProductsList = ({ history }) => {
     const [category, setCategory] = useState('ChipsAndSnacks');
     const [subcategory, setSubCategory] = useState('Piece');
     const [price, setPrice] = useState(0);
-    let keywords = [];
+    let filteredKeywords = [];
     const categoriesx = [
         'مياه',
                     'مشروبات بارده',
@@ -108,6 +108,7 @@ const ProductsList = ({ history }) => {
 
         // .sort((a, b) => b.subcategory.localeCompare(a.subcategory))
         const regex = /[^\w\s']/g;
+        let keywords = [];
         products
             .filter(p => p.subcategory === subcategory)
             .filter(p => p.category === category)
@@ -144,7 +145,7 @@ const ProductsList = ({ history }) => {
             }
            
         });
-        keywords = [...new Set(keywords)];
+        filteredKeywords = [...new Set(keywords)];
             return data
     }
     const deleteProductHandler = (id) => {
@@ -217,7 +218,7 @@ const ProductsList = ({ history }) => {
                 onChange={(e)=> setSearchTerm(e.target.value)}
                 // onChange={(e)=> setName(e.target.value)}
                 >
-                    {keywords
+                    {filteredKeywords
                    .map((keyword,index) => {
                       if(index === 1){
                         return <option key={keyword} value={keyword} selected>{keyword}</option>
