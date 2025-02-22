@@ -267,11 +267,11 @@ const ProductsList = ({ history }) => {
                     
                   </select>
               </div>
-              <div className="form-group">
+              <div class="d-grid gap-2">
               <button
               id="login_button"
               type="button"
-              className="btn btn-block"
+              className="btn btn-primary"
               onClick={() => {
                 setCategory('');
                 setSubCategory('');
