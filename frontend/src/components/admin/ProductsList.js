@@ -267,11 +267,11 @@ const ProductsList = ({ history }) => {
                     
                   </select>
               </div>
-              <div class="d-grid gap-2">
+              <div class="d-flex justify-content-center">
               <button
               id="login_button"
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary d-block w-100 mx-auto"
               onClick={() => {
                 setCategory('');
                 setSubCategory('');
