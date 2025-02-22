@@ -18,7 +18,6 @@ const ProductsList = ({ history }) => {
     const [searchTerm, setSearchTerm] = useState(' ');
     const [category, setCategory] = useState('');
     const [subcategory, setSubCategory] = useState('');
-    const [price, setPrice] = useState(0);
     let filteredKeywords = [];
     const categoriesx = [
         'مياه',
