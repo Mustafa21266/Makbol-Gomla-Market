@@ -16,8 +16,8 @@ const ProductsList = ({ history }) => {
     const { loading , error } = useSelector(state => state.products)
     let { products } = useSelector(state => state.products)
     const [searchTerm, setSearchTerm] = useState(' ');
-    const [category, setCategory] = useState('ChipsAndSnacks');
-    const [subcategory, setSubCategory] = useState('Piece');
+    const [category, setCategory] = useState('');
+    const [subcategory, setSubCategory] = useState('');
     const [price, setPrice] = useState(0);
     let filteredKeywords = [];
     const categoriesx = [
