@@ -273,6 +273,10 @@ const ProductsList = ({ history }) => {
               id="login_button"
               type="button"
               className="btn btn-block"
+              onClick={() => {
+                setCategory('');
+                setSubCategory('');
+              }}
             >
               الكل
             </button>
