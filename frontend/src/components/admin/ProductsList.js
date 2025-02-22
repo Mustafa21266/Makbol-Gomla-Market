@@ -206,7 +206,7 @@ const ProductsList = ({ history }) => {
                 >
                      {['جملة', 'قطاعي'].map((category,index) => { 
                       if (category === "جملة"){
-                        return (<option key={"Gomla"} value={"Gomla"} selected>{category}</option> )
+                        return (<option key={"Gomla"} value={"Gomla"}>{category}</option> )
                       }else {
                         return (<option key={"Piece"} value={"Piece"}>{category}</option> )
                       }
@@ -227,7 +227,7 @@ const ProductsList = ({ history }) => {
                 >
                     {categories.map((category,index) => {
                       if(index === 1){
-                        return <option key={category} value={category} selected>{categoriesx[categories.indexOf(category)]}</option>
+                        return <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
                       }else {
                         return <option key={category} value={category}>{categoriesx[categories.indexOf(category)]}</option>
                       }
